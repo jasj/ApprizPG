@@ -3,7 +3,6 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 		
 		 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
@@ -940,8 +939,9 @@ function onNotificationGCM(e) {
 
 $( document ).on('click','#menuBtn',function(event){
 	event.preventDefault();
+	var nw = screen.width -251;
 	$('#leftMenu').animate({width : "250"});
-	$('.banner').animate({left : "250"});
+	$('.banner').animate({left : "250" , width :nw});
 });
 	
 
