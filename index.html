@@ -1,0 +1,952 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		
+		 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/theme.css">
+		<link rel="stylesheet" type="text/css" href="css/scrollz.css">
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.min.css">
+		<link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		
+		
+		 
+		<script src="js/jquery-2.1.1.min.js"></script>
+		<script src="js/swipe.js"></script>
+		<script src="js/jqstorage.js"></script>
+		
+		<script type="text/javascript" charset="utf-8" src="PushNotification.js"></script>
+		
+		
+		
+
+		
+		<script type="text/javascript">
+
+		
+</script>
+
+
+	</head>
+	
+	<body>
+		<div class="header_demo">
+		<span class="fa-stack fa-lg" id="menuBtn" style='cursor:pointer;'>
+			<i class="fa fa-square-o fa-stack-2x"></i>
+			<i class="fa fa-bars fa-stack-1x"></i>
+		</span>
+		<img src='img/logo_banner.png' style='height:36px;'></img>
+			
+		</div>
+		
+			<img src='img/640X170c.jpg' class="banner"/>
+		
+		
+		<div id='entity_tab' class='banner_view view active' style='text-align:center;'>
+		
+			
+		</div>
+		
+		<div id='message_tab' class='view'>
+			<div style='width:100%;  ' class="internal_header"><p class='title' > Inbox</p></div>
+			<div class='refreshing_list'><i class="fa fa-spinner fa-spin"></i> Refreshing ...</div>
+			<div id='message_div' class='view_container'></div>
+		
+		</div>
+		
+		<div id='github_tab' class='view'>
+		<div style='width:100%;  ' class="internal_header"><p class='title' > Lab</p></div>
+		<div id='lab_div' class='view_container'>
+			 <p id="deviceProperties">Loading device properties...</p>
+			 <hr>
+			 <div id="app-status-ul" style='width:100%; overflow-x: auto;'></div>
+			 <hr>
+			<frameset>
+				<legend>Client Info:</legend>
+					<table id="lab_client">
+						<tr><th>Identification</th><td><input id='lab_input_id' type='text'/></td></tr>
+						<tr><th>First Name</th><td><input id='lab_input_first' type='text'/></td></tr>
+						<tr><th>Last Name</th><td><input id='lab_input_lastname' type='text'/></td></tr>
+						<tr><th>UUID</<th><td><input id='lab_input_uuid' type='text'/></td></th></tr>
+						<tr><th>Phone</th><th><input id='lab_input_phone' type='text'/></th></tr>
+						<tr><th>S.O</th><th><input id='lab_input_id' type='text'/></th></tr>
+					</table>
+			</frameset>
+			<hr>
+			<frameset>
+				<legend>Products: <input type='button' value=' Add product' style='font-family: FontAwesome' onclick='$("#lab_products tbody").append("<tr><td><input/></td><td><select><option value=\"TarjetaCredito\">TarjetaCredito</option><option value=\"TarjetaDebito\">TarjetaDebito</option></select></td></tr>")'/></legend>
+				
+					<table id="lab_products">
+					<tr><th>Product</th><th>Type</th></tr>
+					<tbody>
+					</tbody>
+					
+					
+					</table>
+					
+					<input id='btn_bindClient' type='button' value=' bindClient' style='font-family: FontAwesome'></input>
+					<hr>
+					<input type='button' value='flush message' onclick='$.jStorage.deleteKey("msg_div")' style='background-color: #ff9090'/>
+					
+				
+			</frameset>
+			
+			<div style='height: 150px; width: 100%'></div>
+			</div>
+		</div>
+		
+		<div id='config_tab' class='view'>
+			<div style='width:100%;  ' class="internal_header"><p class='title' > Settings</p></div>
+			<ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true" style='background-color: #fefefe !important;'>
+            </br>&nbsp;
+			</br>&nbsp;
+			<li class="ui-last-child" view='products' eval='getProducts("services")'><a class="ui-btn-a ui-btn ui-btn-icon-right ui-icon-carat-r" data-form="ui-btn-up-a" data-swatch="a" data-theme="a" href="#"><i class="fa fa-rocket fa-fw"></i> Service luncher</a></li>
+			</br>&nbsp;
+			</br>&nbsp;
+			
+			<li class="ui-last-child" view='products' eval='getProducts("rules")'><a class="ui-btn-a ui-btn ui-btn-icon-right ui-icon-carat-r" data-form="ui-btn-up-a" data-swatch="a" data-theme="a" href="#"><i class="fa fa-exclamation-triangle fa-fw"></i> Config my alerts</a></li>
+		</ul>
+			
+		</div>
+		
+		<div id='detail_msg' class='view' iconp="back">
+			<div style='width:100%;  ' class="internal_header"><p style="text-align: center; color: #1A73B6" id='shortMSG'> </p></div>
+			<div class='div_content' >
+				<img width='60px' class='typeIcon'></img>
+				<p style="text-align: justify; color: #000" id='longMSG'></p>
+			</div>
+			<div style='width:100%;  ' class="internal_header" view='history_view'><i class="fa fa-history" style='margin-left: 8px;'></i>&nbsp;&nbsp;&nbsp;History<i class="fa fa-plus-square-o" style="position: absolute; right: 12px; margin-top: 7px;"></i> </div>
+			<div class='div_content2 history_view' style='display: none;'></div>
+			<div style='width:100%;  ' class="internal_header"  view='trx_view'><i class="fa fa-random" style='margin-left: 8px;'></i>&nbsp;&nbsp;&nbsp;Transacctions<i class="fa fa-plus-square-o" style="position: absolute; right: 12px; margin-top: 7px;"></i> </div>
+			<div class='div_content2 trx_view' style='display: none; border: 1px solid #ddd; border-radius: 0 0 10px 10px; overflow-y: auto; ' ></div>
+			
+			 
+			 <div class='management'><ul>
+				 </ul></div>
+				 <a href="#" class="ui-btn mng" onclick="$('.management').toggle();">management </a>
+			</div>
+			
+		<div id='config_rules' class='view' iconp="back">
+			<div style='width:100%; ' class="internal_header" ><p class='title' > My Alerts</p></div>
+			<div id='rules_div' class='view_container'></div>
+		</div>
+		
+		<div id='products' class='view' iconp="back">
+			<div style='width:100%;' class="internal_header"><p class='title' ></div>
+			<div id='products_div' class='view_container'></div>
+		</div>
+		
+		<div id='service_luncher' class='view' iconp="back">
+			<div style='width:100%;  ' class="internal_header"><p class='title' > Services</p></div>
+			<div id='service_div' class='view_container'></div>
+		</div>
+		
+		<div class='vertical_menu'>
+			<ul>
+				
+				<li><img src='img/ic_90_iPhone_ios7_myalerts.png'/><div>My Alerts</div> <i class="fa fa-check-square-o"></i></li>
+				<li><img src='img/ic_90_iPhone_ios7_alerts.png'/><div>Alerts</div> <i class="fa fa-check-square-o"></i></li>
+				<li><img src='img/ic_90_iPhone_ios7_notific.png'/><div>Notifications</div> <i class="fa fa-check-square-o"></i></li>
+				<li><img src='img/ic_90_iPhone_ios7_publicidad.png'/><div>Promotions</div> <i class="fa fa-check-square-o"></i></li>
+		
+				<li ><img src='img/FFFFFF-1.png'/><div>Read </div> <i class="fa fa-check-square-o"></i></li>
+				<li><img src='img/FFFFFF-1.png'/><div>Unread</div> <i class="fa fa-check-square-o"></i> </li>
+				<li style='background-color: #7878AE !important; text-align: center; color: white;' class='close_filter'>Close Filter</li>
+			</ul>
+		</div>
+		
+		
+		
+		
+		
+		<div id='leftMenu'>
+			<ul style='background-color: white'>
+				<li><img src='img/ic_90_iPhone_ios7_mensajes.png'/><lang>All</lang><div st></div></li>
+				<li><img src='img/ic_90_iPhone_ios7_myalerts.png'/><lang>My Alerts</lang><div st></div></li>
+				<li><img src='img/ic_90_iPhone_ios7_alerts.png'/><lang>Fraud Warnings</lang><div st></div></li>
+				<li><img src='img/ic_90_iPhone_ios7_notific.png'/><lang>Notifications</lang><div st></div></li>
+				<li><img src='img/ic_90_iPhone_ios7_publicidad.png'/><lang>Promotions</lang><div st></div></li>
+			</ul>
+			<ul>
+				<li><img src='img/ic_90_iPhone_ios7_gestion.png'/><lang>Services</lang><div st></div></li>
+				<li><img src='img/ic_90_iPhone_ios7_confV2.png'/><lang>Settings</lang><div st></div></li>
+				<li><img src='img/ic_90_iPhone_ios7_demo.png'/><lang>Demo</lang><div st></div></li>
+				
+			<ul>
+		</div>
+		
+		<i class="fa fa-arrow-circle-o-left iconp"></i>
+		<i class="fa fa-filter icons" id='filter'></i>
+	</body>
+	
+	<script>
+	var pushNotification;
+	eregid = "123";
+	currentProduct = "kilomanyaroB";
+	var secretKey = '53E9DD3F-3891-476B-B0BD-039E4CE87C79';
+	var idScretClient = 'rtLtgs9/+XnHhJy/RFq+xTg+KnP2B9OjFaUqKaiU3rYjRjff1kcAxW1veBwboz2Vc5T28vvUXTi5nUes4asHoNJbQsbc7zLNAHirrI8ra6xMnU4bhF8wkDeqBOHmWiomcn/UY858wEYAl+/Dpz53L2qHT9pU7Q+EVSTovgYogJ66WoNt7CoDkfh7zrb9vJZq7ojqskhVA6LUi9O4BhiI3Q==';
+	rulesChanges = {};
+	// IP = '10.60.0.75';
+	//IP = '54.81.6.137';
+	IP = '127.0.0.1';
+	
+	//---------------------------------------------//
+	// for PC BROWSER SUPPORT  CORDS
+	//----------------------------------------------
+	//$.ajaxSetup({crossDomain: true});
+	
+	    //---------------------------------------------------------------------------------------------------------------------//
+		//                                        Phonegap APPRIZ-API SDK                                                      //
+		//---------------------------------------------------------------------------------------------------------------------//
+		
+		
+		function addRules(objs){
+			var toAppend = '';
+			$('#rules_div').html('');
+			$.each(objs,function(index,obj){;
+				toAppend = "<div class='rule' id='rule_"+obj["idRule"]+"'><div class='rule_header'><div class='rule_header_txt'><p>"+obj["ruleName"]+"</p></div>";
+				toAppend = toAppend + "<input type='checkbox' name='toggle_"+obj["idRule"]+"' id='toggle_"+obj["idRule"]+"' class='toggle' "+(obj["active"] ? "checked" : "")+"><label for='toggle_"+obj["idRule"]+"'></label></div>";
+				toAppend = toAppend + "<div class='rule_body'><p align='justify' style='100%'>"+obj["description"].replace(/<\[singleAmount\]>/g,"<singleAmount>"+obj['singleAmount']+"</singleAmount>").replace(/<\[trxNo\]>/g,"<trxNo>"+obj['trxNo']+"</trxNo>").replace(/<\[idTime\]>/g,"<idTime>"+obj['idTime']+"</idTime>").replace(/<\[totalAmount\]>/g,"<totalAmount>"+obj['totalAmount']+"</totalAmount>").replace(/<\[varation\]>/g,"<varation>"+obj['varation']+"</varation>") +"</p><table>";
+				if("trxNo" in obj ) toAppend = toAppend + "<tr><th>Trx No.</th><td><input type='number' field='trxNo' maxlength='10'  placeholder='"+obj["trxNo"]+"'></td></tr>";
+				if("singleAmount" in obj ) toAppend = toAppend + "<tr><th>Amount</th><td><input type='number' field='singleAmount' maxlength='10'  placeholder='"+obj["singleAmount"]+"'/></td></tr>";
+				if("totalAmount" in obj ) toAppend = toAppend + "<tr><th>Total Amount</th><td><input type='number' field='totalAmount' maxlength='10'  placeholder='"+obj["totalAmount"]+"'/></td></tr>";
+				if("varation" in obj ) toAppend = toAppend + "<tr><th>Variation</th><td><input type='number' field='varation' maxlength='10' placeholder='"+obj["varation"]+"'/></td></tr>";
+				if("idTime" in obj ) toAppend = toAppend + "<tr><th>Time</th><td><select class='SelectStyle'>"+SPickerString+"</select></td></tr>";
+				toAppend = toAppend + "</table></div></div>";
+				$('#rules_div').append(toAppend);
+				if("idTime" in obj ) {$('select:last option[value="'+obj["idTime"]+'"]').prop('selected', true); $('idTime:last').html($('select:last option[value="'+obj["idTime"]+'"]').html());}
+			});
+			$('#rules_div').append("<div style='width: 100%; height: 150px;'></div>");
+			
+		}
+		
+		function addProducts(products,view){
+			
+			$('#products_div').html('');
+			for( product in products){
+				$('#products_div').append('<div class="product '+view+'">'+product+'</div>');
+			}
+			$('products_div').append("<div style='width: 100%; height: 150px;'></div>");
+		}
+		
+		function addServices(services){
+			
+			$('#service_div').html('');
+			 console.log(JSON.stringify(services));
+			for( service in services){
+			
+				$('#service_div').append('<div class="service" service="'+service+'">'+services[service]+'</div>');
+			}
+			$('service_div').append("<div style='width: 100%; height: 150px;'></div>");
+		}
+		
+		
+		
+		function addRuleChange(idRule,field,value){
+			if (!(idRule in  rulesChanges)){
+				rulesChanges[idRule] = {"idRule" : idRule}
+			}
+				rulesChanges[idRule][field] = parseInt(value);
+		}
+		
+
+		
+		function timePicker(objs){
+			timePickerString = '<fieldset class="ui-field-contain">';
+			$.each(objs,function(index,obj){
+				timePickerString = timePickerString + "<option value='"+obj["idTime"]+"'>"+obj["amount"]+" "+obj["unit"]+"</option>";
+			});
+			return timePickerString+"</fieldset>";
+		}
+
+		//-------------------------------------------------------//
+		//                 		 API USE						 //
+		//-------------------------------------------------------//
+		
+		//BindClient
+		
+		function BindClient(identification,firstName,lastName,uuid,regId,products){
+			
+			$.post('http://'+IP+':8089/appriz/bindClient',{"identification": identification,"firstName":firstName,"lastName":lastName,"uuid":uuid,"regId" :regId,"products":products,secretKey:secretKey},function(data){
+					$.jStorage.set('idSecretClient', data['idSecretClient']);
+					idScretClient = data['idSecretClient'];
+					console.log(JSON.stringify(data));
+			});
+		}
+		
+		
+		
+		
+		//bring message for this client
+		function callNewMSG(){
+		date = new Date();
+			$('.refreshing_list').show();
+			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
+				$.each(data,function(index, message){
+					//child msg
+					if( ( 'idParent' in message) && ($('#message_div #'+message['idParent']).length>0)){
+						if($('#message_div #'+message['idParent']).hasAttr('history')){
+							$('#message_div #'+message['idParent']).attr('history',btoa(atob($('#message_div #'+message['idParent']).attr('history'))+";"+message['shortMessage']+":"+message['longMessage']));
+						
+						}else{
+							$('#message_div #'+message['idParent']).attr('history',btoa(message['shortMessage']+":"+message['longMessage']));
+						}
+						console.log(atob($('#message_div #'+message['idParent']).attr('history')));
+
+						 
+					
+					}else{ 
+				
+					var img_msg = message['type'] == 1 ? "img/ic_90_iPhone_ios7_myalerts.png"  : message['type'] == 2 ? "img/ic_90_iPhone_ios7_alerts.png" : message['type'] == 3 ? "img/ic_90_iPhone_ios7_notific.png" :  message['type'] == 4 ?  "img/ic_90_iPhone_ios7_publicidad.png" : "img/ic_90_iPhone_ios7_gestion.png";
+						$('#message_div').append("<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div  class='message unread' id='"+message['idMessage']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"'><img src='"+img_msg+"'/><table><tr><td>"+message['shortMessage']+"</td></tr><tr><td><i class='fa fa-calendar'></i> "+date.toLocaleString()+" </td></tr></table></div>");
+						
+						$.jStorage.set('msg_div', btoa($('#message_div').html()));
+						makeSwipe();
+						console.log(JSON.stringify(data));
+					}
+					
+					$.jStorage.set('msg_div', btoa($('#message_div').html()));
+				});
+			},'json') .fail(function(e) {
+					$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').hide(1000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
+			
+				//alert( JSON.stringify(e));getRules(kilomanyaroB)
+			}).done(function(){makeSwipe(); $('.refreshing_list').hide(); });
+		}
+		
+		function getRules(productName){
+		
+				$.post('http://'+IP+':8089/appriz/getRulesByProduct',{"idSecretClient": idScretClient,"productName":productName,},function(data){
+					if (data["status"]== 200){
+						addRules(data["rules"]);
+					}
+				
+			},'json') .fail(function(e) {
+					alert("conexion error!");
+				//alert( JSON.stringify(e));
+			}).done(function(){makeSwipe(); $('.refreshing_list').hide(); });
+			
+		}
+		
+		
+			function getServices(productName){
+		
+				$.post('http://'+IP+':8089/appriz/getServicesByProduct',{"idSecretClient": idScretClient,"productName":productName,},function(data){
+					if (data["status"]== 200){
+						addServices(data["services"]);
+					}
+				
+			},'json') .fail(function(e) {
+					alert("conexion error!");
+				//alert( JSON.stringify(e));
+			}).done(function(){makeSwipe(); $('.refreshing_list').hide(); });
+			
+		}
+		
+			function requestService(serviceObj){
+				$.post('http://'+IP+':8089/appriz/sendServiceRequest',$.extend({"idSecretClient": idScretClient},serviceObj),function(data){
+					if (data["status"]== 200){
+						alert('Sucessfull!');
+					}
+				
+				},'json') .fail(function(e) {
+					alert("conexion error!");
+				//alert( JSON.stringify(e));
+				}).done(function(){});
+			}
+		
+		
+			function getProducts(view){
+		
+				$.post('http://'+IP+':8089/appriz/getProductsByClient',{"idSecretClient": idScretClient,"view":view,},function(data){
+					if (data["status"]== 200){
+						addProducts(data["products"],view);
+					}
+				
+			},'json') .fail(function(e) {
+					alert("conexion error!");
+				//alert( JSON.stringify(e));
+			}).done(function(){$('#products p.title').html((view == 'rules' ? 'My Alerts' : 'Services')+'<i class="fa fa-angle-double-right"></i>Products </p>')});
+			
+		}
+		
+		function getValidTimePeriods(){
+					$.post('http://'+IP+':8089/appriz/getTimePeriods',{"secretKey" : secretKey},function(data){
+					if (data["status"]== 200){
+						SPickerString = timePicker(data["periods"]);
+					}
+				
+			},'json') .fail(function(e) {
+					alert("conexion error!");
+				//alert( JSON.stringify(e));
+			}).done(function(){});
+			
+		}
+		
+		function processRuleChange(){
+			 var tmp_ruleChange = [];
+			for ( ruleChange in rulesChanges){
+				tmp_ruleChange.push(rulesChanges[ruleChange]);
+			}
+			rulesChanges = {};
+			console.log(JSON.stringify(tmp_ruleChange));
+			
+			$.post('http://'+IP+':8089/appriz/setRulesByProduct',{"idSecretClient": idScretClient,"productName": currentProduct, "rules":tmp_ruleChange},function(data){
+					if (data["status"]== 200){
+						SPickerString = timePicker(data["periods"]);
+					}
+				
+			},'json') .fail(function(e) {
+					alert("conexion error!");
+				//alert( JSON.stringify(e));
+			}).done(function(){});
+			
+			return tmp_ruleChange;
+		}
+		
+		//-------------------------------------------------------//
+		// 					GUI AND GENERIC FUNCTIONS            //
+		//------------------------------------------------------//
+		
+		
+		//hide & helpers all views
+		$('.view').hide();
+		$('.iconp , .icons').hide();
+		$('.management').hide();
+
+		$('.vertical_menu').hide();
+		
+		//Show first view
+		$('.view.active').show();
+		
+		//NAVEGATION BAR
+		$('.principal_menu .fa').click(function(){
+			if(!$.isEmptyObject(rulesChanges)){
+				if (confirm("Save Changes") == true) {
+					processRuleChange();
+				} else {
+					rulesChanges = {};
+				}
+			}
+			$('.principal_menu .fa.active').removeClass('active');
+			$(this).addClass('active');
+			$('.view.active').hide().removeClass('active');
+			
+			$('#'+$(this).attr('div')).show().addClass('active');
+			
+			$('.iconp ,.icons').hide();
+			$('#'+$(this).attr('iconp')+'').show();
+			$('.vertical_menu,#config_rules,#service_luncher , div#products').hide();
+			$('.vertical_menu').hide();
+			$('.management').hide();
+			$('#detail_msg').hide();
+		});
+		
+		
+	
+		
+		//Back from detail msg to list or from rules config to productos list
+			$(".fa.fa-arrow-circle-o-left.iconp").click(function(){
+				$(this).hide();
+				if(!$.isEmptyObject(rulesChanges)){
+					if (confirm("Save Changes?") == true) {
+						processRuleChange();
+					} else {
+						rulesChanges = {};
+					}
+				}
+				$('#detail_msg , #service_luncher , #config_rules , div#products').hide();
+				
+				$('.management').hide();
+				
+			});
+		
+		
+		//swip for delete message & scroll 
+		var oneTimeSendAjax = false;
+		function makeSwipe(){
+			$(".message").swipe( {
+				
+				//Generic swipe handler for all directions
+				swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+					oneTimeSendAjax =false;
+					var msg = $(this);msg.prev().css({"width":  0});
+					msg.css({"margin-left": 0});
+					if(direction=='right' & distance > 250){msg.remove(); $.jStorage.set('msg_div', btoa($('#message_div').html())); } else {msg.css({"margin-left": 0}) ;} 
+					
+				},
+				
+				swipeStatus:function(event, phase, direction, distance , duration , fingerCount) {
+					var msg = $(this);
+					if(direction=='right'){
+						msg.css({"margin-left": distance});
+						msg.prev().css({"width":  distance-1});
+						
+						if (distance< 250) {
+							msg.prev().css({"background-color":  "#FDC111"});
+						}else{
+							msg.prev().css({"background-color":  "#FF3553"});
+						}
+					}
+					else if(direction=='down') {
+						
+						if((msg.parent().scrollTop() < 1) && (distance > 100) && (oneTimeSendAjax == false)){ oneTimeSendAjax = true; callNewMSG();}
+						msg.parent().scrollTop(msg.parent().scrollTop() - distance);
+					
+					}
+					else if(direction=='up') {
+					//alert('up');
+						msg.parent().scrollTop(msg.parent().scrollTop() + distance);
+					}
+				   
+				   if((phase === $.fn.swipe.phases.PHASE_END || phase === $.fn.swipe.phases.PHASE_CANCEL )& distance == 0)  {
+						//read message
+						$(this).removeClass('unread');
+						$.jStorage.set('msg_div', btoa($('#message_div').html()));
+						$("#shortMSG").html($(this).find('td').eq(0).html());
+						$("#longMSG").html($(this).attr('longMSG'));
+						$('.iconp').hide();
+						$('#detail_msg img.typeIcon').attr('src',$(this).find('img').eq(0).attr('src'));
+						$('#detail_msg').show();
+						$(".fa.fa-arrow-circle-o-left.iconp").show();
+						//Include services
+						   management = "";
+						   
+						   strAppends = "";
+						  var mpi = management;
+						  var array_serv = JSON.parse(atob(msg.attr('services')));
+							for(serv in  array_serv){
+								management = management +"<li msg='"+msg.attr('id')+"' services='"+serv+"'>"+array_serv[serv]+"</li>";
+							}
+							
+							try{
+							  strHistory = "";
+						
+								
+								tmp_hist = atob(msg.attr('history')).split(';');
+								console.log(tmp_hist.length);
+								for(var i = 0; i < tmp_hist.length ; i++){
+									tmp_history = tmp_hist[i].split(':');
+									strHistory = strHistory + "<table><tr><th>"+tmp_history[0]+"</th></tr><tr><td>"+tmp_history[1]+"</td></tr></table>"
+								};
+								$('.history_view').html(strHistory);
+							}
+							catch(e){
+								$('.history_view').html("");
+							}
+							try{
+							var array_appends = JSON.parse(atob(msg.attr('appends')));
+							$.each(array_appends,function(key,value){
+								strAppends = strAppends + "<table>";
+								for( field in value){
+									if(field == "Fecha_Hora"){var dd = new Date(value[field]); strAppends = strAppends +"<tr><th>"+field+"</th><td>"+dd.toLocaleString()+"</td></tr>";} 
+									else strAppends = strAppends +"<tr><th>"+field+"</th><td>"+value[field]+"</td></tr>";}
+								strAppends = strAppends + "</table>";
+							});
+							}
+							catch(e){$('div[view=trx_view]').hide();}
+							
+							$('.trx_view').html(strAppends);
+							
+						if(strAppends == ""){$('div[view=trx_view]').hide();}else{$('div[view=trx_view]').show()};
+							
+						
+						if(management == "") {$('.ui-btn.mng').hide(); }else{
+							$('.management ul').html(management);
+							$('.ui-btn.mng').show();
+						}
+						
+						
+						
+						
+						
+				   }
+				 },
+				//Default is 75px, set to 0 for demo so any distance triggers swipe
+				 threshold:0
+			});
+		}
+		
+		//Show filter menu
+		$('#filter').click(function(){
+			$('.vertical_menu').toggle();
+		});
+		
+		//Filter selection logic
+		$('.vertical_menu li').click(function(){
+			//close the filter menu
+			if($(this).hasClass('close_filter')){
+				$('.vertical_menu').hide();
+			}else
+			if($(this).find('i').hasClass('fa-check-square-o')){
+				$(this).find('i').removeClass('fa-check-square-o').addClass('fa-square-o');
+				$('.message img[src="'+$(this).find('img').attr('src')+'"]').parent().hide();
+			}else{
+				$(this).find('i').removeClass('fa-square-o').addClass('fa-check-square-o');
+				$('.message img[src="'+$(this).find('img').attr('src')+'"]').parent().show();
+			}
+		});
+		
+		
+		
+		
+		
+		
+		//scroll and update
+		
+			$(".message").swipe( {
+				
+				//Generic swipe handler for all directions
+				swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+					oneTimeSendAjax =false;
+					var msg = $(this);msg.prev().css({"width":  0});
+					msg.css({"margin-left": 0});
+					if(direction=='right' & distance > 250){msg.remove(); } else {msg.css({"margin-left": 0}) ;} 
+					
+				},
+				
+				swipeStatus:function(event, phase, direction, distance , duration , fingerCount) {
+					var msg = $(this);
+					if(direction=='right'){
+						msg.css({"margin-left": distance});
+						msg.prev().css({"width":  distance-1});
+						
+						if (distance< 250) {
+							msg.prev().css({"background-color":  "#FDC111"});
+						}else{
+							msg.prev().css({"background-color":  "#FF3553"});
+						}
+					}
+					else if(direction=='down') {
+						
+						if((msg.parent().scrollTop() < 1) && (distance > 100) && (oneTimeSendAjax == false)){ oneTimeSendAjax = true; callNewMSG();}
+						msg.parent().scrollTop(msg.parent().scrollTop() - distance);
+					
+					}
+					else if(direction=='up') {
+					//alert('up');
+						msg.parent().scrollTop(msg.parent().scrollTop() + distance);
+					}
+				   
+				   if((phase === $.fn.swipe.phases.PHASE_END || phase === $.fn.swipe.phases.PHASE_CANCEL )& distance == 0)  {
+						//read message
+						$(this).removeClass('unread');
+						 $.jStorage.set('msg_div', btoa($('#message_div').html())); 
+						$("#shortMSG").html($(this).find('td').eq(0).html());
+						$("#longMSG").html($(this).attr('longMSG'));
+						$('.iconp').hide();
+						$('#detail_msg img.typeIcon').attr('src',$(this).find('img').eq(0).attr('src'));
+						$('#detail_msg').show();
+						$(".fa.fa-arrow-circle-o-left.iconp").show();
+						//Include services
+						   management = "";
+						  var mpi = management;
+						  var array_serv = JSON.parse(atob(msg.attr('services')));
+							for(serv in  array_serv){
+								console.log(msg.attr('id'));
+								management = management +"<li msg='"+msg.attr('id')+"' services='"+serv+"'>"+array_serv[serv]+"</li>";
+							}
+							
+						
+						if(management == "") {$('.ui-btn.mng').hide(); }else{
+							$('.management ul').html(management);
+							$('.ui-btn.mng').show();
+						}
+						
+						
+						
+				   }
+				 },
+				//Default is 75px, set to 0 for demo so any distance triggers swipe
+				 threshold:0
+			});
+			
+			$( document ).on('click','li[services]',function(){
+				console.log(JSON.stringify({"idMessage": $(this).attr('msg'), "code": $(this).attr('services'), "description": $(this).html()}));
+				requestService({"idMessage": $(this).attr('msg'), "code": $(this).attr('services'), "description": $(this).html()});
+				
+			});
+			
+		
+		
+		
+		
+		
+		
+		//Control for sliders
+		$( document).on('click','.internal_header .fa-plus-square-o',function(){
+			$('.div_content2').hide();
+			$(this).removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
+			$('.'+$(this).parent().attr('view')).show();
+		});
+		$( document).on('click','.internal_header .fa-minus-square-o',function(){
+			$('.div_content2').hide();
+			$(this).removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
+			$('.'+$(this).parent().attr('view')).hide();
+		});
+		
+	$.fn.hasAttr = function(name) {  
+		return this.attr(name) !== undefined;
+	};
+	//settings page
+	$('.ui-last-child').click(function(){
+		$('#'+$(this).attr('view')).show();
+		if($(this).hasAttr('eval')){eval($(this).attr('eval'));}
+		$(".fa.fa-arrow-circle-o-left.iconp").show();
+	});
+		
+		
+		
+		$(document).on('click','.product',function(){ 
+			currentProduct = $(this).html();
+			console.log(currentProduct);
+		});
+		 //getRules();
+	
+	$(document).on('click','div.product.rules',function(){
+		getRules($(this).html());
+		$('#config_rules').show();
+		$('div#products').hide();
+		$('#config_rules p.title').html('My Alerts <i class="fa fa-angle-double-right"></i> '+$(this).html());
+	});
+	
+	$(document).on('click','div.product.services',function(){
+		getServices($(this).html());
+		$('#service_luncher').show();
+		$('div#products').hide();
+		$('#service_luncher p.title').html('Services <i class="fa fa-angle-double-right"></i> '+$(this).html());
+	});
+
+		 //open rules details
+	$(document).on('click','.rule_header p',function(){
+		if($(this).parent().parent().parent().height() < 61){
+			$(this).parent().parent().parent().css({"height":"auto"})
+			$(this).parent().parent().parent().find('.rule_body').show();
+		}else{
+				$(this).parent().parent().parent().css({"height":"60px"})
+			$(this).parent().parent().parent().find('.rule_body').hide();
+			
+			}
+	});
+	
+	//active rule
+	$( document ).on('change','input.toggle',function(){
+		var rId = $(this).parent().parent().attr('id').replace(/rule_(\S+)/,"$1");
+		console.log(rId);
+		if($(this).is(":checked")){
+			console.log('checked');
+			$(this).parent().parent().find('table input').each(function(){
+				console.log('table input');
+				addRuleChange(rId,$(this).attr('field'),$(this).val() == "" ? $(this).attr("placeholder") : $(this).val());
+				
+			});
+			$(this).parent().parent().find('table option:selected').each(function(){
+				addRuleChange(rId,'idTime',$(this).val());
+			});
+
+		}else{
+			rulesChanges[rId] = {"idRule" : rId} // disable rule
+		}
+	});
+	
+	//change values on rule description
+	$(document).on('keyup','.rule_body input',function(){
+		$(this).parent().parent().parent().parent().parent().parent().find($(this).attr('field')).html($(this).val());
+		addRuleChange($(this).parent().parent().parent().parent().parent().parent().attr('id').replace(/rule_(\S+)/,"$1"),$(this).attr('field'),$(this).val());
+		$(this).parent().parent().parent().parent().parent().parent().find('input[type=checkbox]').attr('checked','true');
+	});
+	
+	$(document).on('change','.SelectStyle',function(){
+		$(this).parent().parent().parent().parent().parent().parent().find('idTime').html($(this).find('option:selected').html());
+		$(this).css({"color" : "#1A73B6"});
+		addRuleChange($(this).parent().parent().parent().parent().parent().parent().attr('id').replace(/rule_(\S+)/,"$1"),'idTime',$(this).find('option:selected').val());
+		$(this).parent().parent().parent().parent().parent().parent().find('input[type=checkbox]').attr('checked','true');
+		
+	});
+	//load past
+	try{
+		if($.jStorage.index().indexOf('msg_div') > -1){
+		$('#message_div').html(atob($.jStorage.get('msg_div')));}
+		if($.jStorage.index().indexOf('lab_div') > -1){
+		$('#lab_div').html(atob($.jStorage.get('lab_div')));}
+		if($.jStorage.index().indexOf('idSecretClient') > -1){
+			idScretClient = $.jStorage.get('idSecretClient');
+		}
+		
+	}
+	catch(e){}
+	
+	//start service by product
+	$(document).on('click','#service_div .service',function(){
+		
+		requestService({"productName": currentProduct, "code": $(this).attr('service'), "description": $(this).html()});
+		
+	});
+	
+	
+	getValidTimePeriods();
+	callNewMSG();
+	makeSwipe();
+	
+	
+	
+	//sphone bring
+	
+	//$('#lab_input_uuid').val(device.uuid);
+	
+	 // Wait for PhoneGap to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // PhoneGap is ready
+    //
+    function onDeviceReady() {
+		try{
+			
+			
+			 var element = document.getElementById('deviceProperties');
+        element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
+                            'Device Cordova: '  + device.cordova  + '<br />' +
+                            'Device Platform: ' + device.platform + '<br />' +
+                            'Device UUID: '     + device.uuid     + '<br />' +
+                            'Device Version: '  + device.version  + '<br />';
+
+		}catch(error){alert(error);}
+	
+		pushNotification = window.plugins.pushNotification;
+		
+		if ( device.platform == 'android' || device.platform == 'Android' )
+		{
+			pushNotification.register(
+				successHandler,
+				errorHandler, {
+					"senderID":"125107308805",
+					"ecb":"onNotificationGCM"
+				});
+		}
+		else
+		{
+			pushNotification.register(
+				tokenHandler,
+				errorHandler, {
+					"badge":"true",
+					"sound":"true",
+					"alert":"true",
+					"ecb":"onNotificationAPN"
+				});
+		}
+		
+        var element = document.getElementById('deviceProperties');
+
+       
+    }
+
+	
+	
+	// result contains any message sent from the plugin call
+	function successHandler (result) {
+    console.log('result = ' + result);
+}
+
+// result contains any error description text returned from the plugin call
+function errorHandler (error) {
+    alert('error = ' + error);
+}
+
+
+	
+	
+	//lab functions. Simulate  bank WS
+	function labProducts(){
+	var prd_lab_tmp = {};
+		$('#lab_products tbody tr').each(function(){
+			$(this).find('input').replaceWith($(this).find('input').val());
+			$(this).find('select').replaceWith($(this).find('option:selected').val());
+			
+			prd_lab_tmp[$(this).find('td').eq(0).html()+""] = $(this).find('td').eq(1).html();
+			
+			
+		});
+		console.log(JSON.stringify(prd_lab_tmp));
+		
+		return prd_lab_tmp;
+	}
+	$('#btn_bindClient').click(function(){
+	//		 $.jStorage.set('lab_div', btoa($('#lab_div').html()));
+	
+			BindClient($('#lab_input_id').val(),$('#lab_input_first').val(),$('#lab_input_lastname').val(),$('#lab_input_uuid').val(),eregid,labProducts());
+		});
+		
+		
+	// Android
+function onNotificationGCM(e) {
+    $("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
+
+    switch( e.event )
+    {
+    case 'registered':
+        if ( e.regid.length > 0 )
+        {
+			eregid = e.regid
+            $("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
+            // Your GCM push server needs to know the regID before it can push to this device
+            // here is where you might want to send it the regID for later use.
+            console.log("regID = " + e.regid);
+        }
+    break;
+
+    case 'message':
+		callNewMSG();
+		
+        // if this flag is set, this notification happened while we were in the foreground.
+        // you might want to play a sound to get the user's attention, throw up a dialog, etc.
+        if ( e.foreground )
+        {
+            $("#app-status-ul").append('<li>--INLINE NOTIFICATION--' + '</li>');
+
+            // if the notification contains a soundname, play it.
+            var my_media = new Media("/android_asset/www/"+e.soundname);
+            my_media.play();
+        }
+        else
+        {  // otherwise we were launched because the user touched a notification in the notification tray.
+            if ( e.coldstart )
+            {
+                $("#app-status-ul").append('<li>--COLDSTART NOTIFICATION--' + '</li>');
+            }
+            else
+            {
+                $("#app-status-ul").append('<li>--BACKGROUND NOTIFICATION--' + '</li>');
+            }
+        }
+
+        $("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
+        $("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
+    break;
+
+    case 'error':
+        $("#app-status-ul").append('<li>ERROR -> MSG:' + e.msg + '</li>');
+    break;
+
+    default:
+        $("#app-status-ul").append('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
+    break;
+  }
+}
+
+
+$( document ).on('click','#menuBtn',function(event){
+	event.preventDefault();
+	$('#leftMenu').animate({width : "250"});
+	$('.banner').animate({left : "250"});
+});
+	
+
+$( document ).ready(function() {
+	$('.banner_view').css({ "bottom" : $('.banner').eq(0).css("height")});
+});	
+	
+	</script>
+</html>
