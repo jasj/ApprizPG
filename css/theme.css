@@ -97,6 +97,7 @@ body{
 	background-color : white;
 	
 	min-height: 85px;
+	height: auto !important;
 	
 	
 	
