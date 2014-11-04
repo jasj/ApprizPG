@@ -32,6 +32,9 @@
 	</head>
 	
 	<body>
+	<div>
+	</div>
+	<div class='logged'>
 		<div class="header_demo">
 		<span class="fa-stack fa-lg" id="menuBtn" style='cursor:pointer;'>
 			<i class="fa fa-square-o fa-stack-2x"></i>
@@ -44,15 +47,43 @@
 			<img src='img/640X170c.jpg' class="banner"/>
 		
 		
-		<div id='entity_tab' class='banner_view view active' style='text-align:center;'>
 		
-			
-		</div>
 		
-		<div id='message_tab' class='view'>
+		<div id='message_tab' class='banner_view view active'>
 			<div style='width:100%;  ' class="internal_header"><p class='title' > Inbox</p></div>
 			<div class='refreshing_list'><i class="fa fa-spinner fa-spin"></i> Refreshing ...</div>
-			<div id='message_div' class='view_container'></div>
+			<div id='message_div' class='view_container'>
+			<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div  class='message unread' id='idMessage' longMSG='longMessage' services='' appends=''>
+				<table style='width: 100%; vertical-align: middle !important;'>
+					<tr>
+						<td >
+							<img src='img/ic_90_iPhone_ios7_publicidad.png'/>
+						</td>
+						
+						<td>
+							<table style=' height:100%; width: 100%; margin-top: -10px;'>
+								<tr>
+									<td>
+										Muestra de un texto largo, este texto de carácter enorme debe de ser visualizado correctamente 
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<i class='fa fa-calendar'></i> 2014-10-09 16:34:12 
+									</td>
+								</tr>
+							</table>
+						</td>
+						
+						<td>
+							<i class="fa fa-chevron-right">&nbsp;</i>
+						</td>
+					</tr>
+				</table>
+				</div>
+		
+			</div>
+			
 		
 		</div>
 		
@@ -163,22 +194,23 @@
 		
 		<div id='leftMenu'>
 			<ul style='background-color: white'>
-				<li><img src='img/ic_90_iPhone_ios7_mensajes.png'/><lang>All</lang><div st></div></li>
-				<li><img src='img/ic_90_iPhone_ios7_myalerts.png'/><lang>My Alerts</lang><div st></div></li>
-				<li><img src='img/ic_90_iPhone_ios7_alerts.png'/><lang>Fraud Warnings</lang><div st></div></li>
-				<li><img src='img/ic_90_iPhone_ios7_notific.png'/><lang>Notifications</lang><div st></div></li>
-				<li><img src='img/ic_90_iPhone_ios7_publicidad.png'/><lang>Promotions</lang><div st></div></li>
+				<li><img src='img/ic_90_iPhone_ios7_mensajes.png'/><lang>All</lang><div></div></li>
+				<li><img src='img/ic_90_iPhone_ios7_myalerts.png'/><lang>My Alerts</lang><div></div></li>
+				<li><img src='img/ic_90_iPhone_ios7_alerts.png'/><lang>Fraud Warnings</lang><div></div></li>
+				<li><img src='img/ic_90_iPhone_ios7_notific.png'/><lang>Notifications</lang><div></div></li>
+				<li><img src='img/ic_90_iPhone_ios7_publicidad.png'/><lang>Promotions</lang><div></div></li>
 			</ul>
 			<ul>
-				<li><img src='img/ic_90_iPhone_ios7_gestion.png'/><lang>Services</lang><div st></div></li>
-				<li><img src='img/ic_90_iPhone_ios7_confV2.png'/><lang>Settings</lang><div st></div></li>
-				<li><img src='img/ic_90_iPhone_ios7_demo.png'/><lang>Demo</lang><div st></div></li>
+				<li><img src='img/ic_90_iPhone_ios7_gestion.png'/><lang>Services</lang><div></div></li>
+				<li><img src='img/ic_90_iPhone_ios7_confV2.png'/><lang>Settings</lang><div></div></li>
+				<li><img src='img/ic_90_iPhone_ios7_demo.png'/><lang>Demo</lang><div></div></li>
 				
 			<ul>
 		</div>
 		
 		<i class="fa fa-arrow-circle-o-left iconp"></i>
 		<i class="fa fa-filter icons" id='filter'></i>
+	<div>
 	</body>
 	
 	<script>
@@ -942,6 +974,12 @@ $( document ).on('click','#menuBtn',function(event){
 	var nw = screen.width -251;
 	$('#leftMenu').animate({width : "250"});
 	$('.banner').animate({left : "250" , width :nw});
+	
+	 $('*').one('click',function() {
+		$('#leftMenu').animate({width : "0"});
+	$('.banner').animate({left : "0" , width :nw+251});
+  });
+
 });
 	
 

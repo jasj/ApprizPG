@@ -96,7 +96,9 @@ body{
 	
 	background-color : white;
 	
-	height: 80px;
+	min-height: 85px;
+	
+	
 	
 	font-family: times, Times New Roman, times-roman, georgia, serif;
 	
@@ -110,27 +112,28 @@ body{
 	width: 44px;
 	height: 44px;
 	
-	position : relative;
-	left: 15px;
-	top:15px;
+	margin-left:10px;
 }
 
+.message table:first-child td:first-child, table:first-child td:last-child{
+ width: 10px;
+}
 .message table {
 	float: right;
 	margin-top:10px;
 	text-align: left;
 	
-	width: calc(100% - 80px);
+	
 	
 }
 
-.message  tr:first-child{
-	color: #1A73B6 ! important;
+.message  table table tr:first-child{
+	color: #1A73B6 ! important; 
 	
 	
 } 
 
-.message.unread  tr:first-child{
+.message.unread table table  tr:first-child{
 	
 	font-weight: bold;
 	
@@ -596,7 +599,7 @@ legend{
 	padding-top: 5px;
 	padding-bottom: 5px;
 	border-bottom: 1px solid #eee;
-	margin-left : 0px;
+	margin-left : 6px;
 	font-weight: lighter;
 }
 /*
@@ -605,18 +608,20 @@ legend{
 }
 */
 #leftMenu li img{
-	width: 20px;
-	margin-left : -30px;
+	width: 26px;
+	margin-left : -34px;
 	
 
 }
 
 #leftMenu li lang{
 	width: 20px;
-	margin-left : 15px;
+	margin-left : 8px;
 	
 
 }
+
+
 
 
 
