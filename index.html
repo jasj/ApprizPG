@@ -199,8 +199,6 @@
 				<li><img src='img/ic_90_iPhone_ios7_alerts.png'/><lang>Fraud Warnings</lang><div></div></li>
 				<li><img src='img/ic_90_iPhone_ios7_notific.png'/><lang>Notifications</lang><div></div></li>
 				<li><img src='img/ic_90_iPhone_ios7_publicidad.png'/><lang>Promotions</lang><div></div></li>
-			</ul>
-			<ul>
 				<li><img src='img/ic_90_iPhone_ios7_gestion.png'/><lang>Services</lang><div></div></li>
 				<li><img src='img/ic_90_iPhone_ios7_confV2.png'/><lang>Settings</lang><div></div></li>
 				<li><img src='img/ic_90_iPhone_ios7_demo.png'/><lang>Demo</lang><div></div></li>
@@ -837,7 +835,7 @@
     function onDeviceReady() {
 		try{
 			
-			
+			alert(device.model);
 			 var element = document.getElementById('deviceProperties');
         element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
                             'Device Cordova: '  + device.cordova  + '<br />' +
