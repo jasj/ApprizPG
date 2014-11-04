@@ -590,7 +590,7 @@ legend{
 
 #leftMenu ul {
 	margin : 0px;
-	margin-top: 5px;
+	margin-top: 8px;
 	background-color : white;
 	width: 100%;
 	list-style-type: none;
@@ -631,6 +631,6 @@ legend{
 #menuBtn{
 	position: absolute;
 	left: 5px;
-	top: 10px;
+	top: 12px;
 	
 }
