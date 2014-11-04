@@ -848,7 +848,7 @@
 		}catch(error){alert(error);}
 	
 		pushNotification = window.plugins.pushNotification;
-		
+		alert( device.platform);
 		if ( device.platform == 'android' || device.platform == 'Android' )
 		{
 			pushNotification.register(
