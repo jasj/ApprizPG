@@ -76,7 +76,7 @@ body{
 	
 	text-align: right;
 	overflow: hidden;
-	height: 80px;
+	height: 86px;
 	width :0px;
 	
 	font-size: 18px;
@@ -594,7 +594,7 @@ legend{
 	background-color : white;
 	width: 100%;
 	list-style-type: none;
-
+	
 
 }
 

@@ -34,7 +34,7 @@
 	<body>
 	<div>
 	</div>
-	<div class='logged'>
+	<div class='logged' style='background-color: red'>
 		<div class="header_demo">
 		<span class="fa-stack fa-lg" id="menuBtn" style='cursor:pointer;'>
 			<i class="fa fa-square-o fa-stack-2x"></i>
@@ -63,8 +63,39 @@
 						<td>
 							<table style=' height:100%; width: 100%; margin-top: -10px;'>
 								<tr>
+									<td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>
+											Muestra de un texto largo, este texto de carácter enorme debe de ser visualizado correctamente 
+										</div>
+									</td>
+								</tr>
+								<tr>
 									<td>
-										Muestra de un texto largo, este texto de carácter enorme debe de ser visualizado correctamente 
+										<i class='fa fa-calendar'></i> 2014-10-09 16:34:12 
+									</td>
+								</tr>
+							</table>
+						</td>
+						
+						<td>
+							<i class="fa fa-chevron-right">&nbsp;</i>
+						</td>
+					</tr>
+				</table>
+				</div>
+				
+				<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div  class='message unread' id='idMessage' longMSG='longMessage' services='' appends=''>
+				<table style='width: 100%; vertical-align: middle !important;'>
+					<tr>
+						<td >
+							<img src='img/ic_90_iPhone_ios7_publicidad.png'/>
+						</td>
+						
+						<td>
+							<table style=' height:100%; width: 100%; margin-top: -10px;'>
+								<tr>
+									<td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>
+											Muestra de un texto largo, este texto de carácter enorme debe de ser visualizado correctamente 
+										</div>
 									</td>
 								</tr>
 								<tr>
@@ -83,6 +114,8 @@
 				</div>
 		
 			</div>
+			
+
 			
 		
 		</div>
@@ -192,6 +225,12 @@
 		
 		
 		
+	
+		
+		<i class="fa fa-arrow-circle-o-left iconp"></i>
+		<i class="fa fa-filter icons" id='filter'></i>
+	</div>
+
 		<div id='leftMenu'>
 			<ul style='background-color: white'>
 				<li><img src='img/ic_90_iPhone_ios7_mensajes.png'/><lang>All</lang><div></div></li>
@@ -205,10 +244,6 @@
 				
 			<ul>
 		</div>
-		
-		<i class="fa fa-arrow-circle-o-left iconp"></i>
-		<i class="fa fa-filter icons" id='filter'></i>
-	<div>
 	</body>
 	
 	<script>
@@ -974,11 +1009,11 @@ $( document ).on('click','#menuBtn',function(event){
 	event.preventDefault();
 	var nw = screen.width -251;
 	$('#leftMenu').animate({width : "250"});
-	$('.banner').animate({left : "250" , width :nw});
+	//$('.logged *').animate({left : "250"});
 	
-	 $('*').one('click',function() {
+	 $('.logged *').one('click',function() { 
 		$('#leftMenu').animate({width : "0"});
-	$('.banner').animate({left : "0" , width :nw+251});
+//	$('.logged *').animate({left : "0" });
   });
 
 });
