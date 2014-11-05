@@ -14,6 +14,7 @@
 		
 		 
 		<script src="js/jquery-2.1.1.min.js"></script>
+		<script src="jQueryMobile/jquery.mobile-1.4.4.min.js"></script>
 		<script src="js/swipe.js"></script>
 		<script src="js/jqstorage.js"></script>
 		
@@ -1020,13 +1021,13 @@ function onNotificationGCM(e) {
 }
 
 
-$( document ).on('click','#menuBtn',function(event){
+$( document ).on('tap','#menuBtn',function(event){
 	event.preventDefault();
 	var nw = screen.width -251;
 	$('#leftMenu').animate({width : "250"});
 	//$('.logged *').animate({left : "250"});
 	
-	 $('.logged *').one('click',function() { 
+	 $('.logged *').one('tap',function() { 
 		$('#leftMenu').animate({width : "0"});
 //	$('.logged *').animate({left : "0" });
   });
@@ -1070,7 +1071,7 @@ $( document ).on( "tap", ".delKey", function() {
 		window.location.replace("../index.html");
  });
  
- $( document ).on('click', '#productsList li a',function(){
+ $( document ).on('tap', '#productsList li a',function(){
 	window.location.replace(nextPage+"?"+$(this).html());
  });
 </script>
