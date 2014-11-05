@@ -244,6 +244,21 @@
 				
 			<ul>
 		</div>
+		
+		<!--pin validation-->
+<div id='divPIN'class="fullscreen" >
+
+
+	<p align="center" width="100%"><lang style='width:100%; position:relative; top:20px;'> Enter your PIN </lang>
+	
+	<div class="passkey"> </div><div class="passkey"></i></div><div class="passkey"></div><div class="passkey"></div>
+	<div style="position: absolute; bottom: 0px;left: 0px; right: 0px;"> 
+	<div class="numKey "> 1 </div><div class="numKey center ">2</div><div class="numKey "> 3 </div>
+	<div class="numKey"> 4 </div><div class="numKey center"> 5 </div><div class="numKey"> 6 </div>
+	<div class="numKey"> 7 </div><div class="numKey center"> 8 </div><div class="numKey"> 9 </div>
+	<div class="numKey" style='opacity: 0.5'></div><div class="numKey center"> 0 </div><div class="delKey" style='opacity: 0.5;  line-height: 200%;'><i class="fa fa-pencil  fa-rotate-180"></i>DEL</div>
+</div>	
+</div>
 	</body>
 	
 	<script>
@@ -1022,6 +1037,43 @@ $( document ).on('click','#menuBtn',function(event){
 $( document ).ready(function() {
 	$('.banner_view').css({ "bottom" : $('.banner').eq(0).css("height")});
 });	
+</script>
+<script name="script_pin">
+nextPage = window.location.href.split("?")[1];
+var PINpos = 0;
+var vPIN = "";
+$( document ).on( "tap", ".numKey", function() {
+	$('.passkey').eq(PINpos).html('<i class="fa fa-circle"></i>');
+	vPIN = vPIN+$(this).html(); 
+	PINpos++;
+	if(PINpos == 4){
+		//alert(vPIN);
+		$('#divPIN').hide();
+		$('.passkey').html('');
+		PINpos = 0; vPIN= "";
+		
+			//if(){
+				$('#sb_inbox').html('Products');
+			//}
+	}
+ });
+ 
+$( document ).on( "tap", ".delKey", function() { 
+	if(PINpos > 0){
+		PINpos--;
+		$('.passkey').eq(PINpos).html('');
+		vPIN = vPIN.substring(0, vPIN.length-1);
+	}
+ });
+ 
+ $('#backBtn').click(function(){
+		window.location.replace("../index.html");
+ });
+ 
+ $( document ).on('click', '#productsList li a',function(){
+	window.location.replace(nextPage+"?"+$(this).html());
+ });
+</script>
 	
-	</script>
+	
 </html>

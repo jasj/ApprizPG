@@ -140,6 +140,64 @@ body{
 	
 } 
 
+.fullscreen{
+ position: absolute;
+ left: 0px;
+ right: 0px;
+ top: 85px;
+ bottom: 0px;
+
+ 
+ background: #ADD1EA;
+ 
+}
+
+.passkey{
+position: relative;
+top:60px;
+border-bottom: 3px solid black;
+width: 20%;
+margin-left: 4%;
+height: 20px;
+
+text-align: center;
+padding-bottom: 10px;
+
+float: left;
+
+color: black!important;
+
+}
+
+.numKey,.delKey{
+	position: relative;
+	top: calc(100% - 300px);
+	
+	background: white;
+	
+	width: 33%;
+	height: 50px;
+	float: left;
+	
+	 text-align: center;
+	 
+	 
+	 display:table-cell;
+    vertical-align:middle;
+	margin-top: 2px;
+	font-size: 20px;
+	padding-top: 2px;
+	
+	
+}
+
+
+.numKey.center{
+	margin-left: 0.5%;
+	margin-right: 0.5%;
+}
+
+
 
 .message.unread{
 	background-color: #E7EBFF !important;
