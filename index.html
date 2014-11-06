@@ -1087,11 +1087,11 @@ $( document ).on( "tap", ".delKey", function() {
  
  
  
- 	var heightEnd = Math.floor(screen.height/2)-120;
+ 	var heightEnd = Math.floor(screen.availHeight/2)-120;
 	alert(heightEnd);
 	alert(screen.height);
-			$('.LOGIN_FORM').css({"top" : "307px"});
-		    $( '.LOGIN_BOTTOM , .LogginTop').animate({"height" : "307px"},1000);
+			$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
+		    $( '.LOGIN_BOTTOM , .LogginTop').animate({"height" : heightEnd+"px"},1000);
 
 </script>
 	
