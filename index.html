@@ -35,7 +35,7 @@
 	
 	<body>
 	<div class='Loggin'>
- <div class="LogginTop"></div>
+
 		<div class='LOGIN_FORM'>
 		<img src="img/appriz-logo-horizontal.png"/>
 		<br>&nbsp;
@@ -48,7 +48,7 @@
 			
 			<br> <lang>Are you new Appriz User?</lang><div style="border: 1px solid orange; width: 40px; float: right; padding:10px; margin-top: -9px;">Login</div>
 		</div>
-		
+		 <div class="LogginTop"></div>
 		<div class="LOGIN_BOTTOM"></div>
 	
 	</div>
@@ -896,9 +896,7 @@
 		try{
 			//alert(screen.height);
 			
-			var heightEnd = screen.height/2-120;
-			$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
-			 $( '.LOGIN_BOTTOM , .LogginTop').animate({"height" : heightEnd+"px"},1000);
+		
 			 var element = document.getElementById('deviceProperties');
         element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
                             'Device Cordova: '  + device.cordova  + '<br />' +
@@ -1087,7 +1085,9 @@ $( document ).on( "tap", ".delKey", function() {
 	window.location.replace(nextPage+"?"+$(this).html());
  });
  
- 
+ 	var heightEnd = screen.height/2-120;
+			$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
+			 $( '.LOGIN_BOTTOM , .LogginTop').animate({"height" : heightEnd+"px"},1000);
 
 </script>
 	
