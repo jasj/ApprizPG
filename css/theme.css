@@ -709,7 +709,7 @@ legend{
 	
 	left: 0px;
 	right:0px;
-	top: calc(50% - 120px);
+/*	top: calc(50% - 120px);*/
 	background: white;
 	padding: 20px;
 	
@@ -720,7 +720,7 @@ legend{
 }
 
 .LOGIN_FORM img{
-	Position: absolute;
+	position: absolute;
 	left: 50%;
 	margin-left: -140px;
 }
@@ -736,7 +736,6 @@ left: 0px;
 right:0px;
 height: 50%;
 background: #E76929;
-	z-index:100;
 }
 
 
