@@ -33,7 +33,23 @@
 	</head>
 	
 	<body>
-	<div>
+	<div class='Loggin'>
+
+		<div class='LOGIN_FORM'>
+		<img src="img/appriz-logo-horizontal.png"/>
+		<br>&nbsp;
+		<br>&nbsp;
+
+		
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
+
+			
+			<br> <lang>Are you new Appriz User?</lang><div style="border: 1px solid orange; width: 40px; float: right; padding:10px; margin-top: -9px;">Login</div>
+		</div>
+		 <div class="LogginTop"></div>
+		<div class="LOGIN_BOTTOM"></div>
+	
 	</div>
 	<div class='logged' style='background-color: red'>
 		<div class="header_demo">
@@ -50,7 +66,7 @@
 		
 		
 		
-		<div id='message_tab' class='banner_view view active'>
+		<div id='message_tab' class='banner_view view '>
 			<div style='width:100%;  ' class="internal_header"><p class='title' > Inbox</p></div>
 			<div class='refreshing_list'><i class="fa fa-spinner fa-spin"></i> Refreshing ...</div>
 			<div id='message_div' class='view_container'>
@@ -162,7 +178,13 @@
 			</div>
 		</div>
 		
-		<div id='config_tab' class='view'>
+		<div id='config_tab' class='view active'>
+			<div style='width:100%;  ' class="internal_header"><p class='title' > Settings</p></div>
+			
+			
+		</div>
+		
+		<div id='unknown_tab' class='view'>
 			<div style='width:100%;  ' class="internal_header"><p class='title' > Settings</p></div>
 			<ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true" style='background-color: #fefefe !important;'>
             </br>&nbsp;
@@ -208,21 +230,7 @@
 			<div id='service_div' class='view_container'></div>
 		</div>
 		
-		<div class='vertical_menu'>
-			<ul>
-				
-				<li><img src='img/ic_90_iPhone_ios7_myalerts.png'/><div>My Alerts</div> <i class="fa fa-check-square-o"></i></li>
-				<li><img src='img/ic_90_iPhone_ios7_alerts.png'/><div>Alerts</div> <i class="fa fa-check-square-o"></i></li>
-				<li><img src='img/ic_90_iPhone_ios7_notific.png'/><div>Notifications</div> <i class="fa fa-check-square-o"></i></li>
-				<li><img src='img/ic_90_iPhone_ios7_publicidad.png'/><div>Promotions</div> <i class="fa fa-check-square-o"></i></li>
-		
-				<li ><img src='img/FFFFFF-1.png'/><div>Read </div> <i class="fa fa-check-square-o"></i></li>
-				<li><img src='img/FFFFFF-1.png'/><div>Unread</div> <i class="fa fa-check-square-o"></i> </li>
-				<li style='background-color: #7878AE !important; text-align: center; color: white;' class='close_filter'>Close Filter</li>
-			</ul>
-		</div>
-		
-		
+	
 		
 		
 		
@@ -405,7 +413,7 @@
 					}
 				
 			},'json') .fail(function(e) {
-					alert("conexion error!");
+				//	alert("conexion error!");
 				//alert( JSON.stringify(e));
 			}).done(function(){makeSwipe(); $('.refreshing_list').hide(); });
 			
@@ -420,7 +428,7 @@
 					}
 				
 			},'json') .fail(function(e) {
-					alert("conexion error!");
+				//	alert("conexion error!");
 				//alert( JSON.stringify(e));
 			}).done(function(){makeSwipe(); $('.refreshing_list').hide(); });
 			
@@ -433,7 +441,7 @@
 					}
 				
 				},'json') .fail(function(e) {
-					alert("conexion error!");
+				//	alert("conexion error!");
 				//alert( JSON.stringify(e));
 				}).done(function(){});
 			}
@@ -447,7 +455,7 @@
 					}
 				
 			},'json') .fail(function(e) {
-					alert("conexion error!");
+				//	alert("conexion error!");
 				//alert( JSON.stringify(e));
 			}).done(function(){$('#products p.title').html((view == 'rules' ? 'My Alerts' : 'Services')+'<i class="fa fa-angle-double-right"></i>Products </p>')});
 			
@@ -460,7 +468,7 @@
 					}
 				
 			},'json') .fail(function(e) {
-					alert("conexion error!");
+					//alert("conexion error!");
 				//alert( JSON.stringify(e));
 			}).done(function(){});
 			
@@ -480,7 +488,7 @@
 					}
 				
 			},'json') .fail(function(e) {
-					alert("conexion error!");
+				//	alert("conexion error!");
 				//alert( JSON.stringify(e));
 			}).done(function(){});
 			
@@ -1074,6 +1082,9 @@ $( document ).on( "tap", ".delKey", function() {
  $( document ).on('tap', '#productsList li a',function(){
 	window.location.replace(nextPage+"?"+$(this).html());
  });
+ 
+ 
+ $( '.LOGIN_BOTTOM , .LogginTop').animate({"height" : (screen.height /2  -120)},1000);
 </script>
 	
 	

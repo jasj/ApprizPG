@@ -684,7 +684,60 @@ legend{
 
 
 
+.Loggin{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom:0px;
+	z-index: 999999999;
+	
+}
 
+.LogginTop{
+	position: absolute;
+	height: 50%;
+	background: #E76929;
+	top: 0px;
+	left: 0px;
+	right:0px;
+
+}
+
+.LOGIN_FORM{
+	position: absolute;
+	
+	left: 0px;
+	right:0px;
+	top: calc(50% - 120px);
+	background: white;
+	padding: 20px;
+	
+	
+	
+	height: 200px;
+	
+}
+
+.LOGIN_FORM img{
+	Position: absolute;
+	left: 50%;
+	margin-left: -140px;
+}
+
+.LOGIN_FORM input{
+position: realtive;
+	top: 70px;
+}
+.LOGIN_BOTTOM{
+position:absolute;
+bottom: 0px;
+left: 0px;
+right:0px;
+height: 50%;
+background: #E76929;
+	z-index:100;
+}
 
 
 #menuBtn{
