@@ -905,7 +905,7 @@
 		}catch(error){alert(error);}
 	
 		pushNotification = window.plugins.pushNotification;
-		alert( device.platform);
+		//alert( device.platform);
 		if ( device.platform == 'android' || device.platform == 'Android' )
 		{
 			pushNotification.register(
@@ -917,7 +917,7 @@
 		}
 		else
 		{
-		alert('iPhone');
+	//	alert('iPhone');
 			$('*').css({"margin-top" : "10px"});
 			$('#menuBtn').css({"margin-top" : "10px"});
 			pushNotification.register(
