@@ -894,7 +894,7 @@
     function onDeviceReady() {
 		try{
 			
-			alert(device.model);
+			 $( '.LOGIN_BOTTOM , .LogginTop').animate({"height" : (screen.height /2  -120)},1000);
 			 var element = document.getElementById('deviceProperties');
         element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
                             'Device Cordova: '  + device.cordova  + '<br />' +
@@ -1084,7 +1084,7 @@ $( document ).on( "tap", ".delKey", function() {
  });
  
  
- $( '.LOGIN_BOTTOM , .LogginTop').animate({"height" : (screen.height /2  -120)},1000);
+
 </script>
 	
 	
