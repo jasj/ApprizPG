@@ -896,8 +896,9 @@
 		try{
 			//alert(screen.height);
 			
-			var heightEnd = screen.height*0;
-			 $( '.LOGIN_BOTTOM , .LogginTop').animate({"height" : heightEnd},1000);
+			var heightEnd = screen.height/2-120;
+			$('.LOGIN_FORM').css({"top" : heightEnd});
+			 $( '.LOGIN_BOTTOM , .LogginTop').animate({"height" : heightEnd+"px"},1000);
 			 var element = document.getElementById('deviceProperties');
         element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
                             'Device Cordova: '  + device.cordova  + '<br />' +
