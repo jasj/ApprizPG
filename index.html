@@ -1085,7 +1085,7 @@ $( document ).on( "tap", ".delKey", function() {
 	window.location.replace(nextPage+"?"+$(this).html());
  });
  
- 	var heightEnd = screen.height-800;
+ 	var heightEnd = Math.floor(screen.height/2)-120;
 			$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
 			 $( '.LOGIN_BOTTOM , .LogginTop').animate({"height" : heightEnd+"px"},1000);
 
