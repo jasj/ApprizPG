@@ -712,7 +712,7 @@ legend{
 .LogginTop{
 	position: absolute;
 	height: 50%;
-	background: #E76929;
+	background: #A4238E;
 	top: 0px;
 	left: 0px;
 	right:0px;
@@ -750,7 +750,7 @@ bottom: 0px;
 left: 0px;
 right:0px;
 height: 50%;
-background:  #E76929;
+background:  #A4238E;;
 }
 
 .login_btn {
@@ -775,8 +775,8 @@ text-shadow: 0px 0px 0px #000;
 .login_btn:hover {
 
 color: white;
-background: 	#A4238E;
-border-color: #A4238E;
+background: 	#E76929;
+border-color: #E76929;
 }
 
 
