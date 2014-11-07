@@ -46,7 +46,7 @@
 			<input type="password" placeholder="Password" />
 
 			
-			<br> <lang>Are you new Appriz User?</lang><div style="border: 1px solid orange; width: 40px; float: right; padding:10px; margin-top: -9px;">Login</div>
+			<br> <lang class='eagle'>Are you new Appriz User?</lang><div  class='login_btn'>Login</div>
 		</div>
 		 <div class="LogginTop"></div>
 		<div class="LOGIN_BOTTOM"></div>
@@ -896,11 +896,7 @@
 		try{
 			//alert(screen.height);
 			
-			 	var heightEnd = Math.floor(window.innerHeight /2)-120;
-	
-	
-			$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
-		    $( '.LOGIN_BOTTOM , .LogginTop').animate({"height" : heightEnd+"px"},1000);
+			
 			
 		
 			 var element = document.getElementById('deviceProperties');
@@ -1054,6 +1050,15 @@ $( document ).on('tap','#menuBtn',function(event){
 $( document ).ready(function() {
 	$('.banner_view').css({ "bottom" : $('.banner').eq(0).css("height")});
 });	
+
+$(document).on("tap",".login_btn",function(){
+	$(".Loggin").hide();
+});
+
+
+	var heightEnd = Math.floor(window.innerHeight /2)-120;
+	$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
+	$( '.LOGIN_BOTTOM , .LogginTop').animate({"height" : heightEnd+"px"},1000); 
 </script>
 <script name="script_pin">
 nextPage = window.location.href.split("?")[1];
@@ -1092,7 +1097,7 @@ $( document ).on( "tap", ".delKey", function() {
  });
  
  
- 
+ 	
 
 
 </script>

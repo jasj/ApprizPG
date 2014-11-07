@@ -710,7 +710,7 @@ legend{
 	left: 0px;
 	right:0px;
 /*	top: calc(50% - 120px);*/
-	background: white;
+	background: #222222;
 	padding: 20px;
 	
 	
@@ -735,7 +735,33 @@ bottom: 0px;
 left: 0px;
 right:0px;
 height: 50%;
-background: green;
+background:  #E76929;
+}
+
+.login_btn {
+border: 1px solid #E76929; 
+width: 40px; 
+float: right;
+padding:10px;
+margin-top: -9px;
+color: #E76929;	
+text-shadow: 0px 0px 0px #000;
+}
+
+.eagle{
+color: rgba(147, 118, 74, 1);
+text-shadow: 0px 0px 0px #000;
+}
+
+.eagle:hover{
+color: #98CA3C;
+text-shadow: 0px 0px 0px #000;
+}
+.login_btn:hover {
+
+color: white;
+background: 	#A4238E;
+border-color: #A4238E;
 }
 
 
