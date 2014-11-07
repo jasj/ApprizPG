@@ -73,7 +73,7 @@
 			<table width='100%'>
 				<tr>
 				<td><img src='img/ic_90_iPhone_ios7_myalerts.png'/></td>
-				<td><img src='img/ic_90_iPhone_ios7_alerts.png' class='nonAct'/></td>
+				<td><img src='img/ic_90_iPhone_ios7_alerts.png' /></td>
 				<td><img src='img/ic_90_iPhone_ios7_notific.png'/></td>
 				<td><img src='img/ic_90_iPhone_ios7_publicidad.png'/></td>
 				<td><img src='img/ic_90_iPhone_ios7_gestion.png'/></td>
@@ -250,7 +250,7 @@
 		</div>
 		
 		<div id='config_tab' class='view '>
-			<div style='width:100%;  ' class="internal_header"><p class='title' > Settings</p></div>
+			<div style='width:100%;  ' class="internal_header"><p class='title' > Config </p></div>
 			
 			
 		</div>
@@ -969,7 +969,9 @@
 			//alert(screen.height);
 			
 			
-			
+				var heightEnd = Math.floor(window.innerHeight /2)-120;
+	$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
+	$( '.LOGIN_BOTTOM , .LogginTop').animate({"height" : heightEnd+"px"},1000); 
 		
 			 var element = document.getElementById('deviceProperties');
         element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
@@ -1128,9 +1130,7 @@ $(document).on("tap",".login_btn",function(){
 });
 
 
-	var heightEnd = Math.floor(window.innerHeight /2)-120;
-	$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
-	$( '.LOGIN_BOTTOM , .LogginTop').animate({"height" : heightEnd+"px"},1000); 
+
 </script>
 <script name="script_pin">
 nextPage = window.location.href.split("?")[1];
