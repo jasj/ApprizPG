@@ -722,7 +722,7 @@ legend{
 .LogginTop{
 	position: absolute;
 	height: 50%;
-	background: #A4238E;
+	background: #222222;
 	top: 0px;
 	left: 0px;
 	right:0px;
@@ -735,7 +735,7 @@ legend{
 	left: 0px;
 	right:0px;
 /*	top: calc(50% - 120px);*/
-	background: #222222;
+	background: #343C45;
 	padding: 20px;
 	
 	
@@ -760,7 +760,7 @@ bottom: 0px;
 left: 0px;
 right:0px;
 height: 50%;
-background:  #A4238E;;
+background:  #222222;;
 }
 
 .login_btn {
