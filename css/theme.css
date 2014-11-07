@@ -774,12 +774,12 @@ text-shadow: 0px 0px 0px #000;
 }
 
 .eagle{
-color: rgba(147, 118, 74, 1);
+color: #98CA3C;
 text-shadow: 0px 0px 0px #000;
 }
 
 .eagle:hover{
-color: #98CA3C;
+color: #AC2A7E;
 text-shadow: 0px 0px 0px #000;
 }
 .login_btn:hover {
