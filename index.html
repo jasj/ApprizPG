@@ -73,7 +73,7 @@
 			<table width='100%'>
 				<tr>
 				<td><img src='img/ic_90_iPhone_ios7_myalerts.png'/></td>
-				<td><img src='img/ic_90_iPhone_ios7_alerts.png'/></td>
+				<td><img src='img/ic_90_iPhone_ios7_alerts.png' class='nonAct'/></td>
 				<td><img src='img/ic_90_iPhone_ios7_notific.png'/></td>
 				<td><img src='img/ic_90_iPhone_ios7_publicidad.png'/></td>
 				<td><img src='img/ic_90_iPhone_ios7_gestion.png'/></td>
@@ -82,8 +82,7 @@
 			</div>
 			<div class='refreshing_list'><i class="fa fa-spinner fa-spin"></i> Refreshing ...</div>
 			<div id='message_div' class='view_container'>
-			<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div  class='message unread' id='idMessage' longMSG='longMessage' services='' appends=''>
-				<table style='width: 100%; vertical-align: middle !important;'>
+			<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div  class='message unread' id='idMessage' longMSG='longMessage' services='' appends=''>	<table style='width: 100%; vertical-align: middle !important;'>
 					<tr>
 						<td >
 							<img src='img/ic_90_iPhone_ios7_publicidad.png'/>
@@ -111,6 +110,66 @@
 					</tr>
 				</table>
 				</div>
+			
+	<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div  class='message unread' id='idMessage' longMSG='longMessage' services='' appends=''>	<table style='width: 100%; vertical-align: middle !important;'>
+					<tr>
+						<td >
+							<img src='img/ic_90_iPhone_ios7_notific.png'/>
+						</td>
+						
+						<td>
+							<table style=' height:100%; width: 100%; margin-top: -10px;'>
+								<tr>
+									<td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>
+											Notificacion 
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<img src='img/ledlightred.png' style='width:12px; height:12px; margin-left: 0px;'/>&nbsp;<i class='fa fa-calendar'></i> 2014-10-09 16:34:12 
+									</td>
+								</tr>
+							</table>
+						</td>
+						
+						<td>
+							<i class="fa fa-chevron-right">&nbsp;</i>
+						</td>
+					</tr>
+				</table>
+				</div>
+				
+				<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div  class='message unread' id='idMessage' longMSG='longMessage' services='' appends=''>	<table style='width: 100%; vertical-align: middle !important;'>
+					<tr>
+						<td >
+							<img src='img/ic_90_iPhone_ios7_alerts.png'/>
+						</td>
+						
+						<td>
+							<table style=' height:100%; width: 100%; margin-top: -10px;'>
+								<tr>
+									<td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>
+											Vilizado correctamente 
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<img src='img/ledlighyellow.png' style='width:12px; height:12px; margin-left: 0px;'/>&nbsp;<i class='fa fa-calendar'></i> 2014-10-09 16:34:12 
+									</td>
+								</tr>
+							</table>
+						</td>
+						
+						<td>
+							<i class="fa fa-chevron-right">&nbsp;</i>
+						</td>
+					</tr>
+				</table>
+				</div>
+				
+				
 				
 				<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div  class='message unread' id='idMessage' longMSG='longMessage' services='' appends=''>
 				<table style='width: 100%; vertical-align: middle !important;'>
@@ -1111,8 +1170,57 @@ $( document ).on( "tap", ".delKey", function() {
  
  
 
- 
- 	$('#message_div').css({ "height" : window.innerHeight -($('.banner').eq(0).css("height")+125)});
+   var mdHeight =  window.innerHeight -($('.banner').eq(0).css("height")+125);
+ 	$('#message_div').css({ "height" : mdHeight+"px !important"});
+	
+	
+	$(window).load(function() {
+	$('.view_toolbox img').each(function() {
+		$(this).wrap('<div style="display:inline-block;width:' + this.width + 'px;height:' + this.height + 'px;">').clone().addClass('gotcolors').css({'position': 'absolute', 'opacity' : 1 }).insertBefore(this);
+		this.src = grayscale(this.src);
+	}).animate({opacity: 1}, 500);
+});
+
+$(".view_toolbox td").tap(
+		function() {
+		
+			if ($(this).find('.gotcolors').css('opacity')== 0){
+				$(this).find('.gotcolors').stop().animate({opacity: 1}, 200);
+					$('.message img[src="'+$(this).find('.gotcolors').attr("src")+'"]').parent().parent().parent().parent().parent().show();
+			}else {
+				$(this).find('.gotcolors').stop().animate({opacity: 0}, 500);
+				$('.message img[src="'+$(this).find('.gotcolors').attr("src")+'"]').parent().parent().parent().parent().parent().hide();
+			}
+	});
+	
+	function grayscale(src) {
+	var supportsCanvas = !!document.createElement('canvas').getContext;
+	if (supportsCanvas) {
+		var canvas = document.createElement('canvas'), 
+		context = canvas.getContext('2d'), 
+		imageData, px, length, i = 0, gray, 
+		img = new Image();
+		
+		img.src = src;
+		canvas.width = img.width;
+		canvas.height = img.height;
+		context.drawImage(img, 0, 0);
+			
+		imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+		px = imageData.data;
+		length = px.length;
+		
+		for (; i < length; i += 4) {
+			gray = px[i] * .3 + px[i + 1] * .59 + px[i + 2] * .11;
+			px[i] = px[i + 1] = px[i + 2] = gray;
+		}
+				
+		context.putImageData(imageData, 0, 0);
+		return canvas.toDataURL();
+	} else {
+		return src;
+	}
+}
 
 
 </script>
