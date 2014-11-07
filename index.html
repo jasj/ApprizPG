@@ -969,7 +969,7 @@
     function onDeviceReady() {
 		try{
 			//alert(screen.height);
-			
+			   navigator.splashscreen.hide();
 			$('.splash').fadeOut(1000,function(){
 				var heightEnd = Math.floor(window.innerHeight /2)-120;
 				$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
