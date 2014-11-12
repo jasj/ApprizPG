@@ -34,7 +34,7 @@
 	</head>
 	
 	<body>
-	<!--
+
 	<div class='Loggin'>
 
 		<div class='LOGIN_FORM'>
@@ -52,7 +52,7 @@
 		 <div class="LogginTop"></div>
 		<div class="LOGIN_BOTTOM"></div>
 	
-	</div>-->
+	</div>
 	<div class='logged' style='background-color: red'>
 		<div class="header_demo">
 		<span class="fa-stack fa-lg" id="menuBtn" style='cursor:pointer;'>
@@ -327,6 +327,26 @@
 			
 		</div>
 		
+		<div id='Suscri' class="view">
+			<div style='width:100%;' class="internal_header"><p class='title' > <lang>Suscribe</lang></p></div>
+		
+			<div style=' background: #F9F9FF; padding: 12px; height: 100%;'>
+	
+			<lang style='margin:10px; margin-top:13px;  text-indent: 0;'>Please use the couple of numbers given by your entity.<lang>
+			</br>&nbsp;
+			<br>&nbsp;
+			<lang>ID Code</lang>
+				<input placeholder="ID Code">
+				<lang>Subscription No.</lang>
+				<input placeholder="Subscription No.">
+				
+				<div class="specialBtn2"><i class="fa fa-check-square-o"></i>
+ Confirm Susbcription</div>
+				
+			</div>
+		
+		</div>
+		
 		
 		
 	
@@ -465,7 +485,10 @@
 		}
 		
 		
-		
+		$('.specialBtn').tap(function(){
+			$('.view.active').hide().removeClass('active');
+			$('#Suscri').show().addClass('active');
+		});
 		
 		//bring message for this client
 		function callNewMSG(){

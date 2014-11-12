@@ -804,7 +804,7 @@ border-color: #E76929;
     -webkit-user-select: none;
 }
 
-.specialBtn{
+.specialBtn,.specialBtn2{
 position: absolute;
  border-radius:10px;
  bottom: 10px;
