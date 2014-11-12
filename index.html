@@ -846,12 +846,12 @@
 		
 		
 		//Control for sliders
-		$( document).on('click','.internal_header .fa-plus-square-o',function(){
+		$( document).on('tap','.internal_header .fa-plus-square-o',function(){
 			$('.div_content2').hide();
 			$(this).removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
 			$('.'+$(this).parent().attr('view')).show();
 		});
-		$( document).on('click','.internal_header .fa-minus-square-o',function(){
+		$( document).on('tap','.internal_header .fa-minus-square-o',function(){
 			$('.div_content2').hide();
 			$(this).removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
 			$('.'+$(this).parent().attr('view')).hide();
@@ -861,7 +861,7 @@
 		return this.attr(name) !== undefined;
 	};
 	//settings page
-	$('.ui-last-child').click(function(){
+	$('.ui-last-child').tap(function(){
 		$('#'+$(this).attr('view')).show();
 		if($(this).hasAttr('eval')){eval($(this).attr('eval'));}
 		$(".fa.fa-arrow-circle-o-left.iconp").show();
@@ -869,20 +869,20 @@
 		
 		
 		
-		$(document).on('click','.product',function(){ 
+		$(document).on('tap','.product',function(){ 
 			currentProduct = $(this).html();
 			console.log(currentProduct);
 		});
 		 //getRules();
 	
-	$(document).on('click','div.product.rules',function(){
+	$(document).on('tap','div.product.rules',function(){
 		getRules($(this).html());
 		$('#config_rules').show();
 		$('div#products').hide();
 		$('#config_rules p.title').html('My Alerts <i class="fa fa-angle-double-right"></i> '+$(this).html());
 	});
 	
-	$(document).on('click','div.product.services',function(){
+	$(document).on('tap','div.product.services',function(){
 		getServices($(this).html());
 		$('#service_luncher').show();
 		$('div#products').hide();
@@ -890,7 +890,7 @@
 	});
 
 		 //open rules details
-	$(document).on('click','.rule_header p',function(){
+	$(document).on('tap','.rule_header p',function(){
 		if($(this).parent().parent().parent().height() < 61){
 			$(this).parent().parent().parent().css({"height":"auto"})
 			$(this).parent().parent().parent().find('.rule_body').show();
