@@ -34,6 +34,7 @@
 	</head>
 	
 	<body>
+	<!--
 	<div class='Loggin'>
 
 		<div class='LOGIN_FORM'>
@@ -51,7 +52,7 @@
 		 <div class="LogginTop"></div>
 		<div class="LOGIN_BOTTOM"></div>
 	
-	</div>
+	</div>-->
 	<div class='logged' style='background-color: red'>
 		<div class="header_demo">
 		<span class="fa-stack fa-lg" id="menuBtn" style='cursor:pointer;'>
@@ -260,11 +261,11 @@
 			<ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true" style='background-color: #fefefe !important;'>
             </br>&nbsp;
 			</br>&nbsp;
-			<li class="ui-last-child" view='products' eval='getProducts("services")'><a class="ui-btn-a ui-btn ui-btn-icon-right ui-icon-carat-r" data-form="ui-btn-up-a" data-swatch="a" data-theme="a" href="#"><i class="fa fa-rocket fa-fw"></i> Service luncher</a></li>
+			<li class="ui-last-child ukprd" view='products' eval='getProducts("services")'><a class="ui-btn-a ui-btn ui-btn-icon-right ui-icon-carat-r" data-form="ui-btn-up-a" data-swatch="a" data-theme="a" href="#"><i class="fa fa-rocket fa-fw"></i> Service luncher</a></li>
 			</br>&nbsp;
 			</br>&nbsp;
 			
-			<li class="ui-last-child" view='products' eval='getProducts("rules")'><a class="ui-btn-a ui-btn ui-btn-icon-right ui-icon-carat-r" data-form="ui-btn-up-a" data-swatch="a" data-theme="a" href="#"><i class="fa fa-exclamation-triangle fa-fw"></i> Config my alerts</a></li>
+			<li class="ui-last-child ukrule" view='products' eval='getProducts("rules")'><a class="ui-btn-a ui-btn ui-btn-icon-right ui-icon-carat-r" data-form="ui-btn-up-a" data-swatch="a" data-theme="a" href="#"><i class="fa fa-exclamation-triangle fa-fw"></i> Config my alerts</a></li>
 		</ul>
 			
 		</div>
@@ -292,8 +293,8 @@
 		</div>
 		
 		<div id='products' class='view' iconp="back">
-			<div style='width:100%;' class="internal_header"><p class='title' ></div>
-			<div id='products_div' class='view_container'></div>
+			<div style='width:100%;' class="internal_header"><p class='title' >hfgh</div>
+			<div id='products_div' class='view_container'>hgfhf</div>
 		</div>
 		
 		<div id='service_luncher' class='view' iconp="back">
@@ -313,10 +314,10 @@
 
 		<div id='leftMenu'>
 			<ul style='background-color: white'>
-				<li><img src='img/ic_90_iPhone_ios7_mensajes.png'/><lang>Inbox</lang><div></div></li>
-				<li><img src='img/ic_90_iPhone_ios7_myalerts.png'/><lang>My Alerts</lang><div></div></li>
-				<li><img src='img/ic_90_iPhone_ios7_gestion.png'/><lang>Services</lang><div></div></li>
-				<li style='border-bottom-color: darkgray !important;'><img src='img/ic_90_iPhone_ios7_alerts.png'/><lang>Push Center</lang><div></div></li>
+				<li div='message_tab'><img src='img/ic_90_iPhone_ios7_mensajes.png'/><lang>Inbox</lang><div></div></li>
+				<li div='unknown_tab' onclick='$(".ukrule").trigger("click")'><img src='img/ic_90_iPhone_ios7_myalerts.png'/><lang>My Alerts</lang><div></div></li>
+				<li div='unknown_tab'><img src='img/ic_90_iPhone_ios7_gestion.png'/><lang>Services</lang><div></div></li>
+				<li style='border-bottom-color: darkgray !important; margin-bottom:10px;'><img src='img/ic_90_iPhone_ios7_alerts.png'/><lang>Push Center</lang><div></div></li>
 				<li><img src='img/bank.png'/><lang>Entities</lang><div></div></li>
 				<li><img src='img/ic_90_iPhone_ios7_confV2.png'/><lang>Settings</lang><div></div></li>
 				<li><img src='img/logout.png'/><lang>Log Out</lang><div></div></li>
@@ -327,7 +328,7 @@
 			<ul>
 		</div>
 		
-		<!--pin validation-->
+		<!--pin validation
 <div id='divPIN'class="fullscreen" >
 
 
@@ -343,7 +344,7 @@
 </div>
 
 <img src='img/screen-iphone-portrait-568h-2x.png' style="z-index: 999999; position:absolute; left:0px; right:0px; top: 0px; bottom: 0px; width:100%; height: 100%;" class='splash'/>
-	</body>
+	--></body>
 	
 	<script>
 	var pushNotification;
@@ -525,6 +526,8 @@
 			function getProducts(view){
 		
 				$.post('http://'+IP+':8089/appriz/getProductsByClient',{"idSecretClient": idScretClient,"view":view,},function(data){
+					console.log(JSON.stringify(data));
+					
 					if (data["status"]== 200){
 						addProducts(data["products"],view);
 					}
@@ -586,7 +589,7 @@
 		$('.view.active').show();
 		
 		//NAVEGATION BAR
-		$('.principal_menu .fa').click(function(){
+		$('#leftMenu li').click(function(){
 			if(!$.isEmptyObject(rulesChanges)){
 				if (confirm("Save Changes") == true) {
 					processRuleChange();
@@ -594,10 +597,10 @@
 					rulesChanges = {};
 				}
 			}
-			$('.principal_menu .fa.active').removeClass('active');
-			$(this).addClass('active');
+		//	$('.principal_menu .fa.active').removeClass('active');
+		//	$(this).addClass('active');
 			$('.view.active').hide().removeClass('active');
-			
+			console.log('#'+$(this).attr('div'));
 			$('#'+$(this).attr('div')).show().addClass('active');
 			
 			$('.iconp ,.icons').hide();
@@ -606,7 +609,10 @@
 			$('.vertical_menu').hide();
 			$('.management').hide();
 			$('#detail_msg').hide();
+			$('#leftMenu').animate({width : "0"});
 		});
+		
+		
 		
 		
 	
@@ -1113,11 +1119,11 @@ function onNotificationGCM(e) {
 $( document ).on('tap','#menuBtn',function(event){
 	event.preventDefault();
 	var nw = screen.width -251;
-	$('#leftMenu').animate({width : "250"});
+	$('#leftMenu').animate({width : "250"},function(){
 	//$('.logged *').animate({left : "250"});
 	
 	 $('.logged *').one('tap',function() { 
-		$('#leftMenu').animate({width : "0"});
+		$('#leftMenu').animate({width : "0"});});
 //	$('.logged *').animate({left : "0" });
   });
 
