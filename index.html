@@ -303,13 +303,26 @@
 		</div>
 		
 	
+	
+	<div id='entities_tab' class='view'>
+			<div style='width:100%;  ' class="internal_header"><p class='title' > <lang>Entities</lang></p></div>
+				<div class='' style='position: absolute; border-radius:10px; bottom: 10px; left: 10px; right:10px;color: white; background:#A1CC3A;  text-align: center; padding: 16px; font-size:18px; margin-bottom:0px;'>
+			
+				<i class="fa fa-plus-circle"></i> <lang>Suscribe Entity</lang>
+			
+		
+			</div>
+			
+			
+			
+		</div>
 		
 		
 		
 	
 		
 		<i class="fa fa-arrow-circle-o-left iconp"></i>
-		<i class="fa fa-filter icons" id='filter'></i>
+		
 	</div>
 
 		<div id='leftMenu'>
@@ -317,9 +330,9 @@
 				<li div='message_tab'><img src='img/ic_90_iPhone_ios7_mensajes.png'/><lang>Inbox</lang><div></div></li>
 				<li div='unknown_tab' onclick='$(".ukrule").trigger("click")'><img src='img/ic_90_iPhone_ios7_myalerts.png'/><lang>My Alerts</lang><div></div></li>
 				<li div='unknown_tab'><img src='img/ic_90_iPhone_ios7_gestion.png'/><lang>Services</lang><div></div></li>
-				<li style='border-bottom-color: darkgray !important; margin-bottom:10px;'><img src='img/ic_90_iPhone_ios7_alerts.png'/><lang>Push Center</lang><div></div></li>
-				<li><img src='img/bank.png'/><lang>Entities</lang><div></div></li>
-				<li><img src='img/ic_90_iPhone_ios7_confV2.png'/><lang>Settings</lang><div></div></li>
+				<li style='border-bottom-color: darkgray !important; margin-bottom:10px;' ><img src='img/ic_90_iPhone_ios7_alerts.png'/><lang>Push Center</lang><div></div></li>
+				<li  class='generalOp'div='entities_tab' ><img src='img/bank.png'/><lang>Entities</lang><div></div></li>
+				<li  class='generalOp'> <img src='img/ic_90_iPhone_ios7_confV2.png'/><lang>Settings</lang><div></div></li>
 				<li><img src='img/logout.png'/><lang>Log Out</lang><div></div></li>
 			
 				
@@ -596,6 +609,19 @@
 				} else {
 					rulesChanges = {};
 				}
+			}
+			
+			if($(this).hasClass('generalOp')){
+				$('.header_demo').css({"background" : "#222", "color": "white"});
+				$('.header_demo img').attr('src','img/appriz-logo-horizontal.png');
+				$('.internal_header').css({"background": "#F9A11B", "color": "white"});
+				$('.internal_header p').css({ "color": "white"});
+			
+			}else{
+				$('.header_demo').css({"background" : "#26407D", "color": "white"});
+				$('.header_demo img').attr('src','img/logo_banner.png');
+				$('.internal_header').css({"background": "#FFEA04", "color": "white"});
+				$('.internal_header p').css({ "color": "#1A73B6"});
 			}
 		//	$('.principal_menu .fa.active').removeClass('active');
 		//	$(this).addClass('active');
