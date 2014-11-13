@@ -34,7 +34,7 @@
 	</head>
 	
 	<body>
-
+<!---->
 	<div class='Loggin'>
 
 		<div class='LOGIN_FORM'>
@@ -52,7 +52,7 @@
 		 <div class="LogginTop"></div>
 		<div class="LOGIN_BOTTOM"></div>
 	
-	</div>
+	</div> 
 	<div class='logged' style='background-color: red'>
 		<div class="header_demo">
 		<span class="fa-stack fa-lg" id="menuBtn" style='cursor:pointer;'>
@@ -292,7 +292,7 @@
 			<div id='rules_div' class='view_container'></div>
 		</div>
 		
-		<div id='products' class='view' iconp="back">
+		<div id='products' class='view'>
 			<div style='width:100%;' class="internal_header"><p class='title' >hfgh</div>
 			<div id='products_div' class='view_container'>hgfhf</div>
 		</div>
@@ -332,7 +332,7 @@
 		
 			<div style=' background: #F9F9FF; padding: 12px; height: 100%;'>
 	
-			<lang style='margin:10px; margin-top:13px;  text-indent: 0;'>Please use the couple of numbers given by your entity.<lang>
+			<p><lang style='margin:10px; margin-top:13px;  text-indent: 0;'>Please use the couple of numbers given by your entity.<lang></p>
 			</br>&nbsp;
 			<br>&nbsp;
 			<lang>ID Code</lang>
@@ -342,6 +342,26 @@
 				
 				<div class="specialBtn2"><i class="fa fa-check-square-o"></i>
  Confirm Susbcription</div>
+				
+			</div>
+		
+		</div>
+		
+				<div id='settings_tab' class="view">
+			<div style='width:100%;' class="internal_header"><p class='title' > <lang>Settings</lang></p></div>
+		
+			<div style=' background: #F9F9FF; padding: 12px; height: 100%;'>
+	
+			<p><lang style='margin:10px; margin-top:13px;  text-indent: 0;'>Please use the couple of numbers given by your entity.<lang></p>
+			</br>&nbsp;
+			<br>&nbsp;
+			<lang>ID Code</lang>
+				<input placeholder="ID Code">
+				<lang>Subscription No.</lang>
+				<input placeholder="Subscription No.">
+				
+				<div class="specialBtn2"><i class="fa fa-check-square-o"></i>
+ Save Settings</div>
 				
 			</div>
 		
@@ -358,11 +378,11 @@
 		<div id='leftMenu'>
 			<ul style='background-color: white'>
 				<li div='message_tab'><img src='img/ic_90_iPhone_ios7_mensajes.png'/><lang>Inbox</lang><div></div></li>
-				<li div='unknown_tab' onclick='$(".ukrule").trigger("click")'><img src='img/ic_90_iPhone_ios7_myalerts.png'/><lang>My Alerts</lang><div></div></li>
-				<li div='unknown_tab'><img src='img/ic_90_iPhone_ios7_gestion.png'/><lang>Services</lang><div></div></li>
+				<li div='products'  eval='getProducts("rules")'><img src='img/ic_90_iPhone_ios7_myalerts.png'/><lang>My Alerts</lang><div></div></li>
+				<li div='products'  eval='getProducts("services")'><img src='img/ic_90_iPhone_ios7_gestion.png'/><lang>Services</lang><div></div></li>
 				<li style='border-bottom-color: darkgray !important; margin-bottom:10px;' ><img src='img/ic_90_iPhone_ios7_alerts.png'/><lang>Push Center</lang><div></div></li>
 				<li  class='generalOp'div='entities_tab' ><img src='img/bank.png'/><lang>Entities</lang><div></div></li>
-				<li  class='generalOp'> <img src='img/ic_90_iPhone_ios7_confV2.png'/><lang>Settings</lang><div></div></li>
+				<li  class='generalOp' div="settings_tab"> <img src='img/ic_90_iPhone_ios7_confV2.png'/><lang>Settings</lang><div></div></li>
 				<li><img src='img/logout.png'/><lang>Log Out</lang><div></div></li>
 			
 				
@@ -390,6 +410,7 @@
 	</body>
 	
 	<script>
+	
 	var pushNotification;
 	eregid = "123";
 	currentProduct = "kilomanyaroB";
@@ -409,7 +430,7 @@
 		//                                        Phonegap APPRIZ-API SDK                                                      //
 		//---------------------------------------------------------------------------------------------------------------------//
 		
-		
+	
 		function addRules(objs){
 			var toAppend = '';
 			$('#rules_div').html('');
@@ -658,6 +679,10 @@
 			}
 		//	$('.principal_menu .fa.active').removeClass('active');
 		//	$(this).addClass('active');
+		
+			
+			
+			
 			$('.view.active').hide().removeClass('active');
 			console.log('#'+$(this).attr('div'));
 			$('#'+$(this).attr('div')).show().addClass('active');
@@ -669,6 +694,7 @@
 			$('.management').hide();
 			$('#detail_msg').hide();
 			$('#leftMenu').animate({width : "0"});
+			if($(this).hasAttr('eval')){eval($(this).attr('eval')); console.log("evaluando"); $('#'+$(this).attr('div')).show();}
 		});
 		
 		
