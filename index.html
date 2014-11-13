@@ -56,10 +56,10 @@
 	</div>-->
 	<div class='logged' style='background-color: red'>
 		<div class="header_demo">
-		<span class="fa-stack fa-lg" id="menuBtn" style='cursor:pointer;'>
+		<div id="menuBtn" >
 			
-			<i class="fa fa-bars fa-stack-1x"></i>
-		</span>
+			<i class="fa fa-bars"></i>
+		</div>
 		<img src='img/logo_banner.png' style='height:36px; margin-top:10px;'></img>
 			
 		</div>
@@ -1656,7 +1656,7 @@ function onNotificationGCM(e) {
 }
 
 
-$( document ).on('tap','#menuBtn, .header_demo',function(event){
+$( document ).on('tap','#menuBtn',function(event){
 	//event.preventDefault();
 	var nw = screen.width -251;
 	$('#leftMenu').velocity({width : "250"},function(){
