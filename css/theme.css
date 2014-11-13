@@ -667,6 +667,8 @@ legend{
 	border: 0px solid gray;
 	border-right: 1px solid darkgray;
 	overflow : hidden;
+	
+	z-index:100;
 }
 
 #leftMenu ul {
@@ -869,4 +871,23 @@ bank_name{
 	text-align: center;
 	font-size: 0.8em;
 }
+
+
+
+.unikOptions div{
+	border: 1px solid #dadada;
+	padding: 8px;
+	width: calc(25% - 20px);
+	float: left;
+	
+	background: #EDEDED;
+	text-align: center;
+}
+
+.unikOptions div.active{
+	background-color:#3388CC;
+	color: white;
+}
+
+
 
