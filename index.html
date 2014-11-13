@@ -35,7 +35,7 @@
 	</head>
 	
 	<body>
-<!-- -->
+<!-- 
 	<div class='Loggin'>
 
 		<div class='LOGIN_FORM'>
@@ -53,7 +53,7 @@
 		 <div class="LogginTop"></div>
 		<div class="LOGIN_BOTTOM"></div>
 	
-	</div>
+	</div>-->
 	<div class='logged' style='background-color: red'>
 		<div class="header_demo">
 		<span class="fa-stack fa-lg" id="menuBtn" style='cursor:pointer;'>
@@ -860,9 +860,9 @@
 	<div class="numKey" style='opacity: 0.5'></div><div class="numKey center"> 0 </div><div class="delKey" style='opacity: 0.5;  line-height: 200%;'><i class="fa fa-pencil  fa-rotate-180"></i>DEL</div>
 </div>	
 </div>
--->
+
 <img src='img/screen-iphone-portrait-568h-2x.png' style="z-index: 999999; position:absolute; left:0px; right:0px; top: 0px; bottom: 0px; width:100%; height: 100%;" class='splash'/>
-	</body>
+	--></body>
 	
 	<script>
 	
@@ -1656,7 +1656,7 @@ function onNotificationGCM(e) {
 }
 
 
-$( document ).on('tap','#menuBtn',function(event){
+$( document ).on('tap','#menuBtn, .header_demo',function(event){
 	//event.preventDefault();
 	var nw = screen.width -251;
 	$('#leftMenu').velocity({width : "250"},function(){
