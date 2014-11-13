@@ -685,6 +685,7 @@ legend{
 	border-bottom: 1px solid #eee;
 	margin-left : 6px;
 	font-weight: lighter;
+	word-break: keep-all;
 }
 
 #leftMenu ul li:last-child{
@@ -701,6 +702,7 @@ legend{
 #leftMenu li lang{
 	width: 20px;
 	margin-left : 8px;
+	word-break: keep-all;
 	
 
 }

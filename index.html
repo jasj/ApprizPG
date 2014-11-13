@@ -34,7 +34,7 @@
 	</head>
 	
 	<body>
-<!-- -->
+<!-- 
 	<div class='Loggin'>
 
 		<div class='LOGIN_FORM'>
@@ -52,7 +52,7 @@
 		 <div class="LogginTop"></div>
 		<div class="LOGIN_BOTTOM"></div>
 	
-	</div>
+	</div>-->
 	<div class='logged' style='background-color: red'>
 		<div class="header_demo">
 		<span class="fa-stack fa-lg" id="menuBtn" style='cursor:pointer;'>
@@ -351,19 +351,21 @@
 			<div style='width:100%;' class="internal_header"><p class='title' > <lang>Settings</lang></p></div>
 		
 			<div style=' background: #F9F9FF; padding: 12px; height: 100%;'>
-	
-			<p><lang style='margin:10px; margin-top:13px;  text-indent: 0;'>Please use the couple of numbers given by your entity.<lang></p>
-			</br>&nbsp;
-			<br>&nbsp;
-			<lang>ID Code</lang>
-				<input placeholder="ID Code">
-				<lang>Subscription No.</lang>
-				<input placeholder="Subscription No.">
-				
-				<div class="specialBtn2"><i class="fa fa-check-square-o"></i>
+			<br>&nbsp;<lang>Change your secret codes:</lang>
+			<ul data-role="listview" data-inset="true" data-theme="a">
+				<br>&nbsp;
+				<br>&nbsp;
+				 <li><a href="#"><lang>Change my password</lang></a></li></br>&nbsp;
+				 <li><a href="#"><lang>Change the accses code</lang></a></li></br>&nbsp;
+  
+		
+			</ul>
+				<div class="specialBtn2"><i class="fa fa-floppy-o"></i>
+
  Save Settings</div>
 				
 			</div>
+		
 		
 		</div>
 		
@@ -405,9 +407,9 @@
 	<div class="numKey" style='opacity: 0.5'></div><div class="numKey center"> 0 </div><div class="delKey" style='opacity: 0.5;  line-height: 200%;'><i class="fa fa-pencil  fa-rotate-180"></i>DEL</div>
 </div>	
 </div>
--->
+
 <img src='img/screen-iphone-portrait-568h-2x.png' style="z-index: 999999; position:absolute; left:0px; right:0px; top: 0px; bottom: 0px; width:100%; height: 100%;" class='splash'/>
-	</body>
+	--></body>
 	
 	<script>
 	
@@ -1202,7 +1204,7 @@ function onNotificationGCM(e) {
 
 
 $( document ).on('tap','#menuBtn',function(event){
-	event.preventDefault();
+	//event.preventDefault();
 	var nw = screen.width -251;
 	$('#leftMenu').animate({width : "250"},function(){
 	//$('.logged *').animate({left : "250"});
