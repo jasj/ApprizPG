@@ -852,7 +852,7 @@ overflow-x: hidden;
 
 .settingList{
 
-width: calc(100% - 12px);
+width: calc(100% - 24px);
 height: calc(100% - 124px);
 overflow-y: auto;
 overflow-x: hidden;
