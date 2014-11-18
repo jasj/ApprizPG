@@ -1,6 +1,15 @@
 body{
 	overflow: hidden;
 }
+
+*{
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 .header_demo{
 	position: absolute;
 	top: 0px;
@@ -88,9 +97,30 @@ body{
 	
 	float:left;
 }
+
+
+.delete_indicator2{
+	background-color: #FF3553;
+	color: white;
+	
+	text-align: right;
+	overflow: hidden;
+	height: 86px;
+	width :0px;
+	
+	font-size: 18px;
+	line-height:78px;
+	font-weight: 900;
+	padding-right:0px;
+	
+	z-index:99;
+	
+	float:right;
+	margin-top: -87px;
+}
 .message{
 	float: top;
-	width : 100%;
+	
 	
 	border: 1px solid hsl(206, 75%, 90%);
 	
@@ -106,7 +136,15 @@ body{
 		font-family: 'PT Sans', arial, serif;
 	
 	
+	overflow: hidden;
 	
+	
+}
+
+.btnDateMsg{
+	height: 23px;
+	overflow:hidden;
+	white-space : nowrap;
 }
 
 .message img{
@@ -659,10 +697,10 @@ legend{
 
 #leftMenu{
 	position: absolute;
-	left: -1px;
+	left: -250px;
 	bottom:0px;
 	top: 0px;
-	width: 0px;
+	width: 250px;
 	background : #fbfbfb;
 	border: 0px solid gray;
 	border-right: 1px solid darkgray;
@@ -923,5 +961,91 @@ bank_name{
 	color: white;
 }
 
+
+.unSuscribeBtn{
+	position: absolute;
+	right: 0px;
+
+	height: 64px;
+	margin-top: -48px;
+	width:0px;
+	background: #A8228E;
+	color: white;
+	line-height:62px;
+	text-align: center;
+}
+
+
+.dialogAlert{
+	border: 1px solid #dadada;
+	background: #f7f7f7;
+	position: absolute;
+	left: 20px;
+	right: 20px;
+	top: 50%;
+	margin-top: -100px;
+	height: 200px;
+	
+	border-radius: 6px 6px 0px 0px;
+	z-index:999999;
+	display: none;
+	
+
+	
+}
+
+.dialogAlert .title{
+	width: calc(100% - 12px);
+	margin: 0px;
+	background: #F9A11B;
+	height: 20px;
+	border-radius: 6px 6px 0px 0px;
+	padding: 6px;
+	color: white;
+	text-align: center;
+}
+
+.dialogAlert p {
+	padding: 10px;
+	margin-top: -3px;
+}
+.dialogAlert .btnAcept  {
+	background: #A1CC3A;
+	width: 80px;
+	border-radius: 10px;
+	Height: 40px;
+	color: White;
+	line-height: 40px;
+	text-align: center;
+	margin-left: calc(50% - 85px);
+	position: absolute;
+	bottom: 10px;
+	float: left;
+}
+.dialogAlert .btnCancel {
+	background: red;
+	width: 80px;
+	border-radius: 10px;
+	Height: 40px;
+	color: White;
+	line-height: 40px;
+	text-align: center;
+	margin-left: calc(50% + 5px);
+	position: absolute;
+	bottom: 10px;
+	float: left;
+}
+
+.moldHide{
+	background: #222;
+	opacity: 0.8;
+	position: absolute;
+	top: 0px;
+	right:0px;
+	left: 0px;
+	bottom:0px;
+	z-index:999999;
+	display: none;
+}
 
 
