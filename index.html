@@ -692,6 +692,7 @@
 		
 		//NAVEGATION BAR
 		$('#leftMenu li').click(function(){
+		if ($('#leftMenu').css("left") == "0px"){
 			if(!$.isEmptyObject(rulesChanges)){
 				showAlert("Rule Changed", "Do you want to save changes?" , function(){
 					processRuleChange();
@@ -735,7 +736,7 @@
 			console.log("hide menu");
 	
 			if($(this).hasAttr('eval')){eval($(this).attr('eval')); console.log("evaluando"); $('#'+$(this).attr('div')).show();}
-		});
+		}});
 		
 		
 		
@@ -769,7 +770,7 @@
 					oneTimeSendAjax =false;
 					var msg = $(this);msg.prev().css({"width":  0});msg.next().css({"width":  0});
 					msg.css({"margin-left": 0, "margin-right" : 0});
-					if(direction=='right' & distance > 250){msg.remove(); $.jStorage.set('msg_div', btoa($('#message_div').html())); } else {msg.css({"margin-left": 0}) ;} 
+					if(direction=='right' & distance > (window.innerWidth / 2)){msg.remove(); $.jStorage.set('msg_div', btoa($('#message_div').html())); } else {msg.css({"margin-left": 0}) ;} 
 					
 				},
 				
@@ -779,7 +780,7 @@
 						msg.css({"margin-left": distance});
 						msg.prev().css({"width":  distance-1});
 						
-						if (distance< 250) {
+						if (distance< (window.innerWidth / 2)) {
 							msg.prev().css({"background-color":  "#FDC111"});
 						}else{
 							msg.prev().css({"background-color":  "#FF3553"});
