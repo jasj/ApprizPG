@@ -567,7 +567,7 @@
 				
 						var img_msg = message['type'] == 1 ? "img/ic_90_iPhone_ios7_myalerts.png"  : message['type'] == 2 ? "img/ic_90_iPhone_ios7_alerts.png" : message['type'] == 3 ? "img/ic_90_iPhone_ios7_notific.png" :  message['type'] == 4 ?  "img/ic_90_iPhone_ios7_publicidad.png" : "img/ic_90_iPhone_ios7_gestion.png";
 						var bulb =  message['type'] == 1   ? 'img/ledlightgreen.png' : message['type'] == 2   ? 'img/ledlighyellow.png' : message['type'] == 3   ? 'img/ledlightred.png' :  'img/ledlighgray.png';
-						$('#message_div').append("<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div class='message unread typemsg"+message['type']+"' id='"+message['idMessage']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"'><table style='width: 100%; vertical-align: middle !important;'><tr><td ><img src='"+img_msg+"'/></td><td><table style=' height:100%; width: 100%; margin-top: -10px;'><tr><td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>"+message['shortMessage']+"</div></td></tr><tr><td class='btnDateMsg'><img class='bulb' src='"+bulb+"' style='width:12px; height:12px; margin-left: 0px;'/>&nbsp;<i class='fa fa-calendar'></i> 2014-12-02</td></tr></table></td><td style='width:0px;'><i class='fa fa-chevron-right'>&nbsp;</i></td></td></tr></table></div><div class='delete_indicator2'>Delete&nbsp;&nbsp; </div>");
+						$('#message_div').append("<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div class='message unread typemsg"+message['type']+"' id='"+message['idMessage']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"'><table style='width: 100%; vertical-align: middle !important;'><tr><td ><img src='"+img_msg+"'/></td><td><table style=' height:100%; width: 100%; margin-top: -10px;'><tr><td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>"+message['shortMessage']+"</div></td></tr><tr><td class='btnDateMsg'><img class='bulb' src='"+bulb+"' style='width:12px; height:12px; margin-left: 0px;'/>&nbsp;<i class='fa fa-calendar'></i>2014-12-02 16:34:12</td></tr></table></td><td style='width:0px;'><i class='fa fa-chevron-right'>&nbsp;</i></td></td></tr></table></div><div class='delete_indicator2'>Delete&nbsp;&nbsp; </div>");
 						
 						$.jStorage.set('msg_div', btoa($('#message_div').html()));
 						makeSwipe();
@@ -782,21 +782,21 @@
 					oneTimeSendAjax =false;
 					var msg = $(this);msg.prev().css({"width":  0});msg.next().css({"width":  0});
 					msg.css({"margin-left": 0, "margin-right" : 0});
-					if(direction=='right' & distance > (window.innerWidth / 2)){msg.remove(); $.jStorage.set('msg_div', btoa($('#message_div').html())); } else {msg.css({"margin-left": 0}) ;} 
+					if(direction=='left' & distance > (window.innerWidth / 2)){msg.remove(); $.jStorage.set('msg_div', btoa($('#message_div').html())); } else {msg.css({"margin-left": 0}) ;} 
 					
 				},
 				
 				swipeStatus:function(event, phase, direction, distance , duration , fingerCount) {
 					var msg = $(this);
 					if(direction=='right'){
-						msg.css({"margin-left": distance});
+					/*	msg.css({"margin-left": distance});
 						msg.prev().css({"width":  distance-1});
 						
 						if (distance< (window.innerWidth / 2)) {
 							msg.prev().css({"background-color":  "#FDC111"});
 						}else{
 							msg.prev().css({"background-color":  "#FF3553"});
-						}
+						}*/
 					}else if(direction=='left'){
 						msg.css({"margin-right": distance});
 						msg.next().css({"width":  distance-1});
@@ -1420,6 +1420,10 @@ $('#Suscri .specialBtn2').tap(function(){
 	
 });
 
+
+$(".eagle").tap(function(){
+	
+});
 
 
 </script>
