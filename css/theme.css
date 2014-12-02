@@ -250,12 +250,12 @@ color: black!important;
 }
 
 
-.iconp{
+.iconBtn{
 	position: absolute;
-	top: 10px;
-	left: 15px;
+	top: 20px;
+	left: 20px;
 	color: white;
-	font-size: 32px;
+	font-size: 20px;
 	
 	display : hidden;	
 }
@@ -934,14 +934,18 @@ bank_name{
 	height: 25px;
 	position: absolute;
 	right: 20px;
-	margin-top: -30px;
+	margin-top: -27px;
+	text-align: center;
+	
 }
 
 .badgeNumber div{
-	margin-top:13px;
-	width: 100%;
-	text-align: center;
-	font-size: 0.8em;
+	margin-top: 13px;
+width: 100%;
+text-align: center;
+font-size: 0.6em;
+height: 10px;
+line-height: 0px;
 }
 
 
@@ -1048,4 +1052,23 @@ bank_name{
 	display: none;
 }
 
+.msgnum{
+border-radius: 360px;
+padding: 3px;
+position: relative;
+left: 30px;
+top: -35px;
+font-size: 8px;
+width: 10px;
+height: 10px;
+text-align: center;
+}
+
+.msgnum.withnum{
+border: 1px solid #DADADA;
+}
+.msgnums{
+	position: relative;
+	top:-10px;
+}
 

@@ -1,0 +1,20 @@
+FODA:
+
+     -Fortaleza:
+              * Parte del equipo tiene la visión de innovar.
+              * La relación con los clientes es buena, se intenta resolverles mucha  a la medida
+              *Variedad de productos entorno a una mima línea ( Sentinel Prev, C&R,Informer)
+
+      -Oportunidades:
+              * Sentinel tiene aún mucho donde crecer, poder ofrecer características de los productos más caros, sin llegar a costar lo que estos cuestan, lo cual implicaría una ventaja competitiva excelente.
+              * Clientes fielesa los que se les puede vender mas servicios y productos 
+
+-	Debilidades:
+•	El proceso de capacitación carece de formación en el puesto de trabajo. Colaboradores nuevos empiezan a trabajar desde un inicio sin dominar lo que hacen y sin tiempo para lograrlo, ejemplos en desarrollo, implementación y soporte
+•	Resistencia al cambio
+•	Uso de desarrollo subcontratado por trabajos y no bajo “flat rate”
+•	Producto viejo que ya clientes importantes para la empresa se han quejado del rendimiento
+
+     -Amenazas
+          *La competencia regional es muy fuerte, y la cantidad de instituciones bancarias es limitada,
+          *La competencia utiliza tecnologías más eficaces para la detección de fraude.
