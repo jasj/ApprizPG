@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--meta name="viewport" content="width=device-width, initial-scale=1"--->
 		
 		 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
@@ -788,6 +788,7 @@
 				   if((phase === $.fn.swipe.phases.PHASE_END || phase === $.fn.swipe.phases.PHASE_CANCEL )& distance == 0)  {
 						//read message
 						$(this).removeClass('unread');
+						counterByMsg()
 						$.jStorage.set('msg_div', btoa($('#message_div').html()));
 						$("#shortMSG").html($(this).find('td').eq(1).find('div').html());
 						$("#longMSG").html($(this).attr('longMSG'));
