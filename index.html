@@ -782,8 +782,12 @@
 					oneTimeSendAjax =false;
 					var msg = $(this);msg.prev().css({"width":  0});msg.next().css({"width":  0});
 					msg.css({"margin-left": 0, "margin-right" : 0});
-					if(direction=='left' & distance > (window.innerWidth / 2)){msg.remove(); $.jStorage.set('msg_div', btoa($('#message_div').html())); } else {msg.css({"margin-left": 0}) ;} 
-					
+					showAlert("Delete Message","Are you sure that you want to delete this message?",function(){
+						if(direction=='left' & distance > (window.innerWidth / 2)){msg.remove(); $.jStorage.set('msg_div', btoa($('#message_div').html())); } else {msg.css({"margin-left": 0}) ;} 
+						$('.moldHide, .dialogAlert').hide();
+					}else{
+						$('.moldHide, .dialogAlert').hide();
+					}
 				},
 				
 				swipeStatus:function(event, phase, direction, distance , duration , fingerCount) {
@@ -800,7 +804,7 @@
 					}else if(direction=='left'){
 						msg.css({"margin-right": distance});
 						msg.next().css({"width":  distance-1});
-						if (distance< 250) {
+						if (distance< (window.innerWidth / 2)) {
 							msg.next().css({"background-color":  "#FDC111"});
 						}else{
 							msg.next().css({"background-color":  "#FF3553"});
