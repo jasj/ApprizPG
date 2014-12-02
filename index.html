@@ -358,9 +358,9 @@
 	<div class="numKey" style='opacity: 0.5'></div><div class="numKey center"> 0 </div><div class="delKey" style='opacity: 0.5;  line-height: 200%;'><i class="fa fa-pencil  fa-rotate-180"></i>DEL</div>
 </div>	
 </div>
--->
+
 <img src='img/screen-iphone-portrait-568h-2x.png' style="z-index: 999999; position:absolute; left:0px; right:0px; top: 0px; bottom: 0px; width:100%; height: 100%;" class='splash'/>
-	</body>
+	--></body>
 	
 	<script>
 	
@@ -741,6 +741,8 @@
 		//swip for delete message & scroll 
 		var oneTimeSendAjax = false;
 		function makeSwipe(){
+		
+			$(".message").width(indow.innerWidth);
 			$(".message").swipe( {
 				
 				//Generic swipe handler for all directions
@@ -1029,7 +1031,7 @@
 			//alert(screen.height);
 			 window.setTimeout(function() {
 					navigator.splashscreen.hide();
-			$('.splash').fadeOut(1000,function(){
+			$('.splash').fadeOut(2000,function(){
 				var heightEnd = Math.floor(window.innerHeight /2)-120;
 				$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
 				$( '.LOGIN_BOTTOM , .LogginTop').velocity({"height" : 0},1000); 
