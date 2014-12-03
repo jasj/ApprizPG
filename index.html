@@ -782,11 +782,24 @@
 					oneTimeSendAjax =false;
 					var msg = $(this);msg.prev().css({"width":  0});msg.next().css({"width":  0});
 					msg.css({"margin-left": 0, "margin-right" : 0});
-					showAlert("Delete Message","Are you sure that you want to delete this message?",function(){
-						if(direction=='left' & distance > (window.innerWidth / 2)){msg.remove(); $.jStorage.set('msg_div', btoa($('#message_div').html())); } else {msg.css({"margin-left": 0}) ;} 
-						$('.moldHide, .dialogAlert').hide();
-					}else{
-						$('.moldHide, .dialogAlert').hide();
+					
+					if(direction=='left' & distance > (window.innerWidth / 2)){
+						showAlert("Delete Message","Are you sure that you want to delete this message?",
+						function(){
+								msg.remove();
+								$.jStorage.set('msg_div', btoa($('#message_div').html())); 
+								$('.moldHide, .dialogAlert').hide();
+						},
+						function(){
+								$('.moldHide, .dialogAlert').hide();
+						});
+					
+						
+					
+					}else {
+						msg.css({"margin-right": 0}) ;
+					
+				
 					}
 				},
 				
@@ -1082,6 +1095,7 @@
 				});
 		
 			};
+			});
 		
 			 var element = document.getElementById('deviceProperties');
         element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
