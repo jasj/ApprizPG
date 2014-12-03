@@ -1250,7 +1250,23 @@ $( document ).ready(function() {
 });	
 
 $(document).on("tap",".login_btn",function(){
-	$(".Loggin").hide();
+		$.post('http://'+IP+':8089/appriz/login',{
+			"email" : $('.LOGIN_FORM #email').val(),
+			"password": $('.LOGIN_FORM #password').val(),
+			"phone": device,
+			"os": device.model,
+			"pushKey": device.uuid
+		},function(data){
+		if(data["status"] == 200){
+			$(".Loggin").hide();
+			idScretClient = data["idSecretClient"];
+		}else{
+			alert("Wrong credentials");
+		}
+		
+
+		
+	});
 });
 
 
@@ -1393,7 +1409,7 @@ $('#FirstState_tab .specialBtn2').tap(function(){
 					phoneDevice : "",
 					so 			: "",
 					pushKey		: "",
-					uuid		: ""
+					uuid		: device.uuid
 				},function(data){
 					$.jStorage.set('idSecretClient', data['idSecretClient']);
 					idScretClient = data['idSecretClient'];
