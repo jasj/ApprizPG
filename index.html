@@ -1066,15 +1066,22 @@
     function onDeviceReady() {
 		try{
 			//alert(screen.height);
-			 window.setTimeout(function() {
-					navigator.splashscreen.hide();
-			$('.splash').fadeOut(2000,function(){
-				var heightEnd = Math.floor(window.innerHeight /2)-120;
-				$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
-				$( '.LOGIN_BOTTOM , .LogginTop').velocity({"height" : 0},1000); 
-			});
+		//	 window.setTimeout(
+			$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey: device.uuid },function(data) {
+						if("idSecretClient" in data ){
+								navigator.splashscreen.hide();
+								$('.Loggin').hide();
+								idScretClient = data["idScretClient"];
+								
+						}else{
+							navigator.splashscreen.hide();
+							$('.splash').fadeOut(1000,function(){
+							var heightEnd = Math.floor(window.innerHeight /2)-120;
+							$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
+							$( '.LOGIN_BOTTOM , .LogginTop').velocity({"height" : 0},1000); 
+				});
 		
-    }, 1000);
+			};
 		
 			 var element = document.getElementById('deviceProperties');
         element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
