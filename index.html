@@ -48,7 +48,7 @@
 			<input type="password" placeholder="Password" />
 
 			
-			<br> <lang class='eagle'>Are you new Appriz User?</lang><div  class='login_btn'>Login</div>
+			<br> <lang class='eagle'><a>Are you new Appriz User?</a></lang><div  class='login_btn'>Login</div>
 		</div>
 		 <div class="LogginTop"></div>
 		<div class="LOGIN_BOTTOM"></div>
@@ -1401,6 +1401,7 @@ $('#FirstState_tab .specialBtn2').tap(function(){
 					showAlert('Appriz User Created','Your user was created, do you want to suscribe to an entity now?',
 					function(){
 						$('.moldHide, .dialogAlert').hide();
+							$('#menuBtn').show();
 					},
 					function(){
 						$('.moldHide, .dialogAlert').hide();
@@ -1446,7 +1447,8 @@ $('#Suscri .specialBtn2').tap(function(){
 });
 
 
-$(".eagle").tap(function(){
+$(".eagle a").tap(function(){
+	$('#menuBtn').hide();
 	$('#FirstState_tab').show();
 });
 
