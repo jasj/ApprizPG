@@ -1250,24 +1250,19 @@ $( document ).ready(function() {
 });	
 
 $(document).on("tap",".login_btn",function(){
-alert("hola");
 		$.post('http://'+IP+':8089/appriz/login',{
-			"email" : $('.LOGIN_FORM #email').val(),
-			"password": $('.LOGIN_FORM #password').val(),
+			"email" : $('.LOGIN_FORM input').eq(0).val(),
+			"password":$('.LOGIN_FORM input').eq(1).val(),
 			"phone": device.model,
 			"os": device.platform,
 			"pushKey": device.uuid
 		},function(data){
-		if(data["status"] == 200){
-			$(".Loggin").hide();
-			idScretClient = data["idSecretClient"];
-			alert("hola");
-		}else{
-			alert("Wrong credentials");
-		}
-		
-
-		
+			if(data["status"] == 200){
+				$(".Loggin").hide();
+				idScretClient = data["idSecretClient"];
+			}else{
+				alert("Wrong credentials");
+			}	
 	}) .fail(function() {
 alert( "error" );
 });
