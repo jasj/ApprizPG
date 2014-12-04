@@ -1254,8 +1254,8 @@ alert("hola");
 		$.post('http://'+IP+':8089/appriz/login',{
 			"email" : $('.LOGIN_FORM #email').val(),
 			"password": $('.LOGIN_FORM #password').val(),
-			"phone": device,
-			"os": device.model,
+			"phone": device.model,
+			"os": device.platform,
 			"pushKey": device.uuid
 		},function(data){
 		if(data["status"] == 200){
