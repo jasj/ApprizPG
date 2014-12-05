@@ -225,10 +225,7 @@
 				
 				<div class="entityList">
 					<ul>
-						<li><img src="img/logo-bagricola-es.png" /><bank_name>Bancolombia</bank_name><div class="badgeNumber"><div>52</div></div></li>
-						<li><img src="img/santander.png" /><bank_name>Banco Santander</bank_name></li>
-						<li><img src="img/logo-btrabajadores.png" /><bank_name>Banco de los Trabajadores</bank_name><div class="badgeNumber"><div>5</div></div><div class='unSuscribeBtn'><lang>Unsubscribe</lang></div></li>
-						<li><img src="img/logo-banesco.png" /><bank_name>Banesco</bank_name></li>
+						
 					</ul>
 				</div>
 				
@@ -511,7 +508,7 @@
 		function reloadEntities(){
 			$.post('http://'+IP+':8089/appriz/getCustomerEntities',{"idSecretClient": idScretClient},function(data){
 				data.forEach(function(entity){
-					$('.entityList ul').append('<li><img src="https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(entity["entityID"],4)+'/Advertising/Logos/TM0004_Perfil_06_LG.png?ver=1.0" /><bank_name>'+entity["entityName"]+'</bank_name><div class="badgeNumber"></div><div class="unSuscribeBtn"><lang>Unsubscribe</lang></div></li>');
+					$('.entityList ul').append('<li id="entity_'+entity["entityID"]+'"><img src="https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(entity["entityID"],4)+'/Advertising/Logos/TM0004_Perfil_06_LG.png?ver=1.0" /><bank_name>'+entity["entityName"]+'</bank_name><div class="badgeNumber"></div><div class="unSuscribeBtn"><lang>Unsubscribe</lang></div></li>');
 				});
 				console.log(JSON.stringify(data));
 			});
