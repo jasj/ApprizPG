@@ -545,6 +545,7 @@
 				console.log(JSON.stringify(data));
 				$.each(data,function(index, message){
 					if($('#'+message['idMessage']).length > 0){ 
+						makeSwipe(message['idMessage']);
 						if(message['state'] == 3){
 							$('#'+message['idMessage']).removeClass('unread')
 						}
@@ -1081,7 +1082,7 @@
 		//	 window.setTimeout(
 			$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey: device.uuid },function(data) {
 						if("idSecretClient" in data ){
-								navigator.splashscreen.hide();
+							//	navigator.splashscreen.hide();
 								$('.Loggin').hide();
 								idScretClient = data["idSecretClient"];
 								$.jStorage.set('idSecretClient', data['idSecretClient']);
@@ -1091,7 +1092,7 @@
 								
 								
 						}else{
-							navigator.splashscreen.hide();
+							//navigator.splashscreen.hide();
 							$('.splash').fadeOut(1000,function(){
 							var heightEnd = Math.floor(window.innerHeight /2)-120;
 							$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
