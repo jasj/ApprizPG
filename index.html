@@ -35,7 +35,7 @@
 	</head>
 	
 	<body>
-<!-- -->
+<!-- 
 	<div class='Loggin'>
 
 		<div class='LOGIN_FORM'>
@@ -53,7 +53,7 @@
 		 <div class="LogginTop"></div>
 		<div class="LOGIN_BOTTOM"></div>
 	
-	</div>
+	</div>-->
 	<div class='logged' style='background-color: red'>
 		<div class="header_demo">
 		<div id="menuBtn" >
@@ -1079,7 +1079,7 @@
 		//	 window.setTimeout(
 			$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey: device.uuid },function(data) {
 						if("idSecretClient" in data ){
-								navigator.splashscreen.hide();
+							
 								$('.Loggin').hide();
 								idScretClient = data["idSecretClient"];
 								$.jStorage.set('idSecretClient', data['idSecretClient']);
@@ -1087,7 +1087,7 @@
 								
 								
 						}else{
-							navigator.splashscreen.hide();
+							
 							$('.splash').fadeOut(1000,function(){
 							var heightEnd = Math.floor(window.innerHeight /2)-120;
 							$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
@@ -1478,6 +1478,11 @@ $(".eagle").tap(function(){
 	$('.Loggin').hide();
 	
 	
+});
+
+
+jQuery(window).load(function() {
+	navigator.splashscreen.hide();
 });
 
 
