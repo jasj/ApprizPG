@@ -514,7 +514,7 @@
 			});
 			
 		}
-		reloadEntities();
+		
 		function BindClient(identification,firstName,lastName,uuid,regId,products){
 			
 			$.post('http://'+IP+':8089/appriz/bindClient',{"identification": identification,"firstName":firstName,"lastName":lastName,"uuid":uuid,"regId" :regId,"products":products,secretKey:secretKey},function(data){
@@ -1086,6 +1086,7 @@
 								$('.splash').fadeOut(1000,function(){});
 								 getValidTimePeriods();
 								 callNewMSG();
+								 reloadEntities();
 								
 								
 						}else{
@@ -1266,6 +1267,7 @@ $(document).on("tap",".login_btn",function(){
 				
 				 getValidTimePeriods();
 				callNewMSG();
+				reloadEntities();
 			}else{
 				alert("Wrong credentials");
 			}	
