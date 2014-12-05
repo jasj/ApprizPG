@@ -35,7 +35,7 @@
 	</head>
 	
 	<body>
-<!-- 
+<!-- -->
 	<div class='Loggin'>
 
 		<div class='LOGIN_FORM'>
@@ -53,7 +53,7 @@
 		 <div class="LogginTop"></div>
 		<div class="LOGIN_BOTTOM"></div>
 	
-	</div>-->
+	</div>
 	<div class='logged' style='background-color: red'>
 		<div class="header_demo">
 		<div id="menuBtn" >
@@ -79,21 +79,49 @@
 			<div class='view_toolbox'>
 			<table width='100%'>
 				<tr>
-				<td><img src='img/ic_90_iPhone_ios7_myalerts.png'/><div class='msgnum '></div></td>
-				<td><img src='img/ic_90_iPhone_ios7_alerts.png' /><div class='msgnum'></div></td>
-				<td><img src='img/ic_90_iPhone_ios7_notific.png'/><div class='msgnum '></div></td>
-				<td><img src='img/ic_90_iPhone_ios7_publicidad.png'/><div class='msgnum'></div></td>
-				<td><img src='img/ic_90_iPhone_ios7_gestion.png'/><div class='msgnum'></div></td>
+				<td><img src='img/ic_90_iPhone_ios7_myalerts.png'/><div class='msgnum '>7<div></td>
+				<td><img src='img/ic_90_iPhone_ios7_alerts.png' /><div class='msgnum'><div></td>
+				<td><img src='img/ic_90_iPhone_ios7_notific.png'/><div class='msgnum '>72<div></td>
+				<td><img src='img/ic_90_iPhone_ios7_publicidad.png'/><div class='msgnum'><div></td>
+				<td><img src='img/ic_90_iPhone_ios7_gestion.png'/><div class='msgnum'><div></td>
 			</tr>
 			
 			</table>
-		</div>
+			</div>
 			<div class='refreshing_list'><i class="fa fa-spinner fa-spin"></i> Refreshing ...</div>
-			<div id='message_div_r' class='view_container'>
+			<div id='message_div' class='view_container'>
 			
-			<iframe id='message_frame'>
-			</iframe>
-		
+<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div  class='message unread' id='idMessage' longMSG='longMessage' services='' appends=''>
+				<table style='width: 100%; vertical-align: middle !important;'>
+					<tr>
+						<td >
+							<img src='img/ic_90_iPhone_ios7_publicidad.png'/>
+						</td>
+						
+						<td>
+							<table style=' height:100%; width: 100%; margin-top: -10px;'>
+								<tr>
+									<td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>
+											Muestra de un texto largo, este texto de carácter enorme 
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class='btnDateMsg'>
+										<img src='img/ledlighgray.png' style='width:12px; height:12px; margin-left: 0px;'/>&nbsp;<i class='fa fa-calendar'></i> 2014-10-09 16:34:12 
+									</td>
+								</tr>
+							</table>
+						</td>
+						
+						<td style="width:0px;">
+							<i class="fa fa-chevron-right">&nbsp;</i>
+						</td>
+						</td>
+						
+					</tr>
+				</table>
+	</div><div class='delete_indicator2'>Delete&nbsp;&nbsp; </div>
 			</div>
 			
 
@@ -362,9 +390,9 @@
 	<div class="numKey" style='opacity: 0.5'></div><div class="numKey center"> 0 </div><div class="delKey" style='opacity: 0.5;  line-height: 200%;'><i class="fa fa-pencil  fa-rotate-180"></i>DEL</div>
 </div>	
 </div>
-
+-->
 <img src='img/screen-iphone-portrait-568h-2x.png' style="z-index: 999999; position:absolute; left:0px; right:0px; top: 0px; bottom: 0px; width:100%; height: 100%;" class='splash'/>
--->	</body>
+	</body>
 	
 	<script>
 	
@@ -539,11 +567,10 @@
 				
 						var img_msg = message['type'] == 1 ? "img/ic_90_iPhone_ios7_myalerts.png"  : message['type'] == 2 ? "img/ic_90_iPhone_ios7_alerts.png" : message['type'] == 3 ? "img/ic_90_iPhone_ios7_notific.png" :  message['type'] == 4 ?  "img/ic_90_iPhone_ios7_publicidad.png" : "img/ic_90_iPhone_ios7_gestion.png";
 						var bulb =  message['type'] == 1   ? 'img/ledlightgreen.png' : message['type'] == 2   ? 'img/ledlighyellow.png' : message['type'] == 3   ? 'img/ledlightred.png' :  'img/ledlighgray.png';
-						$('#message_frame').contents().find('head').html('<link rel="stylesheet" type="text/css" href="css/theme.css"><link rel="stylesheet" type="text/css" href="css/scrollz.css"><link rel="stylesheet" type="text/css" href="css/jquery.mobile.min.css"><link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">');
-						$('#message_frame').contents().find('body').append("<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div class='message unread typemsg"+message['type']+"' id='"+message['idMessage']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"'><table style='width: 100%; vertical-align: middle !important;'><tr><td ><img src='"+img_msg+"'/></td><td><table style=' height:100%; width: 100%; margin-top: -10px;'><tr><td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>"+message['shortMessage']+"</div></td></tr><tr><td class='btnDateMsg'><img class='bulb' src='"+bulb+"' style='width:12px; height:12px; margin-left: 0px;'/>&nbsp;<i class='fa fa-calendar'></i>2014-12-02 16:34:12</td></tr></table></td><td style='width:0px;'><i class='fa fa-chevron-right'>&nbsp;</i></td></td></tr></table></div><div class='delete_indicator2'>Delete&nbsp;&nbsp; </div>");
+						$('#message_div').append("<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div class='message unread typemsg"+message['type']+"' id='"+message['idMessage']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"'><table style='width: 100%; vertical-align: middle !important;'><tr><td ><img src='"+img_msg+"'/></td><td><table style=' height:100%; width: 100%; margin-top: -10px;'><tr><td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>"+message['shortMessage']+"</div></td></tr><tr><td class='btnDateMsg'><img class='bulb' src='"+bulb+"' style='width:12px; height:12px; margin-left: 0px;'/>&nbsp;<i class='fa fa-calendar'></i>2014-12-02 16:34:12</td></tr></table></td><td style='width:0px;'><i class='fa fa-chevron-right'>&nbsp;</i></td></td></tr></table></div><div class='delete_indicator2'>Delete&nbsp;&nbsp; </div>");
 						
 						$.jStorage.set('msg_div', btoa($('#message_div').html()));
-						makeSwipe();
+						makeSwipe(message['idMessage']);
 						console.log(JSON.stringify(data));
 					}
 					}
@@ -554,7 +581,7 @@
 					$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').hide(1000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
 			
 				//alert( JSON.stringify(e));getRules(kilomanyaroB)
-			}).done(function(){makeSwipe(); $('.refreshing_list').hide(); });
+			}).done(function(){ $('.refreshing_list').hide(); });
 		}
 		
 		function getRules(productName){
@@ -567,7 +594,7 @@
 			},'json') .fail(function(e) {
 				//	alert("conexion error!");
 				//alert( JSON.stringify(e));
-			}).done(function(){makeSwipe(); $('.refreshing_list').hide(); });
+			}).done(function(){$('.refreshing_list').hide(); });
 			
 		}
 		
@@ -582,7 +609,7 @@
 			},'json') .fail(function(e) {
 				//	alert("conexion error!");
 				//alert( JSON.stringify(e));
-			}).done(function(){makeSwipe(); $('.refreshing_list').hide(); });
+			}).done(function(){ $('.refreshing_list').hide(); });
 			
 		}
 		
@@ -627,6 +654,7 @@
 			}).done(function(){});
 			
 		}
+		
 		
 		function processRuleChange(){
 			 var tmp_ruleChange = [];
@@ -745,10 +773,9 @@
 		});
 		//swip for delete message & scroll 
 		var oneTimeSendAjax = false;
-		function makeSwipe(){
+		function makeSwipe(id){
 		
-			
-		$('#message_frame').contents().find('body .message').swipe( {
+			$("#"+id+".message").swipe( {
 				
 				//Generic swipe handler for all directions
 				swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
@@ -1033,7 +1060,9 @@
 	});
 	
 	
+	
 
+	
 	
 	
 	//sphone bring
@@ -1052,7 +1081,7 @@
 		//	 window.setTimeout(
 			$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey: device.uuid },function(data) {
 						if("idSecretClient" in data ){
-							
+								navigator.splashscreen.hide();
 								$('.Loggin').hide();
 								idScretClient = data["idSecretClient"];
 								$.jStorage.set('idSecretClient', data['idSecretClient']);
@@ -1060,7 +1089,7 @@
 								
 								
 						}else{
-							
+							navigator.splashscreen.hide();
 							$('.splash').fadeOut(1000,function(){
 							var heightEnd = Math.floor(window.innerHeight /2)-120;
 							$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
@@ -1234,12 +1263,12 @@ $(document).on("tap",".login_btn",function(){
 				$(".Loggin").hide();
 				idScretClient = data["idSecretClient"];
 				$.jStorage.set('idSecretClient', data['idSecretClient']);
+				
+				 getValidTimePeriods();
+				callNewMSG();
 			}else{
 				alert("Wrong credentials");
 			}	
-			
-	
-	
 	}) .fail(function() {
 alert( "error" );
 });
@@ -1451,18 +1480,9 @@ $(".eagle").tap(function(){
 	
 });
 
-
-jQuery(window).load(function() {
-
-$('#message_frame').height(window.innerHeight   - 135 - $('.banner').height());
-	navigator.splashscreen.hide();
-	
-	
+$('#banner').load(function() {
+navigator.splashscreen.hide();
 });
-
-getValidTimePeriods();
-	callNewMSG();
-	makeSwipe();
 
 
 </script>
