@@ -1086,6 +1086,8 @@
 								idScretClient = data["idSecretClient"];
 								$.jStorage.set('idSecretClient', data['idSecretClient']);
 								$('.splash').fadeOut(1000,function(){});
+								 getValidTimePeriods();
+								 callNewMSG();
 								
 								
 						}else{
