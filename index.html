@@ -1084,8 +1084,10 @@
 						if("idSecretClient" in data ){
 								navigator.splashscreen.hide();
 								$('.Loggin').hide();
-								idScretClient = data["idScretClient"];
+								idScretClient = data["idSecretClient"];
+								$.jStorage.set('idSecretClient', data['idSecretClient']);
 								$('.splash').fadeOut(1000,function(){});
+								
 								
 						}else{
 							navigator.splashscreen.hide();
@@ -1261,6 +1263,7 @@ $(document).on("tap",".login_btn",function(){
 			if(data["status"] == 200){
 				$(".Loggin").hide();
 				idScretClient = data["idSecretClient"];
+				$.jStorage.set('idSecretClient', data['idSecretClient']);
 			}else{
 				alert("Wrong credentials");
 			}	
