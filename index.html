@@ -355,7 +355,7 @@
 	<div class='moldHide'></div>
 		<div class='dialogAlert'>
 			<div class='title'>Example</div>
-			<p align='justify'>Bla blablba lbalb albl albnal kdjasdlakj dklasdklas kldhaskldna kdjaskld kjkldas kldjaskldj kldjasl</p>
+			<p align='justify'></p>
 			<div class= 'btnAcept' ><lang>Yes</lang></div><div class= 'btnCancel' ><lang>No</lang></div>
 		</div>
 	
@@ -1060,10 +1060,7 @@
 	});
 	
 	
-	getValidTimePeriods();
-	callNewMSG();
-	makeSwipe();
-	
+
 	
 	
 	//sphone bring
@@ -1267,6 +1264,11 @@ $(document).on("tap",".login_btn",function(){
 			}else{
 				alert("Wrong credentials");
 			}	
+			
+	getValidTimePeriods();
+	callNewMSG();
+	makeSwipe();
+	
 	}) .fail(function() {
 alert( "error" );
 });
