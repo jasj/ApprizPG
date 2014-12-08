@@ -9,7 +9,7 @@
 
 		<link rel="stylesheet" type="text/css" href="css/theme.css">
 		<link rel="stylesheet" type="text/css" href="css/scrollz.css">
-		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.min.css">
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.min.css" typeCss='bank'>
 		<link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">
 		
 		
@@ -70,7 +70,7 @@
 		
 		<div id='products' class='view'>
 			<div style='width:100%;' class="internal_header"><p class='title' >hfgh</div>
-			<div id='products_div' class='view_container'>hgfhf</div>
+			<div id='products_div' class='view_container'><lang>Loading products</lang>...</div>
 		</div>
 		
 		
@@ -508,7 +508,7 @@
 		function reloadEntities(){
 			$.post('http://'+IP+':8089/appriz/getCustomerEntities',{"idSecretClient": idScretClient},function(data){
 				data.forEach(function(entity){
-					$('.entityList ul').append('<li id="entity_'+entity["entityID"]+'"><img src="https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(entity["entityID"],4)+'/Advertising/Logos/TM0004_Perfil_06_LG.png?ver=1.0" /><bank_name>'+entity["entityName"]+'</bank_name><div class="badgeNumber"></div><div class="unSuscribeBtn"><lang>Unsubscribe</lang></div></li>');
+					$('.entityList ul').append('<li id="entity_'+entity["entityID"]+'" entityId="'+entity["entityID"]+'"><img src="https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(entity["entityID"],4)+'/Advertising/Logos/TM0004_Perfil_06_LG.png?ver=1.0" /><bank_name>'+entity["entityName"]+'</bank_name><div class="badgeNumber"></div><div class="unSuscribeBtn"><lang>Unsubscribe</lang></div></li>');
 					addDeleteButtonEntityList("entity_"+entity["entityID"]);
 				});
 				console.log(JSON.stringify(data));
@@ -704,10 +704,11 @@
 				$('.internal_header p').css({ "color": "white"});
 			
 			}else{
-				$('.header_demo').css({"background" : "#26407D", "color": "white"});
-				$('.header_demo img').attr('src','img/logo_banner.png');
-				$('.internal_header').css({"background": "#FFEA04", "color": "white"});
-				$('.internal_header p').css({ "color": "#1A73B6"});
+				$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/0001/CSS/theme.css');
+			//	$('.header_demo').css({"background" : "#26407D", "color": "white"});
+			//	$('.header_demo img').attr('src','img/logo_banner.png');
+			//	$('.internal_header').css({"background": "#FFEA04", "color": "white"});
+			//	$('.internal_header p').css({ "color": "#1A73B6"});
 			}
 		//	$('.principal_menu .fa.active').removeClass('active');
 		//	$(this).addClass('active');
