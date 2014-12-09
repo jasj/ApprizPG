@@ -402,7 +402,6 @@
 		}
 		
 		function logOut(){
-			alert('sd');
 			$.post('http://'+IP+':8089/appriz/logout', {"logId" : logId}, function(){
 			$.jStorage.flush();
 			$('.Loggin').show();
@@ -1270,6 +1269,11 @@ $(document).on("tap",".login_btn",function(){
 				 getValidTimePeriods();
 				callNewMSG();
 				reloadEntities();
+				currentEntityID  = $('#entityList li').eq(0).attr("entityId");
+				lastCSS = 2;
+				$.jStorage.set('currentEntityID', currentEntityID);
+								$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
+								$('.header_demo img').attr('src','img/logo_banner.png');
 			}else{
 				alert("Wrong credentials");
 			}	
