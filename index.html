@@ -91,38 +91,6 @@
 			</div>
 			<div class='refreshing_list'><i class="fa fa-spinner fa-spin"></i> Refreshing ...</div>
 			<div id='message_div' class='view_container'>
-			
-<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div  class='message unread' id='idMessage' longMSG='longMessage' services='' appends=''>
-				<table style='width: 100%; vertical-align: middle !important;'>
-					<tr>
-						<td >
-							<img src='img/ic_90_iPhone_ios7_publicidad.png'/>
-						</td>
-						
-						<td>
-							<table style=' height:100%; width: 100%; margin-top: -10px;'>
-								<tr>
-									<td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>
-											Muestra de un texto largo, este texto de carácter enorme 
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class='btnDateMsg'>
-										<img src='img/ledlighgray.png' style='width:12px; height:12px; margin-left: 0px;'/>&nbsp;<i class='fa fa-calendar'></i> 2014-10-09 16:34:12 
-									</td>
-								</tr>
-							</table>
-						</td>
-						
-						<td style="width:0px;">
-							<i class="fa fa-chevron-right">&nbsp;</i>
-						</td>
-						</td>
-						
-					</tr>
-				</table>
-	</div><div class='delete_indicator2'>Delete&nbsp;&nbsp; </div>
 			</div>
 			
 
@@ -401,6 +369,7 @@
 	var secretKey = '53E9DD3F-3891-476B-B0BD-039E4CE87C79';
 	var idScretClient = 'rtLtgs9/+XnHhJy/RFq+xTg+KnP2B9OjFaUqKaiU3rYjRjff1kcAxW1veBwboz2Vc5T28vvUXTi5nUes4asHoNJbQsbc7zLNAHirrI8ra6xMnU4bhF8wkDeqBOHmWiomcn/UY858wEYAl+/Dpz53L2qHT9pU7Q+EVSTovgYogJ66WoNt7CoDkfh7zrb9vJZq7ojqskhVA6LUi9O4BhiI3Q==';
 	rulesChanges = {};
+	currentEntityID = 0;
 	// IP = '10.60.0.75';
     IP = '54.81.6.137';
 	//IP = '127.0.0.1';
@@ -495,7 +464,13 @@
 			});
 			return timePickerString+"</fieldset>";
 		}
-
+		
+		$(document).on('tap','.entityList li', function(){
+			currentEntityID = $(this).attr('entityId');
+			$('.view.active').hide().removeClass('active');
+			$('#message_tab').show().addClass('active');
+			
+		});
 		//-------------------------------------------------------//
 		//                 		 API USE						 //
 		//-------------------------------------------------------//
@@ -710,7 +685,7 @@
 				$('.header_demo').css({"background" : "#222", "color": "white"});*/
 			}else{
 				if(lastCSS != 2){
-					$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/0001/CSS/theme.css');
+					$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
 					$('.header_demo img').attr('src','img/logo_banner.png');
 					lastCSS = 2;
 				}
