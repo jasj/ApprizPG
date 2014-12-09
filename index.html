@@ -469,6 +469,9 @@
 			currentEntityID = $(this).attr('entityId');
 			$('.view.active').hide().removeClass('active');
 			$('#message_tab').show().addClass('active');
+			$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
+			$('.header_demo img').attr('src','img/logo_banner.png');
+			lastCSS = 2;
 			
 		});
 		//-------------------------------------------------------//
