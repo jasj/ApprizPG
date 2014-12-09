@@ -404,7 +404,7 @@
 		function logOut(){
 			$.post('http://'+IP+':8089/appriz/logout', {"logId" : logId}, function(){
 			$.jStorage.flush();
-			$('.Loggin').show();
+			window.location.reload(true);
 	});
 }
 	
