@@ -400,6 +400,13 @@
 			$('#leftMenu li').eq(0).find('div div').html($('.unread').length);
 			$('#leftMenu li').eq(4).find('div div').html($('.unread').length);
 		}
+		
+		function logOut(){
+			$.post('http://'+IP+':8089/appriz/logout', {"logId" : logId}, function(){
+			$.jStorage.flush();
+			$('.Loggin').show();
+	});
+}
 	
 		
 	    //---------------------------------------------------------------------------------------------------------------------//
@@ -1478,11 +1485,7 @@ $(".eagle").tap(function(){
 });
 
 
-function logOut(){
-	$.post('http://'+IP+':8089/appriz/logout', {"logId" : logId}, function(){
-			$.jStorage.flush();
-	});
-}
+
 
 $(window).load(function() {
 navigator.splashscreen.hide();
