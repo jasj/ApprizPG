@@ -698,11 +698,11 @@
 			
 			
 			if($(this).hasClass('generalOp')){
-				$('.header_demo').css({"background" : "#222", "color": "white"});
+				$('link[typeCss="bank"]').attr('href','css/appriz.css');
 				$('.header_demo img').attr('src','img/appriz-logo-horizontal.png');
-				$('.internal_header').css({"background": "#F9A11B", "color": "white"});
+				/*$('.internal_header').css({"background": "#F9A11B", "color": "white"});
 				$('.internal_header p').css({ "color": "white"});
-			
+				$('.header_demo').css({"background" : "#222", "color": "white"});*/
 			}else{
 				$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/0001/CSS/theme.css');
 			//	$('.header_demo').css({"background" : "#26407D", "color": "white"});
