@@ -334,7 +334,7 @@
 				<li style='border-bottom-color: darkgray !important; margin-bottom:10px;' ><img src='img/ic_90_iPhone_ios7_alerts.png'/><lang>Push Center</lang><div></div></li>
 				<li  class='generalOp'div='entities_tab' ><img src='img/bank.png'/><lang>Entities</lang><div class='badgeNumber'><div></div></div></li>
 				<li  class='generalOp' div="settings_tab"> <img src='img/ic_90_iPhone_ios7_confV2.png'/><lang>Settings</lang><div></div></li>
-				<li div='FirstState_tab' class='generalOp'><img src='img/logout.png' /><lang>Log Out</lang><div></div></li>
+				<li div='message_tab' eval='logOut()'><img src='img/logout.png' /><lang>Log Out</lang><div></div></li>
 			
 				
 				<li><img src='img/ic_90_iPhone_ios7_demo.png'/><lang>Demo</lang><div></div></li>
@@ -370,6 +370,7 @@
 	var idScretClient = 'rtLtgs9/+XnHhJy/RFq+xTg+KnP2B9OjFaUqKaiU3rYjRjff1kcAxW1veBwboz2Vc5T28vvUXTi5nUes4asHoNJbQsbc7zLNAHirrI8ra6xMnU4bhF8wkDeqBOHmWiomcn/UY858wEYAl+/Dpz53L2qHT9pU7Q+EVSTovgYogJ66WoNt7CoDkfh7zrb9vJZq7ojqskhVA6LUi9O4BhiI3Q==';
 	rulesChanges = {};
 	currentEntityID = 0;
+	logId = 0 ;+
 	// IP = '10.60.0.75';
     IP = '54.81.6.137';
 	//IP = '127.0.0.1';
@@ -1071,6 +1072,7 @@
 							//	navigator.splashscreen.hide();
 								$('.Loggin').hide();
 								idScretClient = data["idSecretClient"];
+								logId = data["logId"];
 								$.jStorage.set('idSecretClient', data['idSecretClient']);
 								$('.splash').fadeOut(1000,function(){});
 								 getValidTimePeriods();
@@ -1474,6 +1476,13 @@ $(".eagle").tap(function(){
 	
 	
 });
+
+
+function logOut(){
+	$.post('http://'+IP+':8089/appriz/logout', {"logId" : logId}, function(){
+			$.jStorage.flush();
+	});
+}
 
 $(window).load(function() {
 navigator.splashscreen.hide();
