@@ -1076,7 +1076,9 @@
 								 getValidTimePeriods();
 								 callNewMSG();
 								 reloadEntities();
-								
+								currentEntityID  = $.jStorage.get('currentEntityID');
+								$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
+								$('.header_demo img').attr('src','img/logo_banner.png');
 								
 						}else{
 							//navigator.splashscreen.hide();
@@ -1084,10 +1086,7 @@
 								var heightEnd = Math.floor(window.innerHeight /2)-120;
 								$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
 								$( '.LOGIN_BOTTOM , .LogginTop').velocity({"height" : 0},1000); 
-								currentEntityID  = $.jStorage.get('currentEntityID');
-								idScretClient = $.jStorage.get('idSecretClient');
-								$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
-								$('.header_demo img').attr('src','img/logo_banner.png');
+							
 							});
 		
 			};
