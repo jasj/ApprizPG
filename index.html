@@ -402,6 +402,7 @@
 		}
 		
 		function logOut(){
+			alert('sd');
 			$.post('http://'+IP+':8089/appriz/logout', {"logId" : logId}, function(){
 			$.jStorage.flush();
 			$('.Loggin').show();
