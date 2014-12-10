@@ -401,7 +401,7 @@
 			$('#leftMenu li').eq(4).find('div div').html($('.unread').length);
 			$(".entityList li").each(function(index, entityI ){
 			alert('a');
-				//$(this).find('.badgeNumber').html($('.unread.entity'+entityI).length).css($('.unread.entity'+entityI).length > 0 ? {"border" : "1px solid #dadada"} : {"border" : "0px solid #dadada"});
+				$(this).find('.badgeNumber').html($('.unread.entity'+$(this).attr('entityId')).length).css($('.unread.entity'+$(this).attr('entityId')).length > 0 ? {"border" : "1px solid #dadada"} : {"border" : "0px solid #dadada"});
 			});
 		}
 		
