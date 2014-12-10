@@ -392,7 +392,6 @@
 		}
 		
 		function counterByMsg(){
-			alert(currentEntityID);
 			$('.msgnum').eq(0).html( $('.typemsg1.unread.entity'+currentEntityID).length == 0 ? "" : $('.typemsg1.unread').length);
 			$('.msgnum').eq(1).html( $('.typemsg2.unread.entity'+currentEntityID).length == 0 ? "" : $('.typemsg2.unread').length);
 			$('.msgnum').eq(2).html( $('.typemsg3.unread.entity'+currentEntityID).length == 0 ? "" : $('.typemsg3.unread').length);
@@ -401,7 +400,8 @@
 			$('#leftMenu li').eq(0).find('div div').html($('.unread.entity'+currentEntityID).length);
 			$('#leftMenu li').eq(4).find('div div').html($('.unread').length);
 			$(".entityList li").each(function(entityI){
-				$(this).find('.badgeNumber').html($('.unread.entity'+currentEntityID).length).css($('.unread[identity="'+entityI.attr("entityId")+'"]').length > 0 ? {"border" : "1px solid #dadada"} : {"border" : "0px solid #dadada"});
+			console.log(entityI.html())
+				$(this).find('.badgeNumber').html($('.unread.entity'+entityI).length).css($('.unread.entity'+entityI).length > 0 ? {"border" : "1px solid #dadada"} : {"border" : "0px solid #dadada"});
 			});
 		}
 		
@@ -1091,7 +1091,7 @@
 								 callNewMSG();
 								 reloadEntities();
 								currentEntityID  = $.jStorage.get('currentEntityID');
-								alert(currentEntityID);
+								
 								$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
 								$('.header_demo img').attr('src','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
 							
