@@ -620,7 +620,7 @@
 		
 		
 			function getProducts(view){
-				$.post('http://'+IP+':8089/appriz/getProductsByClient',{"idSecretClient": idScretClient,"entityName": $('.entityList li[entityId='+currentEntityID+']'),"view":view,},function(data){
+				$.post('http://'+IP+':8089/appriz/getProductsByClient',{"idSecretClient": idScretClient,"entityName": $('.entityList li[entityId='+currentEntityID+']').find('bank_name').html(),"view":view,},function(data){
 					console.log(JSON.stringify(data));
 					
 					if (data["status"]== 200){
