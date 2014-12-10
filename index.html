@@ -392,15 +392,15 @@
 		}
 		
 		function counterByMsg(){
-			$('.msgnum').eq(0).html( $('.typemsg1.unread[identity="'+currentEntityID+'"]').length == 0 ? "" : $('.typemsg1.unread').length);
-			$('.msgnum').eq(1).html( $('.typemsg2.unread[identity="'+currentEntityID+'"]').length == 0 ? "" : $('.typemsg2.unread').length);
-			$('.msgnum').eq(2).html( $('.typemsg3.unread[identity="'+currentEntityID+'"]').length == 0 ? "" : $('.typemsg3.unread').length);
-			$('.msgnum').eq(3).html( $('.typemsg4.unread[identity="'+currentEntityID+'"]').length == 0 ? "" : $('.typemsg4.unread').length);
-			$('.msgnum').eq(4).html( $('.typemsg5.unread[identity="'+currentEntityID+'"]').length == 0 ? "" : $('.typemsg5.unread').length);
-			$('#leftMenu li').eq(0).find('div div').html($('.unread[identity='+currentEntityID+']').length);
+			$('.msgnum').eq(0).html( $('.typemsg1.unread.entity'+message['idEntity']).length == 0 ? "" : $('.typemsg1.unread').length);
+			$('.msgnum').eq(1).html( $('.typemsg2.unread.entity'+message['idEntity']).length == 0 ? "" : $('.typemsg2.unread').length);
+			$('.msgnum').eq(2).html( $('.typemsg3.unread.entity'+message['idEntity']).length == 0 ? "" : $('.typemsg3.unread').length);
+			$('.msgnum').eq(3).html( $('.typemsg4.unread.entity'+message['idEntity']).length == 0 ? "" : $('.typemsg4.unread').length);
+			$('.msgnum').eq(4).html( $('.typemsg5.unread.entity'+message['idEntity']).length == 0 ? "" : $('.typemsg5.unread').length);
+			$('#leftMenu li').eq(0).find('div div').html($('.unread.entity'+message['idEntity']).length);
 			$('#leftMenu li').eq(4).find('div div').html($('.unread').length);
 			$(".entityList li").each(function(entityI){
-				$(this).find('.badgeNumber').html($('.unread[identity="'+entityI.attr("entityId")+'"]').length).css($('.unread[identity="'+entityI.attr("entityId")+'"]').length > 0 ? {"border" : "1px solid #dadada"} : {"border" : "0px solid #dadada"});
+				$(this).find('.badgeNumber').html($('.unread.entity'+message['idEntity']).length).css($('.unread[identity="'+entityI.attr("entityId")+'"]').length > 0 ? {"border" : "1px solid #dadada"} : {"border" : "0px solid #dadada"});
 			});
 		}
 		
@@ -558,7 +558,7 @@
 				
 						var img_msg = message['type'] == 1 ? "img/ic_90_iPhone_ios7_myalerts.png"  : message['type'] == 2 ? "img/ic_90_iPhone_ios7_alerts.png" : message['type'] == 3 ? "img/ic_90_iPhone_ios7_notific.png" :  message['type'] == 4 ?  "img/ic_90_iPhone_ios7_publicidad.png" : "img/ic_90_iPhone_ios7_gestion.png";
 						var bulb =  message['type'] == 1   ? 'img/ledlightgreen.png' : message['type'] == 2   ? 'img/ledlighyellow.png' : message['type'] == 3   ? 'img/ledlightred.png' :  'img/ledlighgray.png';
-						$('#message_div').append("<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div class='message unread typemsg"+message['type']+"' id='"+message['idMessage']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><table style='width: 100%; vertical-align: middle !important;'><tr><td ><img src='"+img_msg+"'/></td><td><table style=' height:100%; width: 100%; margin-top: -10px;'><tr><td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>"+message['shortMessage']+"</div></td></tr><tr><td class='btnDateMsg'><img class='bulb' src='"+bulb+"' style='width:12px; height:12px; margin-left: 0px;'/>&nbsp;<i class='fa fa-calendar'></i>2014-12-02 16:34:12</td></tr></table></td><td style='width:0px;'><i class='fa fa-chevron-right'>&nbsp;</i></td></td></tr></table></div><div class='delete_indicator2'>Delete&nbsp;&nbsp; </div>");
+						$('#message_div').append("<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div class='message unread typemsg"+message['type']+" entity"+message['idEntity']+"' id='"+message['idMessage']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><table style='width: 100%; vertical-align: middle !important;'><tr><td ><img src='"+img_msg+"'/></td><td><table style=' height:100%; width: 100%; margin-top: -10px;'><tr><td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>"+message['shortMessage']+"</div></td></tr><tr><td class='btnDateMsg'><img class='bulb' src='"+bulb+"' style='width:12px; height:12px; margin-left: 0px;'/>&nbsp;<i class='fa fa-calendar'></i>2014-12-02 16:34:12</td></tr></table></td><td style='width:0px;'><i class='fa fa-chevron-right'>&nbsp;</i></td></td></tr></table></div><div class='delete_indicator2'>Delete&nbsp;&nbsp; </div>");
 						
 						$.jStorage.set('msg_div', btoa($('#message_div').html()));
 						makeSwipe(message['idMessage']);
