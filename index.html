@@ -573,7 +573,7 @@
 					$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').hide(1000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
 			
 				//alert( JSON.stringify(e));getRules(kilomanyaroB)
-			}).done(function(){ $('.refreshing_list').hide(); });
+			}).done(function(){ counterByMsg();$('.refreshing_list').hide(); });
 		}
 		
 		function getRules(productName){
@@ -1094,8 +1094,7 @@
 								alert(currentEntityID);
 								$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
 								$('.header_demo img').attr('src','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
-								
-						}else{
+							
 							//navigator.splashscreen.hide();
 							$('.splash').fadeOut(1000,function(){
 								var heightEnd = Math.floor(window.innerHeight /2)-120;
