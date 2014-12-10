@@ -362,7 +362,7 @@
 	
 	<script>
 	
-	navigator.splashscreen.show();
+	
 	var pushNotification;
 	eregid = "123";
 	currentProduct = "kilomanyaroB";
@@ -404,6 +404,7 @@
 		function logOut(){
 			$.post('http://'+IP+':8089/appriz/logout', {"logId" : logId}, function(){
 			$.jStorage.flush();
+			navigator.splashscreen.show();
 			window.location.reload(true);
 	});
 }
