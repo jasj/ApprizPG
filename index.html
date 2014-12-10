@@ -328,7 +328,7 @@
 
 		<div id='leftMenu'>
 			<ul style='background-color: white'>
-				<li div='message_tab'><img src='img/ic_90_iPhone_ios7_mensajes.png'/><lang>Inbox</lang><div class='badgeNumber'><div></div></div></li>
+				<li div='message_tab' eval='current_inbox()'><img src='img/ic_90_iPhone_ios7_mensajes.png'/><lang>Inbox</lang><div class='badgeNumber'><div></div></div></li>
 				<li div='products'  eval='getProducts("rules")'><img src='img/ic_90_iPhone_ios7_myalerts.png'/><lang>My Alerts</lang><div></div></li>
 				<li div='products'  eval='getProducts("services")'><img src='img/ic_90_iPhone_ios7_gestion.png'/><lang>Services</lang><div></div></li>
 				<li style='border-bottom-color: darkgray !important; margin-bottom:10px;' ><img src='img/ic_90_iPhone_ios7_alerts.png'/><lang>Push Center</lang><div></div></li>
@@ -381,7 +381,16 @@
 	//$.ajaxSetup({crossDomain: true});
 	
 	
-	
+		function current_inbox(){
+			$('.message').hide();
+				if ($(".view_toolbox td").eq(1).find('.gotcolors').css('opacity')== 0){$('.typemsg1.unread.entity'+currentEntityID).show();}
+				if ($(".view_toolbox td").eq(0).find('.gotcolors').css('opacity')== 0){$('.typemsg2.unread.entity'+currentEntityID).show();}
+				if ($(".view_toolbox td").eq(2).find('.gotcolors').css('opacity')== 0){$('.typemsg4.unread.entity'+currentEntityID).show();}
+				if ($(".view_toolbox td").eq(3).find('.gotcolors').css('opacity')== 0){$('.typemsg3.unread.entity'+currentEntityID).show();}
+				if ($(".view_toolbox td").eq(4).find('.gotcolors').css('opacity')== 0){$('.typemsg5.unread.entity'+currentEntityID).show();}
+			
+		}
+		
 		function showAlert(title,text,yesFn,noFn){
 			$('.dialogAlert .title').html(title);
 			$('.dialogAlert p').html(text);
