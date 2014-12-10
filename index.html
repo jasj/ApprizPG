@@ -61,7 +61,7 @@
 			
 			<i class="fa fa-bars"></i>
 		</div>
-		<img src='img/logo_banner.png' style='height:36px; margin-top:10px;'></img>
+		<img src='https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png' style='height:36px; margin-top:10px;'></img>
 			
 		</div>
 		
@@ -479,7 +479,7 @@
 			$('.view.active').hide().removeClass('active');
 			$('#message_tab').show().addClass('active');
 			$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
-			$('.header_demo img').attr('src','img/logo_banner.png');
+			$('.header_demo img').attr('src','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
 			lastCSS = 2;
 			$.jStorage.set('currentEntityID', currentEntityID);
 			
@@ -699,7 +699,7 @@
 			}else{
 				if(lastCSS != 2){
 					$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
-					$('.header_demo img').attr('src','img/logo_banner.png');
+					$('.header_demo img').attr('src','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
 					lastCSS = 2;
 				}
 			/*	$('.internal_header').css({"background": "#FFEA04", "color": "white"});
@@ -1088,7 +1088,7 @@
 								 reloadEntities();
 								currentEntityID  = $.jStorage.get('currentEntityID');
 								$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
-								$('.header_demo img').attr('src','img/logo_banner.png');
+								$('.header_demo img').attr('src','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
 								
 						}else{
 							//navigator.splashscreen.hide();
@@ -1274,7 +1274,7 @@ $(document).on("tap",".login_btn",function(){
 				lastCSS = 2;
 				$.jStorage.set('currentEntityID', currentEntityID);
 								$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
-								$('.header_demo img').attr('src','img/logo_banner.png');
+								$('.header_demo img').attr('src','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
 			}else{
 				alert("Wrong credentials");
 			}	
