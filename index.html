@@ -392,6 +392,7 @@
 		}
 		
 		function counterByMsg(){
+			alert(currentEntityID);
 			$('.msgnum').eq(0).html( $('.typemsg1.unread.entity'+currentEntityID).length == 0 ? "" : $('.typemsg1.unread').length);
 			$('.msgnum').eq(1).html( $('.typemsg2.unread.entity'+currentEntityID).length == 0 ? "" : $('.typemsg2.unread').length);
 			$('.msgnum').eq(2).html( $('.typemsg3.unread.entity'+currentEntityID).length == 0 ? "" : $('.typemsg3.unread').length);
