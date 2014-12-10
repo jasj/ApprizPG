@@ -400,7 +400,7 @@
 			$('#leftMenu li').eq(0).find('div div').html($('.unread.entity'+currentEntityID).length);
 			$('#leftMenu li').eq(4).find('div div').html($('.unread').length);
 			$(".entityList li").each(function(entityI){
-			console.log(entityI.html())
+			console.log(entityI.html());
 				$(this).find('.badgeNumber').html($('.unread.entity'+entityI).length).css($('.unread.entity'+entityI).length > 0 ? {"border" : "1px solid #dadada"} : {"border" : "0px solid #dadada"});
 			});
 		}
