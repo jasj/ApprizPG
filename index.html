@@ -401,7 +401,7 @@
 			$('#leftMenu li').eq(4).find('div div').html($('.unread').length);
 			$(".entityList li").each(function(index, entityI ){
 				var bn = $(this).find('.badgeNumber')
-				bn.find('div').html($('.unread.entity'+$(this).attr('entityId')).length == 0 "" : $('.unread.entity'+$(this).attr('entityId')).length);
+				bn.find('div').html($('.unread.entity'+$(this).attr('entityId')).length == 0 ? "" : $('.unread.entity'+$(this).attr('entityId')).length);
 				bn.css($('.unread.entity'+$(this).attr('entityId')).length > 0 ? {"border" : "1px solid #dadada"} : {"border" : "0px solid #dadada"});
 			});
 		}
