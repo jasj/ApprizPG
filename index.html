@@ -383,12 +383,9 @@
 	
 		function current_inbox(){
 			$('.message').hide();
+				$('.gotcolors').velocity({opacity: 1}, 200);
+				$('.unread.entity'+currentEntityID).show();
 				
-				if ($(".view_toolbox td").eq(1).find('.gotcolors').css('opacity')== 0){$('.typemsg1.unread.entity'+currentEntityID).show();}
-				if ($(".view_toolbox td").eq(0).find('.gotcolors').css('opacity')== 0){$('.typemsg2.unread.entity'+currentEntityID).show();}
-				if ($(".view_toolbox td").eq(2).find('.gotcolors').css('opacity')== 0){$('.typemsg4.unread.entity'+currentEntityID).show();}
-				if ($(".view_toolbox td").eq(3).find('.gotcolors').css('opacity')== 0){$('.typemsg3.unread.entity'+currentEntityID).show();}
-				if ($(".view_toolbox td").eq(4).find('.gotcolors').css('opacity')== 0){$('.typemsg5.unread.entity'+currentEntityID).show();}
 			
 		}
 		
@@ -585,7 +582,7 @@
 					$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').hide(1000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
 			
 				//alert( JSON.stringify(e));getRules(kilomanyaroB)
-			}).done(function(){ counterByMsg();$('.refreshing_list').hide(); });
+			}).done(function(){ counterByMsg();current_inbox();$('.refreshing_list').hide(); });
 		}
 		
 		function getRules(productName){
