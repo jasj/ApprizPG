@@ -332,7 +332,7 @@
 				<li div='products'  eval='getProducts("rules")'><img src='img/ic_90_iPhone_ios7_myalerts.png'/><lang>My Alerts</lang><div></div></li>
 				<li div='products'  eval='getProducts("services")'><img src='img/ic_90_iPhone_ios7_gestion.png'/><lang>Services</lang><div></div></li>
 				<li style='border-bottom-color: darkgray !important; margin-bottom:10px;' ><img src='img/ic_90_iPhone_ios7_alerts.png'/><lang>Push Center</lang><div></div></li>
-				<li  class='generalOp'div='entities_tab' ><img src='img/bank.png'/><lang>Entities</lang><div class='badgeNumber'><div></div></div></li>
+				<li  class='generalOp'div='entities_tab' eval='counterByMsg();' ><img src='img/bank.png'/><lang>Entities</lang><div class='badgeNumber'><div></div></div></li>
 				<li  class='generalOp' div="settings_tab"> <img src='img/ic_90_iPhone_ios7_confV2.png'/><lang>Settings</lang><div></div></li>
 				<li div='message_tab' eval='logOut()'><img src='img/logout.png' /><lang>Log Out</lang><div></div></li>
 			
@@ -383,7 +383,7 @@
 	
 		function current_inbox(){
 			$('.message').hide();
-				alert('chan');
+				
 				if ($(".view_toolbox td").eq(1).find('.gotcolors').css('opacity')== 0){$('.typemsg1.unread.entity'+currentEntityID).show();}
 				if ($(".view_toolbox td").eq(0).find('.gotcolors').css('opacity')== 0){$('.typemsg2.unread.entity'+currentEntityID).show();}
 				if ($(".view_toolbox td").eq(2).find('.gotcolors').css('opacity')== 0){$('.typemsg4.unread.entity'+currentEntityID).show();}
