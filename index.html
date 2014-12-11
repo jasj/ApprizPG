@@ -1096,6 +1096,7 @@
 						if("idSecretClient" in data ){
 							//	navigator.splashscreen.hide();
 								$('.Loggin').hide();
+								if(pinPolicy==0){$('#divPIN').show();}
 								idScretClient = data["idSecretClient"];
 								logId = data["logId"];
 								pinPolicy = data["pinPolicy"];
@@ -1509,6 +1510,11 @@ $(".eagle").tap(function(){
 	
 });
 
+
+$('.unikOptions div').tap(function(){
+	$('.unikOptions div.active').removeClass('active');
+	$(this).addClass('active');
+});
 
 
 
