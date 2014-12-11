@@ -384,7 +384,7 @@
 		function current_inbox(){
 			$('.message').hide();
 				$('.gotcolors').velocity({opacity: 1}, 200);
-				$('.unread.entity'+currentEntityID).show();
+				$('.entity'+currentEntityID).show();
 				
 			
 		}
@@ -1353,10 +1353,10 @@ $(".view_toolbox td").tap(
 		
 			if ($(this).find('.gotcolors').css('opacity')== 0){
 				$(this).find('.gotcolors').stop().velocity({opacity: 1}, 200);
-					$('.message img[src="'+$(this).find('.gotcolors').attr("src")+'"]').parent().parent().parent().parent().parent().show();
+					$('.message.entity'+currentEntityID+' img[src="'+$(this).find('.gotcolors').attr("src")+'"]').parent().parent().parent().parent().parent().show();
 			}else {
 				$(this).find('.gotcolors').stop().velocity({opacity: 0}, 500);
-				$('.message img[src="'+$(this).find('.gotcolors').attr("src")+'"]').parent().parent().parent().parent().parent().hide();
+				$('.message.entity'+currentEntityID+' img[src="'+$(this).find('.gotcolors').attr("src")+'"]').parent().parent().parent().parent().parent().hide();
 			}
 	});
 	
