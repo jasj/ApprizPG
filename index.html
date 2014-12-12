@@ -531,7 +531,8 @@
 						$('#Suscri').show();
 						hideIt = "#Suscri";	
 						$('#menuBtn').hide();
-						$(".iconBtn").hide();
+						$(".iconBtn").show();
+						$(".iconBtn").attr("logOut",1);
 						$('link[typeCss="bank"]').attr('href','css/appriz.css');
 						$('.header_demo img').attr('src','img/appriz-logo-horizontal.png');
 					lastCSS = 1;
