@@ -1512,7 +1512,7 @@ $('#Suscri .specialBtn2').tap(function(){
 				}
 			);
 		}else{
-			alert("No valid subscription data");
+			showInfoD('Wrong subscription data','No valid subscription data',function(){$('.moldHide, .dialogAlert').hide();});
 		}
 	});
 	
