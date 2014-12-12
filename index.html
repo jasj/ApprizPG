@@ -256,7 +256,7 @@
 			</br>&nbsp;</br>&nbsp;
 				<lang>Keep messages for at least:</lang>
 				<div class='unikOptions'>
-					<div class='active'><lang>1 Week</lang></div><div><lang>2 Week</lang></div><div><lang>3 Week</lang></div><div><lang>4 Week</lang></div>
+					<div class='active' weeks='1'><lang>1 Week</lang></div><div weeks='2'><lang>2 Week</lang></div><div weeks='3'><lang>3 Week</lang></div><div><lang weeks='4'>4 Week</lang></div>
 				</div>
 					
 				<div class="specialBtn2"><i class="fa fa-floppy-o"></i>
@@ -313,16 +313,17 @@
 		
 		
 	
-		
-		<i class="fa fa-arrow-left iconBtn"></i>
-		
+		<div class='iconBtn'>
+			<i class="fa fa-arrow-left"></i>
+		</div>
 	</div>
 	
 	<div class='moldHide'></div>
 		<div class='dialogAlert'>
 			<div class='title'>Example</div>
 			<p align='justify'></p>
-			<div class= 'btnAcept' ><lang>Yes</lang></div><div class= 'btnCancel' ><lang>No</lang></div>
+			<div class= 'btnAcept' ><lang>Yes</lang></div><div class= 'btnCancel' ><lang>No</lang></div><div class= 'btnOk' ><lang>Ok</lang></div>
+			 
 		</div>
 	
 
@@ -356,7 +357,7 @@
 	<div class="numKey" style='opacity: 0.5'></div><div class="numKey center"> 0 </div><div class="delKey" style='opacity: 0.5;  line-height: 200%;'><i class="fa fa-pencil  fa-rotate-180"></i>DEL</div>
 </div>	
 </div>
-
+<!---->
 <img src='img/screen-iphone-portrait-568h-2x.png' style="z-index: 999999; position:absolute; left:0px; right:0px; top: 0px; bottom: 0px; width:100%; height: 100%;" class='splash'/>
 	</body>
 	
@@ -394,11 +395,24 @@
 		}
 		
 		function showAlert(title,text,yesFn,noFn){
+			
 			$('.dialogAlert .title').html(title);
 			$('.dialogAlert p').html(text);
 			$('.moldHide, .dialogAlert').show();
-			$('.dialogAlert .btnCancel').tap(noFn);
-			$('.dialogAlert .btnAcept').tap(yesFn);
+			$('.dialogAlert .btnCancel').tap(noFn).show();
+			$('.dialogAlert .btnAcept').tap(yesFn).show();
+			$('.dialogAlert .btnOk').hide();
+			
+		}
+		
+		function showInfoD(title,text,okFn){
+			
+			$('.dialogAlert .title').html(title);
+			$('.dialogAlert p').html(text);
+			$('.moldHide, .dialogAlert').show();
+			$('.dialogAlert .btnCancel').hide();
+			$('.dialogAlert .btnAcept').hide();
+			$('.dialogAlert .btnOk').tap(okFn).show();
 			
 		}
 		
@@ -621,7 +635,7 @@
 			function requestService(serviceObj){
 				$.post('http://'+IP+':8089/appriz/sendServiceRequest',$.extend({"idSecretClient": idScretClient},serviceObj),function(data){
 					if (data["status"]== 200){
-						alert('Sucessfull!');
+						showInfoD('Sucessfull!','Your request was succesfully send',function(){$('.moldHide, .dialogAlert').hide();});
 					}
 				
 				},'json') .fail(function(e) {
@@ -1296,7 +1310,8 @@ $(document).on("tap",".login_btn",function(){
 								$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
 								$('.header_demo img').attr('src','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
 			}else{
-				alert("Wrong credentials");
+				alert("");
+				showInfoD('Wrong credentials','The credential that you use is invalid',function(){$('.moldHide, .dialogAlert').hide();});
 			}	
 	}) .fail(function() {
 alert( "error" );
@@ -1334,10 +1349,7 @@ $( document ).on( "tap", ".delKey", function() {
 	}
  });
  
- $('#backBtn').click(function(){
-		window.location.replace("../index.html");
- });
- 
+
  $( document ).on('tap', '#productsList li a',function(){
 	window.location.replace(nextPage+"?"+$(this).html());
  });
@@ -1430,7 +1442,7 @@ counterByMsg();
 $('#FirstState_tab .specialBtn2').tap(function(){
 	if($('#FirstState_tab input[type="password"]').eq(0).val().length > 8){
 		if($('#FirstState_tab input[type="password"]').eq(0).val() != $('#FirstState_tab input[type="password"]').eq(1).val()){
-			alert("a"); //password do not match
+	showInfoD('Wrong data','Passwords do not match',function(){$('.moldHide, .dialogAlert').hide();});
 		}else{
 		
 			var patt = /^\d{4}$/;
@@ -1440,7 +1452,7 @@ $('#FirstState_tab .specialBtn2').tap(function(){
 					email 		: $('#FirstState_tab input[type="email"]').eq(0).val(),
 					password	: $('#FirstState_tab input[type="password"]').eq(0).val(),
 					retention   : 1,//parseInt($('.unikOptions .active').attr('weeks')),
-					pinPolicy   : 1,
+					pinPolicy   : $('.unikOptions .active').attr('weeks'),
 					phoneDevice : "",
 					so 			: "",
 					pushKey		: "",
@@ -1459,12 +1471,12 @@ $('#FirstState_tab .specialBtn2').tap(function(){
 					});
 				});
 			}else{
-				alert("Passwords do not matches");
+				showInfoD('Wrong Accses Code','The Accses code must be of fourth digits',function(){$('.moldHide, .dialogAlert').hide();});
 			}
 			
 		}
 	}else{
-		alert('Your password must be at least of 9 chars'); //no password
+		showInfoD('Wrong password','The password must be at least 9 chars length',function(){$('.moldHide, .dialogAlert').hide();});
 	}
 });
 
@@ -1497,6 +1509,7 @@ $('#Suscri .specialBtn2').tap(function(){
 	
 });
 
+ 
 
 $(".eagle").tap(function(){
 	$('#menuBtn').hide();
