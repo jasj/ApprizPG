@@ -806,6 +806,16 @@
 				
 			}
 			
+			if($(this).attr("logOut")){
+					showAlert("logOut", "Do you want to logOut?" , function(){
+					logOut();
+					$('.moldHide, .dialogAlert').hide();
+				},function(){
+					rulesChanges = {};
+					$('.moldHide, .dialogAlert').hide();
+				});
+			}
+			
 			console.log(hideIt);
 		});
 		//swip for delete message & scroll 
