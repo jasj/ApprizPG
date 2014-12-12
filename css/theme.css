@@ -1073,11 +1073,13 @@ line-height: 0px;
 }
 
 .msgnum{
-border-radius: 360px;
+border-radius: 360px 360px 360px 0px;
+
+
 padding: 3px;
 position: relative;
 left: 30px;
-top: -35px;
+top: -32px;
 font-size: 8px;
 width: 10px;
 height: 10px;
