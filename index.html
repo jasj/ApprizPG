@@ -20,7 +20,7 @@
 		<script src="js/swipe.js"></script>
 		<script src="js/jqstorage.js"></script>
 		<script src="js/velocity.js"></script>
-		
+		<script src="js/mobile-events.js"></script>
 		<script type="text/javascript" charset="utf-8" src="PushNotification.js"></script>
 		
 		
@@ -399,8 +399,8 @@
 			$('.dialogAlert .title').html(title);
 			$('.dialogAlert p').html(text);
 			$('.moldHide, .dialogAlert').show();
-			$('.dialogAlert .btnCancel').tap(noFn).show();
-			$('.dialogAlert .btnAcept').tap(yesFn).show();
+			$('.dialogAlert .btnCancel').tapend(noFn).show();
+			$('.dialogAlert .btnAcept').tapend(yesFn).show();
 			$('.dialogAlert .btnOk').hide();
 			
 		}
@@ -412,7 +412,7 @@
 			$('.moldHide, .dialogAlert').show();
 			$('.dialogAlert .btnCancel').hide();
 			$('.dialogAlert .btnAcept').hide();
-			$('.dialogAlert .btnOk').tap(okFn).show();
+			$('.dialogAlert .btnOk').tapend(okFn).show();
 			
 		}
 		
@@ -504,7 +504,7 @@
 			return timePickerString+"</fieldset>";
 		}
 		
-		$(document).on('tap','.entityList li', function(){
+		$(document).on('tapend','.entityList li', function(){
 			currentEntityID = $(this).attr('entityId');
 			$('.view.active').hide().removeClass('active');
 			$('#message_tab').show().addClass('active');
@@ -557,7 +557,7 @@
 		}
 		
 		
-		$('.specialBtn').tap(function(){
+		$('.specialBtn').tapend(function(){
 			
 			$('#Suscri').show();
 			hideIt = "#Suscri";	
@@ -791,7 +791,7 @@
 				
 			});
 		
-		$(".iconBtn").tap(function(){
+		$(".iconBtn").tapend(function(){
 			$(hideIt).hide();
 			$('#menuBtn').show();
 			$(".iconBtn").hide();
@@ -993,12 +993,12 @@
 		
 		
 		//Control for sliders
-		$( document).on('tap','.internal_header .fa-plus-square-o',function(){
+		$( document).on('tapend','.internal_header .fa-plus-square-o',function(){
 			$('.div_content2').hide();
 			$(this).removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
 			$('.'+$(this).parent().attr('view')).show();
 		});
-		$( document).on('tap','.internal_header .fa-minus-square-o',function(){
+		$( document).on('tapend','.internal_header .fa-minus-square-o',function(){
 			$('.div_content2').hide();
 			$(this).removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
 			$('.'+$(this).parent().attr('view')).hide();
@@ -1008,7 +1008,7 @@
 		return this.attr(name) !== undefined;
 	};
 	//settings page
-	$('.ui-last-child').tap(function(){
+	$('.ui-last-child').tapend(function(){
 		$('#'+$(this).attr('view')).show();
 		if($(this).hasAttr('eval')){eval($(this).attr('eval'));}
 		$(".fa.fa-arrow-circle-o-left.iconp").show();
@@ -1016,13 +1016,13 @@
 		
 		
 		
-		$(document).on('tap','.product',function(){ 
+		$(document).on('tapend','.product',function(){ 
 			currentProduct = $(this).html();
 			console.log(currentProduct);
 		});
 		 //getRules();
 	
-	$(document).on('tap','div.product.rules',function(){
+	$(document).on('tapend','div.product.rules',function(){
 		getRules($(this).html());
 		$('#config_rules').show();
 		$('#config_rules p.title').html('My Alerts <i class="fa fa-angle-double-right"></i> '+$(this).html());
@@ -1032,7 +1032,7 @@
 		$(".iconBtn").attr("optionConfirm","alert(1)");
 	});
 	
-	$(document).on('tap','div.product.services',function(){
+	$(document).on('tapend','div.product.services',function(){
 		getServices($(this).html());
 		$('#service_luncher').show();
 		$('#service_luncher p.title').html('Services <i class="fa fa-angle-double-right"></i> '+$(this).html());
@@ -1042,7 +1042,7 @@
 	});
 
 		 //open rules details
-	$(document).on('tap','.rule_header p',function(){
+	$(document).on('tapend','.rule_header p',function(){
 		if($(this).parent().parent().parent().height() < 61){
 			$(this).parent().parent().parent().css({"height":"auto"})
 			$(this).parent().parent().parent().find('.rule_body').show();
@@ -1290,13 +1290,13 @@ function onNotificationGCM(e) {
 }
 
 
-$( document ).on('tap','#menuBtn',function(event){
+$( document ).on('tapend','#menuBtn',function(event){
 	var nw = screen.width -251;
 	$('#leftMenu').velocity({left : "0px"},function(){
   });
 });
 	
-$( document ).on('tap','.logged *',function(){
+$( document ).on('tapend','.logged *',function(){
 	if ($('#leftMenu').css("left") == "0px"){
 		$('#leftMenu').animate({left : "-250px"});
 	}
@@ -1308,7 +1308,7 @@ $( document ).ready(function() {
 	//$('#message_div').css({ "height" : window.innerHeight-($('.banner').eq(0).css("height")+125)});
 });	
 
-$(document).on("tap",".login_btn",function(){
+$(document).on("tapend",".login_btn",function(){
 		$.post('http://'+IP+':8089/appriz/login',{
 			"email" : $('.LOGIN_FORM input').eq(0).val(),
 			"password":$('.LOGIN_FORM input').eq(1).val(),
@@ -1345,7 +1345,7 @@ alert( "error" );
 nextPage = window.location.href.split("?")[1];
 var PINpos = 0;
 var vPIN = "";
-$( document ).on( "tap", ".numKey", function() {
+$( document ).on( "tapend", ".numKey", function() {
 	$('.passkey').eq(PINpos).html('<i class="fa fa-circle"></i>');
 	vPIN = vPIN+$(this).html(); 
 	PINpos++;
@@ -1361,7 +1361,7 @@ $( document ).on( "tap", ".numKey", function() {
 	}
  });
  
-$( document ).on( "tap", ".delKey", function() { 
+$( document ).on( "tapend", ".delKey", function() { 
 	if(PINpos > 0){
 		PINpos--;
 		$('.passkey').eq(PINpos).html('');
@@ -1370,7 +1370,7 @@ $( document ).on( "tap", ".delKey", function() {
  });
  
 
- $( document ).on('tap', '#productsList li a',function(){
+ $( document ).on('tapend', '#productsList li a',function(){
 	window.location.replace(nextPage+"?"+$(this).html());
  });
  
@@ -1387,7 +1387,7 @@ $( document ).on( "tap", ".delKey", function() {
 	}).velocity({opacity: 1}, 500);
 });
 
-$(".view_toolbox td").tap(
+$(".view_toolbox td").tapend(
 		function() {
 		
 			if ($(this).find('.gotcolors').css('opacity')== 0){
@@ -1442,7 +1442,7 @@ function addDeleteButtonEntityList(entityID){
 	});
 }
 
-$( document).on('tap','.unSuscribeBtn',function(){
+$( document).on('tapend','.unSuscribeBtn',function(){
   var btn = $(this);
 			showAlert("Unsubscribe Confirmation","Are you sure that you want to unsuscribe to <strong>"+$(this).parent().find('bank_name').html()+"</strong>",
 			function(){
@@ -1459,7 +1459,7 @@ $( document).on('tap','.unSuscribeBtn',function(){
 $(".iconBtn").hide();
 counterByMsg();
 
-$('#FirstState_tab .specialBtn2').tap(function(){
+$('#FirstState_tab .specialBtn2').tapend(function(){
 	if($('#FirstState_tab input[type="password"]').eq(0).val().length > 8){
 		if($('#FirstState_tab input[type="password"]').eq(0).val() != $('#FirstState_tab input[type="password"]').eq(1).val()){
 	showInfoD('Wrong data','Passwords do not match',function(){$('.moldHide, .dialogAlert').hide();});
@@ -1501,7 +1501,7 @@ $('#FirstState_tab .specialBtn2').tap(function(){
 });
 
 
-$('#Suscri .specialBtn2').tap(function(){
+$('#Suscri .specialBtn2').tapend(function(){
 	$.post('http://'+IP+':8089/appriz/subscribeCustomer', {
 		identification 	        :  $('#Suscri input').eq(0).val(),
 		subscriptionNumber      :  $('#Suscri input').eq(1).val(),
@@ -1531,7 +1531,7 @@ $('#Suscri .specialBtn2').tap(function(){
 
  
 
-$(".eagle").tap(function(){
+$(".eagle").tapend(function(){
 	$('#menuBtn').hide();
 	$('#FirstState_tab').show();
 	$('.header_demo').css({"background" : "#222", "color": "white"});
@@ -1544,7 +1544,7 @@ $(".eagle").tap(function(){
 });
 
 
-$('.unikOptions div').tap(function(){
+$('.unikOptions div').tapend(function(){
 	$('.unikOptions div.active').removeClass('active');
 	$(this).addClass('active');
 });
