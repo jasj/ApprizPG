@@ -504,7 +504,7 @@
 			return timePickerString+"</fieldset>";
 		}
 		
-		$(document).on('tapend','.entityList li', function(){
+		$(document).on('tap','.entityList li', function(){
 			currentEntityID = $(this).attr('entityId');
 			$('.view.active').hide().removeClass('active');
 			$('#message_tab').show().addClass('active');
