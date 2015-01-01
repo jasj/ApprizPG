@@ -1323,11 +1323,11 @@ $(document).on("tapend",".login_btn",function(){
 				$.jStorage.set('idSecretClient', data['idSecretClient']);
 				
 				 getValidTimePeriods();
-				callNewMSG();
+				
 				reloadEntities();
 				currentEntityID  = $('#entityList li').eq(0).attr("entityId");
 				lastCSS = 2;
-				
+				callNewMSG();
 				$.jStorage.set('currentEntityID', currentEntityID);
 								$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
 								$('.header_demo img').attr('src','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
