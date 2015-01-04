@@ -1328,6 +1328,7 @@ $(document).on("tapend",".login_btn",function(){
 				
 				reloadEntities();
 				currentEntityID  = $('#entityList li').eq(0).attr("entityId");
+				alert(currentEntityID);
 				lastCSS = 2;
 				callNewMSG();
 				$.jStorage.set('currentEntityID', currentEntityID);
