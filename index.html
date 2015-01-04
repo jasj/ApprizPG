@@ -1145,6 +1145,8 @@
 								
 								$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
 								$('.header_demo img').attr('src','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
+								counterByMsg();
+								current_inbox();
 						}else{
 							//navigator.splashscreen.hide();
 							$('.splash').fadeOut(1000,function(){
@@ -1331,6 +1333,8 @@ $(document).on("tapend",".login_btn",function(){
 				$.jStorage.set('currentEntityID', currentEntityID);
 								$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
 								$('.header_demo img').attr('src','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
+				counterByMsg();
+				current_inbox();
 			}else{
 				showInfoD('Wrong credentials','The credential that you use is invalid',function(){$('.moldHide, .dialogAlert').hide();});
 			}	
