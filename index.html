@@ -1520,7 +1520,6 @@ $('#FirstState_tab .specialBtn2').tapend(function(){
 				},function(data){
 					$.jStorage.set('idSecretClient', data['idSecretClient']);
 					idScretClient = data['idSecretClient'];
-					alert(idScretClient);
 					console.log(JSON.stringify(data));
 					showAlert('Appriz User Created','Your user was created, do you want to suscribe to an entity now?',
 					function(){
