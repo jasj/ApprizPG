@@ -342,7 +342,7 @@
 				<li div='no_disponible' style='border-bottom-color: darkgray !important; margin-bottom:10px;' ><img src='img/ic_90_iPhone_ios7_alerts.png'/><lang>Push Center</lang><div></div></li>
 				<li  class='generalOp'div='entities_tab' eval='counterByMsg();' ><img src='img/bank.png'/><lang>Entities</lang><div class='badgeNumber'><div></div></div></li>
 				<li  class='generalOp' div="settings_tab"> <img src='img/ic_90_iPhone_ios7_confV2.png'/><lang>Settings</lang><div></div></li>
-				<li div='message_tab' eval='logOut()'><img src='img/logout.png' /><lang>Log Out</lang><div></div></li>
+				<li class='generalOp' div='message_tab' eval='logOut()'><img src='img/logout.png' /><lang>Log Out</lang><div></div></li>
 			
 				
 				<li class='generalOp' div='no_disponible'><img src='img/ic_90_iPhone_ios7_demo.png'/><lang>Demo</lang><div></div></li>
@@ -759,7 +759,7 @@
 		lastCSS = 0;
 		
 		//NAVEGATION BAR
-		$('#leftMenu li').click(function(){
+		$( document ).('tapend','#leftMenu li.clickable',function(){
 		if ($('#leftMenu').css("left") == "0px"){
 			
 			
@@ -1329,7 +1329,13 @@ function onNotificationGCM(e) {
 }
 
 
-$( document ).on('tapend','#menuBtn',function(event){
+$( document ).on('tapend','#menuBtn',function(event){{
+	if( currentEntityID < 1 || isNaN(currentEntityID))
+		$('#leftMenu li').removeClass('clickable').css{"color" : "#DFDFDF"};
+		$('#leftMenu li.generalOp').addClass('clickable').css{"color" : "#000"};
+	}else{
+		$('#leftMenu li').addClass('clickable').css{"color" : "#000"};
+	}
 	var nw = screen.width -251;
 	$('#leftMenu').velocity({left : "0px"},function(){
   });
