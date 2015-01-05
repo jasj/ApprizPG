@@ -457,6 +457,7 @@
 			
 			$('.message').each(function( index ) {
 				report[$(this).attr("id")] = $(this).hasClass("unread") ? "unread" : "readed"; 
+				console.log($(this).attr("id"));
 			});
 			console.log(JSON.stringify(report));
 			$.post('http://'+IP+':8089/appriz/setMessageStatus', {"idSecretClient": idScretClient, msgStatus:report }, function(data){
