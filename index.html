@@ -1518,7 +1518,10 @@ $('#FirstState_tab .specialBtn2').tapend(function(){
 					showAlert('Appriz User Created','Your user was created, do you want to suscribe to an entity now?',
 					function(){
 						$('.moldHide, .dialogAlert').hide();
-							$('#menuBtn').show();
+							
+							$('#FirstState_tab').hide();
+							$('#Suscri').show();
+							
 					},
 					function(){
 						$('.moldHide, .dialogAlert').hide();
@@ -1543,6 +1546,7 @@ $('#Suscri .specialBtn2').tapend(function(){
 		regId : "1" //from device
 	},function(data){
 		if (data["status"] == 200){
+			$('#menuBtn').show();
 			showAlert('Subscription Sucessfull', "You was succesfully subscribe to: <b>"+data["entityName"]+"</b>. Do you want to subscribe another entity? ",
 				function(){
 					$('.moldHide, .dialogAlert').hide();
