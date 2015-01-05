@@ -456,7 +456,7 @@
 			var report = {};
 			
 			$('.message').each(function( index ) {
-				report[$(this).attr("id")] = $(this).hasClass("unread") ? "unread" : "readed"; 
+				report[$(this).attr("id").toString()] = $(this).hasClass("unread") ? "unread" : "readed"; 
 				console.log($(this).attr("id"));
 			});
 			console.log(JSON.stringify(report));
