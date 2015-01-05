@@ -210,7 +210,7 @@
 			
 		</div>
 		
-		<div id='no_disponible' style='background: #eef'>
+		<div id='no_disponible' style='background: #fff'>
 			<img src="img/advertencia.png" style="    display : block; margin : auto; height: 200px; margin-top: 100px;"/>
 			<p align="justify"> Sorry, this page is not available in the alpha version!</div>
 		
@@ -439,7 +439,8 @@
 		}
 		
 		function logOut(){
-			$.post('http://'+IP+':8089/appriz/logout', {"logId" : logId}, function(){
+			$.jStorage.flush();
+			$.post('http://'+IP+':8089/appriz/logout', {"logId" : logId}, function(data){
 			$.jStorage.flush();
 			navigator.splashscreen.show();
 			window.location.reload(true);
@@ -451,7 +452,17 @@
 		//                                        Phonegap APPRIZ-API SDK                                                      //
 		//---------------------------------------------------------------------------------------------------------------------//
 		
-	
+		function reportMsgState(){
+			var report = {};
+			
+			$('.message').each(function( index ) {
+				report[$(this).attr("id")] = $(this).hasClass("unread") ? "unread" : "readed"; 
+			}
+			console.log(JSON.stringify(report));
+			$.post('http://'+IP+':8089/appriz/setMessageStatus', {"idSecretClient": idScretClient, msgStatus:report }, function(data){
+				console.log(JSON.stringify(data));
+			}
+		}		
 		function addRules(objs){
 			var toAppend = '';
 			$('#rules_div').html('');
@@ -590,6 +601,7 @@
 			$('.refreshing_list').show();
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
 				console.log(JSON.stringify(data));
+				$('#message_div').html("");
 				$.each(data,function(index, message){
 					if($('#'+message['idMessage']).length > 0){ 
 						makeSwipe(message['idMessage']);
@@ -615,7 +627,7 @@
 				
 						var img_msg = message['type'] == 1 ? "img/ic_90_iPhone_ios7_myalerts.png"  : message['type'] == 2 ? "img/ic_90_iPhone_ios7_alerts.png" : message['type'] == 3 ? "img/ic_90_iPhone_ios7_notific.png" :  message['type'] == 4 ?  "img/ic_90_iPhone_ios7_publicidad.png" : "img/ic_90_iPhone_ios7_gestion.png";
 						var bulb =  message['bulb'] == 1   ? 'img/ledlightgreen.png' : message['bulb'] == 2   ? 'img/ledlighyellow.png' : message['bulb'] == 3   ? 'img/ledlightred.png' :  'img/ledlighgray.png';
-						$('#message_div').append("<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div class='message unread typemsg"+message['type']+" entity"+message['idEntity']+"' id='"+message['idMessage']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><table style='width: 100%; vertical-align: middle !important;'><tr><td ><img src='"+img_msg+"'/></td><td><table style=' height:100%; width: 100%; margin-top: -10px;'><tr><td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>"+message['shortMessage']+"</div></td></tr><tr><td class='btnDateMsg'><img class='bulb' src='"+bulb+"' style='width:12px; height:12px; margin-left: 0px;'/>&nbsp;<i class='fa fa-calendar'></i>2014-12-02 16:34:12</td></tr></table></td><td style='width:0px;'><i class='fa fa-chevron-right'>&nbsp;</i></td></td></tr></table></div><div class='delete_indicator2'>Delete&nbsp;&nbsp; </div>");
+						$('#message_div').append("<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div class='message "+( message['state'] < 3 ? "unread" : "" )+" typemsg"+message['type']+" entity"+message['idEntity']+"' id='"+message['idMessage']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><table style='width: 100%; vertical-align: middle !important;'><tr><td ><img src='"+img_msg+"'/></td><td><table style=' height:100%; width: 100%; margin-top: -10px;'><tr><td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>"+message['shortMessage']+"</div></td></tr><tr><td class='btnDateMsg'><img class='bulb' src='"+bulb+"' style='width:12px; height:12px; margin-left: 0px;'/>&nbsp;<i class='fa fa-calendar'></i>2014-12-02 16:34:12</td></tr></table></td><td style='width:0px;'><i class='fa fa-chevron-right'>&nbsp;</i></td></td></tr></table></div><div class='delete_indicator2'>Delete&nbsp;&nbsp; </div>");
 						
 						$.jStorage.set('msg_div', btoa($('#message_div').html()));
 						makeSwipe(message['idMessage']);
@@ -855,6 +867,8 @@
 								msg.remove();
 								$.jStorage.set('msg_div', btoa($('#message_div').html())); 
 								$('.moldHide, .dialogAlert').hide();
+								reportMsgState();
+								counterByMsg();
 						},
 						function(){
 								$('.moldHide, .dialogAlert').hide();
@@ -903,7 +917,8 @@
 				   if((phase === $.fn.swipe.phases.PHASE_END || phase === $.fn.swipe.phases.PHASE_CANCEL )& distance == 0)  {
 						//read message
 						$(this).removeClass('unread');
-						counterByMsg()
+						counterByMsg();
+						reportMsgState();
 						$.jStorage.set('msg_div', btoa($('#message_div').html()));
 						$("#shortMSG").html($(this).find('td').eq(1).find('div').html());
 						$("#longMSG").html($(this).attr('longMSG'));
