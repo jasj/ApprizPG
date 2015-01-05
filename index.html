@@ -461,7 +461,7 @@
 			console.log(JSON.stringify(report));
 			$.post('http://'+IP+':8089/appriz/setMessageStatus', {"idSecretClient": idScretClient, msgStatus:report }, function(data){
 				console.log(JSON.stringify(data));
-			}
+			});
 		}		
 		function addRules(objs){
 			var toAppend = '';
