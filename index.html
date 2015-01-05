@@ -846,8 +846,8 @@
 					logOut();
 					$('.moldHide, .dialogAlert').hide();
 				},function(){
-					rulesChanges = {};
 					$('.moldHide, .dialogAlert').hide();
+					$(hideIt).show();
 				});
 			}
 			
@@ -1329,12 +1329,12 @@ function onNotificationGCM(e) {
 }
 
 
-$( document ).on('tapend','#menuBtn',function(event){{
-	if( currentEntityID < 1 || isNaN(currentEntityID))
-		$('#leftMenu li').removeClass('clickable').css{"color" : "#DFDFDF"};
-		$('#leftMenu li.generalOp').addClass('clickable').css{"color" : "#000"};
+$( document ).on('tapend','#menuBtn',function(event){
+	if( currentEntityID < 1 || isNaN(currentEntityID)){
+		$('#leftMenu li').removeClass('clickable').css({"color" : "#DFDFDF"});
+		$('#leftMenu li.generalOp').addClass('clickable').css({"color" : "#000"});
 	}else{
-		$('#leftMenu li').addClass('clickable').css{"color" : "#000"};
+		$('#leftMenu li').addClass('clickable').css({"color" : "#000"});
 	}
 	var nw = screen.width -251;
 	$('#leftMenu').velocity({left : "0px"},function(){
