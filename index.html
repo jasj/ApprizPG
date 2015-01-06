@@ -1400,10 +1400,13 @@ $( document ).on( "tapend", ".numKey", function() {
 			$('#divPIN').hide();
 			$('.passkey').html('');
 			PINpos = 0; vPIN= "";
-		}
+		
 			//if(){
 				$('#sb_inbox').html('Products');
 			//}
+			}else{
+					showInfoD('Wrong Accses Code','The accses code that you used is invalid',function(){$('.moldHide, .dialogAlert').hide();});
+			}
 	}
  });
  
