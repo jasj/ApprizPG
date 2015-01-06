@@ -297,10 +297,11 @@
 						<option value="on"><lang>Yes</lang></option>
 					</select> 
 					
-					<label for="flip-1"><span>Ask me my access code only at the start</span></label>
-					<select name="flip-1" id="flip-1" data-role="slider">
-						<option value="off">No</option>
-						<option value="on">Yes</option>
+					<label for="flip-2"><span>Ask me my access code only at the start</span></label>
+					<select name="flip-2" id="flip-2" data-role="slider">
+						<option value="1">No</option>
+						<option value="0">Yes</option>
+						
 					</select> 
 					</br>&nbsp;</br>&nbsp;
 						<lang>Keep messages for at least:</lang>
@@ -1172,7 +1173,10 @@
 								idScretClient = data["idSecretClient"];
 								logId = data["logId"];
 								pinPolicy = data["pinPolicy"];
+								pin = data["pin"];
 								$.jStorage.set('idSecretClient', data['idSecretClient']);
+								$.jStorage.set('pin', data['pin']);
+								
 								$('.splash').fadeOut(1000,function(){});
 								 getValidTimePeriods();
 								 callNewMSG();
@@ -1365,8 +1369,9 @@ $(document).on("tapend",".login_btn",function(){
 				$(".Loggin").hide();
 				idScretClient = data["idSecretClient"];
 				$.jStorage.set('idSecretClient', data['idSecretClient']);
-				
-				 getValidTimePeriods();
+				$.jStorage.set('pin', data['pin']);
+				pin = data['pin'];
+				getValidTimePeriods();
 				
 				reloadEntities();
 			
@@ -1391,10 +1396,11 @@ $( document ).on( "tapend", ".numKey", function() {
 	PINpos++;
 	if(PINpos == 4){
 		//alert(vPIN);
-		$('#divPIN').hide();
-		$('.passkey').html('');
-		PINpos = 0; vPIN= "";
-		
+		if(vPIN == pin) {
+			$('#divPIN').hide();
+			$('.passkey').html('');
+			PINpos = 0; vPIN= "";
+		}
 			//if(){
 				$('#sb_inbox').html('Products');
 			//}
@@ -1511,8 +1517,9 @@ $('#FirstState_tab .specialBtn2').tapend(function(){
 				$.post('http://'+IP+':8089/appriz/createNewUser',{
 					email 		: $('#FirstState_tab input[type="email"]').eq(0).val(),
 					password	: $('#FirstState_tab input[type="password"]').eq(0).val(),
-					retention   : 1,//parseInt($('.unikOptions .active').attr('weeks')),
-					pinPolicy   : $('.unikOptions .active').attr('weeks'),
+					retention   : $('.unikOptions .active').attr('weeks'),//parseInt($('.unikOptions .active').attr('weeks')),
+					pinPolicy   : $("#flip-2 option:selected").eq(0).val(),
+					pin 		: $('#FirstState_tab input[type="tel"]').eq(0).val(),
 					phoneDevice : "",
 					so 			: "",
 					pushKey		: "",
