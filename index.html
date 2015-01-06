@@ -1532,6 +1532,7 @@ $('#FirstState_tab .specialBtn2').tapend(function(){
 					idScretClient = data['idSecretClient'];
 					console.log(JSON.stringify(data));
 					showAlert('Appriz User Created','Your user was created, do you want to suscribe to an entity now?',
+					
 					function(){
 						$('.moldHide, .dialogAlert').hide();
 							
@@ -1561,8 +1562,10 @@ $('#Suscri .specialBtn2').tapend(function(){
 		idSecretClient			:  idScretClient,
 		regId : "1" //from device
 	},function(data){
+	
 		if (data["status"] == 200){
 			$('#menuBtn').show();
+			reloadEntities();
 			showAlert('Subscription Sucessfull', "You was succesfully subscribe to: <b>"+data["entityName"]+"</b>. Do you want to subscribe another entity? ",
 				function(){
 					$('.moldHide, .dialogAlert').hide();
