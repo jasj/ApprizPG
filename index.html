@@ -1392,14 +1392,13 @@ var PINpos = 0;
 var vPIN = "";
 $( document ).on( "tapend", ".numKey", function() {
 	$('.passkey').eq(PINpos).html('<i class="fa fa-circle"></i>');
-	vPIN = vPIN+$(this).html(); 
+	vPIN = vPIN+$(this).html().trim(); 
 	PINpos++;
 	if(PINpos == 4){
 		alert(vPIN+" is "+pin);
 		if(vPIN == pin) {
 			$('#divPIN').hide();
-			$('.passkey').html('');
-			PINpos = 0; vPIN= "";
+			
 		
 			//if(){
 				$('#sb_inbox').html('Products');
@@ -1407,6 +1406,8 @@ $( document ).on( "tapend", ".numKey", function() {
 			}else{
 					showInfoD('Wrong Accses Code','The accses code that you used is invalid',function(){$('.moldHide, .dialogAlert').hide();});
 			}
+			$('.passkey').html('');
+			PINpos = 0; vPIN= "";
 	}
  });
  
