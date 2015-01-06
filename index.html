@@ -1395,7 +1395,6 @@ $( document ).on( "tapend", ".numKey", function() {
 	vPIN = vPIN+$(this).html().trim(); 
 	PINpos++;
 	if(PINpos == 4){
-		alert(vPIN+" is "+pin);
 		if(vPIN == pin) {
 			$('#divPIN').hide();
 			
