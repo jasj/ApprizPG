@@ -1388,13 +1388,11 @@ alert( "error" );
 });
 
 $(document).on('tapend' ,'#settings_tab .specialBtn2', function(){
-	alert("a");
+	alert($("#flip-3 option:selected").val());
 	$.post('http://'+IP+':8089/appriz/setAprzCustomerSettings',{
 		idSecretClient			:  idScretClient,
 		retention   			: $('.unikOptions.settings .active').attr('weeks'),
-		pinPolicy   			: $("#flip-3 option:selected").eq(0).val()
-		
-		
+		pinPolicy   			: $("#flip-3 option:selected").val()
 	}, function(data){
 		showInfoD('Change Settings','The settings was changed!',function(){$('.moldHide, .dialogAlert').hide();});
 	});
