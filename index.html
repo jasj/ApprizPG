@@ -1172,7 +1172,7 @@
 						if("idSecretClient" in data ){
 							//	navigator.splashscreen.hide();
 								$('.Loggin').hide();
-								if(pinPolicy==0){$('#divPIN').show();}
+								if(data["pinPolicy"]==0){$('#divPIN').show();}
 								idScretClient = data["idSecretClient"];
 								logId = data["logId"];
 								pinPolicy = data["pinPolicy"];
