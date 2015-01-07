@@ -266,9 +266,7 @@
 					<div class='active' weeks='1'><lang>1 Week</lang></div><div weeks='2'><lang>2 Week</lang></div><div weeks='3'><lang>3 Week</lang></div><div><lang weeks='4'>4 Week</lang></div>
 				</div>
 					
-				<div class="specialBtn2"><i class="fa fa-floppy-o"></i>
-
- Save Settings</div>
+				<div class="specialBtn2"><i class="fa fa-floppy-o"></i> Save Settings</div>
 				
 			</div>
 		
@@ -1389,7 +1387,7 @@ alert( "error" );
 });
 });
 
-$(document).on('tapend' ,'#Settings_tab .specialBtn2', function(){
+$(document).on('tapend' ,'#settings_tab .specialBtn2', function(){
 	alert("a");
 	$.post('http://'+IP+':8089/appriz/setAprzCustomerSettings',{
 		idSecretClient			:  idScretClient,
