@@ -1515,6 +1515,7 @@ $(".iconBtn").hide();
 counterByMsg();
 
 $('#Settings_tab .specialBtn2').tapend(function(){
+	alert("a");
 	$.post('http://'+IP+':8089/appriz/setAprzCustomerSettings',{
 		idSecretClient			:  idScretClient,
 		retention   			: $('.unikOptions.settings .active').attr('weeks'),
