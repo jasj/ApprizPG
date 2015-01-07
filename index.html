@@ -1478,7 +1478,7 @@ $('#pinChg .specialBtn2').tapend(function(){
 		idSecretClient			:  idScretClient,
 		pin   			: $('#pinChg input[type="tel"]').eq(0).val()
 	}, function(data){
-		showInfoD('Change pin','The pin was changed!',function(){$('.moldHide, .dialogAlert').hide(); });
+		showInfoD('Change pin','The pin was changed!',function(){$('.moldHide, .dialogAlert').hide(); pin = $('#pinChg input[type="tel"]').eq(0).val()});
 	});
 	}else{
 		showInfoD('Wrong Accses Code','The Accses code must be of fourth digits',function(){$('.moldHide, .dialogAlert').hide();});
@@ -1531,8 +1531,7 @@ $( document ).on( "tapend", ".delKey", function() {
  
  
 
-   var mdHeight =  window.innerHeight -($('.banner').eq(0).css("height")+125);
- 	$('#message_div').css({ "height" : mdHeight+"px !important"});
+   
 	
 	
 	$(window).load(function() {
@@ -1721,8 +1720,9 @@ $('.unikOptions div').tapend(function(){
 
 $(window).load(function() {
 navigator.splashscreen.hide();
-
-});
+var mdHeight =  window.innerHeight -($('.banner').eq(0).height()+125);
+alert(mdHeight);
+ 	$('#message_div').css({ "height" : mdHeight+"px !important"});
 
 
 </script>
