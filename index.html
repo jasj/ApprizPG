@@ -304,7 +304,7 @@ Change Password</div>
 			</br>&nbsp;
 			<br>&nbsp;
 			<lang>Accses Code</lang>
-				<input placeholder="Accses Code">
+				<input placeholder="Accses Code" maxlength="4">
 				
 				
 				<div class="specialBtn2"><i class="fa fa-check-square-o"></i>
@@ -1451,6 +1451,27 @@ $(document).on('tapend' ,'#settings_tab .specialBtn2', function(){
 	});
 });
 
+$('#passwordChg .specialBtn2').tapend(function(){
+	if($('#passwordChg input[type="password"]').eq(0).val().length > 8){
+		if($('#passwordChg input[type="password"]').eq(0).val() != $('#passwordChg input[type="password"]').eq(1).val()){
+	showInfoD('Wrong data','Passwords do not match',function(){$('.moldHide, .dialogAlert').hide();});} else{
+	
+		$.post('http://'+IP+':8089/appriz/setAprzCustomerSettings',{
+		idSecretClient			:  idScretClient,
+		password   			: $('#passwordChg input[type="password"]').eq(0).val()
+	}, function(data){
+		showInfoD('Change password','The password was changed!',function(){$('.moldHide, .dialogAlert').hide(); });
+	});
+	
+	}
+	}else{
+		showInfoD('Wrong password','The password must be at least 9 chars length',function(){$('.moldHide, .dialogAlert').hide();});
+	}
+
+
+});
+});
+
 </script>
 <script name="script_pin">
 nextPage = window.location.href.split("?")[1];
@@ -1621,6 +1642,9 @@ $('#FirstState_tab .specialBtn2').tapend(function(){
 		showInfoD('Wrong password','The password must be at least 9 chars length',function(){$('.moldHide, .dialogAlert').hide();});
 	}
 });
+
+
+
 
 
 $('#Suscri .specialBtn2').tapend(function(){
