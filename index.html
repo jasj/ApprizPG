@@ -304,7 +304,7 @@ Change Password</div>
 			</br>&nbsp;
 			<br>&nbsp;
 			<lang>Accses Code</lang>
-				<input placeholder="Accses Code" maxlength="4">
+				<input placeholder="Accses Code" maxlength="4" type='tel'>
 				
 				
 				<div class="specialBtn2"><i class="fa fa-check-square-o"></i>
@@ -511,10 +511,10 @@ Change Pin</div>
 				toAppend = "<div class='rule' id='rule_"+obj["idRule"]+"'><div class='rule_header'><div class='rule_header_txt'><p>"+obj["ruleName"]+"</p></div>";
 				toAppend = toAppend + "<input type='checkbox' name='toggle_"+obj["idRule"]+"' id='toggle_"+obj["idRule"]+"' class='toggle' "+(obj["active"] ? "checked" : "")+"><label for='toggle_"+obj["idRule"]+"'></label></div>";
 				toAppend = toAppend + "<div class='rule_body'><p align='justify' style='100%'>"+obj["description"].replace(/<\[singleAmount\]>/g,"<singleAmount>"+obj['singleAmount']+"</singleAmount>").replace(/<\[trxNo\]>/g,"<trxNo>"+obj['trxNo']+"</trxNo>").replace(/<\[idTime\]>/g,"<idTime>"+obj['idTime']+"</idTime>").replace(/<\[totalAmount\]>/g,"<totalAmount>"+obj['totalAmount']+"</totalAmount>").replace(/<\[varation\]>/g,"<varation>"+obj['varation']+"</varation>") +"</p><table>";
-				if("trxNo" in obj ) toAppend = toAppend + "<tr><th>Trx No.</th><td><input type='number' field='trxNo' maxlength='10'  placeholder='"+obj["trxNo"]+"'></td></tr>";
-				if("singleAmount" in obj ) toAppend = toAppend + "<tr><th>Amount</th><td><input type='number' field='singleAmount' maxlength='10'  placeholder='"+obj["singleAmount"]+"'/></td></tr>";
-				if("totalAmount" in obj ) toAppend = toAppend + "<tr><th>Total Amount</th><td><input type='number' field='totalAmount' maxlength='10'  placeholder='"+obj["totalAmount"]+"'/></td></tr>";
-				if("varation" in obj ) toAppend = toAppend + "<tr><th>Variation</th><td><input type='number' field='varation' maxlength='10' placeholder='"+obj["varation"]+"'/></td></tr>";
+				if("trxNo" in obj ) toAppend = toAppend + "<tr><th>Trx No.</th><td><input type='tel' field='trxNo' maxlength='10'  placeholder='"+obj["trxNo"]+"'></td></tr>";
+				if("singleAmount" in obj ) toAppend = toAppend + "<tr><th>Amount</th><td><input type='tel' field='singleAmount' maxlength='10'  placeholder='"+obj["singleAmount"]+"'/></td></tr>";
+				if("totalAmount" in obj ) toAppend = toAppend + "<tr><th>Total Amount</th><td><input type='tel' field='totalAmount' maxlength='10'  placeholder='"+obj["totalAmount"]+"'/></td></tr>";
+				if("varation" in obj ) toAppend = toAppend + "<tr><th>Variation</th><td><input type='tel' field='varation' maxlength='10' placeholder='"+obj["varation"]+"'/></td></tr>";
 				if("idTime" in obj ) toAppend = toAppend + "<tr><th>Time</th><td><select class='SelectStyle'>"+SPickerString+"</select></td></tr>";
 				toAppend = toAppend + "</table></div></div>";
 				$('#rules_div').append(toAppend);
@@ -1470,6 +1470,25 @@ $('#passwordChg .specialBtn2').tapend(function(){
 
 
 });
+
+$('#pinChg .specialBtn2').tapend(function(){
+	var patt = /^\d{4}$/;
+	if( patt.test($('#pinChg input[type="tel"]').eq(0).val())){
+			$.post('http://'+IP+':8089/appriz/setAprzCustomerSettings',{
+		idSecretClient			:  idScretClient,
+		pin   			: $('#pinChg input[type="tel"]').eq(0).val()
+	}, function(data){
+		showInfoD('Change pin','The pin was changed!',function(){$('.moldHide, .dialogAlert').hide(); });
+	});
+	}else{
+		showInfoD('Wrong Accses Code','The Accses code must be of fourth digits',function(){$('.moldHide, .dialogAlert').hide();});
+	}
+
+	
+
+
+});
+
 
 
 </script>
