@@ -264,7 +264,7 @@ Change Password</div>
 			<ul data-role="listview" style='margin-bottom:-40px;'>
 				<br>&nbsp;
 				<br>&nbsp;
-				 <li><a href="#"><lang>Change my password</lang></a></li></br>&nbsp;
+				 <li id='liChgPsw'><a href="#"><lang>Change my password</lang></a></li></br>&nbsp;
 				 <li><a href="#"><lang>Change the accses code</lang></a></li></br>&nbsp;
   
 		
@@ -614,7 +614,7 @@ Change Password</div>
 			$(".iconBtn").show();	
 		});
 		
-		$('#settings_tab li.eq(0)').tapend(function()){
+		$('#liChgPsw').tapend(function(){
 			$('#passwordChg').show();
 			hideIt = "#passwordChg";	
 			$('#menuBtn').hide();
