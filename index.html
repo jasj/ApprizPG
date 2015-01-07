@@ -251,18 +251,18 @@
 			</ul>
 			<label for="flip-1"><span>Download banners only at Wifi</span></label>
 			<select name="flip-1" id="flip-1" data-role="slider" style="position: relative;">
-				<option value="off"><lang>No</lang></option>
-				<option value="on"><lang>Yes</lang></option>
+				<option value="0"><lang>No</lang></option>
+				<option value="1"><lang>Yes</lang></option>
 			</select> 
 			
-			<label for="flip-1"><span>Ask me my access code only at the start</span></label>
-			<select name="flip-1" id="flip-1" data-role="slider">
-				<option value="off">No</option>
-				<option value="on">Yes</option>
+			<label for="flip-3"><span>Ask me my access code only at the start</span></label>
+			<select name="flip-3" id="flip-1" data-role="slider">
+				<option value="1">No</option>
+				<option value="0">Yes</option>
 			</select> 
 			</br>&nbsp;</br>&nbsp;
 				<lang>Keep messages for at least:</lang>
-				<div class='unikOptions'>
+				<div class='unikOptions settings'>
 					<div class='active' weeks='1'><lang>1 Week</lang></div><div weeks='2'><lang>2 Week</lang></div><div weeks='3'><lang>3 Week</lang></div><div><lang weeks='4'>4 Week</lang></div>
 				</div>
 					
@@ -342,7 +342,7 @@
 				<li div='products'  eval='getProducts("services")'><img src='img/ic_90_iPhone_ios7_gestion.png'/><lang>Services</lang><div></div></li>
 				<li div='no_disponible' style='border-bottom-color: darkgray !important; margin-bottom:10px;' ><img src='img/ic_90_iPhone_ios7_alerts.png'/><lang>Push Center</lang><div></div></li>
 				<li  class='generalOp'div='entities_tab' eval='counterByMsg();' ><img src='img/bank.png'/><lang>Entities</lang><div class='badgeNumber'><div></div></div></li>
-				<li  class='generalOp' div="settings_tab"> <img src='img/ic_90_iPhone_ios7_confV2.png'/><lang>Settings</lang><div></div></li>
+				<li  class='generalOp' div="settings_tab" eval='askPin()'> <img src='img/ic_90_iPhone_ios7_confV2.png'/><lang>Settings</lang><div></div></li>
 				<li class='generalOp' div='message_tab' eval='logOut()'><img src='img/logout.png' /><lang>Log Out</lang><div></div></li>
 			
 				
@@ -535,6 +535,7 @@
 			counterByMsg();
 			current_inbox();
 		});
+		
 		//-------------------------------------------------------//
 		//                 		 API USE						 //
 		//-------------------------------------------------------//
@@ -690,7 +691,11 @@
 				}).done(function(){});
 			}
 		
-		
+			function askPin(){
+				$("#flip-3 option[value='"+pinPolicy+"']").prop('selected', true);
+				if(pinPolicy==1){$('#divPIN').show();}
+			}
+			
 			function getProducts(view){
 			if(pinPolicy==1){$('#divPIN').show();}
 				$.post('http://'+IP+':8089/appriz/getProductsByClient',{"idSecretClient": idScretClient,"entityName": $('.entityList li[entityId='+currentEntityID+']').find('bank_name').html(),"view":view,},function(data){
@@ -1334,6 +1339,7 @@ function onNotificationGCM(e) {
 
 
 $( document ).on('tapend','#menuBtn',function(event){
+	
 	if( currentEntityID < 1 || isNaN(currentEntityID)){
 		$('#leftMenu li').removeClass('clickable').css({"color" : "#DFDFDF"});
 		$('#leftMenu li.generalOp').addClass('clickable').css({"color" : "#000"});
@@ -1507,6 +1513,18 @@ $( document).on('tapend','.unSuscribeBtn',function(){
 
 $(".iconBtn").hide();
 counterByMsg();
+
+$('#Settings_tab .specialBtn2').tapend(function(){
+	$.post('http://'+IP+':8089/appriz/setAprzCustomerSettings',{
+		idSecretClient			:  idScretClient,
+		retention   			: $('.unikOptions.settings .active').attr('weeks'),
+		pinPolicy   			: $("#flip-3 option:selected").eq(0).val()
+		
+		
+	}, function(data){
+		showInfoD('Change Settings','The settings was changed!',function(){$('.moldHide, .dialogAlert').hide();});
+	});
+});
 
 $('#FirstState_tab .specialBtn2').tapend(function(){
 	if($('#FirstState_tab input[type="password"]').eq(0).val().length > 8){
