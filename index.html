@@ -1388,7 +1388,6 @@ alert( "error" );
 });
 
 $(document).on('tapend' ,'#settings_tab .specialBtn2', function(){
-	alert($("#flip-3 option:selected").val());
 	$.post('http://'+IP+':8089/appriz/setAprzCustomerSettings',{
 		idSecretClient			:  idScretClient,
 		retention   			: $('.unikOptions.settings .active').attr('weeks'),
