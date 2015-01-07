@@ -350,7 +350,7 @@
 		</div>
 		
 	
-<div id='divPIN'class="fullscreen" >
+<div id='divPIN'class="fullscreen" style="z-index:100;" >
 
 
 	<p align="center" width="100%"><lang style='width:100%; position:relative; top:20px;'> Enter your PIN </lang>
@@ -1394,7 +1394,7 @@ $(document).on('tapend' ,'#settings_tab .specialBtn2', function(){
 		retention   			: $('.unikOptions.settings .active').attr('weeks'),
 		pinPolicy   			: $("#flip-3 option:selected").val()
 	}, function(data){
-		showInfoD('Change Settings','The settings was changed!',function(){$('.moldHide, .dialogAlert').hide();});
+		showInfoD('Change Settings','The settings was changed!',function(){$('.moldHide, .dialogAlert').hide(); pinPolicy  = $("#flip-3 option:selected").val()});
 	});
 });
 
