@@ -1389,7 +1389,7 @@ alert( "error" );
 });
 });
 
-$('#Settings_tab .specialBtn2').tapend(function(){
+$(document).on('tapend' ,'#Settings_tab .specialBtn2', function(){
 	alert("a");
 	$.post('http://'+IP+':8089/appriz/setAprzCustomerSettings',{
 		idSecretClient			:  idScretClient,
