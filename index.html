@@ -996,6 +996,7 @@ Change Pin</div>
 						   managementAccount = 0;
 						   strAppends = "";
 						  var mpi = management;
+						  try{
 						  var array_serv = JSON.parse(atob(msg.attr('services')));
 							for(serv in  array_serv){
 								management = management +"<li msg='"+msg.attr('id')+"' services='"+serv+"'>"+array_serv[serv]+"</li>";
@@ -1008,7 +1009,10 @@ Change Pin</div>
 								$('.management ul').html(management);
 								$('#reqMa').show();
 							}
-							
+							}catch(e){
+								alert("error");
+								alert(e);
+							}
 							try{
 							  strHistory = "";
 						
