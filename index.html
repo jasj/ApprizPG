@@ -993,15 +993,16 @@ Change Pin</div>
 						$(".iconBtn").show();	
 						//Include services
 						   management = "";
-						   
+						   managementAccount = 0;
 						   strAppends = "";
 						  var mpi = management;
 						  var array_serv = JSON.parse(atob(msg.attr('services')));
 							for(serv in  array_serv){
 								management = management +"<li msg='"+msg.attr('id')+"' services='"+serv+"'>"+array_serv[serv]+"</li>";
+								managementAccount++;
 							}
-							console.log(management);alert(management);
-							if(management == "") {alert("andres");  $('#reqMa').hide();	}else{
+							console.log(managementAccount);alert(managementAccount);
+							if(managementAccount == 0) {alert("andres");  $('#reqMa').hide();	}else{
 								alert(management);
 								
 								$('.management ul').html(management);
