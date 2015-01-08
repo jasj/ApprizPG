@@ -71,7 +71,7 @@
 		
 		
 		<div id='products' class='view'>
-			<div style='width:100%;' class="internal_header"><p class='title' >hfgh</div>
+			<div style='width:100%;' class="internal_header"><p class='title' >check your conexion</div>
 			<div id='products_div' class='view_container'><lang>Loading products</lang>...</div>
 		</div>
 		
@@ -174,7 +174,7 @@
 			 
 			 <div class='management'><ul>
 				 </ul></div>
-				 <a href="#" class="ui-btn mng" onclick="$('.management').toggle();">management </a>
+				 <a href="#" class="ui-btn mng" onclick="$('.management').toggle();"><lang>management</lang> </a>
 			</div>
 			
 		<div id='config_rules' class='view' iconp="back">
@@ -1001,6 +1001,11 @@ Change Pin</div>
 								management = management +"<li msg='"+msg.attr('id')+"' services='"+serv+"'>"+array_serv[serv]+"</li>";
 							}
 							
+							if(management == "") {$('.ui-btn.mng').hide(); }else{
+								$('.management ul').html(management);
+								$('.ui-btn.mng').show();
+							}
+							
 							try{
 							  strHistory = "";
 						
@@ -1033,10 +1038,7 @@ Change Pin</div>
 						if(strAppends == ""){$('div[view=trx_view]').hide();}else{$('div[view=trx_view]').show()};
 							
 						
-						if(management == "") {$('.ui-btn.mng').hide(); }else{
-							$('.management ul').html(management);
-							$('.ui-btn.mng').show();
-						}
+					
 						
 						
 						
@@ -1721,7 +1723,6 @@ $('.unikOptions div').tapend(function(){
 $(window).load(function() {
 navigator.splashscreen.hide();
 var mdHeight =  window.innerHeight -($('.banner').eq(0).height()+125);
-alert($('.banner').eq(0).height());
  	$('#message_div').height(mdHeight);
 
 });
