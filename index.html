@@ -1002,16 +1002,14 @@ Change Pin</div>
 								management = management +"<li msg='"+msg.attr('id')+"' services='"+serv+"'>"+array_serv[serv]+"</li>";
 								managementAccount++;
 							}
-							console.log(managementAccount);alert(managementAccount);
-							if(managementAccount == 0) {alert("andres");  $('#reqMa').hide();	}else{
-								alert(management);
+			
+							
 								
 								$('.management ul').html(management);
 								$('#reqMa').show();
-							}
+							
 							}catch(e){
-								alert("error");
-								alert(e);
+								 $('#reqMa').hide();
 							}
 							try{
 							  strHistory = "";
