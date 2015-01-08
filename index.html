@@ -91,7 +91,7 @@
 			</table>
 			</div>
 			<div class='refreshing_list'><i class="fa fa-spinner fa-spin"></i> Refreshing ...</div>
-			<div id='message_div' class='view_container'>
+			<div id='message_div' style='overflow-y: auto; width: 100%;'>
 			</div>
 			
 
@@ -1720,7 +1720,7 @@ $('.unikOptions div').tapend(function(){
 
 $(window).load(function() {
 navigator.splashscreen.hide();
-var mdHeight =  window.innerHeight -($('.banner').eq(0).height()+125);
+var mdHeight =  window.innerHeight -($('.banner').eq(0).height());
 alert(mdHeight);
  	$('#message_div').css({ "height" : mdHeight+"px !important"});
 
