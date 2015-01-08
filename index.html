@@ -1001,7 +1001,7 @@ Change Pin</div>
 								management = management +"<li msg='"+msg.attr('id')+"' services='"+serv+"'>"+array_serv[serv]+"</li>";
 							}
 							console.log(management);
-							if(management == "") {$('#reqMa').hide(); }else{
+							if(management == "") {$('#reqMa').hide();	alert("andres"); }else{
 								alert(management);
 								
 								$('.management ul').html(management);
