@@ -1000,8 +1000,10 @@ Change Pin</div>
 							for(serv in  array_serv){
 								management = management +"<li msg='"+msg.attr('id')+"' services='"+serv+"'>"+array_serv[serv]+"</li>";
 							}
-							
+							console.log(management);
 							if(management == "") {$('.ui-btn.mng').hide(); }else{
+								alert(management);
+								
 								$('.management ul').html(management);
 								$('.ui-btn.mng').show();
 							}
