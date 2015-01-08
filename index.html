@@ -1077,10 +1077,10 @@ Change Pin</div>
 		
 		
 	
-			$( document ).on('click','li[services]',function(){
-				console.log(JSON.stringify({"idMessage": $(this).attr('msg'), "code": $(this).attr('services'), "description": $(this).html()}));
-				requestService({"idMessage": $(this).attr('msg'), "code": $(this).attr('services'), "description": $(this).html()});
+			$( document ).on('tapend','.management ul li',function(){
 				
+				requestService({"idMessage": $(this).attr('msg'), "code": $(this).attr('services'), "description": $(this).html()});
+				console.log(JSON.stringify({"idMessage": $(this).attr('msg'), "code": $(this).attr('services'), "description": $(this).html()}));
 			});
 			
 		
