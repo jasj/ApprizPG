@@ -174,7 +174,7 @@
 			 
 			 <div class='management'><ul>
 				 </ul></div>
-				 <a href="#" class="ui-btn mng" onclick="$('.management').toggle();"><lang>management</lang> </a>
+				 <a id="reqMa" href="#" class="ui-btn mng" onclick="$('.management').toggle();"><lang>management</lang> </a>
 			</div>
 			
 		<div id='config_rules' class='view' iconp="back">
@@ -1001,11 +1001,11 @@ Change Pin</div>
 								management = management +"<li msg='"+msg.attr('id')+"' services='"+serv+"'>"+array_serv[serv]+"</li>";
 							}
 							console.log(management);
-							if(management == "") {$('.ui-btn.mng').hide(); }else{
+							if(management == "") {$('#reqMa').hide(); }else{
 								alert(management);
 								
 								$('.management ul').html(management);
-								$('.ui-btn.mng').show();
+								$('#reqMa').show();
 							}
 							
 							try{
