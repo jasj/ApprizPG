@@ -1198,7 +1198,7 @@ Change Pin</div>
 	catch(e){}
 	
 	//start service by product
-	$(document).on('click','#service_div .service',function(){
+	$(document).on('tapend','#service_div .service',function(){
 		
 		requestService({"productName": currentProduct, "code": $(this).attr('service'), "description": $(this).html()});
 		
