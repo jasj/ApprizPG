@@ -1002,12 +1002,8 @@ Change Pin</div>
 								management = management +"<li msg='"+msg.attr('id')+"' services='"+serv+"'>"+array_serv[serv]+"</li>";
 								managementAccount++;
 							}
-			
-							
-								
 								$('.management ul').html(management);
-								$('#reqMa').show();
-							
+								$('#reqMa').show();	
 							}catch(e){
 								 $('#reqMa').hide();
 							}
@@ -1024,7 +1020,7 @@ Change Pin</div>
 								$('.history_view').html(strHistory);
 							}
 							catch(e){
-								$('.history_view').html("");
+								$('.history_view').html("").hide();
 							}
 							try{
 							var array_appends = JSON.parse(atob(msg.attr('appends')));
