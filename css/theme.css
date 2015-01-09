@@ -357,7 +357,7 @@ height : 18px;
 		font-family: 'PT Sans', arial, serif;
 }
 
-.internal_header{
+.internal_header, .internal_header_2{
 	background:  #FFEA04;
 	border: 1px solid #DDD;
 	color: #333;
@@ -365,6 +365,12 @@ height : 18px;
 	/*font-weight: 700;*/
 	
 	height :22px;
+
+}
+
+.internal_header_2{
+	
+	height :32px !important;
 
 }
 
