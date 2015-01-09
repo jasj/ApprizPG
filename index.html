@@ -498,6 +498,20 @@ Change Pin</div>
 			$('.message').each(function( index ) {
 				report["m"+$(this).attr("id")] = $(this).hasClass("unread") ? "unread" : "readed"; 
 				console.log($(this).attr("id"));
+				if($(this).hasAttr('read')){
+					var msgS = $(this).attr('read').split(',');
+					for(var i = 0 ; i < msgS.length ; i++){
+						report["m"+msgS[i]] =  "readed";
+					}
+				}
+				
+				if($(this).hasAttr('nread')){
+					var msgS = $(this).attr('nread').split(',');
+					for(var i = 0 ; i < msgS.length ; i++){
+						report["m"+msgS[i]] =  "unread";
+					}
+				}
+				
 			});
 			console.log(JSON.stringify(report));
 			$.post('http://'+IP+':8089/appriz/setMessageStatus', {"idSecretClient": idScretClient, msgStatus:report }, function(data){
@@ -668,9 +682,15 @@ Change Pin</div>
 					}else{
 					//child msg
 					if( ( 'idParent' in message) && ($('#message_div #'+message['idParent']).length>0)){
+						if(message['state'] == 3){
+							$('#message_div #'+message['idParent']).attr('read',$('#message_div #'+message['idParent']).hasAttr('read') ? $('#message_div #'+message['idParent']).attr('read')+','+message['idMessage'] : message['idMessage']);
+						}else{
+							$('#message_div #'+message['idParent']).attr('nread',$('#message_div #'+message['idParent']).hasAttr('nread') ? $('#message_div #'+message['idParent']).attr('nread')+','+message['idMessage'] : message['idMessage']);
+							$('#'+message['idMessage']).addClass('unread');
+						}
 						if($('#message_div #'+message['idParent']).hasAttr('history')){
 							$('#message_div #'+message['idParent']).attr('history',btoa(atob($('#message_div #'+message['idParent']).attr('history'))+";"+message['shortMessage']+":"+message['longMessage']));
-						
+							
 						}else{
 							$('#message_div #'+message['idParent']).attr('history',btoa(message['shortMessage']+":"+message['longMessage']));
 						}
@@ -979,6 +999,15 @@ Change Pin</div>
 				   if((phase === $.fn.swipe.phases.PHASE_END || phase === $.fn.swipe.phases.PHASE_CANCEL )& distance == 0)  {
 						//read message
 						$(this).removeClass('unread');
+						if( $(this).hasAttr('nread') ){
+							if( $(this).hasAttr('read') ){
+								$(this).attr('read',$(this).attr('read') + ',' + $(this).attr('nread'));
+							}else{
+								$(this).attr('read', $(this).attr('nread'));
+							}
+							
+							$(this).removeAttr('nread');
+						}
 						counterByMsg();
 						reportMsgState();
 						$.jStorage.set('msg_div', btoa($('#message_div').html()));
