@@ -685,6 +685,7 @@ Change Pin</div>
 						if(message['state'] == 3){
 							$('#message_div #'+message['idParent']).attr('read',$('#message_div #'+message['idParent']).hasAttr('read') ? $('#message_div #'+message['idParent']).attr('read')+','+message['idMessage'] : message['idMessage']);
 						}else{
+							alert("am8");
 							$('#message_div #'+message['idParent']).attr('nread',$('#message_div #'+message['idParent']).hasAttr('nread') ? $('#message_div #'+message['idParent']).attr('nread')+','+message['idMessage'] : message['idMessage']);
 							$('#'+message['idMessage']).addClass('unread');
 						}
