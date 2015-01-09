@@ -1060,7 +1060,7 @@ Change Pin</div>
 								strAppends = strAppends + "<table>";
 								for( field in value){
 									if(field == "Fecha_Hora"){var dd = new Date(value[field]); strAppends = strAppends +"<tr><th>"+field+"</th><td>"+dd.toLocaleString()+"</td></tr>";} 
-									if(field == "fields"){console.log(field["fields"]);
+									if(field == "fields"){console.log("entra acá 236"); console.log(field["fields"]);
 										for(var i= 0; i < field["fields"].length ; i++){
 											strAppends = strAppends +"<tr><th>"+field["fields"][i]["tag"]+"</th><td>"+field["fields"][i]["value"]+"</td></tr>";
 											console.log(JSON.stringify(field["fields"][i]));
