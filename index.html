@@ -166,9 +166,9 @@
 				<img width='60px' class='typeIcon'></img>
 				<p style="text-align: justify; color: #000" id='longMSG'></p>
 			</div>
-			<div style='width:100%;  ' class="internal_header_2" style='padding: 6px !important;' view='history_view'><i class="fa fa-history" style='margin-left: 8px;'></i>&nbsp;&nbsp;&nbsp;History<i class="fa fa-plus-square-o" style="position: absolute; right: 12px; margin-top: 7px;"></i> </div>
+			<div style='width:100%;  ' class="internal_header_2" style='padding: 6px !important;' view='history_view' state='min'><i class="fa fa-history" style='margin-left: 8px;'></i>&nbsp;&nbsp;&nbsp;History<i class="fa fa-plus-square-o" style="position: absolute; right: 12px; margin-top: 7px;"></i> </div>
 			<div class='div_content2 history_view' style='display: none;'></div>
-			<div style='width:100%;  ' class="internal_header_2" style='padding: 6px; !important;'  view='trx_view'><i class="fa fa-random" style='margin-left: 8px;'></i>&nbsp;&nbsp;&nbsp;Transacctions<i class="fa fa-plus-square-o" style="position: absolute; right: 12px; margin-top: 7px;"></i> </div>
+			<div style='width:100%;  ' class="internal_header_2" style='padding: 6px; !important;'  view='trx_view' state='min'><i class="fa fa-random" style='margin-left: 8px;'></i>&nbsp;&nbsp;&nbsp;Transacctions<i class="fa fa-plus-square-o" style="position: absolute; right: 12px; margin-top: 7px;"></i> </div>
 			<div class='div_content2 trx_view' style='display: none; border: 1px solid #ddd; border-radius: 0 0 10px 10px; overflow-y: auto; ' ></div>
 			
 			 
@@ -685,7 +685,6 @@ Change Pin</div>
 						if(message['state'] == 3){
 							$('#message_div #'+message['idParent']).attr('read',$('#message_div #'+message['idParent']).hasAttr('read') ? $('#message_div #'+message['idParent']).attr('read')+','+message['idMessage'] : message['idMessage']);
 						}else{
-							alert("am8");
 							$('#message_div #'+message['idParent']).attr('nread',$('#message_div #'+message['idParent']).hasAttr('nread') ? $('#message_div #'+message['idParent']).attr('nread')+','+message['idMessage'] : message['idMessage']);
 							$('#'+message['idMessage']).addClass('unread');
 						}
@@ -1123,15 +1122,17 @@ Change Pin</div>
 		
 		
 		//Control for sliders
-		$( document).on('tapend','.internal_header .fa-plus-square-o',function(){
+		$( document).on('tapend','.internal_header_2',function(){
 			$('.div_content2').hide();
-			$(this).removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
-			$('.'+$(this).parent().attr('view')).show();
-		});
-		$( document).on('tapend','.internal_header .fa-minus-square-o',function(){
-			$('.div_content2').hide();
-			$(this).removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
-			$('.'+$(this).parent().attr('view')).hide();
+			if( $(this).attr('state') == 'min'){
+				$(this).find('.fa-plus-square-o').removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
+				$('.'+$(this).attr('view')).show();
+				$(this).attr('state','max')
+			}else{
+				$(this).find('.fa-minus-square-o').removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
+				$('.'+$(this).attr('view')).hide();
+				$(this).attr('state','min');
+			}
 		});
 		
 	$.fn.hasAttr = function(name) {  
