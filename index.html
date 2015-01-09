@@ -677,7 +677,7 @@ Change Pin</div>
 						if(message['state'] == 3){
 							$('#'+message['idMessage']).removeClass('unread')
 						}
-							var bulb =  message['bulb'] == 1   ? 'img/ledlightgreen.png' : message['type'] == 2   ? 'img/ledlighyellow.png' : message['type'] == 3   ? 'img/ledlightred.png' :  'img/ledlighgray.png';
+							var bulb =  message['bulb'] == 1   ? 'img/ledlightgreen.png' : message['bulb'] == 2   ? 'img/ledlighyellow.png' : message['bulb'] == 3   ? 'img/ledlightred.png' :  'img/ledlighgray.png';
 						    $('#'+message['idMessage']).find('.bulb').attr('src',bulb);
 					}else{
 					//child msg
@@ -1060,6 +1060,11 @@ Change Pin</div>
 								strAppends = strAppends + "<table>";
 								for( field in value){
 									if(field == "Fecha_Hora"){var dd = new Date(value[field]); strAppends = strAppends +"<tr><th>"+field+"</th><td>"+dd.toLocaleString()+"</td></tr>";} 
+									if(field == "field"){
+										for(var i= 0; i < field.length ; i++){
+											strAppends = strAppends +"<tr><th>"+field[i]["tag"]+"</th><td>"+field[i]["value"]+"</td></tr>";
+										}
+									}
 									else strAppends = strAppends +"<tr><th>"+field+"</th><td>"+value[field]+"</td></tr>";}
 								strAppends = strAppends + "</table>";
 							});
