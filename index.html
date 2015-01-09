@@ -1023,7 +1023,7 @@ Change Pin</div>
 						//Include services
 						   management = "";
 						   managementAccount = 0;
-						   strAppends = "<table></table>";
+						   strAppends = "";
 						  var mpi = management;
 						  try{
 						  var array_serv = JSON.parse(atob(msg.attr('services')));
@@ -1072,7 +1072,7 @@ Change Pin</div>
 							}
 							catch(e){$('div[view=trx_view]').hide();}
 							
-							$('.trx_view').html(strAppends);
+							$('.trx_view').html("<table></table>"+strAppends);
 							
 						if(strAppends == ""){$('div[view=trx_view]').hide();}else{$('div[view=trx_view]').show()};
 							
