@@ -677,7 +677,7 @@ Change Pin</div>
 						if(message['state'] == 3){
 							$('#'+message['idMessage']).removeClass('unread')
 						}
-							var bulb =  message['type'] == 1   ? 'img/ledlightgreen.png' : message['type'] == 2   ? 'img/ledlighyellow.png' : message['type'] == 3   ? 'img/ledlightred.png' :  'img/ledlighgray.png';
+							var bulb =  message['bulb'] == 1   ? 'img/ledlightgreen.png' : message['type'] == 2   ? 'img/ledlighyellow.png' : message['type'] == 3   ? 'img/ledlightred.png' :  'img/ledlighgray.png';
 						    $('#'+message['idMessage']).find('.bulb').attr('src',bulb);
 					}else{
 					//child msg
