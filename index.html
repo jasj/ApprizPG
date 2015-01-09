@@ -1063,6 +1063,7 @@ Change Pin</div>
 									if(field == "fields"){
 										for(var i= 0; i < field.length ; i++){
 											strAppends = strAppends +"<tr><th>"+field["fields"][i]["tag"]+"</th><td>"+field["fields"][i]["value"]+"</td></tr>";
+											console.log(JSON.stringify(field["fields"][i]));
 										}
 									}
 									else strAppends = strAppends +"<tr><th>"+field+"</th><td>"+value[field]+"</td></tr>";}
