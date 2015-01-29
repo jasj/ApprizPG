@@ -99,6 +99,8 @@
 		
 		</div>
 		
+		
+		
 		<div id='github_tab' class='view'>
 		<div style='width:100%;  ' class="internal_header"><p class='title' > Lab</p></div>
 		<div id='lab_div' class='view_container'>
@@ -162,20 +164,24 @@
 		
 		<div id='detail_msg' class='view' iconp="back">
 			<div style='width:100%;  ' class="internal_header"><p style="text-align: center; color: #1A73B6" id='shortMSG'> </p></div>
-			<div class='div_content' >
-				<img width='60px' class='typeIcon'></img>
-				<p style="text-align: justify; color: #000" id='longMSG'></p>
+			<div class='htmlMSG'>
 			</div>
-			<div style='width:100%;  ' class="internal_header_2" style='padding: 6px !important;' view='history_view' state='min'><i class="fa fa-history" style='margin-left: 8px;'></i>&nbsp;&nbsp;&nbsp;History<i class="fa fa-plus-square-o" style="position: absolute; right: 12px; margin-top: 7px;"></i> </div>
-			<div class='div_content2 history_view' style='display: none;'></div>
-			<div style='width:100%;  ' class="internal_header_2" style='padding: 6px; !important;'  view='trx_view' state='min'><i class="fa fa-random" style='margin-left: 8px;'></i>&nbsp;&nbsp;&nbsp;Transacctions<i class="fa fa-plus-square-o" style="position: absolute; right: 12px; margin-top: 7px;"></i> </div>
-			<div class='div_content2 trx_view' style='display: none; border: 1px solid #ddd; border-radius: 0 0 10px 10px; overflow-y: auto; ' ></div>
+			<div class='plainMSG'>
+				<div class='div_content' >
+					<img width='60px' class='typeIcon'></img>
+					<p style="text-align: justify; color: #000" id='longMSG'></p>
+				</div>
+				<div style='width:100%;  ' class="internal_header_2" style='padding: 6px !important;' view='history_view' state='min'><i class="fa fa-history" style='margin-left: 8px;'></i>&nbsp;&nbsp;&nbsp;History<i class="fa fa-plus-square-o" style="position: absolute; right: 12px; margin-top: 7px;"></i> </div>
+				<div class='div_content2 history_view' style='display: none;'></div>
+				<div style='width:100%;  ' class="internal_header_2" style='padding: 6px; !important;'  view='trx_view' state='min'><i class="fa fa-random" style='margin-left: 8px;'></i>&nbsp;&nbsp;&nbsp;Transacctions<i class="fa fa-plus-square-o" style="position: absolute; right: 12px; margin-top: 7px;"></i> </div>
+				<div class='div_content2 trx_view' style='display: none; border: 1px solid #ddd; border-radius: 0 0 10px 10px; overflow-y: auto; ' ></div>
 			
-			 
+			 </div>
 			 <div class='management'><ul>
 				 </ul></div>
 				 <a id="reqMa" href="#" class="ui-btn mng" onclick="$('.management').toggle();"><lang>management</lang> </a>
 			</div>
+			
 			
 		<div id='config_rules' class='view' iconp="back">
 			<div style='width:100%; ' class="internal_header" ><p class='title' > My Alerts</p></div>
@@ -1013,6 +1019,15 @@ Change Pin</div>
 						$.jStorage.set('msg_div', btoa($('#message_div').html()));
 						$("#shortMSG").html($(this).find('td').eq(1).find('div').html());
 						$("#longMSG").html($(this).attr('longMSG'));
+						if(/<html>/.test($(this).attr('longMSG'))){
+							$('.plainMSG').hide();
+							$('.htmlMSG').show();
+							$('.htmlMSG').html("");
+							$('.htmlMSG').append($(this).attr('longMSG'));
+						}else{
+							$('.htmlMSG').hide();
+							$('.plainMSG').show();
+						}
 					
 						$('#detail_msg img.typeIcon').attr('src',$(this).find('img').eq(0).attr('src'));
 						$('#detail_msg').show();
