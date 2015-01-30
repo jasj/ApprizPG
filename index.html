@@ -676,7 +676,7 @@ Change Pin</div>
 		
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
 				console.log(JSON.stringify(data));
-				$('#message_div').html("<div class='refreshing_list'><img src='img/logo.png' class='sipinAppriz'/></div>");	
+				$('#message_div').html("<div class='refreshing_list'><img src='img/logo.png' class='spinAppriz'/>Refreshing</div>");	
 				$('.refreshing_list').show();
 				$.each(data,function(index, message){
 					if($('#'+message['idMessage']).length > 0){ 
