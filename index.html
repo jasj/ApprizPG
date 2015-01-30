@@ -987,10 +987,11 @@ Change Pin</div>
 						
 						if (distance< (150)) {
 							msg.next().css({"background-color":  "#FDC111"});
-						}else{
-							msg.next().css({"background-color":  "#FF3553"});
 							msg.css({"margin-right": distance});
 							msg.next().css({"width":  distance-1});
+						}else{
+							msg.next().css({"background-color":  "#FF3553"});
+							
 						}
 					}
 					else if(direction=='down') {
