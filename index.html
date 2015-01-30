@@ -946,8 +946,7 @@ Change Pin</div>
 				//Generic swipe handler for all directions
 				swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
 					oneTimeSendAjax =false;
-					var msg = $(this);msg.prev().css({"width":  0});msg.next().css({"width":  0});
-					msg.css({"margin-left": 0, "margin-right" : 0});
+					
 					
 					if(direction=='left' & distance > (150)){
 						/*showAlert("Delete Message","Are you sure that you want to delete this message?",
@@ -966,6 +965,8 @@ Change Pin</div>
 					
 					}else {
 						msg.css({"margin-right": 0}) ;
+						var msg = $(this);msg.prev().css({"width":  0});msg.next().css({"width":  0});
+						msg.css({"margin-left": 0, "margin-right" : 0});
 					
 				
 					}
@@ -983,8 +984,7 @@ Change Pin</div>
 							msg.prev().css({"background-color":  "#FF3553"});
 						}*/
 					}else if(direction=='left'){
-						msg.css({"margin-right": distance});
-						msg.next().css({"width":  distance-1});
+						
 						if (distance< (150)) {
 							msg.next().css({"background-color":  "#FDC111"});
 						}else{
