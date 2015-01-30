@@ -1102,9 +1102,8 @@ border: 1px solid #DADADA;
 }
 
 img.aprzSipner {
-    margin: 20px;
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
 
     -webkit-animation-name: spin;
     -webkit-animation-duration: 4000ms;
