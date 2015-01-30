@@ -343,6 +343,7 @@ height : 18px;
 	z-index: 80;
 	font-size: 24px;
 	text-align: center;
+	vertical-align: 100%;
 	
 	display : none;
 }
