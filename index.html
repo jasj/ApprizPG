@@ -941,6 +941,7 @@ Change Pin</div>
 			console.log(hideIt);
 		});
 		$( document ).on('tapend','.delete_indicator',function(){
+		alert('yrd');
 				$(this).next().remove();
 				$.jStorage.set('msg_div', btoa($('#message_div').html())); 
 				reportMsgState();
