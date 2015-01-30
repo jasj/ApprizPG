@@ -940,7 +940,7 @@ Change Pin</div>
 			
 			console.log(hideIt);
 		});
-		$( document ).on('tapend','.delete_indicator',function(){
+		$( document ).on('tapend','.delete_indicator2',function(){
 		alert('yrd');
 				$(this).next().remove();
 				$.jStorage.set('msg_div', btoa($('#message_div').html())); 
@@ -1008,6 +1008,8 @@ Change Pin</div>
 							msg.next().css({"width":  distance-1});
 						}else{
 							msg.next().css({"background-color":  "#FF3553"});
+							msg.css({"margin-right": 150});
+							msg.next().css({"width":  150-1});
 							
 						}
 					}
