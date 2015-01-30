@@ -335,16 +335,13 @@ height : 18px;
 }
 
 .refreshing_list{
-	position: absolute;
-	top: 0px;
-	left:0px;
-	right: 0px;
 	
-	height : 30px;
+	height : 60px;
 	
 	background-color: #F5F5Ff;
 	border-color: #DDDDDD;
 	z-index: 80;
+	font-size: 24px;
 	text-align: center;
 	
 	display : none;
