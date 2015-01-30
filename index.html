@@ -940,6 +940,13 @@ Change Pin</div>
 			
 			console.log(hideIt);
 		});
+		
+		$('.delete_indicator').tap(function(){
+				$(this).next().remove();
+				$.jStorage.set('msg_div', btoa($('#message_div').html())); 
+				reportMsgState();
+				counterByMsg();
+		});
 		//swip for delete message & scroll 
 		var oneTimeSendAjax = false;
 		function makeSwipe(id){
