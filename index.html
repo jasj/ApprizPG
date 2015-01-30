@@ -711,7 +711,7 @@ Change Pin</div>
 						
 						var postDate = new Date(message['postdate']);
 						var postDateS = postDate.getFullYear() + "-"+FormatInteger(postDate.getMonth() + 1,2)+ "-"+FormatInteger(postDate.getDate(),2) +" "+postDate.getHours()+":"+postDate.getMinutes()+":"+postDate.getSeconds();
-						$('#message_div').append("<div class='delete_indicator'>Delete&nbsp;&nbsp; </div><div class='message "+( message['state'] < 3 ? "unread" : "" )+" typemsg"+message['type']+" entity"+message['idEntity']+"' id='"+message['idMessage']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><table style='width: 100%; vertical-align: middle !important;'><tr><td ><img src='"+img_msg+"'/></td><td><table style=' height:100%; width: 100%; margin-top: -10px;'><tr><td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>"+message['shortMessage']+"</div></td></tr><tr><td class='btnDateMsg'><img class='bulb' src='"+bulb+"' style='width:12px; height:12px; margin-left: 0px;'/>&nbsp;<i class='fa fa-calendar'></i>"+postDateS+"</td></tr></table></td><td style='width:0px;'><i class='fa fa-chevron-right'>&nbsp;</i></td></td></tr></table></div><div class='delete_indicator2'>Delete&nbsp;&nbsp; </div>");
+						$('#message_div').append("<div class='delete_indicator'>Delete</div><div class='message "+( message['state'] < 3 ? "unread" : "" )+" typemsg"+message['type']+" entity"+message['idEntity']+"' id='"+message['idMessage']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><table style='width: 100%; vertical-align: middle !important;'><tr><td ><img src='"+img_msg+"'/></td><td><table style=' height:100%; width: 100%; margin-top: -10px;'><tr><td><div style='overflow: hidden; text-overflow: ellipsis; max-height:40px;'>"+message['shortMessage']+"</div></td></tr><tr><td class='btnDateMsg'><img class='bulb' src='"+bulb+"' style='width:12px; height:12px; margin-left: 0px;'/>&nbsp;<i class='fa fa-calendar'></i>"+postDateS+"</td></tr></table></td><td style='width:0px;'><i class='fa fa-chevron-right'>&nbsp;</i></td></td></tr></table></div><div class='delete_indicator2'>Delete&nbsp;&nbsp; </div>");
 						
 						$.jStorage.set('msg_div', btoa($('#message_div').html()));
 						makeSwipe(message['idMessage']);
@@ -1004,7 +1004,7 @@ Change Pin</div>
 					else if(direction=='down') {
 						
 						if((msg.parent().scrollTop() < 1) && (distance > 100) && (oneTimeSendAjax == false)){ oneTimeSendAjax = true; callNewMSG();}
-						msg.parent().scrollTop(msg.parent().scrollTop() - distance/10);
+						//msg.parent().scrollTop(msg.parent().scrollTop() - distance/10);
 					
 					}
 					else if(direction=='up') {
