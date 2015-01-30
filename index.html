@@ -983,6 +983,13 @@ Change Pin</div>
 						}else{
 							msg.prev().css({"background-color":  "#FF3553"});
 						}*/
+						if(distance < 150){
+							msg.css({"margin-right": 150-distance});
+							msg.next().css({"width": 150 distance});
+						}else{
+							msg.css({"margin-right": 0});
+							msg.next().css({"width": 0});
+						}
 					}else if(direction=='left'){
 						
 						if (distance< (150)) {
