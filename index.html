@@ -673,7 +673,7 @@ Change Pin</div>
 		function callNewMSG(){
 		
 		date = new Date();
-		
+		alert('new');
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
 				console.log(JSON.stringify(data));
 				$('#message_div').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i> Refreshing ...</div>");
