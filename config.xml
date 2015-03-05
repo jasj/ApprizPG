@@ -21,6 +21,7 @@
     <preference name="AutoHideSplashScreen" value="true" />
 	<preference name="ShowSplashScreenSpinner" value="false" />
 	<preference name="DisallowOverscroll" value="true" />
+	<preference name="EnableViewportScale" value="true" />
 
   <gap:plugin name="org.apache.cordova.battery-status" version="0.2.11" />
 
