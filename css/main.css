@@ -968,7 +968,7 @@ label.css-label {
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 91%;
+    width: calc(100% - 60px);
     word-wrap: break-word;
     max-height: 2.6em;
     line-height: 21px;
