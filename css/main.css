@@ -1,0 +1,2154 @@
+/* ==========================================================================
+   Base styles: Appriz App
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+ul li {
+    list-style: none;
+    margin: 0;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+/* ==========================================================================
+   FONTS ICONS
+   ========================================================================== */
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?-fm0mmn');
+    src: url('../fonts/icomoon.eot?#iefix-fm0mmn') format('embedded-opentype'),
+    url('../fonts/icomoon.woff?-fm0mmn') format('woff'),
+    url('../fonts/icomoon.ttf?-fm0mmn') format('truetype'),
+    url('../fonts/icomoon.svg?-fm0mmn#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow .path1:before {
+    content: "\e614";
+    color: rgb(79, 81, 84);
+}
+
+.icon-arrow .path2:before {
+    content: "\e615";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+}
+
+.icon-alerts:before {
+    content: "\e600";
+}
+
+.icon-back:before {
+    content: "\e601";
+}
+
+.icon-delete:before {
+    content: "\e602";
+}
+
+.icon-demo:before {
+    content: "\e603";
+}
+
+.icon-entities:before {
+    content: "\e604";
+}
+
+.icon-iconAppriz .path1:before {
+    content: "\e605";
+    color: rgb(161, 41, 149);
+}
+
+.icon-iconAppriz .path2:before {
+    content: "\e606";
+    margin-left: -1em;
+    color: rgb(238, 152, 9);
+}
+
+.icon-iconAppriz .path3:before {
+    content: "\e607";
+    margin-left: -1em;
+    color: rgb(149, 200, 7);
+}
+
+.icon-lock:before {
+    content: "\e608";
+}
+
+.icon-logOut:before {
+    content: "\e609";
+}
+
+.icon-menu:before {
+    content: "\e60a";
+}
+
+.icon-myAlerts .path1:before {
+    content: "\e60b";
+    color: rgb(214, 213, 212);
+}
+
+.icon-myAlerts .path2:before {
+    content: "\e60c";
+    margin-left: -1em;
+    color: rgb(238, 152, 9);
+}
+
+.icon-notifications:before {
+    content: "\e60d";
+}
+
+.icon-pencil:before {
+    content: "\e60e";
+}
+
+.icon-promotions:before {
+    content: "\e60f";
+}
+
+.icon-pushcenter:before {
+    content: "\e610";
+}
+
+.icon-services:before {
+    content: "\e611";
+}
+
+.icon-settings:before {
+    content: "\e612";
+}
+
+.icon-user:before {
+    content: "\e613";
+}
+
+.icon-primitive-dot:before {
+    content: "\f052";
+}
+
+.icon-cross:before {
+    content: "\ea0f";
+}
+
+header .icon-iconAppriz {
+    font-size: 50px;
+    padding: 19px 0 0 0;
+    display: block;
+}
+
+/* ==========================================================================
+   on off btns styles Aprriz app
+   ========================================================================== */
+
+.onoffswitch {
+    position: relative;
+    width: 90px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s;
+    -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s;
+    transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    font-size: 14px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 10px;
+    background-color: #9E3F9A;
+    color: #FFFFFF;
+}
+
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 10px;
+    background-color: #E8E8E8;
+    color: #6D6E76;
+    text-align: right;
+}
+
+.onoffswitch-switch {
+    display: block;
+    width: 19px;
+    margin: 5.5px;
+    background: #6D6E76;
+    border-radius: 25px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 56px;
+    -moz-transition: all 0.3s ease-in 0s;
+    -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s;
+    transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px;
+    background: #FFFFFF;
+}
+
+body {
+    background: #FFFFFF;
+    font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-weight: 400;
+    font-stretch: normal;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+#appHolder {
+    width: 100%;
+    margin: 0 auto;
+    background: #FFFFFF;
+
+}
+
+header.loginHead {
+    background: #9e3f9a; /* Old browsers */
+    background: -moz-linear-gradient(left, #9e3f9a 17%, #9e3f9a 17%, #636466 17%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(17%, #9e3f9a), color-stop(17%, #9e3f9a), color-stop(17%, #636466)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, #9e3f9a 17%, #9e3f9a 17%, #636466 17%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, #9e3f9a 17%, #9e3f9a 17%, #636466 17%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, #9e3f9a 17%, #9e3f9a 17%, #636466 17%); /* IE10+ */
+    background: linear-gradient(to right, #9e3f9a 17%, #9e3f9a 17%, #636466 17%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9e3f9a', endColorstr='#636466', GradientType=1); /* IE6-9 */
+    min-height: 50px;
+}
+
+header {
+    background: #9e3f9a; /* Old browsers */
+    background: -moz-linear-gradient(left, #9e3f9a 17%, #9e3f9a 17%, #636466 17%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(17%, #9e3f9a), color-stop(17%, #9e3f9a), color-stop(17%, #636466)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, #9e3f9a 17%, #9e3f9a 17%, #636466 17%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, #9e3f9a 17%, #9e3f9a 17%, #636466 17%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, #9e3f9a 17%, #9e3f9a 17%, #636466 17%); /* IE10+ */
+    background: linear-gradient(to right, #9e3f9a 17%, #9e3f9a 17%, #636466 17%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9e3f9a', endColorstr='#636466', GradientType=1); /* IE6-9 */
+    min-height: 50px;
+    position: fixed;
+    width: 100%;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+header .icon-back {
+    display: block;
+    color: #FFFFFF;
+    font-size: 30px;
+    width: 17%;
+    float: left;
+    text-align: center;
+    line-height: 91px;
+}
+
+header h2 {
+    color: #FFFFFF;
+    font-size: 1.6em;
+    float: left;
+    width: 72%;
+    text-align: center;
+    margin: 0;
+    line-height: 84px;
+}
+
+header .icon-menu {
+    border: none;
+    color: #FFFFFF;
+    font-size: 51px;
+    background: none;
+    line-height: 76px;
+    display: block;
+    float: left;
+}
+
+.bankSection .icon-menu {
+    border: none;
+    color: #FFFFFF;
+    font-size: 51px;
+    background: none;
+    line-height: 76px;
+    display: block;
+    float: left;
+    margin: 2px 0 0 6px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.login {
+    width: 100%;
+}
+
+.login .logo {
+    display: block;
+    padding: 16% 0 10% 0;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 570px;
+}
+
+.loginBox {
+    max-width: 590px;
+    margin: 0 auto;
+    padding: 0 0 6% 0;
+    overflow: hidden;
+}
+
+.loginBox .row {
+
+    position: relative;
+}
+
+#main {
+    overflow: hidden;
+    max-width: 640px;
+    margin: 91px auto 0;
+}
+
+.allCategory {
+    margin: 110px auto 176px !important;
+}
+
+input, .btnAction {
+    background: #dadada;
+    border: none;
+    width: 100%;
+    font-size: 1.1em;
+    line-height: 60px;
+    margin: 0 0 2% 0;
+    padding: 0 2% 0 2%;
+    color: #565758;
+}
+
+.btnAction {
+    text-align: left;
+    position: relative;
+}
+
+.btnAction .icon-arrow {
+    position: absolute;
+    right: -4px;
+    font-size: 69px;
+    top: -5px;
+}
+
+.btnAction .icon-arrow .path1 {
+    color: #9e3f9a;
+}
+
+.btnAction .icon-arrow .path1:before {
+    content: "\e614";
+    color: #9e3f9a;
+}
+
+.loginBox input {
+    background: #dadada;
+    border: none;
+    height: 70px;
+    margin: 0 0 5% 0;
+    display: block;
+    width: 100%;
+    color: #6d6e76;
+    font-size: 1.1em;
+    padding: 0 2% 0 2%;
+}
+
+.loginBox .icon-user, .icon-lock {
+    color: #6c6d76;
+    position: absolute;
+    right: 13px;
+    z-index: 1000;
+    top: 23px;
+    font-size: 25px;
+}
+
+.btnFull {
+    background: #9e3f9a;
+    color: #FFFFFF;
+    width: 100%;
+    text-transform: uppercase;
+    line-height: 50px;
+    border: none;
+    font-size: 1.2em;
+}
+
+.btnFull:hover {
+    background: #772774;
+}
+
+.submitLogin {
+    margin: 7% 0 0 0;
+    width: 100%;
+}
+
+.newUserlink {
+    color: #636466;
+    font-size: 30px;
+    text-align: center;
+    display: block;
+    padding: 8% 0 0 0;
+}
+
+.newUserlink:hover {
+    color: #38393A;
+}
+
+#settings {
+    width: 100%;
+    overflow: hidden;
+    padding: 0 0 5% 0;
+}
+
+#settings h1 {
+    color: #636466;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 4% 0 4% 0;
+}
+
+#settings h3 {
+    color: #636466;
+    font-weight: 300;
+}
+
+.subscribebox {
+    width: 100%;
+    padding: 0 0 10% 0;
+    overflow: hidden;
+}
+
+.subscribebox h2 {
+    font-weight: normal;
+    color: #636466;
+    font-size: 1.2em;
+
+}
+
+.weeksOption {
+    overflow: hidden;
+    width: 100%;
+    padding: 0 0 10% 0;
+}
+
+.weeksOption li {
+    list-style: none;
+    float: left;
+    background: #dadada;
+    margin: 0 5% 0 0;
+    padding: 1%;
+}
+
+.weeksOption li span {
+    color: white;
+    display: inline-block;
+    margin: 0 6px 0 0;
+}
+
+/*Inputs check weeks styles*/
+
+input[type=checkbox].css-checkbox {
+    position: absolute;
+    z-index: -1000;
+    left: -1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+    padding-left: 8px;
+    height: 22px;
+    display: inline-block;
+    line-height: 22px;
+    background-repeat: no-repeat;
+    background-position: -28px -8px;
+    font-size: 22px;
+    vertical-align: middle;
+    cursor: pointer;
+
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+    background-position: -374px 0px;
+
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+    background-position: 1px 0px;
+    font-size: 18px;
+    color: #636466;
+    font-weight: normal;
+}
+
+label.css-label {
+    background-image: url("../img/squareActive.png");
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.numberCode {
+    margin: 0 auto;
+    padding: 0 0 13% 0;
+    overflow: hidden;
+    width: 90%;
+}
+
+.numberCode li {
+    float: left;
+    width: 20%;
+    margin: 0 5% 0 0;
+}
+
+.numberCode li:last-child {
+    margin: 0;
+}
+
+.numberCode li input {
+    background: none;
+    border-bottom: 5px solid #9e3f9a;
+    font-size: 30px;
+    color: #9e3f9a;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#keyboardAppriz {
+    background: #e8e8e8;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #9C9D9E;
+    height: 100%;
+}
+
+#keyboardAppriz .numKey {
+    color: #9e3f9a;
+    font-size: 3em;
+    border: 1px solid #9C9D9E;
+    width: 32.9%;
+    text-align: center;
+    line-height: 100px;
+    float: left;
+}
+
+#keyboardAppriz .last {
+    text-indent: -9999999px;
+}
+
+#keyboardAppriz .icon-delete {
+    color: #9e3f9a;
+    font-size: 50px;
+    display: block;
+}
+
+.bankSection {
+    background: #005b99;
+}
+
+.mainBankSection {
+    min-height: 91px;
+}
+
+.bankSection h2 a {
+    display: block;
+    float: right;
+    width: 68%;
+    padding: 13px 0 0 0;
+}
+
+.mainBankSection h2 {
+    width: 89%;
+}
+
+.mainBankSection h2 a {
+    display: block;
+    float: right;
+    width: 58%;
+}
+
+#categories {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    z-index: 900;
+}
+
+#categories li:first-child {
+    padding-top: 0;
+}
+
+#categories li {
+    width: 100%;
+    overflow: hidden;
+    height: 84px;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 2% 0 0 0;
+    position: relative;
+}
+
+#categories li .infoBank {
+    float: left;
+    width: 82%;
+
+}
+
+#categories li .iconCat {
+    float: left;
+    width: 10%;
+    display: inline-block;
+}
+
+#categories li .icon-myAlerts, .icon-notifications, .icon-alerts, .icon-promotions, .icon-services {
+    font-size: 2.3em;
+}
+
+#categories li .icon-myAlerts .path1:before, .icon-notifications, .icon-alerts, .icon-promotions, .icon-services {
+    content: "\e60b";
+    color: rgb(0, 91, 153);
+}
+
+#categories li p {
+    color: #464646;
+    font-size: 14px;
+    margin: 0;
+}
+
+.dateBank {
+    color: #464646;
+    font-size: 0.9em;
+    font-weight: lighter;
+    margin: 0;
+    padding: 1% 0 0 0;
+    width: 91%;
+}
+
+.dateBank .icon-primitive-dot {
+    color: #95c807;
+    font-size: 30px;
+    padding: 0 2% 0 0;
+    display: inline-block;
+    margin: -7px 0 0 0;
+    float: left;
+}
+
+.detailCategory {
+    width: 96%;
+    padding: 2%;
+}
+
+#categories li:first-child .icon-arrow {
+    top: 0;
+}
+
+#categories li .icon-arrow {
+    border: none;
+    background: none;
+    position: absolute;
+    right: 5px;
+    z-index: 1000;
+    top: 16px;
+}
+
+#categories li .icon-arrow .path1:before {
+    content: "\e614";
+    color: rgb(0, 91, 153);
+    font-size: 40px;
+}
+
+#categories li .icon-arrow .path2:before {
+    content: "\e615";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+}
+
+#categories li .infoBank h2 {
+    color: #005b99;
+    font-size: 1.04em;
+    font-weight: 600;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 91%;
+    word-wrap: break-word;
+    max-height: 2.6em;
+    line-height: 21px;
+}
+
+.deleteSwipe {
+    background: #e74c3c;
+    color: #FFFFFF;
+    font-size: 1.04em;
+    text-transform: uppercase;
+    border: none;
+    position: absolute;
+    z-index: 2000;
+    right: 0;
+    height: 100%;
+    width: 36%;
+    top: 0;
+    opacity: 0.98;
+}
+
+#categories .details {
+    background: #e8e8e8;
+    padding: 2%;
+    width: 96%;
+}
+
+#categories .details h3 {
+    color: #005b99;
+    margin: 0;
+    font-size: 1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    word-wrap: break-word;
+    max-height: 3.6em;
+    line-height: 20px;
+}
+
+#categories .details .dateBank {
+    padding-top: 2%;
+}
+
+#ads {
+    position: relative;
+    width: 100%;
+    z-index: 1999;
+    margin: 0 auto;
+    max-width: 640px;
+}
+
+#ads .icon-cross {
+    color: #636466;
+    font-size: 14px;
+    border: none;
+    background: none;
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+
+.fullWrapper {
+    position: fixed;
+    z-index: 2000;
+    bottom: 0;
+    width: 100%;
+}
+
+nav.categoryNav {
+    background: #636466;
+    width: 100%;
+    padding: 1%;
+}
+
+nav.categoryNav ul {
+    padding: 0 0 0 10%;
+    overflow: hidden;
+    margin: 0;
+}
+
+nav.categoryNav ul li {
+    border-bottom: none;
+    float: left;
+    width: 20%;
+}
+
+nav.categoryNav ul li a {
+    display: block;
+}
+
+nav.categoryNav span {
+    content: "\e60b";
+    color: #d5d4d3;
+}
+
+nav.categoryNav span:hover {
+    content: "\e60b";
+    color: #005B99;
+}
+
+nav.categoryNav .icon-myAlerts {
+    font-size: 40px;
+}
+
+nav.categoryNav .icon-myAlerts .path1:before {
+    content: "\e60b";
+    color: rgb(0, 91, 153);
+}
+
+.detailCategory .details h3 {
+    padding: 2% 0 0 0;
+}
+
+.line {
+    padding: 0;
+    border-top: 1px solid #e5e5e5;
+    margin: 5% 0 0 0;
+}
+
+.detailsList {
+    border-bottom: 1px solid #e5e5e5;
+    width: 100%;
+    overflow: hidden;
+}
+
+.detailsList .row:first-child {
+    width: 22%;
+}
+
+.detailsList .row {
+    float: left;
+    width: 69%;
+    padding: 2%;
+}
+
+.detailsList .row h4 {
+    text-align: right;
+    line-height: 9px;
+
+}
+
+.detailsList .row p {
+    line-height: 15px;
+
+}
+
+.options {
+    margin: 4% 0 5% 0;
+    width: 100%;
+}
+
+.options .optionBtn {
+    background: #005b99;
+    font-size: 1.6em;
+    color: white;
+    border: none;
+    line-height: 50px;
+    width: 88%;
+    margin: 0 auto;
+    display: block;
+}
+
+.options .btnBank2 {
+    background: #d5d4d3;
+    color: #FFFFFF;
+
+}
+
+.options .btnBank2:hover {
+    background: #005b99;
+}
+
+.dropdownOption {
+    background: #ebebeb;
+    width: 88%;
+    margin: 0 auto 4%;
+    padding: 0 0 4% 0;
+}
+
+.dropdownOption ul {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdownOption ul li {
+    border-bottom: 1px solid #005b99 !important;
+    height: 50px !important;
+    line-height: 45px;
+    width: 98% !important;
+    margin: 0 auto;
+}
+
+.dropdownOption ul li:first-child {
+    padding-top: 2% !important;
+}
+
+.dropdownOption ul li .icon-arrow {
+    top: 18% !important;
+}
+
+.oneOption {
+    color: #005b99;
+    font-size: 1.1em;
+    border: none;
+    background: none;
+}
+
+.modalAppriz {
+    background: #222222;
+    opacity: 0.9;
+    position: absolute;
+    width: 100%;
+    z-index: 10000;
+    height: 100%;
+}
+
+#menuAppriz {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 3000;
+
+}
+
+.allMenu {
+    background: #FFFFFF;
+    width: 40%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 4000;
+}
+
+.bgModal {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.8;
+}
+
+.navAppriz button {
+    font-size: 50px;
+    border: none;
+    background: none;
+}
+
+.topHeader {
+    background: #005b99;
+    margin: 0;
+    overflow: hidden;
+    padding: 1% 3% 1% 3%;
+    min-height: 80px;
+}
+
+.topHeader .bankBrand {
+    float: left;
+    width: 46%;
+    padding: 4% 0 0 0;
+}
+
+.topHeader .userInfo {
+    float: right;
+    width: 50%;
+    text-align: center;
+    color: white;
+}
+
+.topHeader .userInfo .welcome {
+    font-weight: 100;
+    font-size: 18px;
+    margin: 0;
+}
+
+.topHeader .userInfo .user {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    line-height: 50px;
+}
+
+.topHeader .userInfo .icon-user {
+    font-size: 35px;
+    display: inline-block;
+    padding: 6px 0 0 0;
+    float: left;
+}
+
+nav.navAppriz {
+    overflow: hidden;
+    width: 100%;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+nav.navAppriz ul {
+    overflow: hidden;
+    width: 100%;
+    padding: 0 0 0 10%;
+    margin-bottom: 0;
+}
+
+nav.navAppriz ul li {
+    float: left;
+    width: 33.33%;
+}
+
+nav.navAppriz ul li.active a {
+    color: #005b99;
+    margin: 4px 0 0 0;
+}
+
+nav.navAppriz ul li a {
+    border: 0;
+    background: none;
+    font-size: 50px;
+    display: block;
+    color: #636466;
+}
+
+nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
+    color: #005b99;
+}
+
+.contentMenu {
+    width: 100%;
+}
+
+.contentMenu ul {
+    margin: 0;
+    padding: 0 0 3% 0;
+}
+
+.contentMenu ul li {
+    width: 100%;
+    max-height: 70px;
+    position: relative;
+
+}
+
+.contentMenu ul li button {
+    font-size: 20px;
+    display: block;
+    color: #636466;
+    width: 100%;
+    text-align: left;
+    padding: 0 0 0 6%;
+    line-height: 70px;
+    background: white;
+    border: none;
+}
+
+.contentMenu ul li button .icon1 {
+    font-size: 40px;
+    float: left;
+    margin: 15px 9px 0 0;
+    color: #d5d4d3;
+}
+
+.contentMenu ul li button.active .icon-myAlerts .path1:before {
+    content: "\e60b";
+    color: rgb(26, 107, 163);
+}
+
+.contentMenu ul li button .icon-myAlerts:hover {
+    color: rgb(26, 107, 163);
+}
+
+.contentMenu ul li button.active .icon1 {
+    content: "\e60b";
+    color: rgb(26, 107, 163);
+}
+
+.contentMenu ul li button.active {
+    background: #636466;
+    color: #FFFFFF;
+}
+
+.contentMenu ul li button:hover {
+    background: #636466;
+    color: #FFFFFF;
+}
+
+.contentMenu ul li button:hover .icon1 {
+    color: #005b99;
+
+}
+
+.contentMenu ul li .deleteSwipe {
+    background: #e74c3c;
+    color: #FFFFFF;
+    font-size: 30px;
+    text-transform: uppercase;
+    border: none;
+    position: absolute;
+    z-index: 2000;
+    right: 0;
+    height: 100%;
+    width: 72%;
+    top: 0;
+    opacity: 0.98;
+    text-align: center;
+}
+
+.contentMenu ul li .deleteSwipe:hover {
+    background: #e74c3c;
+}
+
+#entities {
+    width: 100%;
+    margin-bottom: 10%;
+}
+
+#entities ul {
+    padding: 0 0 25% 0;
+    width: 100%;
+}
+
+#entities ul li {
+    overflow: hidden;
+    width: 100%;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 1% 0 0 0;
+}
+
+#entities ul li img {
+    margin: 0 auto;
+}
+
+#entities .newEntity {
+    background: #005b99;
+    font-size: 30px;
+    color: white;
+    border: none;
+    line-height: 50px;
+    width: 88%;
+    margin: 0 auto;
+    display: block;
+
+}
+
+.log {
+    display: block;
+    background: #636466 !important;
+    width: 100%;
+    text-align: left;
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+    height: 88px;
+    line-height: 89px;
+    position: absolute;
+    bottom: 0;
+    border: none;
+}
+
+.log .icon-logOut {
+    font-size: 30px;
+    display: block;
+    float: left;
+    padding: 31px 0 0 16px;
+
+    width: 43px;
+}
+
+.boxModal {
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+    background: white;
+    padding: 0 0 3% 0;
+}
+
+.boxModal h2 {
+    color: white;
+    font-size: 1.3em;
+    text-align: center;
+    background: #636466;
+    height: 60px;
+    line-height: 60px;
+    font-weight: normal;
+}
+
+.boxModal p {
+    color: #636466;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 3% 0 11% 0;
+}
+
+.boxModal ul {
+    overflow: hidden;
+    width: 75%;
+    padding: 8% 0 11% 0;
+    margin: 0 auto;
+    padding: 2% 0 2% 0;
+}
+
+.boxModal ul li {
+    float: left;
+    margin: 0 20px 0 0;
+}
+
+.boxModal button {
+    color: #FFFFFF;
+    border: none;
+    text-align: center;
+    display: block;
+    width: 100px;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.boxModal .okBtn {
+    background: #9e3f9a;
+    margin: 0 auto;
+}
+
+.boxModal .noBtn {
+    background: #636466;
+}
+
+.productNav {
+    background: #b6b7b8;
+    width: 100%;
+    overflow: hidden;
+    min-height: 55px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.productNav ul {
+    margin: 0;
+    padding: 0;
+}
+
+.productNav li {
+    float: left;
+    width: 50%;
+}
+
+.productsMain {
+    padding-top: 0 !important;
+
+}
+
+.productNav li button {
+    border: none;
+    width: 100%;
+    background: none;
+    text-align: left;
+    text-indent: 11px;
+    line-height: 64px;
+    font-size: 1.3em;
+    color: white;
+}
+
+.productNav li button:hover {
+    background: #b6b7b8 !important;
+    color: white !important;
+}
+
+.productNav li.active button {
+    background: #FFFFFF;
+    color: rgb(0, 91, 153);
+    text-align: center;
+}
+
+.productNav .icon-myAlerts {
+    font-size: 50px;
+    display: block;
+    float: left;
+}
+
+.productNav .icon-myAlerts .path1:before {
+    content: "\e60b";
+    color: rgb(0, 91, 153);
+}
+
+.products {
+    width: 100%;
+}
+
+.products ul {
+    margin: 0;
+    padding: 0;
+}
+
+.products ul li.active {
+    background: #e8e8e8;
+}
+
+.products ul li {
+    border-bottom: 1px solid #e5e5e5;
+    width: 100%;
+    min-height: 60px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.products ul li button {
+    border: none;
+    background: none;
+    color: #005b99;
+    font-size: 1.2em;
+    display: inline-block;
+    line-height: 60px;
+}
+
+.products ul li:hover {
+    background: #e8e8e8
+}
+
+.products ul li button .icon-arrow {
+    position: absolute;
+    right: 1%;
+    top: 12%;
+    font-size: 50px;
+}
+
+.products ul li button .icon-arrow .path1:before {
+    content: "\e614";
+    color: rgb(0, 91, 153);
+}
+
+.products .onoffswitch {
+    float: right;
+    width: 15%;
+    margin: 15px 10px 0 0;
+}
+
+.products h3 {
+    color: #005b99;
+    font-size: 1.1em;
+    float: left;
+    width: 76%;
+    padding: 0 0 0 3%;
+}
+
+.products .dropdownBox {
+    width: 94.1%;
+    overflow: hidden;
+    background: white;
+    padding: 0 3% 0 3%;
+}
+
+.products .dropdownBox p {
+    color: #3b3939;
+
+}
+
+.editOption ul {
+    padding: 0 0 5% 0;
+    width: 88%;
+    margin: 0 auto;
+
+}
+
+.editOption li {
+    background: #e8e8e8;
+    min-height: 40px !important;
+    border-bottom: none !important;
+    margin: 0 0 3% 0;
+}
+
+.editOption li h4 {
+    float: left;
+    width: 35%;
+    text-align: right;
+    color: #3b3939;
+    line-height: 59px;
+    margin: 0;
+    padding: 0;
+}
+
+.editOption li input {
+    float: left;
+    width: 30%;
+    padding: 0;
+    margin: 0 0 0 12%;
+    background: #e8e8e8;
+    color: #005b99;
+    text-align: left;
+    font-weight: bold;
+}
+
+.editOption li .icon-pencil {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+  Desktop styles Aprriz app
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    #main {
+        max-width: 100%;
+    }
+
+    #categories li .iconCat {
+        width: 10%;
+        padding: 0 0 0 2%;
+    }
+
+    #ads {
+        max-width: 100%;
+    }
+
+    #ads img {
+        width: 100%;
+    }
+
+    .allCategory {
+        margin: 110px auto 240px !important;
+    }
+
+}
+
+@media (max-width: 801px) {
+    .allCategory {
+        margin: 110px auto 231px !important;
+    }
+}
+
+@media (max-width: 769px) {
+
+    .allMenu {
+        width: 85%;
+    }
+
+    .allCategory {
+        margin: 110px auto 183px !important;
+    }
+
+    input, .btnAction {
+        line-height: 50px;
+        width: 96%;
+    }
+
+    .btnAction .icon-arrow {
+        font-size: 58px;
+        margin: 1px 0 0 0;
+    }
+
+    #settings {
+        width: 94%;
+        overflow: hidden;
+        padding: 3%;
+    }
+
+    .pinEnter {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .bankSection h2 a {
+        width: 77%;
+
+    }
+
+    .products .onoffswitch {
+        width: 13%;
+
+    }
+
+    #categories li .iconCat {
+        width: 10%;
+        padding: 0 0 0 2%;
+    }
+
+    .products ul li button {
+        padding: 0 0 0 3%;
+    }
+}
+
+@media (max-width: 605px) {
+    header h2 {
+        color: #FFFFFF;
+        float: left;
+        width: 66%;
+        text-align: center;
+        margin: 0;
+        line-height: 84px;
+    }
+
+    .allCategory {
+        margin: 110px auto 187px !important;
+    }
+
+    .mainBankSection h2 {
+        width: 83%;
+    }
+
+}
+
+@media (max-width: 481px) {
+
+    .newUserlink {
+        font-size: 18px;
+        width: 100%;
+        line-height: 87px;
+        text-align: center;
+    }
+
+    nav.categoryNav {
+        width: 98%;
+        padding: 2%;
+    }
+
+    .allCategory {
+        margin: 110px auto 131px !important;
+    }
+
+    nav.categoryNav .icon-myAlerts {
+        font-size: 31px;
+    }
+
+    .topHeader .userInfo .icon-user {
+        font-size: 27px;
+        display: inline-block;
+        padding: 11px 0 0 0;
+        float: left;
+    }
+
+    .topHeader .userInfo .user {
+        font-size: 14px;
+    }
+
+    .bankSection h2 a {
+        display: block;
+        float: left;
+        width: 94%;
+        padding: 13px 0 0 5px;
+    }
+
+    header .icon-menu {
+        font-size: 46px;
+        width: 12%;
+        margin: 4px 0 0 0;
+    }
+
+    .bankSection .icon-menu {
+        margin: 2px 0 0 23px !important;
+    }
+
+    header h2 {
+        width: 65%;
+    }
+
+    #settings h1 {
+        width: 84%;
+        padding: 5% 0 0 0;
+        font-size: 1.5em;
+    }
+
+    .loginBox input {
+        width: 95%;
+        height: 55px;
+        font-size: 18px;
+        line-height: 60px;
+    }
+
+    .loginBox .icon-user, .icon-lock {
+        top: 15px;
+
+    }
+
+    .submitLogin {
+        margin: 7% 0 0 0;
+        width: 99%;
+    }
+
+    .mainBankSection h2 {
+        width: 75%;
+        padding: 0 0 0 3%;
+    }
+
+    .mainBankSection h2 a {
+        width: 100%;
+    }
+
+    #categories li .icon-myAlerts, .icon-notifications, .icon-alerts, .icon-promotions, .icon-services {
+        font-size: 30px;
+    }
+
+    #categories li {
+        padding: 2% 0 2% 2%;
+    }
+
+    .options .optionBtn {
+        font-size: 26px;
+        width: 100%;
+
+    }
+
+    .dropdownOption {
+        width: 100%;
+    }
+
+    #categories li p {
+        color: #464646;
+        font-size: 16px;
+        margin: 0;
+    }
+
+    #categories li .iconCat {
+        width: 9%;
+    }
+
+    .loginBox {
+        width: 90%;
+    }
+
+    .login .logo {
+        display: block;
+        padding: 16% 0 10% 0;
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .contentMenu ul li {
+        min-height: 70px;
+    }
+
+    .productNav .icon-myAlerts {
+        font-size: 37px;
+        display: block;
+        float: left;
+        margin: 10px 0 0 0;
+    }
+
+    .products h3 {
+        width: 71%;
+    }
+
+    .products .onoffswitch {
+        float: right;
+        width: 19%;
+
+    }
+
+    .weeksOption li {
+        list-style: none;
+        float: left;
+        background: #dadada;
+        margin: 0 5% 5% 2%;
+        padding: 1%;
+        width: 41%;
+    }
+
+    #categories li p {
+        width: 95%;
+    }
+
+    nav.categoryNav ul {
+        padding: 0 0 0 3%;
+
+    }
+
+}
+
+@media (max-width: 320px) {
+    .newUserlink {
+        font-size: 20px;
+    }
+
+    nav.categoryNav .icon-myAlerts {
+        font-size: 28px;
+    }
+
+    #categories li .iconCat {
+        width: 12%;
+        padding: 0;
+    }
+
+    #categories li .icon-myAlerts, .icon-notifications, .icon-alerts, .icon-promotions, .icon-services {
+        font-size: 28px;
+    }
+
+    .contentMenu ul li button {
+        min-height: 50px;
+    }
+
+    .editOption li h4 {
+        float: left;
+        width: 35%;
+        text-align: right;
+        color: #3b3939;
+        font-size: 20px;
+        line-height: 26px;
+        margin: 0;
+        padding: 5px 0 0;
+    }
+
+    .contentMenu ul li {
+        min-height: 50px;
+
+    }
+
+    .login .logo {
+        width: 82%;
+    }
+
+    .loginBox input {
+        width: 95%;
+    }
+
+    .loginBox .icon-user, .icon-lock {
+        right: 24px;
+    }
+
+    .mainBankSection h2 {
+        width: 72%;
+        padding: 0 0 0 5%;
+    }
+
+    .bankSection .icon-menu {
+        font-size: 42px;
+        margin: 9px 0 0 6px;
+    }
+
+    #categories li .icon-arrow .path2:before, #categories li .icon-arrow .path1:before {
+        font-size: 35px;
+    }
+
+    .topHeader .userInfo .user {
+        font-size: 15px;
+        margin: 11px 0 0 0;
+        padding: 0;
+        line-height: 17px;
+        text-align: right;
+    }
+
+    .topHeader .userInfo {
+        width: 54%;
+
+    }
+
+    .topHeader .userInfo .icon-user {
+        font-size: 22px;
+        display: inline-block;
+        padding: 12px 0 0 7px;
+        float: left;
+    }
+
+    .topHeader .userInfo .welcome {
+        font-weight: 100;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+    }
+
+    #entities .newEntity {
+        font-size: 25px;
+    }
+
+    .log {
+        font-size: 18px !important;
+    }
+
+    .boxModal {
+        max-width: 250px;
+    }
+
+    .boxModal button {
+        width: 72px !important;
+    }
+
+    .boxModal h2 {
+        font-size: 20px;
+    }
+
+    .boxModal p {
+        font-size: 14px;
+    }
+
+    .boxModal button {
+        color: #FFFFFF;
+        border: none;
+        text-align: center;
+        display: block;
+        width: 100px;
+        line-height: 25px;
+        font-size: 15px;
+    }
+
+    .products ul li button .icon-arrow {
+        position: absolute;
+        right: 4%;
+        top: 24%;
+        font-size: 40px;
+    }
+
+    header h2 {
+        line-height: 66px;
+        padding: 10px 0 0 0;
+    }
+
+    .products ul li button {
+        font-size: 21px;
+    }
+
+    .productNav li button {
+        line-height: 50px;
+        font-size: 1em;
+    }
+
+    .bankSection .icon-menu {
+        margin: 7px 0 0 23px !important;
+    }
+
+    .productNav .icon-myAlerts {
+        font-size: 36px;
+        margin: 5px 0 0 0;
+    }
+
+    .products h3 {
+        font-size: 1em;
+        width: 68%;
+
+    }
+
+    .products .dropdownBox {
+        width: 100%;
+        padding: 0;
+    }
+
+    .products .dropdownBox p {
+        font-size: 0.9em;
+        padding: 3%;
+    }
+
+    .products .onoffswitch {
+        float: right;
+        width: 20%;
+    }
+
+    .editOption li h4 {
+        float: left;
+        width: 43%;
+        text-align: right;
+        color: #3b3939;
+        font-size: 16px;
+        line-height: 58px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .allCategory {
+    }
+
+    .allMenu {
+        width: 94%;
+    }
+
+    .contentMenu ul li button .icon1 {
+        font-size: 30px;
+    }
+
+    #keyboardAppriz .numKey {
+        width: 32.7%;
+
+    }
+
+    #settings h1 {
+        font-size: 1.2em;
+    }
+
+    .subscribebox h2 {
+        font-size: 1.1em;
+    }
+
+    .bankSection h2 {
+        width: 60%;
+    }
+}
+
+

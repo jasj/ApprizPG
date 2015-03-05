@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Appriz Connect Protect Engage</title>
+        <title>Settings Appriz Connect Protect Engage</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,40 +16,38 @@
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body class="apprizApp">
+    <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
         <!-- Appriz Code -->
 
-        <div id="appHolder">
-            <header class="loginHead">
+        <div class="modalAppriz">
+            <div class="boxModal">
+                <h2>Rule Changes</h2>
 
-            </header>
-            <section id="main">
-                <div class="login">
-                    <a class="logo" href=""><img src="img/logo.png" alt=""/></a>
-                <form class="loginBox" action="">
-                    <fieldset>
+                <p>Do you want to save changes?</p>
 
-                        <div class="row">
-                            <input type="text" value="Email"/>
-                            <span class="icon-user"></span>
-                        </div>
-                        <div class="row">
-                            <input type="password" value="Password"/>
-                            <span class="icon-lock"></span>
-                        </div>
-                        <button class="btnFull submitLogin" type="submit">Login</button>
-                        <a class="newUserlink" href="#">Are youy new Appriz User?</a>
-                    </fieldset>
-                </form>
-                </div><!--close login-->
+                <ul>
+                    <li>
+                        <button class="okBtn">Yes</button>
+                    </li>
+                    <li>
+                        <button class="noBtn">No</button>
+                    </li>
+                </ul>
+            </div><!--close modal-->
+            <div class="boxModal">
+                <h2>Wrong Password</h2>
 
-            </section><!--close main-->
+                <p>The Password must be a least 9 chars length</p>
 
-        </div><!--close app holder-->
+                <button class="okBtn">Yes</button>
+            </div><!--close modal-->
+        </div><!--close modal appriz-->
+
+
 
 
 

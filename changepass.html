@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Appriz Connect Protect Engage</title>
+        <title>Settings Appriz Connect Protect Engage</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body class="apprizApp">
+<body class="apprizApp">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -24,29 +24,35 @@
         <!-- Appriz Code -->
 
         <div id="appHolder">
-            <header class="loginHead">
-
+            <header>
+                <a class="icon-back" href="#"></a>
+                <h2>Change Your Password</h2>
+                <button class="icon-menu"></button>
             </header>
             <section id="main">
-                <div class="login">
-                    <a class="logo" href=""><img src="img/logo.png" alt=""/></a>
-                <form class="loginBox" action="">
-                    <fieldset>
+                <div id="settings">
+                    <h1>Write Your New Password</h1>
 
-                        <div class="row">
-                            <input type="text" value="Email"/>
-                            <span class="icon-user"></span>
-                        </div>
-                        <div class="row">
-                            <input type="password" value="Password"/>
-                            <span class="icon-lock"></span>
-                        </div>
-                        <button class="btnFull submitLogin" type="submit">Login</button>
-                        <a class="newUserlink" href="#">Are youy new Appriz User?</a>
-                    </fieldset>
-                </form>
-                </div><!--close login-->
+                    <form class="loginBox" action="">
+                        <fieldset>
+                            <div class="row">
+                                <input type="text" value="New Password"/>
+                                <span class="icon-user"></span>
+                            </div>
+                           <div class="row">
+                               <input type="text" value="Confirm New Password"/>
+                               <span class="icon-lock"></span>
+                           </div>
 
+                            <button class="btnFull submitLogin" type="submit">Save</button>
+
+                        </fieldset>
+                    </form>
+
+
+
+
+                </div><!--close settings-->
             </section><!--close main-->
 
         </div><!--close app holder-->
