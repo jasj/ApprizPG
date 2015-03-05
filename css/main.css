@@ -2152,8 +2152,8 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 }
 
  img.bankLogo{
- width: calc(100% - 80px);
- height: 55px;
+ max-width: calc(100% - 80px) !important;
+ max-height: 55px !important;
  vertical-align: middle;
  }
 
