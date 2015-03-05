@@ -2152,9 +2152,11 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 }
 
  img.bankLogo{
- max-width: calc(100% - 80px) !important;
- max-height: 55px !important;
- vertical-align: middle;
+position: absolute;
+top: 50%;
+margin: -20px auto auto;
+max-height: 80px !important;
+max-width: calc(100% - 100px) !important;
  }
 
  
@@ -2162,7 +2164,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
  .menu-main{
 	position: absolute !important;
 	right: 10px;
-	top: 10px;
+	top: 20px;
 	
  }
 
