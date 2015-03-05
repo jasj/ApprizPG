@@ -2157,4 +2157,12 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
  vertical-align: middle;
  }
 
+ 
+ 
+ .menu-main{
+	position: absolute !important;
+	right: 10px;
+	top: 10px;
+	
+ }
 
