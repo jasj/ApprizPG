@@ -22,6 +22,7 @@
 		
 		//MSG Swipped 
 		$( document ).on("swipe", ".Message" ,function(a,b,c){
+			alert("do swupe");
 			
 			var mContainer = $(this).find(".moveContainer");
 				console.log(JSON.stringify(b));
