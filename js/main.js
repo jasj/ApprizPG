@@ -21,7 +21,7 @@
 		});
 		
 		//MSG Swipped 
-		$( document ).on("swipe", ".centralLI" ,function(a,b,c){
+		$( document ).on("swipe", ".centralLI h2" ,function(a,b,c){
 			alert("do swupe");
 			
 			var mContainer = $(this);//.find(".moveContainer");
