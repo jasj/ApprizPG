@@ -21,10 +21,10 @@
 		});
 		
 		//MSG Swipped 
-		$( document ).on("swipe", ".Message" ,function(a,b,c){
+		$( document ).on("swipe", ".centralLI" ,function(a,b,c){
 			alert("do swupe");
 			
-			var mContainer = $(this).find(".moveContainer");
+			var mContainer = $(this);//.find(".moveContainer");
 				console.log(JSON.stringify(b));
 		
 		//This will be for show the delete button 
