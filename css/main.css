@@ -1008,6 +1008,8 @@ label.css-label {
 #categories .centralLI {
     position: absolute;
     top: 0px;
+	left: -moz-calc(100% + 20px);
+	left: -webkit-calc(100% + 20px);
     left: calc(100% + 20px);
     width: calc(100% + 150px);
 }
