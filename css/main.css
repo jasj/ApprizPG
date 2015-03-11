@@ -2239,6 +2239,8 @@ img.bankLogo{
     position: absolute !important;
     right: 10px;
     top: 10px;
+	
+	width: 1px; /** keep inside **/
 }
 
 h4.user{
