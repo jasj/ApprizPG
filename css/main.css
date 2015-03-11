@@ -948,7 +948,7 @@ label.css-label {
     border: none;
     background: none;
     position: absolute;
-    right: alc(150px + 5px);
+    right: calc(150px + 5px);
     z-index: 1000;
     top: 16px;
 }
@@ -2240,7 +2240,7 @@ img.bankLogo{
     right: 10px;
     top: 10px;
 	
-	width: 1px; /** keep inside **/
+	width: 1px !important; /** keep inside **/
 }
 
 h4.user{
