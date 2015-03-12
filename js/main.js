@@ -104,6 +104,8 @@
 	$( document ).on("tapend","[page-content]",function(){
 		$(".page-content.active").removeClass("active");
 		$("#"+$(this).attr("page-content")+".page-content").addClass("active").show();
+		$('#menuAppriz').fadeOut(300);
+			$('.allMenu').velocity({"right" : "-80%"});
 	});
 	
 
