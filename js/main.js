@@ -25,14 +25,20 @@
 			
 			
 			var mContainer = $(this).find(".moveContainer");
+			var actualMargin = parseInt(mContainer.css("margin-left").replace(/[^-\d\.]/g, '') );
 				console.log(JSON.stringify(b));
 		
 		//This will be for show the delete button 
 		if(b["startEvnt"]["position"]["x"] > b["endEvnt"]["position"]["x"]){
-			if(b["xAmount"] > 150){
-					mContainer.css({"margin-left" : "-150px"});
-			}else{
-						mContainer.css({"margin-left" : (b["xAmount"]*-1)+"px"});
+			//alert(parseInt(mContainer.css("margin-left").replace(/[^-\d\.]/g, '') ));
+			if( actualMargin <10){
+				if(b["xAmount"] > 150){
+						mContainer.css({"margin-left" : "-150px"});
+				}else{
+							mContainer.css({"margin-left" : (b["xAmount"]*-1)+"px"});
+				}
+			}
+			else{
 			}
 		}
 		//This could be to show the detail or hide the delete button
