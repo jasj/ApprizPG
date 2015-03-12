@@ -6,7 +6,7 @@
 	// fix_messages();
 	fix_messages();
 	// document.addEventListener("deviceready", function() {
-		$(".menu-main").tapend(function(e){
+		$(".menu-main , .icon-menu").tapend(function(e){
 			
 			//e.stopPropagation();
 			$('.allMenu').css({"width" : "80%" });
@@ -100,6 +100,11 @@
 			$($(this).find("a").attr("menu-page")).show();
 		});
 	//});
+	
+	$( document ).on("tapend","[page-content]",function(){
+		$(".page-content.active").removeClass("active");
+		$("#"+$(this).attr("page-content")+".page-content").addClass("active").show();
+	});
 	
 
 

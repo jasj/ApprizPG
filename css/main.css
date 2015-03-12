@@ -2265,9 +2265,16 @@ h4.user{
     user-select: none;
 }
 
-
-.Msg_info{
-calc(100% - 150px) !important;
+.page-content{
+	display : none;
 }
+
+.page-content.active{
+	display : block !important;
+}
+.Msg_info{
+
+}
+
 
  
