@@ -977,6 +977,7 @@ label.css-label {
     word-wrap: break-word;
     max-height: 2.6em;
     line-height: 21px;
+	margin-left: -2em;
 }
 
 .deleteSwipe {
