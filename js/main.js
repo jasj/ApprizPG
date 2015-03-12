@@ -39,7 +39,7 @@
 				}
 			}
 			else{
-					alert("aqui");
+					
 					mContainer.css({"margin-left" : window.innerWidth + (b["xAmount"]*-1)+"px"});
 				
 			}
