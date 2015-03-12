@@ -969,14 +969,14 @@ label.css-label {
 
 #categories li .infoBank h2 {
     color: #005b99;
-    font-size: 1.04em;
+    font-size: 0.9em;
     font-weight: 600;
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 91%;
     word-wrap: break-word;
-    max-height: 2.6em;
+    max-height: 2.8em;
     line-height: 21px;
 	margin-left: -2em;
 }
