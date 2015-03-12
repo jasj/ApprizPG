@@ -1014,7 +1014,7 @@ label.css-label {
 
 #categories .rightLI {
     position: absolute;
-    top: calc(-22% - 0px);
+    top: -22%;
     height: 104px;
     left: 200%;
     width: 150px;
