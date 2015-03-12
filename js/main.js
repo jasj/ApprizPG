@@ -3,15 +3,15 @@
 	var tabUnSelectedColor 	= "rgb(213, 212, 211)";
 	//Main Menu handle
 	
-	 document.addEventListener("deviceready", function() {
+	// fix_messages();
+	fix_messages();
+	// document.addEventListener("deviceready", function() {
 		$(".menu-main").tapend(function(e){
 			
 			//e.stopPropagation();
 			$('.allMenu').css({"width" : "80%" });
 			$('#menuAppriz').css({"display" : "block"});
 			$('.allMenu').velocity({"right" : "0px" },{ duration: 500 });
-			
-	  
 		});
 		
 		$('.bgModal').tapend(function(e){
@@ -21,10 +21,10 @@
 		});
 		
 		//MSG Swipped 
-		$( document ).on("swipe", ".centralLI h2" ,function(a,b,c){
-			alert("do swupe");
+		$( document ).on("swipe", ".Message" ,function(a,b,c){
 			
-			var mContainer = $(this);//.find(".moveContainer");
+			
+			var mContainer = $(this).find(".moveContainer");
 				console.log(JSON.stringify(b));
 		
 		//This will be for show the delete button 
@@ -90,7 +90,7 @@
 			$(this).addClass("active");
 			$($(this).find("a").attr("menu-page")).show();
 		});
-	});
+	//});
 	
 
 

@@ -948,7 +948,7 @@ label.css-label {
     border: none;
     background: none;
     position: absolute;
-    right: calc(150px + 5px);
+    right: alc(150px + 5px);
     z-index: 1000;
     top: 16px;
 }
@@ -1008,8 +1008,6 @@ label.css-label {
 #categories .centralLI {
     position: absolute;
     top: 0px;
-	left: -moz-calc(100% + 20px);
-	left: -webkit-calc(100% + 20px);
     left: calc(100% + 20px);
     width: calc(100% + 150px);
 }
@@ -1020,7 +1018,8 @@ label.css-label {
     height: 104px;
     left: 200%;
     width: 150px;
-    height: 100%;
+
+
 }
 
 #categories  .moveContainer{
@@ -2240,7 +2239,6 @@ img.bankLogo{
     position: absolute !important;
     right: 10px;
     top: 10px;
-    width: 51px;
 }
 
 h4.user{
