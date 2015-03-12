@@ -13,6 +13,6 @@ function fix_messages(){
 	$("#categories .rightLI").css({"width" : (window.innerWidth +150)+"px"});
 	$("#categories .details").css({"width" : (window.innerWidth -20)+"px"});
 	$("#categories li .infoBank").css({"width" : (window.innerWidth -160)+"px"});
-	
-	
+	$(".dateBank").css({"width" : (window.innerWidth -160)+"px"});
+		
 }

@@ -925,6 +925,7 @@ label.css-label {
     width: 91%;
     position: absolute;
     bottom: 4px;
+	margin-left: -2em;
 }
 .dateBank .icon-primitive-dot {
     color: #95c807;
@@ -1052,6 +1053,7 @@ label.css-label {
 
 #categories .details .dateBank {
     padding-top: 2%;
+
 }
 
 #ads {
