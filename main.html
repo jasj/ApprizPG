@@ -39,8 +39,8 @@
         <div class="allMenu">
 
         <ul class="topHeader">
-            <li class="bankBrand">
-                <a href=""><img src="img/coopenaeLogo.png" alt=""/></a>
+            <li class="bankBrand" page-content="inbox">
+                <a ><img src="img/coopenaeLogo.png" alt=""/></a>
             </li>
             <li class="userInfo">
                 <p class="welcome">Bienvenido</p>
@@ -71,7 +71,7 @@
                     </button>
                 </li>
                 <li>
-                    <button ><span class="icon1 icon-services"></span>Services</button>
+                    <button page-content="products"><span class="icon1 icon-services"></span>Services</button>
                 </li>
                 <li>
                     <button><span class="icon1 icon-pushcenter"></span>Push Center</button>
@@ -100,11 +100,26 @@
     </div>
     </div><!--close all menu-->
 <!--close menu Appriz-->
-<div  id='inbox' class='page-content active'>
-	<header class="bankSection mainBankSection">
+
+<!--headers-->
+	<header class="bankSection mainBankSection active" id="headerMain">
         <h2><a class="bankLogo" href="#"><img src="img/coopenaeLogo.png" alt="Bank"/></a></h2>
         <button class="icon-menu menu-main"></button>
     </header>
+	<header id="headerGeneral">
+		<a class="icon-back" href="#"></a>
+		<h2>Settings</h2>
+		<button class="icon-menu menu-main"></button>
+     </header>
+	  <header class="bankSection" id="headerEntity">
+                <a class="icon-back"></a>
+                <h2><a class="bankLogo" href="#"><img src="img/coopenaeLogo.png" alt="Bank"/></a></h2>
+                <span class="icon-menu"></span>
+     </header>
+<!--headers-->
+	
+	
+<div  id='inbox' class='page-content active' header='headerMain'>
 
 
 
@@ -758,12 +773,8 @@
     </div>
 </div>
 
-<div  id='settings' class='page-content'>
-    <header>
-                <a class="icon-back" href="#"></a>
-                <h2>Settings</h2>
-                <button class="icon-menu menu-main"></button>
-            </header>
+<div  id='settings' class='page-content' header='headerGeneral'>
+		
             <section id="main">
                 <div id="settings">
                     <h3>Change your secret codes:</h3>
@@ -817,13 +828,7 @@
             </section><!--close main-->
 
 </div>
-<div  id='rules' class='page-content'>
-  <header>
-        <a class="icon-back" href="#"></a>
-
-        <h2>Enter Your Pin</h2>
-        <button class="icon-menu menu-main"></button>
-    </header>
+<div  id='pin' class='page-content' header='headerEntity'>
     <section id="main">
         <div id="settings" class="pinEnter">
             <h1>Enter Your Pin</h1>
@@ -856,9 +861,142 @@
     </section>
     <!--close main-->
 </div>
-<div  id='products' class='page-content'>
+<div  id='products' class='page-content' header=''>
+	          <!--close bank section header-->
+            <section id="main" class="productsMain">
+                <nav class="productNav">
+                    <ul>
+                        <li><button><span class="icon-myAlerts"><span class="path1"></span><span class="path2"></span></span>My Alerts</button></li>
+                        <li class="active"><button>Products</button></li>
+                    </ul>
+
+                </nav><!--close product Nav-->
+
+                <div class="products">
+                    <ul>
+                        <li>
+                            <button>Débito -5412
+                            <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
+                            </button>
+
+                        </li>
+                        <li>
+                            <button>MasterCard 2468
+                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
+                            </button>
+
+                        </li>
+                        <li>
+                            <button>Amex
+                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
+                            </button>
+
+                        </li>
+                        <li>
+                            <button>Ahorro-2510
+                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
+                            </button>
+
+                        </li>
+                        <li>
+                            <button>Débito
+                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
+                            </button>
+
+                        </li>
+                        <li>
+                            <button>Crédito
+                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
+                            </button>
+
+                        </li>
+                        <li>
+                            <button>Débito -5412
+                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
+                            </button>
+
+                        </li>
+                    </ul>
+                </div><!--close products-->
+
+            </section><!--close main-->
 </div>
-<div  id='first-time' class='page-content'>
+
+<div  id='rules' class='page-content' header='headerEntity'>
+ <section id="main" class="productsMain">
+                <nav class="productNav">
+                    <ul>
+                        <li><button><span class="icon-myAlerts"><span class="path1"></span><span class="path2"></span></span>My Alerts</button></li>
+                        <li class="active"><button>Products</button></li>
+                    </ul>
+
+                </nav><!--close product Nav-->
+
+                <div class="products">
+                    <ul>
+                        <li>
+                           <h3>Retiro en cajeros</h3>
+                            <div class="onoffswitch">
+                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                                <label class="onoffswitch-label" for="myonoffswitch">
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                </label>
+                            </div>
+
+                        </li>
+                        <li class="active">
+                           <h3>Transacciones en Internet</h3>
+                            <div class="onoffswitch">
+                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2" checked>
+                                <label class="onoffswitch-label" for="myonoffswitch2">
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                </label>
+                            </div>
+                            <div class="dropdownBox">
+                                <p>Notificar cuando se realicen transcciones con un monto individual superior a los $300</p>
+
+                                <div class="editOption">
+                                    <ul>
+                                        <li>
+                                            <h4>Monto IND:</h4>
+                                            <input type="text" value="$300"/>
+                                            <span class="icon-pencil"></span>
+                                        </li>
+                                        <li>
+                                            <h4>Total Amount:</h4>
+                                            <input type="text" value="$300"/>
+                                            <span class="icon-pencil"></span>
+                                        </li>
+                                        <li>
+                                            <h4>Time:</h4>
+                                            <input type="text" value="$300"/>
+                                            <span class="icon-pencil"></span>
+                                        </li>
+                                    </ul>
+                                </div><!--close detail List-->
+
+                            </div><!--close drop down box-->
+
+                        </li>
+                        <li>
+                           <h3>Cantidad de Transacciones</h3>
+                            <div class="onoffswitch">
+                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch3" checked>
+                                <label class="onoffswitch-label" for="myonoffswitch3">
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                </label>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div><!--close products-->
+
+            </section><!--close main-->
+</div>
+<div  id='first-time' class='page-content' header=''>
 </div>
 
 

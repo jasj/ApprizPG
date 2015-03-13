@@ -92,18 +92,25 @@
 		
 		
 		//Menu Nav
+		$.fn.hasAttr = function(name) {  
+			return this.attr(name) !== undefined;
+		};
 		
 		$( document ).on("tapend",'.navAppriz li',function(){
-			$($(".navAppriz .active").find("a").attr("menu-page")).hide();
-			$(".navAppriz .active").removeClass("active");
-			$(this).addClass("active");
-			$($(this).find("a").attr("menu-page")).show();
+			if(	$(this).find("a").hasAttr("menu-page")){
+				$($(".navAppriz .active").find("a").attr("menu-page")).hide();
+				$(".navAppriz .active").removeClass("active");
+				$(this).addClass("active");
+				$($(this).find("a").attr("menu-page")).show();
+			}
 		});
 	//});
 	
 	$( document ).on("tapend","[page-content]",function(){
 		$(".page-content.active").removeClass("active");
+		$("header.active").removeClass("active");
 		$("#"+$(this).attr("page-content")+".page-content").addClass("active").show();
+		$("#"+$("#"+$(this).attr("page-content")+".page-content").attr("header")).addClass("active").show();
 		$('#menuAppriz').fadeOut(300);
 			$('.allMenu').velocity({"right" : "-80%"});
 	});

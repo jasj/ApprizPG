@@ -1552,8 +1552,10 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     background: #b6b7b8;
     width: 100%;
     overflow: hidden;
-    min-height: 55px;
+    height: 55px;
     border-bottom: 1px solid #e5e5e5;
+	position: fixed;
+	z-index: 2;
 }
 
 .productNav ul {
@@ -1611,6 +1613,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 .products ul {
     margin: 0;
     padding: 0;
+	margin-top:56px;
 }
 
 .products ul li.active {
@@ -2265,11 +2268,11 @@ h4.user{
     user-select: none;
 }
 
-.page-content{
+.page-content,header{
 	display : none;
 }
 
-.page-content.active{
+.page-content.active,header.active{
 	display : block !important;
 }
 .Msg_info{
