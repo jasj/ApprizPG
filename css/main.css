@@ -819,7 +819,7 @@ label.css-label {
     height: 100%;
 }
 
-#keyboardAppriz .numKey {
+#keyboardAppriz .numKey, #keyboardAppriz .numKeyC {
     color: #9e3f9a;
     font-size: 3em;
     border: 1px solid #9C9D9E;
@@ -2215,7 +2215,12 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     }
 
     #keyboardAppriz .numKey {
-        width: 32.5%;
+        width: 33.3% !important;
+
+    }
+	
+	  #keyboardAppriz .numKeyC {
+        width: 33.4% !important;
 
     }
 
