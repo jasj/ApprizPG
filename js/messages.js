@@ -43,7 +43,7 @@ function makeSwipe(id){
 					if(direction=='right'){
 
 						if(actualMargin < 0){
-							msg.css({"margin-left": distance});
+							mContainer.velocity({"margin-left" : "0px"});
 						}else{
 							if(distance < window.innerWidth){
 								msg.css({"margin-left": distance});
