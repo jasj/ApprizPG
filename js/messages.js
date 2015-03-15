@@ -1,6 +1,10 @@
 /*
 	messages.js
 */
+function showMessage(id){
+	$(".page-content.active").removeClass("active");
+		$("#MessageDetail.page-content").addClass("active").show();
+}
 
 function makeSwipe(id){
 		
@@ -37,6 +41,9 @@ function makeSwipe(id){
 				},
 				
 				swipeStatus:function(event, phase, direction, distance , duration , fingerCount) {
+				 if((phase === $.fn.swipe.phases.PHASE_END || phase === $.fn.swipe.phases.PHASE_CANCEL )& distance == 0)  {
+						showMessage($(this).attr("MessageId"));
+				 }else{
 					var msg = $(this).find(".moveContainer");
 					var actualMargin = parseInt(msg.css("margin-left").replace(/[^-\d\.]/g, '') );
 					
@@ -67,6 +74,8 @@ function makeSwipe(id){
 							
 						}
 					}
+					
+				}
 					
 				 },
 				 allowPageScroll:"vertical",
