@@ -24,8 +24,7 @@ function makeSwipe(id){
 							
 					}else if(direction=='left' & distance < (window.innerWidth*0.3) & actualMargin > window.innerWidth){
 							mContainer.velocity({"margin-left" : window.innerWidth+"px"});
-							alert(3);
-					}else if(direction=='right' & distance > (window.innerWidth*0.3) & actualMargin > window.innerWidth*0.5){
+					}else if(direction=='right' & distance > (window.innerWidth*0.3) & actualMargin > window.innerWidth*0.3){
 							mContainer.velocity({"margin-left" : window.innerWidth+"px"});
 						
 					}else if(direction=='right'  & actualMargin >-150){
