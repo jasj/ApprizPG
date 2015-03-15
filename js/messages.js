@@ -51,7 +51,7 @@ function makeSwipe(id){
 
 						if(actualMargin < 0){
 							
-							msg.velocity({"margin-left" : "0px"});
+							//msg.velocity({"margin-left" : "0px"});
 						}else{
 							if(distance < window.innerWidth){
 								msg.css({"margin-left": distance});
@@ -65,7 +65,7 @@ function makeSwipe(id){
 						
 						if (distance< (150) & actualMargin < 1) {
 							
-							//msg.css({"margin-left": -distance});
+							msg.css({"margin-left": -distance});
 							
 						}else{
 							
