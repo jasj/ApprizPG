@@ -20,8 +20,8 @@
 			
 		});
 		
-		//MSG Swipped 
-		$( document ).on("swipe", ".Message" ,function(a,b,c){
+		/*/MSG Swipped 
+		$( document ).on("swipe", ".Me" ,function(a,b,c){
 			
 			
 			var mContainer = $(this).find(".moveContainer");
@@ -68,7 +68,7 @@
 				}
 			}
 		});
-		
+		*/
 		
 		//Filter handle
 		
