@@ -30,8 +30,8 @@ function makeSwipe(id){
 					}
 					
 					else {
-						//mContainer.velocity({"margin-left" : "0px"});
-						//alert("else");
+						mContainer.velocity({"margin-left" : "0px"});
+						
 				
 					}
 				},
@@ -43,7 +43,7 @@ function makeSwipe(id){
 					if(direction=='right'){
 
 						if(actualMargin < 0){
-							msg.css({"margin-left": -distance});
+							msg.css({"margin-left": distance});
 						}else{
 							if(distance < window.innerWidth){
 								msg.css({"margin-left": distance});
