@@ -1674,6 +1674,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     overflow: hidden;
     background: white;
     padding: 0 3% 0 3%;
+	display : none;
 }
 
 .products .dropdownBox p {
