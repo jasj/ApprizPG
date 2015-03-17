@@ -1,11 +1,15 @@
 
 
 function showMessage(id){
+	back.push( "inbox" );
 	$(".page-content.active").removeClass("active");
 		$("#MessageDetail.page-content").addClass("active").show();
 		
-		$('.dropdownOption').velocity({'bottom': (-$('.dropdownOption').height()-50)+"px"});
+		$('.dropdownOption').css({'bottom': (-$('.dropdownOption').height()-50)+"px"});
 		$(".appends").css({"z-index": 40});
+		$("header.active").removeClass("active");
+		$("#headerEntity").addClass("active");
+		
 }
 
 $( document ).on('tapend','.optionBtn',function(){

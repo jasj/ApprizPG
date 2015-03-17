@@ -1,7 +1,7 @@
 
 	var tabSelectedColor 	= "rgb(0, 91, 153)";
 	var tabUnSelectedColor 	= "rgb(213, 212, 211)";
-	var back = [];
+	back = [];
 	//Main Menu handle
 	
 	// fix_messages();
