@@ -485,6 +485,7 @@ a {
     width: 100%;
     margin: 0 auto;
     background: #FFFFFF;
+	height: 100%;
 
 }
 
@@ -1928,7 +1929,11 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 
     .options .optionBtn {
         font-size: 26px;
-        width: 100%;
+        
+		position: absolute;
+		bottom: 10px;
+		left: 5px;
+		right: 5px;
 
     }
 
@@ -2277,12 +2282,12 @@ h4.user{
 }
 
 .details_{
- background: #DBD9D9;
- margin: 1%;
- margin-top: 92px;
- padding: 2%;
- text-align: justify;
- 
+ background: none repeat scroll 0% 0% #DBD9D9;
+margin-top: 92px;
+padding: 2%;
+text-align: justify;
+margin-left: 1%;
+margin-right: 2%;
 }
 
 .details_ h3{
@@ -2302,3 +2307,6 @@ h4.user{
 	position: relative !important;
 }
  
+#MessageDetail{
+	height : 100%;
+}

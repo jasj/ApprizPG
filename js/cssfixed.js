@@ -16,3 +16,5 @@ function fix_messages(){
 	$(".dateBank").css({"width" : (window.innerWidth -160)+"px"});
 		
 }
+
+$("body").css({"height" : window.innerHeight});
