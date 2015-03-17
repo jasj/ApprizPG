@@ -18,3 +18,4 @@ function fix_messages(){
 }
 
 $("body").css({"height" : window.innerHeight});
+$(".details_").css({"width" : (window.innerWidth - window.innerWidth*2*0.04)});

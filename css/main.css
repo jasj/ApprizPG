@@ -2286,8 +2286,7 @@ h4.user{
 margin-top: 92px;
 padding: 2%;
 text-align: justify;
-margin-left: 1%;
-margin-right: 2%;
+height: 70px;
 }
 
 .details_ h3{
@@ -2309,4 +2308,13 @@ margin-right: 2%;
  
 #MessageDetail{
 	height : 100%;
+}
+
+.appends{
+	position: absolute;
+	top: 235px;
+	left: 5px;
+	right: 5px;
+	bottom: 50px;
+	overflow-y: auto;
 }
