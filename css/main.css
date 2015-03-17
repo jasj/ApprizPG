@@ -999,12 +999,12 @@ label.css-label {
 #categories .details {
     background: #DBD9D9;
     width: 100%;
-    position: absolute;
+   /* position: absolute;
     top: calc(-22% - 0px);
     left: 0px;
     width: calc(100% - 20px);
     height: 124px;
-    padding:20px;
+    padding:20px;*/
 }
 
 #categories .centralLI {
@@ -1418,7 +1418,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     border: none;
     position: absolute;
     z-index: 2000;
-    right: 0;
+    right: -72%;
     height: 100%;
     width: 72%;
     top: 0;
@@ -1462,7 +1462,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     width: 100%;
     display: block;
     position: absolute;
-    bottom: 11%;
+    bottom: 88px;
 }
 
 .log {
@@ -2276,5 +2276,8 @@ h4.user{
 
 }
 
+#MessageDetail{
+	margin-top: 100px;
+}
 
  

@@ -1,6 +1,7 @@
 
 	var tabSelectedColor 	= "rgb(0, 91, 153)";
 	var tabUnSelectedColor 	= "rgb(213, 212, 211)";
+	var back = [];
 	//Main Menu handle
 	
 	// fix_messages();
@@ -20,75 +21,7 @@
 			
 		});
 		
-		/*/MSG Swipped 
-		$( document ).on("swipe", ".Me" ,function(a,b,c){
-			
-			
-			var mContainer = $(this).find(".moveContainer");
-			var actualMargin = parseInt(mContainer.css("margin-left").replace(/[^-\d\.]/g, '') );
-				console.log(JSON.stringify(b));
-		
-		//This will be for show the delete button 
-		if(b["startEvnt"]["position"]["x"] > b["endEvnt"]["position"]["x"]){
-			//alert(parseInt(mContainer.css("margin-left").replace(/[^-\d\.]/g, '') ));
-			if( actualMargin <10){
-				if(b["xAmount"] > 150){
-						mContainer.css({"margin-left" : "-150px"});
-				}else{
-							mContainer.css({"margin-left" : (b["xAmount"]*-1)+"px"});
-				}
-			}
-			else{
-					
-					mContainer.css({"margin-left" : window.innerWidth + (b["xAmount"]*-1)+"px"});
-				
-			}
-		}
-		//This could be to show the detail or hide the delete button
-		else{
-			
-				mContainer.css({"margin-left" : b["xAmount"]+"px","overflow-x" :"visible"});
-			
-		}
-		});
-		
-		$( document ).on("swipeend", ".Message" ,function(a,b,c){
-			var mContainer = $(this).find(".moveContainer");
-			if(b["startEvnt"]["position"]["x"] > b["endEvnt"]["position"]["x"]){
-				if(b["xAmount"] < 151 &&  1){
-					mContainer.velocity({"margin-left" : "0px"});
-				}
-			}
-			else{
-				if(b["xAmount"] > 150){
-					
-					mContainer.velocity({"margin-left" : window.innerWidth+"px"},{ duration: 500 });
-				}else{
-					mContainer.velocity({"margin-left" : "0px"});
-				}
-			}
-		});
-		*/
-		
-		//Filter handle
-		
-		$( document ).on("tapend",'nav.categoryNav span',function(){
-			if( $(this).css("color") == tabSelectedColor){
-				$(this).css({content: "\e60b",color: tabUnSelectedColor});
-				$(this).find('.path1::before').css({color: tabUnSelectedColor});
-			
-			}else{
-				$(this).css({content: "\e60b",color: tabSelectedColor});
-				$(this).find('.path1').css({color: tabSelectedColor});
-			}
-		});
-		
-		$( document ).on("taphold",'nav.categoryNav span',function(){
-			$('nav.categoryNav span').css({content: "\e60b",color: tabUnSelectedColor});
-			$(this).find('.path1::before').css({color: tabUnSelectedColor});
-			//$(this).css({content: "\e60b",color: tabSelectedColor});
-		});
-		
+
 		
 		
 		//Menu Nav
@@ -106,7 +39,10 @@
 		});
 	//});
 	
+	
+	//Page Changer
 	$( document ).on("tapend","[page-content]",function(){
+		back.push( $(".page-content.active").attr("id"));
 		$(".page-content.active").removeClass("active");
 		$("header.active").removeClass("active");
 		$("#"+$(this).attr("page-content")+".page-content").addClass("active").show();
@@ -114,12 +50,36 @@
 		$('#menuAppriz').fadeOut(300);
 			$('.allMenu').velocity({"right" : "-80%"});
 	});
+	//page back
+	
+	$( document ).on("tapend","a.icon-back",function(){
+		var inBack = back.pop();
+		if(inBack != "undefined"){
+			$(".page-content.active").removeClass("active");
+			$("header.active").removeClass("active");
+			
+			$("#"+inBack).addClass("active").show();
+			$("#"+$("#"+inBack).attr("header")).addClass("active").show();
+		}
+			
+	});
+	
+	function makeSwipeEntity(id){
+		$( 1 ? "#entities li" : "#"+id+".Message").swipe( {
+			swipeLeft:function(event, direction, distance, duration, fingerCount) {
+				$(this).find(".deleteSwipe").css({"right" : "0px"});
+				
+			},
+			swipeRight:function(event, direction, distance, duration, fingerCount) {
+				$(this).find(".deleteSwipe").css({"right" : -(window.innerWidth*0.8+0.72)+"px"});
+				
+			},
+			
+		});
+	}
+	
+	
+	makeSwipeEntity();
+	
 	
 
-
-
-
-
-/*
-{	"startEvnt":{"position":{"x":538,"y":341},"offset":{"x":441,"y":228},"time":1425930563806,"target":{}}
-,"endEvnt":{"position":{"x":481,"y":336},"offset":{"x":384,"y":223},"time":1425930563917,"target":{}},"direction":"left","xAmount":57,"yAmount":5,"duration":111}*/
