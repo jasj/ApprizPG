@@ -999,12 +999,12 @@ label.css-label {
 #categories .details {
     background: #DBD9D9;
     width: 100%;
-   /* position: absolute;
+    position: absolute;
     top: calc(-22% - 0px);
     left: 0px;
     width: calc(100% - 20px);
     height: 124px;
-    padding:20px;*/
+    padding:20px;
 }
 
 #categories .centralLI {
@@ -1034,7 +1034,7 @@ label.css-label {
 
 
 
-#categories .details h3 {
+#categories .details h3 , .details_ h3{
     color: #005b99;
     margin: 0;
     font-size: 0.8em;
@@ -2276,8 +2276,13 @@ h4.user{
 
 }
 
-#MessageDetail{
-	margin-top: 100px;
+.details_{
+ background: #DBD9D9;
+ margin: 1%;
+ margin-top: 92px;
+ padding: 2%;
+ text-align: justify;
+ 
 }
 
  
