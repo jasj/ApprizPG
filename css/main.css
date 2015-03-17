@@ -1195,8 +1195,8 @@ nav.categoryNav .icon-myAlerts .path1:before {
 .dropdownOption {
     background: #ebebeb;
     width: 88%;
-    margin: 0 auto 4%;
     padding: 0 0 4% 0;
+
 }
 
 .dropdownOption ul {
@@ -1931,14 +1931,20 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         font-size: 26px;
         
 		position: absolute;
-		bottom: 10px;
+		bottom: 0px;
 		left: 5px;
 		right: 5px;
 
     }
 
     .dropdownOption {
-        width: 100%;
+        width: 88%;
+		
+		position: absolute;
+		bottom: 50px;
+		left: 6%;
+		
+		
     }
 
     #categories li p {
@@ -2299,6 +2305,7 @@ height: 80px;
 .detail_fixed{
 	position: fixed;
 	background-color: white;
+	border-bottom: 1px;
 }
 
 .detail_fixed .dateBank{
@@ -2319,4 +2326,14 @@ height: 80px;
 	right: 5px;
 	bottom: 50px;
 	overflow-y: auto;
+}
+
+
+.wraperWindows{
+	position: absolute;
+	left: 0px;
+	bottom: 50px;
+	right:0px;
+	top:0px;
+	overflow:hidden;
 }
