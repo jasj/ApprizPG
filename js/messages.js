@@ -1,10 +1,7 @@
 /*
 	messages.js
 */
-function showMessage(id){
-	$(".page-content.active").removeClass("active");
-		$("#MessageDetail.page-content").addClass("active").show();
-}
+
 
 function makeSwipe(id){
 		
