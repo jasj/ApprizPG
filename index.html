@@ -18,6 +18,7 @@
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+	<link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 
 </head>
@@ -909,36 +910,27 @@
 
 </div>
 <div  id='pin' class='page-content' header='headerEntity'>
-    <section id="main">
-        <div id="settings" class="pinEnter">
-            <h1>Enter Your Pin</h1>
-            <ul class="numberCode">
-                <li><input class="passkey" type="password" maxlength="1"/></li>
-                <li><input class="passkey" type="password" maxlength="1"/></li>
-                <li><input class="passkey" type="password" maxlength="1"/></li>
-                <li><input class="passkey" type="password" maxlength="1"/></li>
-            </ul>
+   
+         
+   
+			
+<div id='divPIN'class="fullscreen" style="z-index:99;" >
 
 
-            <div id="keyboardAppriz">
-                <div class="numKey"> 1 </div>
-                <div class="numKeyC"> 2 </div>
-                <div class="numKey"> 3 </div>
-                <div class="numKey"> 4 </div>
-                <div class="numKeyC"> 5 </div>
-                <div class="numKey"> 6 </div>
-                <div class="numKey"> 7 </div>
-                <div class="numKeyC"> 8 </div>
-                <div class="numKey"> 9 </div>
-                <div class="numKey last"> 1 </div>
-                <div class="numKeyC"> 0 </div>
-                <div class="numKey icon-delete"></div>
-            </div>
+
+	
+	<div class="passkey"> </div><div class="passkey"></i></div><div class="passkey"></div><div class="passkey"></div>
+	<div style="position: absolute; bottom: 0px;left: 0px; right: 0px;"> 
+	<div class="numKey "> 1 </div><div class="numKey center ">2</div><div class="numKey "> 3 </div>
+	<div class="numKey"> 4 </div><div class="numKey center"> 5 </div><div class="numKey"> 6 </div>
+	<div class="numKey"> 7 </div><div class="numKey center"> 8 </div><div class="numKey"> 9 </div>
+	<div class="numKey" style='opacity: 0.5'></div><div class="numKey center"> 0 </div><div class="delKey" style='opacity: 0.5;  line-height: 200%;'><i class="fa fa-pencil  fa-rotate-180"></i>DEL</div>
+</div>	
+</div>
 
 
-        </div>
         <!--close keyboard Appriz-->
-    </section>
+   
     <!--close main-->
 </div>
 <div  id='products' class='page-content' header='headerEntity'>
@@ -1165,6 +1157,7 @@
 <script src="js/messages.js"></script>
 <script src="js/messageDetail.js"></script>
 <script src="js/rules.js"></script>
+<script src="js/pin.js"></script>
 
 
 
