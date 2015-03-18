@@ -1232,10 +1232,15 @@ nav.categoryNav .icon-myAlerts .path1:before {
 .modalAppriz {
     background: #222222;
     opacity: 0.9;
-    position: absolute;
+    position: fixed;
     width: 100%;
     z-index: 10000;
     height: 100%;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	display: none;
 }
 
 #menuAppriz {
@@ -1495,9 +1500,19 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 .boxModal {
     max-width: 320px;
     width: 100%;
-    margin: 0 auto;
     background: white;
     padding: 0 0 3% 0;
+	
+	height:200px;
+	
+	position: absolute;
+	top: 50%;
+	left:50%;
+	margin-left: -160px;
+	margin-top:  -100px;
+	opacity: 1 !important;
+	
+	
 }
 
 .boxModal h2 {
@@ -1508,6 +1523,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     height: 60px;
     line-height: 60px;
     font-weight: normal;
+	margin-top: 0px;
 }
 
 .boxModal p {
@@ -2346,7 +2362,7 @@ height: 80px;
 
 #divPIN{
 	position: absolute;
-	top: 100px;
+	top: 92px;
 	left:0px;
 	right: 0px;
 	bottom: 0px;

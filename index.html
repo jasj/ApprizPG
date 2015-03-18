@@ -40,8 +40,8 @@
         <div class="allMenu">
 
         <ul class="topHeader">
-            <li class="bankBrand" page-content="inbox">
-                <a ><img src="img/coopenaeLogo.png" alt=""/></a>
+            <li class="bankBrand" >
+                <a page-content="inbox"><img src="img/coopenaeLogo.png" alt=""/></a>
             </li>
             <li class="userInfo">
                 <p class="welcome">Bienvenido</p>
@@ -100,7 +100,7 @@
 <!--close menu Appriz-->
 
 <!--headers-->
-	<header class="bankSection mainBankSection active" id="headerMain">
+	<header class="bankSection mainBankSection active" id="headerMain" >
         <h2><a class="bankLogo" href="#"><img src="img/coopenaeLogo.png" alt="Bank"/></a></h2>
         <button class="icon-menu menu-main"></button>
     </header>
@@ -109,9 +109,9 @@
 		<h2>Settings</h2>
 		<button class="icon-menu menu-main"></button>
      </header>
-	  <header class="bankSection" id="headerEntity">
+	  <header class="bankSection" id="headerEntity" >
                 <a class="icon-back"></a>
-                <h2><a class="bankLogo" href="#"><img src="img/coopenaeLogo.png" alt="Bank"/></a></h2>
+                <h2><a class="bankLogo" href="#" page-content="inbox"><img src="img/coopenaeLogo.png" alt="Bank"/></a></h2>
                 <span class="icon-menu"></span>
      </header>
 <!--headers-->
@@ -1142,8 +1142,37 @@
 
 
 
+
 </div>
 
+
+
+       <div class="modalAppriz" id="modal2Btn">
+            <div class="boxModal">
+                <h2>Rule Changes</h2>
+
+                <p>Do you want to save changes?</p>
+
+                <ul>
+                    <li>
+                        <button class="okBtn">Yes</button>
+                    </li>
+                    <li>
+                        <button class="noBtn">No</button>
+                    </li>
+                </ul>
+            </div>
+        </div><!--close modal appriz-->
+		
+		<div class="modalAppriz" id="modal1Btn">
+              <div class="boxModal">
+                <h2>Wrong Password</h2>
+
+                <p>The Password must be a least 9 chars length</p>
+
+                <button class="okBtn">Yes</button>
+            </div><!--close modal-->
+		</div>
 <!-- Generic Scripts  -->
 <script src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
@@ -1151,6 +1180,7 @@
 <script src="js/velocity.js"></script>
 <script src="js/swipe.js"></script>
 <script src="js/cssfixed.js"></script>
+<script src="js/generics.js"></script>
 
 <!--pages Scripts -->
 <script src="js/main.js"></script>

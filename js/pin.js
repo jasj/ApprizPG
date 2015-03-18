@@ -14,7 +14,7 @@ $( document ).on( "tapend", ".numKey", function() {
 				$('#sb_inbox').html('Products');
 			//}
 			}else{
-					showInfoD('Wrong Accses Code','The accses code that you used is invalid',function(){$('.moldHide, .dialogAlert').hide();});
+					showInfoD('Wrong PIN','The PIN that you used is invalid',function(){});
 			}
 			$('.passkey').html('');
 			PINpos = 0; vPIN= "";
