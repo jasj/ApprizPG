@@ -78,7 +78,7 @@
                     <button  page-content="products"><span class="icon1 icon-pushcenter"></span>Push Center</button>
                 </li>
                 <li>
-                    <button page-content="pin"><span class="icon1 icon-demo"></span>Demo</button>
+                    <button page-content="first-time"><span class="icon1 icon-demo"></span>Demo</button>
                 </li>
             </ul>
         </div>
@@ -91,10 +91,10 @@
                 <li><img src="img/citi.png" alt=""/> <button class="deleteSwipe">Delete</button></li>
                
             </ul>
-            <button class="newEntity">New Entity</button>
+            <button class="newEntity" page-content="pin">New Entity</button>
         </div>
         <!--close content menu-->
-        <button class="log"><span class="icon-logOut"></span>Log Out</button>
+        <button class="log"  page-content="pin"><span class="icon-logOut"></span>Log Out</button>
     </div>
     </div><!--close all menu-->
 <!--close menu Appriz-->
@@ -1135,9 +1135,73 @@
 
             </section><!--close main-->
 </div>
-<div  id='first-time' class='page-content' header=''>
+<div  id='first-time' class='page-content' header='headerGeneral'>
+<div id="settings">
+                    <h3>Which email do you want to bond with this Appriz Account?</h3>
+
+                    <input type="text" value="Email"/>
+
+                    <h3>Write a password that it will be used to authenticate this Account?</h3>
+                    <input type="text" value="Password"/>
+                    <input type="text" value="Rewrite Password"/>
+
+                    <h3>Which email do you want to bond with this Appriz Account?</h3>
+
+                    <input type="text" value="Access Code"/>
+
+                    <h3>Download banners only at Wifi</h3>
+
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                    <h3>Ask me my access code only at the start</h3>
+
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+
+                    <h3>Keep messages for at least:</h3>
+
+                    <ul class="weeksOption">
+                        <li><input type="checkbox" name="checkboxG4" id="checkboxG4" class="css-checkbox"/><label for="checkboxG4" class="css-label"> <span>1</span> Week</label></li>
+                        <li><input type="checkbox" name="checkboxG5" id="checkboxG5" class="css-checkbox" checked="checked"/><label for="checkboxG5" class="css-label"> <span>2</span> Weeks</label></li>
+                        <li><input type="checkbox" name="checkboxG6" id="checkboxG6" class="css-checkbox"/><label for="checkboxG6" class="css-label"><span>3</span> Weeks</label></li>
+                        <li><input type="checkbox" name="checkboxG6" id="checkboxG7" class="css-checkbox"/><label for="checkboxG7" class="css-label"><span>4</span> Weeks</label>
+                        </li>
+                    </ul>
+
+
+                    <button class="btnFull">Save Settings</button>
+
+
+                </div><!--close settings-->
 </div>
 
+
+
+<div  id='suscribe' class='page-content' header='headerGeneral'>
+<div id="settings">
+                    <h1>Please use the couple of numbers given by entity</h1>
+
+                    <div class="subscribebox">
+                        <h2>Id Code</h2>
+                        <input type="text"/>
+                        <h2>Subscription No.</h2>
+                        <input type="text"/>
+                    </div><!--close subscribe box-->
+
+                    <button class="btnFull">Save</button>
+
+                </div><!--close settings-->
+</div>
 
 
 
