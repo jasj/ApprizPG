@@ -16,7 +16,9 @@ html {
 
 }
 
-button:focus {outline:0;}
+button:focus {
+    outline: 0;
+}
 
 hr {
     display: block;
@@ -383,7 +385,7 @@ header .icon-iconAppriz {
 
 .onoffswitch {
     position: relative;
-    width: 90px;
+    width: 70px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -426,7 +428,7 @@ header .icon-iconAppriz {
     box-sizing: border-box;
 }
 
-.onoffswitch-inner:before {
+.onoffswitch-inner:before{
     content: "ON";
     padding-left: 10px;
     background-color: #9E3F9A;
@@ -436,7 +438,7 @@ header .icon-iconAppriz {
 .onoffswitch-inner:after {
     content: "OFF";
     padding-right: 10px;
-    background-color: #E8E8E8;
+    background-color: #D2CECE;
     color: #6D6E76;
     text-align: right;
 }
@@ -450,7 +452,6 @@ header .icon-iconAppriz {
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 56px;
     -moz-transition: all 0.3s ease-in 0s;
     -webkit-transition: all 0.3s ease-in 0s;
     -o-transition: all 0.3s ease-in 0s;
@@ -485,7 +486,7 @@ a {
     width: 100%;
     margin: 0 auto;
     background: #FFFFFF;
-	height: 100%;
+    height: 100%;
 
 }
 
@@ -557,6 +558,7 @@ header .icon-menu {
     line-height: 76px;
     display: block;
 }
+
 img {
     display: block;
     max-width: 100%;
@@ -618,7 +620,6 @@ input, .btnAction {
     right: -4px;
     font-size: 69px;
     top: -5px;
-
 
 }
 
@@ -827,7 +828,7 @@ label.css-label {
     width: 32% !important;
     text-align: center;
     line-height: 100px;
-	height: 50px !important;
+    height: 50px !important;
     float: left;
 }
 
@@ -899,8 +900,9 @@ label.css-label {
 
 #categories li .iconCat {
     float: left;
-    width: 10%;
+    width: 100px;
     display: inline-block;
+    padding: 0 0 0 30px;
 }
 
 #categories li .icon-myAlerts, .icon-notifications, .icon-alerts, .icon-promotions, .icon-services {
@@ -920,15 +922,16 @@ label.css-label {
 
 .dateBank {
     color: #464646;
-    font-size: 0.9em;
+    font-size: 0.8em;
+    width: 100%;
     font-weight: lighter;
     margin: 0;
     padding: 1% 0 0 0;
-    width: 91%;
     position: absolute;
     bottom: 4px;
-	margin-left: -2em;
+    margin-left: -2em;
 }
+
 .dateBank .icon-primitive-dot {
     color: #95c807;
     font-size: 30px;
@@ -951,7 +954,7 @@ label.css-label {
     border: none;
     background: none;
     position: absolute;
-    right: alc(150px + 5px);
+    right: alc(150px+5px);
     z-index: 1000;
     top: 16px;
 }
@@ -976,11 +979,11 @@ label.css-label {
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 91%;
+    width: 100%;
     word-wrap: break-word;
     max-height: 2.8em;
     line-height: 21px;
-	margin-left: -2em;
+    margin-left: -2em;
 }
 
 .deleteSwipe {
@@ -1006,7 +1009,7 @@ label.css-label {
     left: 0px;
     width: calc(100% - 20px);
     height: 124px;
-    padding:20px;
+    padding: 20px;
 }
 
 #categories .centralLI {
@@ -1023,10 +1026,9 @@ label.css-label {
     left: 200%;
     width: 150px;
 
-
 }
 
-#categories  .moveContainer{
+#categories .moveContainer {
     position: relative;
     width: 100%;
     left: calc(-100% - 21px);
@@ -1034,9 +1036,7 @@ label.css-label {
     height: 84px;
 }
 
-
-
-#categories .details h3 , .details_ h3{
+#categories .details h3, .details_ h3 {
     color: #005b99;
     margin: 0;
     font-size: 0.8em;
@@ -1049,7 +1049,7 @@ label.css-label {
     padding: 3% 4% 3% 4%;
 }
 
-#categories li:first-child .details h3{
+#categories li:first-child .details h3 {
     padding: 5% 4% 3% 4%;
 }
 
@@ -1101,6 +1101,7 @@ nav.categoryNav ul {
 }
 
 nav.categoryNav ul li {
+    position: relative;
     border-bottom: none;
     float: left;
     width: 20%;
@@ -1229,18 +1230,27 @@ nav.categoryNav .icon-myAlerts .path1:before {
     background: none;
 }
 
+.bubble {
+    background: #D5D4D3;
+    height: 15px;
+    width: 15px;
+    border-radius: 360px 360px 360px 0;
+    position: absolute;
+    top: 3%;
+    left: 31%;
+    z-index: 1000;
+}
+
 .modalAppriz {
-    background: #222222;
-    opacity: 0.9;
     position: fixed;
     width: 100%;
     z-index: 10000;
     height: 100%;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	bottom: 0px;
-	display: none;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    display: none;
 }
 
 #menuAppriz {
@@ -1363,11 +1373,10 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 
 .contentMenu ul li {
     width: 100%;
-    max-height: 70px;
+    height: 60px;
     position: relative;
 
 }
-
 
 .contentMenu ul li button {
     font-size: 1.2em;
@@ -1388,7 +1397,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     color: #d5d4d3;
 }
 
-.contentMenu ul li button:hover .icon-myAlerts .path1:before{
+.contentMenu ul li button:hover .icon-myAlerts .path1:before {
     content: "\e60b";
     color: rgb(26, 107, 163);
 }
@@ -1452,12 +1461,25 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 #entities ul li {
     overflow: hidden;
     width: 98%;
+    position: relative;
     border-bottom: 1px solid #e5e5e5;
     padding: 1%;
 }
 
+#entities .bubble2 {
+    border: 2px solid #D5D4D3;
+    height: 25px;
+    width: 25px;
+    border-radius: 360px;
+    position: absolute;
+    top: 36%;
+    right: 4%;
+    z-index: 1000;
+}
+
 #entities ul li img {
-    margin: 0 auto;
+    margin: 1% 0 1% 2%;
+    max-height: 100%;
 }
 
 #entities .newEntity {
@@ -1502,17 +1524,16 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     width: 100%;
     background: white;
     padding: 0 0 3% 0;
-	
-	height:200px;
-	
-	position: absolute;
-	top: 50%;
-	left:50%;
-	margin-left: -160px;
-	margin-top:  -100px;
-	opacity: 1 !important;
-	
-	
+
+    height: 200px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -160px;
+    margin-top: -100px;
+    opacity: 1 !important;
+
 }
 
 .boxModal h2 {
@@ -1523,7 +1544,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     height: 60px;
     line-height: 60px;
     font-weight: normal;
-	margin-top: 0px;
+    margin-top: 0px;
 }
 
 .boxModal p {
@@ -1568,17 +1589,19 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 
 .productNav {
     background: #b6b7b8;
-    width: 100%;
-    overflow: hidden;
     height: 55px;
     border-bottom: 1px solid #e5e5e5;
-	position: fixed;
-	z-index: 2;
+    z-index: 2;
+    max-width: 640px;
+    position: fixed;
+    width: 100%;
 }
 
 .productNav ul {
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    height: 100%;
 }
 
 .productNav li {
@@ -1597,7 +1620,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     background: none;
     text-align: left;
     text-indent: 11px;
-    line-height: 64px;
+    line-height: 55px;
     font-size: 1.3em;
     color: white;
 }
@@ -1631,7 +1654,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 .products ul {
     margin: 0;
     padding: 0;
-	margin-top:56px;
+    margin-top: 56px;
 }
 
 .products ul li.active {
@@ -1674,7 +1697,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 
 .products .onoffswitch {
     float: right;
-    width: 15%;
+    width: 70px;
     margin: 15px 10px 0 0;
 }
 
@@ -1691,7 +1714,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     overflow: hidden;
     background: white;
     padding: 0 3% 0 3%;
-	display : none;
+    display: none;
 }
 
 .products .dropdownBox p {
@@ -1746,21 +1769,17 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
   Desktop styles Aprriz app
    ========================================================================== */
 
-
-@media (min-width: 1025px){
-    .allMenu{
-        width: 40%!important;
+@media (min-width: 1025px) {
+    .allMenu {
+        width: 40% !important;
     }
 }
+
 @media (max-width: 1024px) {
     #main {
         max-width: 100%;
     }
 
-    #categories li .iconCat {
-        width: 10%;
-        padding: 0 0 0 2%;
-    }
 
     #ads {
         max-width: 100%;
@@ -1793,12 +1812,13 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     }
 
     input, .btnAction {
-        line-height: 50px;
+        line-height: 44px;
         width: 96%;
+        margin-bottom: 4%;
     }
 
     .btnAction .icon-arrow {
-        font-size: 58px;
+        font-size: 51px;
         margin: 1px 0 0 0;
     }
 
@@ -1818,15 +1838,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 
     }
 
-    .products .onoffswitch {
-        width: 13%;
 
-    }
-
-    #categories li .iconCat {
-        width: 10%;
-        padding: 0 0 0 2%;
-    }
 
     .products ul li button {
         padding: 0 0 0 3%;
@@ -1834,6 +1846,16 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 }
 
 @media (max-width: 605px) {
+
+    .bubble{
+        top: 0;
+        left: 50%;
+    }
+
+    #entities .bubble2 {
+        right: 4%;
+        top: 23%;
+    }
     header h2 {
         color: #FFFFFF;
         float: left;
@@ -1862,9 +1884,12 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         text-align: center;
     }
 
+    #categories li .iconCat {
+        width: 70px;
+        padding: 0 0 0 15px;
+    }
 
     #entities ul li img {
-        margin: 0 auto;
         max-width: 76%;
     }
 
@@ -1898,7 +1923,6 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         width: 94%;
         padding: 13px 0 0 5px;
     }
-
 
     header h2 {
         width: 65%;
@@ -1947,22 +1971,21 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 
     .options .optionBtn {
         font-size: 26px;
-        
-		position: absolute;
-		bottom: 0px;
-		left: 5px;
-		right: 5px;
+
+        position: absolute;
+        bottom: 0px;
+        left: 5px;
+        right: 5px;
 
     }
 
     .dropdownOption {
         width: 88%;
-		
-		position: absolute;
-		bottom: 50px;
-		left: 6%;
-		
-		
+
+        position: absolute;
+        bottom: 50px;
+        left: 6%;
+
     }
 
     #categories li p {
@@ -1971,9 +1994,6 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         margin: 0;
     }
 
-    #categories li .iconCat {
-        width: 9%;
-    }
 
     .loginBox {
         width: 90%;
@@ -2001,12 +2021,6 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         width: 71%;
     }
 
-    .products .onoffswitch {
-        float: right;
-        width: 19%;
-
-    }
-
     .weeksOption li {
         list-style: none;
         float: left;
@@ -2032,7 +2046,11 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         font-size: 20px;
     }
 
-    header .icon-back{
+    .boxModal{
+        left: 59%;
+    }
+
+    header .icon-back {
         width: 11%;
     }
 
@@ -2042,6 +2060,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         line-height: 50px;
         bottom: 10%;
     }
+
     .topHeader .bankBrand {
         float: left;
         width: 45%;
@@ -2053,16 +2072,11 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         line-height: 91px;
 
     }
-    .topHeader .bankBrand a{
+
+    .topHeader .bankBrand a {
         display: block;
     }
 
-
-
-    #categories li .iconCat {
-        width: 9%;
-        padding: 0 0 0 1%;
-    }
 
     #categories li .icon-myAlerts, .icon-notifications, .icon-alerts, .icon-promotions, .icon-services {
         font-size: 28px;
@@ -2100,8 +2114,6 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         right: 24px;
     }
 
-
-
     #categories li .icon-arrow .path2:before, #categories li .icon-arrow .path1:before {
         font-size: 35px;
     }
@@ -2133,15 +2145,13 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         padding: 0;
     }
 
-
-
     .log {
         font-size: 18px !important;
         height: 60px;
         line-height: 60px;
     }
 
-    .log .icon-logOut{
+    .log .icon-logOut {
         padding: 16px 0 0 10px;
     }
 
@@ -2193,8 +2203,6 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         font-size: 1em;
     }
 
-
-
     .productNav .icon-myAlerts {
         font-size: 36px;
         margin: 5px 0 0 0;
@@ -2214,11 +2222,6 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     .products .dropdownBox p {
         font-size: 0.9em;
         padding: 3%;
-    }
-
-    .products .onoffswitch {
-        float: right;
-        width: 20%;
     }
 
     .editOption li h4 {
@@ -2243,8 +2246,6 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         font-size: 30px;
     }
 
- 
-
     #settings h1 {
         font-size: 1.2em;
     }
@@ -2259,7 +2260,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     }
 }
 
-img.bankLogo{
+img.bankLogo {
     position: absolute;
     top: 50%;
     margin: -20px auto auto;
@@ -2267,23 +2268,22 @@ img.bankLogo{
     max-width: calc(100% - 100px) !important;
 }
 
-.menu-main{
+.menu-main {
     position: absolute !important;
     right: 10px;
     top: 10px;
-	width: 51px;
+    width: 51px;
 }
 
-h4.user{
+h4.user {
     text-overflow: ellipsis !important;
     white-space: nowrap;
     width: 45% !important;
 }
 
-.welcome{
+.welcome {
     margin-top: 10px !important;
 }
-
 
 .noselect {
     -webkit-touch-callout: none;
@@ -2294,125 +2294,119 @@ h4.user{
     user-select: none;
 }
 
-.page-content,header{
-	display : none;
+.page-content, header {
+    display: none;
 }
 
-.page-content.active,header.active{
-	display : block !important;
-}
-.Msg_info{
-
+.page-content.active, header.active {
+    display: block !important;
 }
 
-.details_{
- background: none repeat scroll 0% 0% #DBD9D9;
-margin-top: 92px;
-padding: 2%;
-text-align: justify;
-height: 80px;
-}
-
-.details_ h3{
-	padding: 5px;
-	font-size: 1em;
-	max-height: 3.6em;
-}
-
-
-.detail_fixed{
-	position: fixed;
-	background-color: white;
-	border-bottom: 1px;
-}
-
-.detail_fixed .dateBank{
-	bottom: -10px !important;
-	left: 3em !important;
-	left: 3em !important;
-	position: relative !important;
-}
- 
-#MessageDetail{
-	height : 100%;
-}
-
-.appends{
-	position: absolute;
-	top: 235px;
-	left: 5px;
-	right: 5px;
-	bottom: 70px;
-	overflow-y: auto;
-	z-index: 5;
-}
-
-
-.wraperWindows{
-	position: absolute;
-	left: 0px;
-	bottom: 20px;
-	right:0px;
-	top:0px;
-	overflow:hidden;
-	z-index: 4;
-	
-}
-
-
-#divPIN{
-	position: absolute;
-	top: 92px;
-	left:0px;
-	right: 0px;
-	bottom: 0px;
-	
-	background: hsl(204, 100%, 95%)
-}
-.passkey{
-position: relative;
-top:60px;
-border-bottom: 3px solid black;
-width: 20%;
-margin-left: 4%;
-
-height: 20px;
-
-text-align: center;
-padding-bottom: 10px;
-
-float: left;
-
-color: black!important;
+.Msg_info {
 
 }
 
-.numKey,.delKey{
-	position: relative;
-	top: calc(100% - 300px);
-	
-	background: white;
-	
-	width: 33%;
-	height: 50px;
-	float: left;
-	
-	 text-align: center;
-	 
-	 
-	 display:table-cell;
-    vertical-align:middle;
-	margin-top: 2px;
-	font-size: 20px;
-	padding-top: 2px;
-	
-	
-	
-	
+.details_ {
+    background: none repeat scroll 0% 0% #DBD9D9;
+    margin-top: 92px;
+    padding: 2%;
+    text-align: justify;
+    height: 80px;
 }
 
+.details_ h3 {
+    padding: 5px;
+    font-size: 1em;
+    max-height: 3.6em;
+}
 
-.numKey.center{
-	margin-left: 0.5%;
-	margin-right: 0.5%;
+.detail_fixed {
+    position: fixed;
+    background-color: white;
+    border-bottom: 1px;
+}
+
+.detail_fixed .dateBank {
+    bottom: -10px !important;
+    left: 3em !important;
+    left: 3em !important;
+    position: relative !important;
+}
+
+#MessageDetail {
+    height: 100%;
+}
+
+.appends {
+    position: absolute;
+    top: 235px;
+    left: 5px;
+    right: 5px;
+    bottom: 70px;
+    overflow-y: auto;
+    z-index: 5;
+}
+
+.wraperWindows {
+    position: absolute;
+    left: 0px;
+    bottom: 20px;
+    right: 0px;
+    top: 0px;
+    overflow: hidden;
+    z-index: 4;
+
+}
+
+#divPIN {
+    position: absolute;
+    top: 92px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+
+    background: hsl(204, 100%, 95%)
+}
+
+#divPIN h2 {
+    color: rgb(110, 112, 113);
+    text-align: center;
+}
+
+.passkey {
+    position: relative;
+    top: 30px;
+    border-bottom: 3px solid rgb(137, 137, 137);
+    width: 20%;
+    margin-left: 4%;
+    height: 20px;
+    text-align: center;
+    padding-bottom: 10px;
+    float: left;
+    color: black !important;
+}
+
+.numKey, .delKey {
+    position: relative;
+    top: calc(100% - 300px);
+
+    background: white;
+
+    width: 33%;
+    height: 50px;
+    float: left;
+
+    text-align: center;
+
+    display: table-cell;
+    vertical-align: middle;
+    margin-top: 2px;
+    font-size: 20px;
+    padding-top: 2px;
+
+}
+
+.numKey.center {
+    margin-left: 0.5%;
+    margin-right: 0.5%;
 }
