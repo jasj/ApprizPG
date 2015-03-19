@@ -17,7 +17,7 @@ function fix_messages(){
         $("#categories li .infoBank").css({"width": (window.innerWidth - 160) + "px"});
         $(".dateBank").css({"width": (window.innerWidth - 160) + "px"});
     }else{
-        $("#categories li .infoBank").css({"width": "190px"});
+        $("#categories li .infoBank").css({"width": "180px"});
     //    $(".dateBank").css({"width":  "190px"});
 
 
