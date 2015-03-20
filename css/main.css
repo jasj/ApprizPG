@@ -487,6 +487,7 @@ a {
     margin: 0 auto;
     background: #FFFFFF;
     height: 100%;
+	display: none;
 
 }
 
@@ -566,7 +567,8 @@ img {
 }
 
 .login {
-    width: 100%;
+    width: 90%;
+	margin-left:5%;
 }
 
 .login .logo {
