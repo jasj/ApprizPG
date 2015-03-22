@@ -935,7 +935,6 @@ label.css-label {
 }
 
 .dateBank .icon-primitive-dot {
-    color: #95c807;
     font-size: 30px;
     padding: 0 2% 0 0;
     display: inline-block;
@@ -976,14 +975,14 @@ label.css-label {
 
 #categories li .infoBank h2 {
     color: #005b99;
-    font-size: 0.9em;
+    font-size: 0.73em;
     font-weight: 600;
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
     word-wrap: break-word;
-    max-height: 2.8em;
+    max-height: 3.2em;
     line-height: 21px;
     margin-left: -2em;
 }
@@ -1241,6 +1240,8 @@ nav.categoryNav .icon-myAlerts .path1:before {
     top: 3%;
     left: 31%;
     z-index: 1000;
+	font-size: 10px;
+	text-align: center;
 }
 
 .modalAppriz {
@@ -2411,4 +2412,25 @@ h4.user {
 .numKey.center {
     margin-left: 0.5%;
     margin-right: 0.5%;
+}
+
+
+#categories .unread .centralLI{
+	background: none repeat scroll 0% 0% rgb(249, 252, 229);
+} 
+
+
+.dotDone{
+	color: #95C807;
+}
+
+.dotProgress{
+	color: #ECE21C;
+}
+
+.dotError{
+	color: #E13A1F;
+}
+.dotNone{
+	color:rgb(170,170,170);
 }

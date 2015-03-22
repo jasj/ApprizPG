@@ -5,6 +5,11 @@
 	
 */
 
+function FormatInteger(num, length) {
+			return (num / Math.pow(10, length)).toFixed(length).substr(2);
+}
+		
+
 
 function showInfoD(title,text,okFx){
 	

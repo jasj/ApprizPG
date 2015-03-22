@@ -64,22 +64,7 @@
 			
 	});
 	
-	function makeSwipeEntity(id){
-		$( 1 ? "#entities li" : "#"+id+".Message").swipe( {
-			swipeLeft:function(event, direction, distance, duration, fingerCount) {
-				$(this).find(".deleteSwipe").css({"right" : "0px"});
-				
-			},
-			swipeRight:function(event, direction, distance, duration, fingerCount) {
-				$(this).find(".deleteSwipe").css({"right" : -(window.innerWidth*0.8+0.72)+"px"});
-				
-			},
-			
-		});
-	}
-	
-	
-	makeSwipeEntity();
+
 	
 	
 
