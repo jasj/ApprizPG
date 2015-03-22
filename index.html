@@ -86,7 +86,7 @@
                 <li>
                     <a menu-page="#entities" class="icon-entities"></a>
                 </li>
-                <li page-content="settings">
+                <li page-content="settingsPage">
                     <a class="icon-settings" ></a>
                 </li>
             </ul>
@@ -95,12 +95,12 @@
         <div id="mainOptions" class="contentMenu">
             <ul>
                 <li>
-                    <button page-content="rules"><span class="icon1 icon-myAlerts"><span class="path1"></span><span
+                    <button page-content="products" products="rules"><span class="icon1 icon-myAlerts"><span class="path1"></span><span
                             class="path2"></span></span>My Alerts
                     </button>
                 </li>
                 <li>
-                    <button page-content="products"><span class="icon1 icon-services"></span>Services</button>
+                    <button page-content="products" products="services"><span class="icon1 icon-services"></span>Services</button>
                 </li>
                 <li>
                     <button  page-content="products"><span class="icon1 icon-pushcenter"></span>Push Center</button>
@@ -217,10 +217,10 @@
 </div>
 
 
-<div  id='settings' class='page-content' header='headerGeneral'>
+<div  id='settingsPage' class='page-content' header='headerGeneral'>
 		
             <section id="main">
-                <div id="settings">
+                <div class="settings">
                     <h3>Change your secret codes:</h3>
                     <button class="btnAction">
                         Change my Password
@@ -290,10 +290,7 @@
 	<div class="numKey" style='opacity: 0.5'></div><div class="numKey center"> 0 </div><div class="delKey" style='opacity: 0.5;  line-height: 200%;'><i class="fa fa-pencil  fa-rotate-180"></i>DEL</div>
 </div>	
 </div>
-
-
-        <!--close keyboard Appriz-->
-   
+    <!--close keyboard Appriz-->
     <!--close main-->
 </div>
 <div  id='products' class='page-content' header='headerEntity'>
@@ -304,123 +301,21 @@
                         <li><button><span class="icon-myAlerts"><span class="path1"></span><span class="path2"></span></span>My Alerts</button></li>
                         <li class="active"><button>Products</button></li>
                     </ul>
-
                 </nav><!--close product Nav-->
+                <div class="products"><ul></ul></div><!--close products-->
+            </section><!--close main-->
+</div>
 
-                <div class="products">
+<div  id='services' class='page-content' header='headerEntity'>
+	          <!--close bank section header-->
+            <section id="main" class="productsMain">
+                <nav class="productNav">
                     <ul>
-                        <li>
-                            <button>Débito -5412
-                            <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-                        <li>
-                            <button>MasterCard 2468
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-                        <li>
-                            <button>Amex
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-                        <li>
-                            <button>Ahorro-2510
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-                        <li>
-                            <button>Débito
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-                        <li>
-                            <button>Crédito
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-                        <li>
-                            <button>Débito -5412
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-						
-						
-						
-						
-						     <li>
-                            <button>MasterCard 2468
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-                        <li>
-                            <button>Amex
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-                        <li>
-                            <button>Ahorro-2510
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-                        <li>
-                            <button>Débito
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-                        <li>
-                            <button>Crédito
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-						
-						
-						
-						     <li>
-                            <button>MasterCard 2468
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-                        <li>
-                            <button>Amex
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-                        <li>
-                            <button>Ahorro-2510
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-                        <li>
-                            <button>Débito
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
-                        <li>
-                            <button>Crédito
-                                <span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span>
-                            </button>
-
-                        </li>
+                        <li><button><span class="icon-myAlerts"><span class="path1"></span><span class="path2"></span></span>My Alerts</button></li>
+                        <li class="active"><button>Services</button></li>
                     </ul>
-                </div><!--close products-->
-
+                </nav><!--close product Nav-->
+                <div class="services"><ul></ul></div><!--close products-->
             </section><!--close main-->
 </div>
 
@@ -499,7 +394,7 @@
             </section><!--close main-->
 </div>
 <div  id='first-time' class='page-content' header='headerGeneral'>
-<div id="settings">
+<div class="settings">
                     <h3>Which email do you want to bond with this Appriz Account?</h3>
 
                     <input type="text" value="Email"/>
@@ -551,7 +446,7 @@
 
 
 <div  id='suscribe' class='page-content' header='headerGeneral'>
-<div id="settings">
+<div class="settings">
                     <h1>Please use the couple of numbers given by entity</h1>
 
                     <div class="subscribebox">
@@ -619,7 +514,9 @@
 <script src="js/entity.js"></script>
 <script src="js/messages.js"></script>
 <script src="js/messageDetail.js"></script>
+<script src="js/products.js"></script>
 <script src="js/rules.js"></script>
+<script src="js/services.js"></script>
 <script src="js/pin.js"></script>
 
 

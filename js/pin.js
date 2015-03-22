@@ -8,11 +8,8 @@ $( document ).on( "tapend", ".numKey", function() {
 	if(PINpos == 4){
 		if(vPIN == pin) {
 			$('#divPIN').hide();
-			
-		
-			//if(){
-				$('#sb_inbox').html('Products');
-			//}
+				$('.passkey').html('');
+				PINpos = 0; vPIN= "";
 			}else{
 					showInfoD('Wrong PIN','The PIN that you used is invalid',function(){});
 			}

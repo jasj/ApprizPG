@@ -686,13 +686,13 @@ input, .btnAction {
     color: #38393A;
 }
 
-#settings {
+.settings {
     width: 100%;
     overflow: hidden;
     padding: 0 0 5% 0;
 }
 
-#settings h1 {
+.settings h1 {
     color: #636466;
     text-align: center;
     width: 80%;
@@ -700,9 +700,13 @@ input, .btnAction {
     padding: 4% 0 4% 0;
 }
 
-#settings h3 {
+.settings h3 {
     color: #636466;
     font-weight: 300;
+}
+
+#settingsPage{
+	margin-top: 150px;
 }
 
 .subscribebox {
@@ -1650,21 +1654,21 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     color: rgb(0, 91, 153);
 }
 
-.products {
+.products, .services {
     width: 100%;
 }
 
-.products ul {
+.products ul , .services ul{
     margin: 0;
     padding: 0;
     margin-top: 56px;
 }
 
-.products ul li.active {
+.products ul li.active , .services ul li.active{
     background: #e8e8e8;
 }
 
-.products ul li {
+.products ul li , .services ul li{
     border-bottom: 1px solid #e5e5e5;
     width: 100%;
     min-height: 60px;
@@ -1673,7 +1677,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     overflow: hidden;
 }
 
-.products ul li button {
+.products ul li button , .services ul li button{
     border: none;
     background: none;
     color: #005b99;
@@ -1682,23 +1686,23 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     line-height: 60px;
 }
 
-.products ul li:hover {
+.products ul li:hover , .services ul li:hover {
     background: #e8e8e8
 }
 
-.products ul li button .icon-arrow {
+.products ul li button .icon-arrow , .services ul li button .icon-arrow {
     position: absolute;
     right: 1%;
     top: 12%;
     font-size: 50px;
 }
 
-.products ul li button .icon-arrow .path1:before {
+.products ul li button .icon-arrow .path1:before , .services ul li button .icon-arrow .path1:before{
     content: "\e614";
     color: rgb(0, 91, 153);
 }
 
-.products .onoffswitch {
+.products .onoffswitch , .services .onoffswitch {
     float: right;
     width: 70px;
     margin: 15px 10px 0 0;
@@ -1825,10 +1829,11 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         margin: 1px 0 0 0;
     }
 
-    #settings {
+    .settings {
         width: 94%;
         overflow: hidden;
         padding: 3%;
+		margin-top:100px;
     }
 
     .pinEnter {
@@ -1932,7 +1937,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         font-size: 1.4em;
     }
 
-    #settings h1 {
+    .settings h1 {
         width: 84%;
         padding: 5% 0 6% 0;
         font-size: 1.5em;
@@ -2249,7 +2254,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         font-size: 30px;
     }
 
-    #settings h1 {
+    .settings h1 {
         font-size: 1.2em;
     }
 
