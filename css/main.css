@@ -876,6 +876,7 @@ label.css-label {
 #categories {
     margin: 0;
     padding: 0;
+	padding-bottom: 100px;
     width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
@@ -1831,9 +1832,13 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 
     .settings {
         width: 94%;
-        overflow: hidden;
-        padding: 3%;
-		margin-top:100px;
+overflow: hidden;
+padding: 3%;
+margin-top: 100px;
+position: absolute;
+bottom: 10px;
+top: 0px;
+overflow: auto;
     }
 
     .pinEnter {
