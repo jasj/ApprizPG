@@ -42,6 +42,7 @@
 	
 	//Page Changer
 	$( document ).on("tapend","[page-content]",function(){
+		$('#pin').hide();
 		back.push( $(".page-content.active").attr("id"));
 		$(".page-content.active").removeClass("active");
 		$("header.active").removeClass("active");
@@ -54,6 +55,7 @@
 	
 	$( document ).on("tapend","a.icon-back",function(){
 		var inBack = back.pop();
+		$('#pin').hide();
 		if(inBack != "undefined"){
 			$(".page-content.active").removeClass("active");
 			$("header.active").removeClass("active");
