@@ -594,7 +594,7 @@ img {
 #main {
     overflow: hidden;
     max-width: 640px;
-    margin: 91px auto 0;
+    margin: -12px auto 0;
 }
 
 .allCategory {
@@ -705,9 +705,7 @@ input, .btnAction {
     font-weight: 300;
 }
 
-#settingsPage{
-	margin-top: -100px;
-}
+
 
 .subscribebox {
     width: 100%;
@@ -1833,7 +1831,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         width: 94%;
         overflow: hidden;
         padding: 3%;
-		margin-top:100px;
+		margin-top:10px;
     }
 
     .pinEnter {
@@ -2449,4 +2447,5 @@ h4.user {
 	left: 0px;
 	right : 0px;
 	overflow: none;
+	overflow: auto;
 }
