@@ -147,20 +147,18 @@ function makeSwipe(id){
 				console.log(JSON.stringify(data));
 				
 				$.each(data,function(index, message){
-					/*if($('#'+message['idMessage']).length > 0){ 
+					if($('#'+message['idMessage']).length > 0){ 
 						makeSwipe(message['idMessage']);
 						if(message['state'] == 3){
 							$('#'+message['idMessage']).removeClass('unread')
 						}
 							var bulb =  message['bulb'] == 1   ? 'img/ledlightgreen.png' : message['bulb'] == 2   ? 'img/ledlighyellow.png' : message['bulb'] == 3   ? 'img/ledlightred.png' :  'img/ledlighgray.png';
 						    $('#'+message['idMessage']).find('.bulb').attr('src',bulb);
-					}else*/{
+					}else{
 					//child msg
-					if( 'idParent' in message){
-							alert($('#categories #'+message['idParent']).length);
-					}
+			
 					if( ( 'idParent' in message) && ($('#categories #'+message['idParent']).length>0)){
-						alert("somethig here");
+						
 						if(message['state'] == 3){
 							$('#categories #'+message['idParent']).attr('read',$('#categories #'+message['idParent']).hasAttr('read') ? $('#categories #'+message['idParent']).attr('read')+','+message['idMessage'] : message['idMessage']);
 						}else{
