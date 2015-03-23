@@ -2367,7 +2367,7 @@ h4.user {
 }
 
 #divPIN {
-    position: absolute;
+    position: fixed;
     top: 92px;
     left: 0px;
     right: 0px;
