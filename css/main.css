@@ -598,7 +598,7 @@ img {
 }
 
 .allCategory {
-    margin: 110px auto 176px !important;
+    margin: 10px auto 176px !important;
 }
 
 input, .btnAction {
@@ -1797,14 +1797,14 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     }
 
     .allCategory {
-        margin: 110px auto 240px !important;
+        margin: 10px auto 240px !important;
     }
 
 }
 
 @media (max-width: 801px) {
     .allCategory {
-        margin: 110px auto 231px !important;
+        margin: 10px auto 231px !important;
     }
 }
 
@@ -1815,7 +1815,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     }
 
     .allCategory {
-        margin: 110px auto 183px !important;
+        margin: 10px auto 183px !important;
     }
 
     input, .btnAction {
@@ -1874,7 +1874,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     }
 
     .allCategory {
-        margin: 110px auto 187px !important;
+        margin: 10px auto 187px !important;
     }
 
     .mainBankSection h2 {
@@ -1907,7 +1907,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     }
 
     .allCategory {
-        margin: 110px auto 131px !important;
+        margin: 10px auto 131px !important;
     }
 
     nav.categoryNav .icon-myAlerts {
@@ -2441,3 +2441,12 @@ h4.user {
 }
 
 
+.page-content{
+	position: absolute;
+	top:92px;
+	padding-top :10px;
+	bottom: 0px;
+	left: 0px;
+	right : 0px;
+	overflow: none;
+}
