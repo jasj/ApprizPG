@@ -594,11 +594,11 @@ img {
 #main {
     overflow: hidden;
     max-width: 640px;
-    margin: -12px auto 0;
+    margin: 91px auto 0;
 }
 
 .allCategory {
-    margin: 10px auto 176px !important;
+    margin: 110px auto 176px !important;
 }
 
 input, .btnAction {
@@ -705,7 +705,9 @@ input, .btnAction {
     font-weight: 300;
 }
 
-
+#settingsPage{
+	margin-top: -100px;
+}
 
 .subscribebox {
     width: 100%;
@@ -1795,14 +1797,14 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     }
 
     .allCategory {
-        margin: 10px auto 240px !important;
+        margin: 110px auto 240px !important;
     }
 
 }
 
 @media (max-width: 801px) {
     .allCategory {
-        margin: 10px auto 231px !important;
+        margin: 110px auto 231px !important;
     }
 }
 
@@ -1813,7 +1815,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     }
 
     .allCategory {
-        margin: 10px auto 183px !important;
+        margin: 110px auto 183px !important;
     }
 
     input, .btnAction {
@@ -1831,7 +1833,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
         width: 94%;
         overflow: hidden;
         padding: 3%;
-		margin-top:10px;
+		margin-top:100px;
     }
 
     .pinEnter {
@@ -1872,7 +1874,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     }
 
     .allCategory {
-        margin: 10px auto 187px !important;
+        margin: 110px auto 187px !important;
     }
 
     .mainBankSection h2 {
@@ -1905,7 +1907,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     }
 
     .allCategory {
-        margin: 10px auto 131px !important;
+        margin: 110px auto 131px !important;
     }
 
     nav.categoryNav .icon-myAlerts {
@@ -2366,7 +2368,7 @@ h4.user {
 
 #divPIN {
     position: fixed;
-    top: 92px;
+    top: 91px;
     left: 0px;
     right: 0px;
     bottom: 0px;
@@ -2436,16 +2438,4 @@ h4.user {
 }
 .dotNone{
 	color:rgb(170,170,170);
-}
-
-
-.page-content{
-	position: absolute;
-	top:92px;
-	padding-top :10px;
-	bottom: 0px;
-	left: 0px;
-	right : 0px;
-	overflow: none;
-	overflow: auto;
 }
