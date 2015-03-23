@@ -147,29 +147,33 @@ function makeSwipe(id){
 				console.log(JSON.stringify(data));
 				
 				$.each(data,function(index, message){
-					if($('#'+message['idMessage']).length > 0){ 
+					/*if($('#'+message['idMessage']).length > 0){ 
 						makeSwipe(message['idMessage']);
 						if(message['state'] == 3){
 							$('#'+message['idMessage']).removeClass('unread')
 						}
 							var bulb =  message['bulb'] == 1   ? 'img/ledlightgreen.png' : message['bulb'] == 2   ? 'img/ledlighyellow.png' : message['bulb'] == 3   ? 'img/ledlightred.png' :  'img/ledlighgray.png';
 						    $('#'+message['idMessage']).find('.bulb').attr('src',bulb);
-					}else{
+					}else*/{
 					//child msg
-					if( ( 'idParent' in message) && ($('#message_div #'+message['idParent']).length>0)){
+					if( 'idParent' in message){
+							alert($('#categories #'+message['idParent']).length);
+					}
+					if( ( 'idParent' in message) && ($('#categories #'+message['idParent']).length>0)){
+						alert("somethig here");
 						if(message['state'] == 3){
-							$('#message_div #'+message['idParent']).attr('read',$('#message_div #'+message['idParent']).hasAttr('read') ? $('#message_div #'+message['idParent']).attr('read')+','+message['idMessage'] : message['idMessage']);
+							$('#categories #'+message['idParent']).attr('read',$('#categories #'+message['idParent']).hasAttr('read') ? $('#categories #'+message['idParent']).attr('read')+','+message['idMessage'] : message['idMessage']);
 						}else{
-							$('#message_div #'+message['idParent']).attr('nread',$('#message_div #'+message['idParent']).hasAttr('nread') ? $('#message_div #'+message['idParent']).attr('nread')+','+message['idMessage'] : message['idMessage']);
+							$('#categories #'+message['idParent']).attr('nread',$('#categories #'+message['idParent']).hasAttr('nread') ? $('#categories #'+message['idParent']).attr('nread')+','+message['idMessage'] : message['idMessage']);
 							$('#'+message['idMessage']).addClass('unread');
 						}
-						if($('#message_div #'+message['idParent']).hasAttr('history')){
-							$('#message_div #'+message['idParent']).attr('history',btoa(atob($('#message_div #'+message['idParent']).attr('history'))+";"+message['shortMessage']+":"+message['longMessage']));
+						if($('#categories #'+message['idParent']).hasAttr('history')){
+							$('#categories #'+message['idParent']).attr('history',btoa(atob($('#categories #'+message['idParent']).attr('history'))+";"+message['shortMessage']+":"+message['longMessage']));
 							
 						}else{
-							$('#message_div #'+message['idParent']).attr('history',btoa(message['shortMessage']+":"+message['longMessage']));
+							$('#categories #'+message['idParent']).attr('history',btoa(message['shortMessage']+":"+message['longMessage']));
 						}
-						console.log(atob($('#message_div #'+message['idParent']).attr('history')));
+						console.log(atob($('#categories #'+message['idParent']).attr('history')));
 
 						 
 					
@@ -184,7 +188,7 @@ function makeSwipe(id){
 						
 						$.jStorage.set('msg_div', btoa($('#categories').html()));
 					
-						console.log(JSON.stringify(data));
+						//console.log(JSON.stringify(data));
 					}
 					}
 					

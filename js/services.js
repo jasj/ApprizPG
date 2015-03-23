@@ -34,5 +34,5 @@ $( document ).on("tapend","[page-content=services]",function(){
 });
 
 $(document ).on("tapend","[service]",function(){
-	requestService({"productName": $(this).find("srv").html(), "code": $(this).attr('service'), "description": $(this).find("srv").html()});
+	requestService({"productName": currentProduct, "code": $(this).attr('service'), "description": $(this).find("srv").html()});
 });

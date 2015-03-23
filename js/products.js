@@ -28,3 +28,7 @@ $( document ).on("tapend","[products]",function(){
 	getProducts($(this).attr("products"));
 });
 
+$( document ).on('tapend','#products .products li',function(){
+	currentProduct = $(this).find("prd").html();
+});
+
