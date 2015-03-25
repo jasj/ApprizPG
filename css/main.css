@@ -429,9 +429,9 @@ header .icon-iconAppriz {
 }
 
 .onoffswitch-inner:before{
-    content: "ON";
+    content: attr(leyend);
     padding-left: 10px;
-    background-color: #9E3F9A;
+    background-color:hsl(204, 100%, 30%);
     color: #FFFFFF;
 }
 
@@ -886,7 +886,8 @@ label.css-label {
 }
 
 #categories li:first-child {
-    padding-top: 0;
+	border-top: 1px solid #EFEFEF;
+	margin-top:-10px;
 }
 
 #categories li {
@@ -1591,6 +1592,11 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     margin: 0 auto;
 }
 
+.boxModal .yesBtn {
+    background: #9e3f9a;
+    margin: 0 auto;
+}
+
 .boxModal .noBtn {
     background: #636466;
 }
@@ -1655,6 +1661,16 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     color: rgb(0, 91, 153);
 }
 
+.products, .serviceList{
+	position: fixed !important;
+	top:150px !important;
+	left: 0px;
+	right: 0px;
+	bottom: 10px;
+	overflow-y: auto;
+	
+}
+
 .products, .services {
     width: 100%;
 }
@@ -1662,7 +1678,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 .products ul , .services ul{
     margin: 0;
     padding: 0;
-    margin-top: 56px;
+    margin-top:0;
 }
 
 .products ul li.active , .services ul li.active{
@@ -1763,6 +1779,30 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     color: #005b99;
     text-align: left;
     font-weight: bold;
+}
+
+.editOption li input{
+    float: left;
+    width: 30%;
+    padding: 0;
+    margin: 10px 10px 0 12%;
+    background: #e8e8e8;
+    color: #005b99;
+    text-align: left;
+    font-weight: bold;
+	border: 0px;
+}
+
+.editOption li select{
+    float: left;
+    width: 30%;
+    padding: 0;
+    margin: 18px 10px 0 12%;
+    background: #e8e8e8;
+    color: #005b99;
+    text-align: left;
+    font-weight: bold;
+	border: 0px;
 }
 
 .editOption li .icon-pencil {
@@ -2428,6 +2468,69 @@ h4.user {
 #categories .unread .centralLI{
 	background: none repeat scroll 0% 0% rgb(249, 252, 229);
 } 
+
+
+
+input.toggle {
+max-height: 0;
+max-width: 0;
+opacity: 0;
+}
+
+input.toggle + label {
+display: block;
+position: relative;
+box-shadow: inset 0 0 0px 1px #d5d5d5;
+/*text-indent: -5000px;*/
+height: 30px;
+width: 50px;
+border-radius: 15px;
+position: absolute;
+top: 0px;
+right: 5px;
+}
+
+input.toggle + label:before {
+content: "";
+position: absolute;
+display: block;
+height: 30px;
+width: 30px;
+top: 0px;
+right: 0px;
+border-radius: 15px;
+background: rgba(19,191,17,0);
+-moz-transition: .25s ease-in-out;
+-webkit-transition: .25s ease-in-out;
+transition: .25s ease-in-out;
+}
+
+input.toggle + label:after {
+content: "";
+position: absolute;
+display: block;
+height: 30px;
+width: 30px;
+top: 0px;
+right: 25px;
+border-radius: 15px;
+background: white;
+box-shadow: inset 0 0 0 1px rgba(0,0,0,.2), 0 2px 4px rgba(0,0,0,.2);
+-moz-transition: .25s ease-in-out;
+-webkit-transition: .25s ease-in-out;
+transition: .25s ease-in-out;
+}
+
+input.toggle:checked + label:before {
+width: 50px;
+background: hsl(204, 100%, 30%);
+}
+
+input.toggle:checked + label:after {
+right: 0px;
+
+}
+
 
 
 .dotDone{

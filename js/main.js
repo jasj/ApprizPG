@@ -54,6 +54,14 @@
 	//page back
 	
 	$( document ).on("tapend","a.icon-back",function(){
+		if(!$.isEmptyObject(rulesChanges)){
+				showAlert("Rule Changed", "Do you want to save changes?" , function(){
+					processRuleChange();
+				},function(){
+					rulesChanges = {};
+				});
+				
+			}
 		var inBack = back.pop();
 		$('#pin').hide();
 		if(inBack != "undefined"){

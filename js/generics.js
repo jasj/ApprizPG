@@ -23,3 +23,19 @@ function showInfoD(title,text,okFx){
 	});
 
 }
+
+
+function showAlert(title,text,yesFn,noFn){
+	$('#modal2Btn h2').html(title);
+	$('#modal2tn p').html(text);
+	
+	$('#modal2Btn').show();
+	$( document ).on('click','.yesBtn',function(){
+		$('#modal2Btn').hide();
+		yesFn();
+	});
+	$( document ).on('click','.yesBtn',function(){
+		$('#modal2Btn').hide();
+		noFn();
+	});
+}
