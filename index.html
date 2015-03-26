@@ -48,8 +48,8 @@
                             <input type="password" placeholder="Password"/>
                             <span class="icon-lock"></span>
                         </div>
-                        <button class="btnFull submitLogin" >Login</button>
-                        <a class="newUserlink" href="#">Are youy new Appriz User?</a>
+                        <button class="btnFull submitLogin" i18Trans="Login"></button>
+                        <a class="newUserlink" i18Trans="Are youy new Appriz User?" ></a>
                     </fieldset>
                 </formo>
                 </div><!--close login-->
@@ -72,7 +72,7 @@
                 <a page-content="inbox"><img src="img/coopenaeLogo.png" alt=""/></a>
             </li>
             <li class="userInfo">
-                <p class="welcome">Bienvenido</p>
+                <p class="welcome" i18Trans="Welcome"></p>
 
                 <h4 class="user"><span class="icon-user"></span>Carlos Fernandez</h4>
 
@@ -96,38 +96,27 @@
             <ul>
                 <li>
                     <button page-content="products" products="rules"><span class="icon1 icon-myAlerts"><span class="path1"></span><span
-                            class="path2"></span></span>My Alerts
+                            class="path2"></span></span><text i18Trans="My Alerts"/>
                     </button>
                 </li>
                 <li>
-                    <button page-content="products" products="services"><span class="icon1 icon-services"></span>Services</button>
+                    <button page-content="products" products="services"><span class="icon1 icon-services"></span><text i18Trans="Services"/></button>
                 </li>
                 <li>
-                    <button  page-content="products"><span class="icon1 icon-pushcenter"></span>Push Center</button>
+                    <button  page-content="products"><span class="icon1 icon-pushcenter"></span><text i18Trans="Push Center"/></button>
                 </li>
                 <li>
-                    <button page-content="first-time"><span class="icon1 icon-demo"></span>Demo</button>
+                    <button page-content="first-time"><span class="icon1 icon-demo"></span><text i18Trans="Demo"/></button>
                 </li>
             </ul>
         </div>
 <!--close content menu-->
         <div id="entities" class="contentMenu" style="display: none">
-            <ul>
-                <li>
-                    <div class="bubble2"></div>
-                    <img src="img/bankofamerica.png" alt=""/> <button class="deleteSwipe">Delete</button></li>
-                <li>
-                    <div class="bubble2"></div>
-                    <img src="img/scotiabank.png" alt=""/> <button class="deleteSwipe">Delete</button></li>
-                <li>
-                    <div class="bubble2"></div>
-                    <img src="img/citi.png" alt=""/> <button class="deleteSwipe">Delete</button></li>
-               
-            </ul>
-            <button class="newEntity" page-content="suscribe">New Entity</button>
+            <ul></ul>
+            <button class="newEntity" page-content="suscribe" i18Trans="New Entity"></button>
         </div>
         <!--close content menu-->
-        <button class="log"  page-content="pin"><span class="icon-logOut"></span>Log Out</button>
+        <button class="log"  page-content="pin"><span class="icon-logOut"></span><text i18Trans="Log Out"/></button>
     </div>
     </div><!--close all menu-->
 <!--close menu Appriz-->
@@ -139,7 +128,7 @@
     </header>
 	<header id="headerGeneral">
 		<a class="icon-back" href="#"></a>
-		<h2>Settings</h2>
+		<h2 class="headerText"></h2>
 		<button class="icon-menu menu-main"></button>
      </header>
 	  <header class="bankSection" id="headerEntity" >
@@ -174,7 +163,7 @@
 						<div class="bubble"></div>
 						<a ><span class="icon-alerts path1"></span></a></li>
 					<li>
-						<div class="bubble">1</div>
+						<div class="bubble"></div>
 						<a ><span class="icon-notifications"></span></a></li>
 					<li>
 						<div class="bubble"></div>
@@ -210,62 +199,54 @@
 								<div class="dropdownOption">
 									<ul></ul>
 								</div><!--close dropdown Option information-->
-							   <button id="showOptions" class="btnBank1 optionBtn">Avalible Options</button>
+							   <button id="showOptions" class="btnBank1 optionBtn" i18Trans="Avalible Options"></button>
 							</div><!--close options-->
 					</div>
 
 	</div>
 
 
-	<div  id='settingsPage' class='page-content' header='headerGeneral'>
+	<div  id='settingsPage' class='page-content' header='headerGeneral' headerText="Settings">
 			
 				<section id="main">
 					<div class="settings">
-						<h3>Change your secret codes:</h3>
+						<h3 i18Trans="Change your secret codes"></h3>
 						<button class="btnAction">
-							Change my Password
+							<text i18Trans="Change my Password"/></text>
 								 <span class="icon-arrow">
 									<span class="path1"></span><span class="path2"></span>
 								 </span>
 						</button>
 
 						<button class="btnAction">
-							Change the access code
+							<text i18Trans="Change the access code"/></text>
 								 <span class="icon-arrow">
 									<span class="path1"></span><span class="path2"></span>
 								 </span>
 						</button>
 
-						<h3>Download banners only at Wifi</h3>
+						<h3 i18Trans="Download banners only at Wifi"></h3>
 
 						<div class="onoffswitch">
-							<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-							<label class="onoffswitch-label" for="myonoffswitch">
-								<span class="onoffswitch-inner"></span>
-								<span class="onoffswitch-switch"></span>
-							</label>
+							<input type='checkbox' name='atWifi' id='atWifi' class='toggleSetting'><label for='atWifi'></label>
 						</div>
-						<h3>Ask me my access code only at the start</h3>
+						<h3 i18Trans="Ask me my PIN only at the start"></h3>
 
 						<div class="onoffswitch">
-							<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-							<label class="onoffswitch-label" for="myonoffswitch">
-								<span class="onoffswitch-inner"></span>
-								<span class="onoffswitch-switch"></span>
-							</label>
+							<input type='checkbox' name='pinPolicy' id='pinPolicy' class='toggleSetting'><label for='pinPolicy'></label>
 						</div>
 
-						<h3>Keep messages for at least:</h3>
+						<h3 i18Trans="Keep messages for at least"></h3>
 
 						<ul class="weeksOption">
-							<li><input type="checkbox" name="checkboxG4" id="checkboxG4" class="css-checkbox"/><label for="checkboxG4" class="css-label"> <span>1</span> Week</label></li>
-							<li><input type="checkbox" name="checkboxG5" id="checkboxG5" class="css-checkbox" checked="checked"/><label for="checkboxG5" class="css-label"> <span>2</span> Weeks</label></li>
-							<li><input type="checkbox" name="checkboxG6" id="checkboxG6" class="css-checkbox"/><label for="checkboxG6" class="css-label"><span>3</span> Weeks</label></li>
-							<li><input type="checkbox" name="checkboxG6" id="checkboxG7" class="css-checkbox"/><label for="checkboxG7" class="css-label"><span>4</span> Weeks</label>
+							<li><input type="checkbox" name="checkboxG4" id="checkboxG4" class="css-checkbox"/><label for="checkboxG4" class="css-label"> <span>1</span> <text i18Trans="Week"/></label></li>
+							<li><input type="checkbox" name="checkboxG5" id="checkboxG5" class="css-checkbox" checked="checked"/><label for="checkboxG5" class="css-label"> <span>2</span> <text i18Trans="Weeks"/></label></li>
+							<li><input type="checkbox" name="checkboxG6" id="checkboxG6" class="css-checkbox"/><label for="checkboxG6" class="css-label"><span>3</span> <text i18Trans="Weeks"/></label></li>
+							<li><input type="checkbox" name="checkboxG6" id="checkboxG7" class="css-checkbox"/><label for="checkboxG7" class="css-label"><span>4</span> <text i18Trans="Weeks"/></label>
 							</li>
 						</ul>
 
-						<button class="btnFull">Save Settings</button>
+						<button class="btnFull" i18Trans="Save Settings"></button>
 
 
 					</div><!--close settings-->
@@ -280,7 +261,7 @@
 			
 <div id='divPIN'class="fullscreen" style="z-index:99;" >
 
-<h2>Enter your Pin</h2>
+<h2 i18Trans="Enter your Pin"></h2>
 
 	
 	<div class="passkey"> </div><div class="passkey"></i></div><div class="passkey"></div><div class="passkey"></div>
@@ -299,8 +280,8 @@
             <section id="main" class="productsMain">
                 <nav class="productNav">
                     <ul>
-                        <li><button><span class="icon-myAlerts"><span class="path1"></span><span class="path2"></span></span>My Alerts</button></li>
-                        <li class="active"><button>Products</button></li>
+                        <li><button><span class="icon-myAlerts"><span class="path1"></span><span class="path2"></span></span></button></li>
+                        <li class="active"><button i18Trans="Products"></button></li>
                     </ul>
                 </nav><!--close product Nav-->
                 <div class="products"><ul></ul></div><!--close products-->
@@ -312,8 +293,8 @@
             <section id="main" class="productsMain">
                 <nav class="productNav">
                     <ul>
-                        <li><button><span class="icon-myAlerts"><span class="path1"></span><span class="path2"></span></span>My Alerts</button></li>
-                        <li class="active"><button>Services</button></li>
+                        <li><button><span class="icon-services"></span><text i18Trans="Services"></text></button></li>
+                        <li class="active"><button></button></li>
                     </ul>
                 </nav><!--close product Nav-->
                 <div class="services serviceList"><ul></ul></div><!--close products-->
@@ -324,8 +305,8 @@
  <section id="main" class="productsMain">
                 <nav class="productNav">
                     <ul>
-                        <li><button><span class="icon-myAlerts"><span class="path1"></span><span class="path2"></span></span>My Alerts</button></li>
-                        <li class="active"><button>Ahorro-2510 fvd vdv vdvd</button></li>
+                        <li><button><span class="icon-myAlerts"><span class="path1"></span><span class="path2"></span></span><text i18Trans="My Alerts" ></text></button></li>
+                        <li class="active"><button ></button></li>
                     </ul>
 
                 </nav><!--close product Nav-->
@@ -390,16 +371,16 @@
 
 <div  id='suscribe' class='page-content' header='headerGeneral'>
 <div class="settings">
-                    <h1>Please use the couple of numbers given by entity</h1>
+                    <h1 i18Trans="Please use the couple of numbers given by entity"></h1>
 
                     <div class="subscribebox">
-                        <h2>Id Code</h2>
+                        <h2 i18Trans="Id Code"></h2>
                         <input type="text"/>
-                        <h2>Subscription No.</h2>
-                        <input type="text"/>
+                        <h2 i18Trans="Subscription No"> </h2>
+                        <input type="tel"/>
                     </div><!--close subscribe box-->
 
-                    <button class="btnFull">Save</button>
+                    <button class="btnFull" i18Trans="Save"></button>
 
                 </div><!--close settings-->
 </div>
@@ -415,10 +396,8 @@
        <div class="modalAppriz" id="modal2Btn">
            <div class="bgModal"></div>
             <div class="boxModal">
-                <h2>Rule Changes</h2>
-
-                <p>Do you want to save changes?</p>
-
+                <h2></h2>
+                <p></p>
                 <ul>
                     <li>
                         <button class="yesBtn">Yes</button>
@@ -434,16 +413,15 @@
             <div class="bgModal"></div>
               <div class="boxModal">
                 <h2>Wrong Password</h2>
-
-                <p>The Password must be a least 9 chars length</p>
-
-                <button class="okBtn">Yes</button>
+                <p></p>
+                <button class="okBtn">OK</button>
             </div><!--close modal-->
 		</div>
 <!-- Generic Scripts  -->
 <script src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <script src="js/psudo.js"></script>
+<script src="js/i18next-1.8.0.min.js"></script>
 <script src="js/mobile-events.js"></script>
 <script src="js/velocity.js"></script>
 <script src="js/jqstorage.js"></script>

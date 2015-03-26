@@ -48,6 +48,7 @@
 		$("header.active").removeClass("active");
 		$("#"+$(this).attr("page-content")+".page-content").addClass("active").show();
 		$("#"+$("#"+$(this).attr("page-content")+".page-content").attr("header")).addClass("active").show();
+		$("#"+$("#"+$(this).attr("page-content")+".page-content").attr("header")).find('.headerText').html($.t($("#"+$(this).attr("page-content")+".page-content").attr("headerText")));
 		$('#menuAppriz').fadeOut(300);
 			$('.allMenu').velocity({"right" : "-80%"});
 	});
@@ -73,6 +74,22 @@
 		}
 			
 	});
+	
+	
+//Load Translated
+
+$.i18n.init({ lng: navigator.language , fallbackLng: 'en'},function(){
+	
+	$("[i18Trans]").each(function(){
+		$(this).html($.t($(this).attr("i18Trans")));
+	});
+//	alert( $.t("app.name")) ;
+
+});
+
+
+
+
 	
 
 	

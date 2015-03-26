@@ -30,6 +30,7 @@ function requestService(serviceObj){
 }
 
 $( document ).on("tapend","[page-content=services]",function(){
+	$("#services .productNav li").eq(1).find("button").html($(this).find("prd").html());
 	getServices($(this).find("prd").html());
 });
 
