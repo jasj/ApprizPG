@@ -40,3 +40,7 @@ function showAlert(title,text,yesFn,noFn){
 		noFn();
 	});
 }
+
+$.fn.hasAttr = function(name) {  
+	return this.attr(name) !== undefined;
+};

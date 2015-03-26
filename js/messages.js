@@ -67,23 +67,23 @@ function makeSwipe(id){
 					var actualMargin = parseInt(mContainer.css("margin-left").replace(/[^-\d\.]/g, '') );
 					
 					if(direction=='left' & distance > (150) & actualMargin < 0){
-							mContainer.css({"margin-left" : "-150px"}); //show delete button
+							mContainer.css({"margin-left" : "-150px"},{mobileHA: false}); //show delete button
 							
 					}else if(direction=='left' & distance < (150) & actualMargin < 0){
-							mContainer.velocity({"margin-left" : "0px"}); //no show the delete button
+							mContainer.velocity({"margin-left" : "0px"},{mobileHA: false}); //no show the delete button
 							
 					}else if(direction=='left' & distance < (window.innerWidth*0.3) & actualMargin > window.innerWidth){
-							mContainer.velocity({"margin-left" : window.innerWidth+"px"});
+							mContainer.velocity({"margin-left" : window.innerWidth+"px"},{mobileHA: false});
 					}else if(direction=='right' & distance > (window.innerWidth*0.3) & actualMargin > window.innerWidth*0.3){
-							mContainer.velocity({"margin-left" : window.innerWidth+"px"});
+							mContainer.velocity({"margin-left" : window.innerWidth+"px"},{mobileHA: false});
 						
 					}else if(direction=='right'  & actualMargin >-150){
-							mContainer.velocity({"margin-left" : "0px"});
+							mContainer.velocity({"margin-left" : "0px"},{mobileHA: false});
 						
 					}
 					
 					else {
-						mContainer.velocity({"margin-left" : "0px"});
+						mContainer.velocity({"margin-left" : "0px"},{mobileHA: false});
 						
 				
 					}
@@ -218,12 +218,15 @@ function makeSwipe(id){
 				$(this).find('.path1').css({color: tabSelectedColor});
 				$(this).find("span").addClass("active");
 				$('.typemsg'+$(this).attr("typemsg")+'[identity='+currentEntityID+']').show();
+				
 			}
+			$("*").scrollTop(0);
 		});
 		
 		$( document ).on("taphold",'nav.categoryNav li',function(){
 			$('nav.categoryNav span').css({content: "\e60b",color: tabUnSelectedColor});
-			$('#categories li').hide();
+			$('#categories li').not($('.typemsg'+$(this).attr("typemsg")+'[identity='+currentEntityID+']')).hide();
+			$('nav.categoryNav span').removeClass("active");
 			//$(this).css({content: "\e60b",color: tabSelectedColor});
 		});
 		

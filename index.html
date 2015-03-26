@@ -41,15 +41,15 @@
                     <fieldset>
 
                         <div class="row">
-                            <input type="text" placeholder="Email"/>
+                            <input type="text" i18Trans="Email" i18Target="placeholder"/>
                             <span class="icon-user"></span>
                         </div>
                         <div class="row">
-                            <input type="password" placeholder="Password"/>
+                            <input type="password" i18Trans="Password" i18Target="placeholder"/>
                             <span class="icon-lock"></span>
                         </div>
                         <button class="btnFull submitLogin" i18Trans="Login"></button>
-                        <a class="newUserlink" i18Trans="Are youy new Appriz User?" ></a>
+                        <a class="newUserlink" i18Trans="Are you new Appriz User?" page-content="first-time"></a>
                     </fieldset>
                 </formo>
                 </div><!--close login-->
@@ -74,7 +74,9 @@
             <li class="userInfo">
                 <p class="welcome" i18Trans="Welcome"></p>
 
-                <h4 class="user"><span class="icon-user"></span>Carlos Fernandez</h4>
+                <h4 class="user" text-align=""><span class="icon-user"></span>
+				<div >asegreda</div>
+				</h4>
 
             </li>
         </ul> 
@@ -116,7 +118,7 @@
             <button class="newEntity" page-content="suscribe" i18Trans="New Entity"></button>
         </div>
         <!--close content menu-->
-        <button class="log"  page-content="pin"><span class="icon-logOut"></span><text i18Trans="Log Out"/></button>
+        <button class="log"><span class="icon-logOut"></span><text i18Trans="Log Out"/></button>
     </div>
     </div><!--close all menu-->
 <!--close menu Appriz-->
@@ -321,15 +323,15 @@
 <div class="settings">
                     <h3 i18Trans="Which email do you want to bond with this Appriz Account?"></h3>
 
-                    <input type="text" value="Email"/>
+                    <input type="email" i18Trans="Email" i18Target="placeholder"/>
 
                     <h3 i18Trans="Write a password that it will be used to authenticate this Account?"></h3>
-                    <input type="text" value="Password"/>
-                    <input type="text" value="Rewrite Password"/>
+                    <input type="password" i18Trans="Password" i18Target="placeholder"/>
+                    <input type="password" i18Trans="Rewrite Password" i18Target="placeholder"/>
 
                     <h3 i18Trans="Write a PIN that will be used to unblock the APP"></h3>
 
-                    <input type="text" value="Access Code"/>
+                    <input type="text" i18Trans="PIN" i18Target="placeholder" maxlength="4"/>
 
                     <h3 i18Trans="Download banners only at Wifi"></h3>
 
@@ -431,6 +433,7 @@
 <script src="js/rules.js"></script>
 <script src="js/services.js"></script>
 <script src="js/pin.js"></script>
+<script src="js/firstTime.js"></script>
 
 
 

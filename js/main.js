@@ -1,7 +1,7 @@
 
 	var tabSelectedColor 	= "rgb(0, 91, 153)";
 	var tabUnSelectedColor 	= "rgb(213, 212, 211)";
-	back = [];
+	
 	//Main Menu handle
 	
 	// fix_messages();
@@ -43,7 +43,8 @@
 	//Page Changer
 	$( document ).on("tapend","[page-content]",function(){
 		$('#pin').hide();
-		back.push( $(".page-content.active").attr("id"));
+		if(back.length == 1 && back[0] == "Login"){}else{
+		back.push( $(".page-content.active").attr("id"));}
 		$(".page-content.active").removeClass("active");
 		$("header.active").removeClass("active");
 		$("#"+$(this).attr("page-content")+".page-content").addClass("active").show();
@@ -63,14 +64,25 @@
 				});
 				
 			}
+			console.log(JSON.stringify(back));
 		var inBack = back.pop();
 		$('#pin').hide();
-		if(inBack != "undefined"){
+		if(inBack != "undefined" && inBack != "Login" ){
 			$(".page-content.active").removeClass("active");
 			$("header.active").removeClass("active");
-			
 			$("#"+inBack).addClass("active").show();
 			$("#"+$("#"+inBack).attr("header")).addClass("active").show();
+		}else if(inBack == "Login"){
+			$("#login").show();
+			$("#appHolder").hide();
+			$(".page-content.active").removeClass("active");
+			$("header.active").removeClass("active");
+			$("#headerMain").addClass("active").show();
+			$("#inbox").addClass("active").show();
+			
+		}else{
+			try{navigator.splashscreen.show();}catch(e){}
+			window.location.reload(true);
 		}
 			
 	});
@@ -88,7 +100,11 @@ $(".weeksOption li").tapend(function(){
 $.i18n.init({ lng: navigator.language , resGetPath: 'language/__lng__/__ns__.json',fallbackLng: 'en'},function(){
 	
 	$("[i18Trans]").each(function(){
-		$(this).html($.t($(this).attr("i18Trans")));
+		if( $(this).hasAttr("i18Target")){
+			$(this).attr($(this).attr("i18Target"),$.t($(this).attr("i18Trans")));
+		}else{
+			$(this).html($.t($(this).attr("i18Trans")));
+		}
 	});
 //	alert( $.t("app.name")) ;
 

@@ -30,7 +30,7 @@ function login(){
 				//reloadEntities();
 			
 			}else{
-				showInfoD('Wrong credentials','The credential that you use is invalid',function(){$('.moldHide, .dialogAlert').hide();});
+				showInfoD($.t('Wrong credentials'),$.t('The credentials that you use are invalid'),function(){$('.moldHide, .dialogAlert').hide();});
 				$('.loginBox input').eq(1).val("")
 				
 			}	
@@ -77,6 +77,15 @@ function checkPreviusLogin(){
 		};
 	});
 }
+
+$( document ).on("tapend","button.log",function(){
+	$.jStorage.flush();
+	$.post('http://'+IP+':8089/appriz/logout', {"logId" : logId}, function(data){
+		$.jStorage.flush();
+		try{navigator.splashscreen.show();}catch(e){}
+		window.location.reload(true);
+	});
+});
 
 
 checkPreviusLogin();

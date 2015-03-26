@@ -1505,7 +1505,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 
 #entities ul li img {
     margin: 1% 0 1% 2%;
-    max-height: 100%;
+    max-height: 80%;
 }
 
 #entities .newEntity {
