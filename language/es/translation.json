@@ -26,5 +26,10 @@
   "Please use the couple of numbers given by entity" : "Por favor use la pareja de numeros dados por su entidad",
   "Id Code" : "Código Identificación",
   "Subscription No" : "Número de Suscripción",
-  "Save" : "Guardar"
+  "Save" : "Guardar",
+  "Rule Changed" : "Cambio en Reglas",
+  "Do you want to save changes?" : "Desea guardar los cambios",
+  "Yes" : "Si",
+  "Wrong PIN" : "PIN Invalido",
+  "The PIN that you used is invalid" : "El PIN ingresado no es valido"
 }

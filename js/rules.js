@@ -101,9 +101,6 @@ $( document ).on("tapend","[page-content=rules]",function(){
 		$.ajaxSetup({async:true});
 });
 
-$( document ).on("tapend",".onoffswitch-inner",function(){
-	alert(1);
-});
 
 $( document ).on('tapend','#rules li h3',function(){
 	$(this).parent().find('.dropdownBox').toggle();

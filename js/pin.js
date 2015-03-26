@@ -11,7 +11,7 @@ $( document ).on( "tapend", ".numKey", function() {
 				$('.passkey').html('');
 				PINpos = 0; vPIN= "";
 			}else{
-					showInfoD('Wrong PIN','The PIN that you used is invalid',function(){});
+					showInfoD($.t('Wrong PIN'),$.t('The PIN that you used is invalid'),function(){});
 			}
 			$('.passkey').html('');
 			PINpos = 0; vPIN= "";

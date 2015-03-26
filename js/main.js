@@ -56,7 +56,7 @@
 	
 	$( document ).on("tapend","a.icon-back",function(){
 		if(!$.isEmptyObject(rulesChanges)){
-				showAlert("Rule Changed", "Do you want to save changes?" , function(){
+				showAlert($.t("Rule Changed"), $.t("Do you want to save changes?") , function(){
 					processRuleChange();
 				},function(){
 					rulesChanges = {};

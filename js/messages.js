@@ -223,7 +223,7 @@ function makeSwipe(id){
 		
 		$( document ).on("taphold",'nav.categoryNav li',function(){
 			$('nav.categoryNav span').css({content: "\e60b",color: tabUnSelectedColor});
-			
+			$('#categories li').hide();
 			//$(this).css({content: "\e60b",color: tabSelectedColor});
 		});
 		
