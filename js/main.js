@@ -75,7 +75,14 @@
 			
 	});
 	
+//Special elements:
+$(".weeksOption li").tapend(function(){
+	$(this).parent().find('input').not($(this).find('[type=checkbox]')).prop('checked', false);
+	$(this).find('input').prop('checked', true);
 	
+});
+
+
 //Load Translated
 
 $.i18n.init({ lng: navigator.language , resGetPath: 'language/__lng__/__ns__.json',fallbackLng: 'en'},function(){

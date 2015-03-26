@@ -239,10 +239,10 @@
 						<h3 i18Trans="Keep messages for at least"></h3>
 
 						<ul class="weeksOption">
-							<li><input type="checkbox" name="checkboxG4" id="checkboxG4" class="css-checkbox"/><label for="checkboxG4" class="css-label"> <span>1</span> <text i18Trans="Week"/></label></li>
-							<li><input type="checkbox" name="checkboxG5" id="checkboxG5" class="css-checkbox" checked="checked"/><label for="checkboxG5" class="css-label"> <span>2</span> <text i18Trans="Weeks"/></label></li>
-							<li><input type="checkbox" name="checkboxG6" id="checkboxG6" class="css-checkbox"/><label for="checkboxG6" class="css-label"><span>3</span> <text i18Trans="Weeks"/></label></li>
-							<li><input type="checkbox" name="checkboxG6" id="checkboxG7" class="css-checkbox"/><label for="checkboxG7" class="css-label"><span>4</span> <text i18Trans="Weeks"/></label>
+							<li><input type="checkbox" name="checkboxG1" id="checkboxG1" class="css-checkbox"/><label for="checkboxG1" class="css-label"> <span>1</span> <text i18Trans="Week"/></label></li>
+							<li><input type="checkbox" name="checkboxG2" id="checkboxG2" class="css-checkbox"/><label for="checkboxG2" class="css-label"> <span>2</span> <text i18Trans="Weeks"/></label></li>
+							<li><input type="checkbox" name="checkboxG3" id="checkboxG3" class="css-checkbox"/><label for="checkboxG3" class="css-label"><span>3</span> <text i18Trans="Weeks"/></label></li>
+							<li><input type="checkbox" name="checkboxG4" id="checkboxG4" class="css-checkbox"/><label for="checkboxG4" class="css-label"><span>4</span> <text i18Trans="Weeks"/></label>
 							</li>
 						</ul>
 
@@ -317,51 +317,42 @@
 
             </section><!--close main-->
 </div>
-<div  id='first-time' class='page-content' header='headerGeneral'>
+<div  id='first-time' class='page-content' header='headerGeneral' headerText="Sign In">
 <div class="settings">
-                    <h3>Which email do you want to bond with this Appriz Account?</h3>
+                    <h3 i18Trans="Which email do you want to bond with this Appriz Account?"></h3>
 
                     <input type="text" value="Email"/>
 
-                    <h3>Write a password that it will be used to authenticate this Account?</h3>
+                    <h3 i18Trans="Write a password that it will be used to authenticate this Account?"></h3>
                     <input type="text" value="Password"/>
                     <input type="text" value="Rewrite Password"/>
 
-                    <h3>Which email do you want to bond with this Appriz Account?</h3>
+                    <h3 i18Trans="Write a PIN that will be used to unblock the APP"></h3>
 
                     <input type="text" value="Access Code"/>
 
-                    <h3>Download banners only at Wifi</h3>
+                    <h3 i18Trans="Download banners only at Wifi"></h3>
+
+                   	<div class="onoffswitch">
+							<input type='checkbox' name='atWifiFT' id='atWifiFT' class='toggleSetting'><label for='atWifiFT'></label>
+					</div>
+                    <h3 i18Trans="Ask me my PIN only at the start"></h3>
 
                     <div class="onoffswitch">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch">
-                            <span class="onoffswitch-inner"></span>
-                            <span class="onoffswitch-switch"></span>
-                        </label>
-                    </div>
-                    <h3>Ask me my access code only at the start</h3>
+							<input type='checkbox' name='pinPolicyFT' id='pinPolicyFT' class='toggleSetting'><label for='pinPolicyFT'></label>
+					</div>
 
-                    <div class="onoffswitch">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch">
-                            <span class="onoffswitch-inner"></span>
-                            <span class="onoffswitch-switch"></span>
-                        </label>
-                    </div>
-
-                    <h3>Keep messages for at least:</h3>
+                    <h3 i18Trans="Keep messages for at least"></h3>
 
                     <ul class="weeksOption">
-                        <li><input type="checkbox" name="checkboxG4" id="checkboxG4" class="css-checkbox"/><label for="checkboxG4" class="css-label"> <span>1</span> Week</label></li>
-                        <li><input type="checkbox" name="checkboxG5" id="checkboxG5" class="css-checkbox" checked="checked"/><label for="checkboxG5" class="css-label"> <span>2</span> Weeks</label></li>
-                        <li><input type="checkbox" name="checkboxG6" id="checkboxG6" class="css-checkbox"/><label for="checkboxG6" class="css-label"><span>3</span> Weeks</label></li>
-                        <li><input type="checkbox" name="checkboxG6" id="checkboxG7" class="css-checkbox"/><label for="checkboxG7" class="css-label"><span>4</span> Weeks</label>
-                        </li>
+                        <li><input type="checkbox" name="checkboxG5" id="checkboxG5" class="css-checkbox"/><label for="checkboxG5" class="css-label"> <span>1</span> <text i18Trans="Week"/></label></li>
+						<li><input type="checkbox" name="checkboxG6" id="checkboxG6" class="css-checkbox"/><label for="checkboxG6" class="css-label"> <span>2</span> <text i18Trans="Weeks"/></label></li>
+						<li><input type="checkbox" name="checkboxG7" id="checkboxG7" class="css-checkbox"/><label for="checkboxG7" class="css-label"><span>3</span> <text i18Trans="Weeks"/></label></li>
+						<li><input type="checkbox" name="checkboxG8" id="checkboxG8" class="css-checkbox"/><label for="checkboxG8" class="css-label"><span>4</span> <text i18Trans="Weeks"/></label></li>
                     </ul>
 
 
-                    <button class="btnFull">Save Settings</button>
+                    <button class="btnFull" i18Trans="Save Settings"></button>
 
 
                 </div><!--close settings-->
