@@ -1134,8 +1134,24 @@ nav.categoryNav .icon-myAlerts {
 
 nav.categoryNav .icon-myAlerts .path1:before {
     content: "\e60b";
-    color: rgb(0, 91, 153);
+    color: #D5D4D3;
 
+}
+
+nav.categoryNav .icon-myAlerts.active .path1:before {
+    content: "\e60b";
+    color: #005B99;
+
+}
+
+nav.categoryNav .icon-myAlerts .path2:before {
+    content: "\e60c";
+    margin-left: -1em;
+    color: hsl(30, 2%, 43%);
+}
+
+nav.categoryNav .icon-myAlerts.active .path2:before {
+    color: #EE9809;
 }
 
 .detailCategory .details h3 {

@@ -208,20 +208,22 @@ function makeSwipe(id){
 				
 				
 		//Filter handle
-		$( document ).on("tapend",'nav.categoryNav span',function(){
-			if( $(this).css("color") == tabSelectedColor){
-				$(this).css({content: "\e60b",color: tabUnSelectedColor});
-				$(this).find('.path1::before').css({color: tabUnSelectedColor});
-			
+		$( document ).on("tapend",'nav.categoryNav li',function(){
+			if( $(this).find("span").css("color") == tabSelectedColor){
+				$(this).find("span").css({content: "\e60b",color: tabUnSelectedColor});
+				$(this).find("span").removeClass("active");
+				$('.typemsg'+$(this).attr("typemsg")).hide();
 			}else{
-				$(this).css({content: "\e60b",color: tabSelectedColor});
+				$(this).find("span").css({content: "\e60b",color: tabSelectedColor});
 				$(this).find('.path1').css({color: tabSelectedColor});
+				$(this).find("span").addClass("active");
+				$('.typemsg'+$(this).attr("typemsg")+'[identity='+currentEntityID+']').show();
 			}
 		});
 		
-		$( document ).on("taphold",'nav.categoryNav span',function(){
+		$( document ).on("taphold",'nav.categoryNav li',function(){
 			$('nav.categoryNav span').css({content: "\e60b",color: tabUnSelectedColor});
-			$(this).find('.path1::before').css({color: tabUnSelectedColor});
+			
 			//$(this).css({content: "\e60b",color: tabSelectedColor});
 		});
 		
