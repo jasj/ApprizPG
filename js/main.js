@@ -78,7 +78,7 @@
 	
 //Load Translated
 
-$.i18n.init({ lng: navigator.language , fallbackLng: 'en'},function(){
+$.i18n.init({ lng: navigator.language , resGetPath: 'language/__lng__/__ns__.json',fallbackLng: 'en'},function(){
 	
 	$("[i18Trans]").each(function(){
 		$(this).html($.t($(this).attr("i18Trans")));
