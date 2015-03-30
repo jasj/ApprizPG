@@ -45,7 +45,7 @@ function login(){
 function checkPreviusLogin(){
 	
 	$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey:  typeof device !== 'undefined' ? device.uuid : "Browser" },function(data) {
-	/*if("idSecretClient" in data ){
+	if("idSecretClient" in data ){
 			//	navigator.splashscreen.hide();
 				$("div#login").hide();
 				$("div#appHolder").show();
@@ -58,9 +58,8 @@ function checkPreviusLogin(){
 				$.jStorage.set('pin', data['pin']);
 				
 				$('.splash').fadeOut(1000,function(){});
-				// getValidTimePeriods();
-				 callNewMSG();
-				// reloadEntities();
+	
+				callNewMSG();
 				currentEntityID  = $.jStorage.get('currentEntityID');
 				reloadEntities();
 				
@@ -77,11 +76,11 @@ function checkPreviusLogin(){
 			
 			});
 
-		};
-	}).fail(function( e )alert( e ));
-	*/
+		}
+	}).fail(function( ){});
+	
 	alert(333);
-});}
+}
 /*
 $( document ).on("tapend","button.log",function(){
 	$.jStorage.flush();
@@ -93,7 +92,7 @@ $( document ).on("tapend","button.log",function(){
 });
 
 */
-checkPreviusLogin();
+
 /*--------------------------------------------------
 	Events 
 ---------------------------------------------------
