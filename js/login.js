@@ -8,7 +8,7 @@
 
 
 
-alert("find error -login");/*
+
 function login(){
 	  //event.preventDefault();
 		$.post('http://'+IP+':8089/appriz/login',{
@@ -39,7 +39,7 @@ function login(){
 		
 });
 	
-}*/
+}
 
 
 function checkPreviusLogin(){
@@ -79,9 +79,8 @@ function checkPreviusLogin(){
 		}
 	}).fail(function( ){});
 	
-	alert(333);
 }
-/*
+
 $( document ).on("tapend","button.log",function(){
 	$.jStorage.flush();
 	$.post('http://'+IP+':8089/appriz/logout', {"logId" : logId}, function(data){
@@ -91,9 +90,9 @@ $( document ).on("tapend","button.log",function(){
 	});
 });
 
-*/
+
 
 /*--------------------------------------------------
 	Events 
----------------------------------------------------
-$( document ).on('tapend','.btnFull.submitLogin',function(){ login();});*/
+---------------------------------------------------*/
+$( document ).on('tapend','.btnFull.submitLogin',function(){ login();});
