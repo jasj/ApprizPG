@@ -57,7 +57,7 @@ function addRuleChange(idRule,field,value){
 		
 
 function getValidTimePeriods(){
-	$.post('http://'+IP+':8089/appriz/getTimePeriods',{"secretKey" : secretKey},function(data){
+	$.post('http://'+IP+':8089/appriz/getTimePeriods',{"secretKey" : secretKey,"entityId" : parseInt(currentEntityID)},function(data){
 		if (data["status"]== 200){
 			SPickerString = timePicker(data["periods"]);
 		}

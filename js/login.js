@@ -23,6 +23,7 @@ function login(){
 				idScretClient = data["idSecretClient"];
 				$.jStorage.set('idSecretClient', data['idSecretClient']);
 				$.jStorage.set('pin', data['pin']);
+				reloadEntities();
 				callNewMSG();
 				pin = data['pin'];
 			//	getValidTimePeriods();
@@ -34,8 +35,8 @@ function login(){
 				$('.loginBox input').eq(1).val("")
 				
 			}	
-	}) .fail(function() {
-			alert( "error" );
+	}).fail(function(e) {
+		
 });
 	
 }
@@ -43,7 +44,7 @@ function login(){
 
 function checkPreviusLogin(){
 	$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey:  typeof device !== 'undefined' ? device.uuid : "Browser" },function(data) {
-		if("idSecretClient" in data ){
+	if("idSecretClient" in data ){
 			//	navigator.splashscreen.hide();
 				$("div#login").hide();
 				$("div#appHolder").show();
@@ -60,6 +61,7 @@ function checkPreviusLogin(){
 				 callNewMSG();
 				// reloadEntities();
 				currentEntityID  = $.jStorage.get('currentEntityID');
+				reloadEntities();
 				
 				//$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
 				//$('.header_demo img').attr('src','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
@@ -75,7 +77,7 @@ function checkPreviusLogin(){
 			});
 
 		};
-	});
+	}).fail(function( e )alert( e ));
 }
 
 $( document ).on("tapend","button.log",function(){

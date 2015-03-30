@@ -18,7 +18,7 @@ function reloadEntities(){
 				entities = '';
 				data.forEach(function(entity){
 					
-				entities +='<li id="entity_'+entity["entityID"]+'" entityId="'+entity["entityID"]+'"><div class="bubble2"></div><img src="https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(entity["entityID"],4)+'/Advertising/Logos/big_logo.png?ver=1.0" alt="'+entity["entityName"]+'"/> <button class="deleteSwipe">Delete</button></li>';
+				entities +='<li id="entity_'+entity["entityID"]+'" entityId="'+entity["entityID"]+'"><div class="bubble2"></div><img src="https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(entity["entityID"],4)+'/Advertising/Logos/overWhite_logo.png?ver=1.0" alt="'+entity["entityName"]+'"/> <button class="deleteSwipe">Delete</button></li>';
 					
 					
 				
@@ -29,10 +29,22 @@ function reloadEntities(){
 				});
 				$("#entities ul").html(entities);
 				makeSwipeEntity();
+				current_inbox();
+				counterByMsg();
+				loadEntityTemplate();
 				console.log(JSON.stringify(data));
 			});
 			
 		}
+		
+function loadEntityTemplate(){
+	$('.bankLogo img').attr("alt", "");
+	$('.bankLogo img').attr("src", S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png?ver=1.0');
+	$('.bankBrand img').attr("alt", "");
+	$('.bankBrand img').attr("src", 'https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png?ver=1.0');
+	$('#entityStyle').attr("href",S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
+	tabSelectedColor = $("#colorHandle").css("color");//"rgb(85, 185, 73)"
+}
 		
 function makeSwipeEntity(id){
 	$( 1 ? "#entities li" : "#"+id+".Message").swipe( {
@@ -44,7 +56,14 @@ function makeSwipeEntity(id){
 		},	
 	});
 }
+
+$( document ).on("tapend", "#entities ul li",function(){
+	currentEntityID = $(this).attr("entityId");
+	loadEntityTemplate();
+	current_inbox();
+	counterByMsg();
+});
 	
 	
 	
-reloadEntities();
+

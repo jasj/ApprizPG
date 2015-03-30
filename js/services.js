@@ -21,7 +21,7 @@ function getServices(productName){
 function requestService(serviceObj){
 	$.post('http://'+IP+':8089/appriz/sendServiceRequest',$.extend({"idSecretClient": idScretClient},serviceObj),function(data){
 		if (data["status"]== 200){
-			showInfoD('Sucessfull!','Your request was succesfully send',function(){$('.moldHide, .dialogAlert').hide();});
+			showInfoD($.t('Sucessfull!'),$.t('Your request was succesfully send'),function(){$('.moldHide, .dialogAlert').hide();});
 		}
 	
 	},'json') .fail(function(e) {

@@ -18,6 +18,7 @@
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="" id="entityStyle">
 	<link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 
@@ -174,6 +175,7 @@
 						<div class="bubble"></div>
 						<a ><span class="icon-services"></span></a></li>
 				</ul>
+				<div id='colorHandle'>colorHandle</div>
 			</nav>
 
 
@@ -213,14 +215,14 @@
 				<section id="main">
 					<div class="settings">
 						<h3 i18Trans="Change your secret codes"></h3>
-						<button class="btnAction">
+						<button class="btnAction" page-content="passwordChg">
 							<text i18Trans="Change my Password"/></text>
 								 <span class="icon-arrow">
 									<span class="path1"></span><span class="path2"></span>
 								 </span>
 						</button>
 
-						<button class="btnAction">
+						<button class="btnAction" page-content="pinChg">
 							<text i18Trans="Change the access code"/></text>
 								 <span class="icon-arrow">
 									<span class="path1"></span><span class="path2"></span>
@@ -241,10 +243,10 @@
 						<h3 i18Trans="Keep messages for at least"></h3>
 
 						<ul class="weeksOption">
-							<li><input type="checkbox" name="checkboxG1" id="checkboxG1" class="css-checkbox"/><label for="checkboxG1" class="css-label"> <span>1</span> <text i18Trans="Week"/></label></li>
-							<li><input type="checkbox" name="checkboxG2" id="checkboxG2" class="css-checkbox"/><label for="checkboxG2" class="css-label"> <span>2</span> <text i18Trans="Weeks"/></label></li>
-							<li><input type="checkbox" name="checkboxG3" id="checkboxG3" class="css-checkbox"/><label for="checkboxG3" class="css-label"><span>3</span> <text i18Trans="Weeks"/></label></li>
-							<li><input type="checkbox" name="checkboxG4" id="checkboxG4" class="css-checkbox"/><label for="checkboxG4" class="css-label"><span>4</span> <text i18Trans="Weeks"/></label>
+							<li><input type="checkbox" name="checkboxG1" id="checkboxG1" class="css-checkbox"/><label for="checkboxG1" class="css-label" week="1"> <span>1</span> <text i18Trans="Week"/></label></li>
+							<li><input type="checkbox" name="checkboxG2" id="checkboxG2" class="css-checkbox"/><label for="checkboxG2" class="css-label" week="2"> <span>2</span> <text i18Trans="Weeks"/></label></li>
+							<li><input type="checkbox" name="checkboxG3" id="checkboxG3" class="css-checkbox"/><label for="checkboxG3" class="css-label" week="3"><span>3</span> <text i18Trans="Weeks"/></label></li>
+							<li><input type="checkbox" name="checkboxG4" id="checkboxG4" class="css-checkbox"/><label for="checkboxG4" class="css-label" week="4"><span>4</span> <text i18Trans="Weeks"/></label>
 							</li>
 						</ul>
 
@@ -331,13 +333,8 @@
 
                     <h3 i18Trans="Write a PIN that will be used to unblock the APP"></h3>
 
-                    <input type="text" i18Trans="PIN" i18Target="placeholder" maxlength="4"/>
+                    <input type="tel" i18Trans="PIN" i18Target="placeholder" maxlength="4"/>
 
-                    <h3 i18Trans="Download banners only at Wifi"></h3>
-
-                   	<div class="onoffswitch">
-							<input type='checkbox' name='atWifiFT' id='atWifiFT' class='toggleSetting'><label for='atWifiFT'></label>
-					</div>
                     <h3 i18Trans="Ask me my PIN only at the start"></h3>
 
                     <div class="onoffswitch">
@@ -371,6 +368,38 @@
                         <input type="text"/>
                         <h2 i18Trans="Subscription No"> </h2>
                         <input type="tel"/>
+                    </div><!--close subscribe box-->
+
+                    <button class="btnFull" i18Trans="Save"></button>
+
+                </div><!--close settings-->
+</div>
+
+
+<div  id='passwordChg' class='page-content' header='headerGeneral'>
+<div class="settings">
+                    <h1 i18Trans="Change Password"></h1>
+
+                    <div class="subscribebox">
+                        <h2 i18Trans="Password"></h2>
+                        <input type="password" i18Trans="Password" i18Target="placeholder"/>
+                        <h2 i18Trans="Rewrite Password" > </h2>
+                        <input type="password" i18Trans="Rewrite Password" i18Target="placeholder"/>
+                    </div><!--close subscribe box-->
+
+                    <button class="btnFull" i18Trans="Save"></button>
+
+                </div><!--close settings-->
+</div>
+
+<div  id='pinChg' class='page-content' header='headerGeneral'>
+<div class="settings">
+                    <h1 i18Trans="Change pin"></h1>
+
+                    <div class="subscribebox">
+                        <h2 i18Trans="PIN"></h2>
+                        <input type="tel" i18Trans="PIN" i18Target="placeholder"/>
+                       
                     </div><!--close subscribe box-->
 
                     <button class="btnFull" i18Trans="Save"></button>
@@ -432,6 +461,8 @@
 <script src="js/products.js"></script>
 <script src="js/rules.js"></script>
 <script src="js/services.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/subscription.js"></script>
 <script src="js/pin.js"></script>
 <script src="js/firstTime.js"></script>
 

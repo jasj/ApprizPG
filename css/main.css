@@ -1121,7 +1121,7 @@ nav.categoryNav ul li a {
 
 nav.categoryNav span {
     content: "\e60b";
-    color: rgb(0, 91, 153);
+    /*color: rgb(85, 185, 73);*/
 }
 
 nav.categoryNav span:hover {
@@ -1500,7 +1500,11 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     position: absolute;
     top: 36%;
     right: 4%;
-    z-index: 1000;
+	z-index: 1000;
+	font-size: 12px;
+	text-align: center;
+	line-height: 25px;
+	color: #636466;
 }
 
 #entities ul li img {
@@ -2639,4 +2643,9 @@ right: 0px;
 }
 .dotNone{
 	color:rgb(170,170,170);
+}
+
+#colorHandle{
+	display : none;
+	color: rgb(0, 91, 153);
 }

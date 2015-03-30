@@ -4,11 +4,10 @@
 
 
 function current_inbox(){
-	$('.message').hide();
+	$('.Message').hide();
 	$('.gotcolors').velocity({opacity: 1}, 200);
 	$('.entity'+currentEntityID).show();
-		
-	
+	$('nav.categoryNav li').find("span").css("color") == tabSelectedColor;	
 }
 
 function counterByMsg(){
@@ -22,9 +21,9 @@ function counterByMsg(){
 		//$('#leftMenu li').eq(4).find('div div').html($('.unread').length);
 		
 		
-		$(".entityList li").each(function(index, entityI ){
-			var bn = $(this).find('.badgeNumber')
-			bn.find('div').html($('.unread.entity'+$(this).attr('entityId')).length == 0 ? "" : $('.unread.entity'+$(this).attr('entityId')).length);
+		$("#entities li").each(function(index, entityI ){
+			var bn = $(this).find('.bubble2')
+			bn.html($('.unread.entity'+$(this).attr('entityId')).length == 0 ? "" : $('.unread.entity'+$(this).attr('entityId')).length);
 			bn.css($('.unread.entity'+$(this).attr('entityId')).length > 0 ? {"border" : "1px solid #dadada"} : {"border" : "0px solid #dadada"});
 		});
 	}
@@ -197,18 +196,26 @@ function makeSwipe(id){
 			
 				//alert( JSON.stringify(e));getRules(kilomanyaroB)
 			}).done(function(){ 
+				current_inbox();
+				counterByMsg();
 				makeSwipe();
 				fix_messages();
-				counterByMsg();
-		//	counterByMsg();current_inbox();$('.refreshing_list').hide(); 
+				
+		//	counterByMsg();$('.refreshing_list').hide(); 
 			});
 		}
 				
 				
-				
+		//Delete Btn
+		$( document ).on("tapend",".deleteSwipe",function(){
+			$(this).parent().parent().parent().remove();
+			reportMsgState();
+			counterByMsg();
+		});
 				
 		//Filter handle
 		$( document ).on("tapend",'nav.categoryNav li',function(){
+		
 			if( $(this).find("span").css("color") == tabSelectedColor){
 				$(this).find("span").css({content: "\e60b",color: tabUnSelectedColor});
 				$(this).find("span").removeClass("active");
