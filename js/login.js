@@ -96,4 +96,4 @@ checkPreviusLogin();
 /*--------------------------------------------------
 	Events 
 ---------------------------------------------------*/
-$( document ).on('tapend','.btnFull.submitLogin',function(){ login();});
+$( document ).on('tapend','.btnFull.submitLogin',function(){ alert("ver error login"); login();});
