@@ -27,8 +27,7 @@ function login(){
 				reloadEntities();
 				callNewMSG();
 				pin = data['pin'];
-			//	getValidTimePeriods();
-				
+				//getValidTimePeriods();
 				//reloadEntities();
 			
 			}else{
@@ -40,7 +39,7 @@ function login(){
 		
 });
 	
-}
+}*/
 
 
 function checkPreviusLogin(){
@@ -70,17 +69,17 @@ function checkPreviusLogin(){
 				//current_inbox();
 		}else{
 			//navigator.splashscreen.hide();
-			$('.splash').fadeOut(1000,function(){
+			/*$('.splash').fadeOut(1000,function(){
 				var heightEnd = Math.floor(window.innerHeight /2)-120;
 				$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
 				$( '.LOGIN_BOTTOM , .LogginTop').velocity({"height" : 0},1000); 
 			
-			});
+			});*/
 
 		};
 	}).fail(function( e )alert( e ));
 }
-
+/*
 $( document ).on("tapend","button.log",function(){
 	$.jStorage.flush();
 	$.post('http://'+IP+':8089/appriz/logout', {"logId" : logId}, function(data){
