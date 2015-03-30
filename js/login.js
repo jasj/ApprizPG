@@ -43,9 +43,10 @@ function login(){
 
 
 function checkPreviusLogin(){
+	/*
 	$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey:  typeof device !== 'undefined' ? device.uuid : "Browser" },function(data) {
 	if("idSecretClient" in data ){
-			/*/	navigator.splashscreen.hide();
+			//	navigator.splashscreen.hide();
 				$("div#login").hide();
 				$("div#appHolder").show();
 				if(data["pinPolicy"]==0){$('#divPIN').show();}
@@ -66,18 +67,20 @@ function checkPreviusLogin(){
 				//$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
 				//$('.header_demo img').attr('src','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
 				//counterByMsg();
-				//current_inbox();*/
+				//current_inbox();
 		}else{
 			//navigator.splashscreen.hide();
-			/*$('.splash').fadeOut(1000,function(){
+				$('.splash').fadeOut(1000,function(){
 				var heightEnd = Math.floor(window.innerHeight /2)-120;
 				$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
 				$( '.LOGIN_BOTTOM , .LogginTop').velocity({"height" : 0},1000); 
 			
-			});*/
+			});
 
 		};
 	}).fail(function( e )alert( e ));
+	*/
+	alert(333);
 }
 /*
 $( document ).on("tapend","button.log",function(){
