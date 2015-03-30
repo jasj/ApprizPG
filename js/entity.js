@@ -1,7 +1,7 @@
 /*
 	
 */
-
+alert("find error -entity");
 function reloadEntities(){
 			$.post('http://'+IP+':8089/appriz/getCustomerEntities',{"idSecretClient": idScretClient},function(data){
 					if(data.length == 0){

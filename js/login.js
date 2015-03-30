@@ -8,7 +8,7 @@
 
 
 
-alert("find error");
+alert("find error -login");
 function login(){
 	  //event.preventDefault();
 		$.post('http://'+IP+':8089/appriz/login',{
