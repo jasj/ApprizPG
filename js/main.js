@@ -113,9 +113,6 @@ $.i18n.init({ lng: navigator.language , resGetPath: 'language/__lng__/__ns__.jso
 });
 
 
-alert("ver error main");
-
-
 
 
 	

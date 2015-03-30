@@ -7,7 +7,8 @@
 
 
 
- alert("ver error login start"); 
+
+alert("find error");
 function login(){
 	  //event.preventDefault();
 		$.post('http://'+IP+':8089/appriz/login',{
@@ -43,9 +44,7 @@ function login(){
 
 
 function checkPreviusLogin(){
-	alert("here");
-//	alert(typeof device !== 'undefined' ? device.uuid : "Browser");
-	$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey: /* typeof device !== 'undefined' ? device.uuid :*/ "Browser" },function(data) {
+	$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey:  typeof device !== 'undefined' ? device.uuid : "Browser" },function(data) {
 	if("idSecretClient" in data ){
 			//	navigator.splashscreen.hide();
 				$("div#login").hide();
@@ -91,14 +90,9 @@ $( document ).on("tapend","button.log",function(){
 	});
 });
 
- alert("pre check"); 
 
 checkPreviusLogin();
- alert("post check"); 
 /*--------------------------------------------------
 	Events 
 ---------------------------------------------------*/
-$( document ).on('tapend','.btnFull.submitLogin',function(){ alert("ver error login inside"); login();});
-
-
- alert("ver error login end"); 
+$( document ).on('tapend','.btnFull.submitLogin',function(){ login();});
