@@ -8,7 +8,7 @@
 
 
 
-alert("find error -login");
+alert("find error -login");/*
 function login(){
 	  //event.preventDefault();
 		$.post('http://'+IP+':8089/appriz/login',{
@@ -94,5 +94,5 @@ $( document ).on("tapend","button.log",function(){
 checkPreviusLogin();
 /*--------------------------------------------------
 	Events 
----------------------------------------------------*/
-$( document ).on('tapend','.btnFull.submitLogin',function(){ login();});
+---------------------------------------------------
+$( document ).on('tapend','.btnFull.submitLogin',function(){ login();});*/*/
