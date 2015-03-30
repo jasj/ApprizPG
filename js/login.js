@@ -45,7 +45,7 @@ function login(){
 function checkPreviusLogin(){
 	$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey:  typeof device !== 'undefined' ? device.uuid : "Browser" },function(data) {
 	if("idSecretClient" in data ){
-			//	navigator.splashscreen.hide();
+			/*/	navigator.splashscreen.hide();
 				$("div#login").hide();
 				$("div#appHolder").show();
 				if(data["pinPolicy"]==0){$('#divPIN').show();}
@@ -66,7 +66,7 @@ function checkPreviusLogin(){
 				//$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
 				//$('.header_demo img').attr('src','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
 				//counterByMsg();
-				//current_inbox();
+				//current_inbox();*/
 		}else{
 			//navigator.splashscreen.hide();
 			/*$('.splash').fadeOut(1000,function(){
