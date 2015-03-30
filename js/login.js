@@ -92,7 +92,7 @@ $( document ).on("tapend","button.log",function(){
 	});
 });
 
-
+*/
 checkPreviusLogin();
 /*--------------------------------------------------
 	Events 
