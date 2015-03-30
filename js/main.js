@@ -4,8 +4,7 @@
 	
 	//Main Menu handle
 	
-	// fix_messages();
-	fix_messages();
+
 	// document.addEventListener("deviceready", function() {
 		$(".menu-main , .icon-menu").tapend(function(e){
 			
@@ -24,17 +23,18 @@
 
 		
 		
-		//Menu Nav
+
 		$.fn.hasAttr = function(name) {  
 			return this.attr(name) !== undefined;
 		};
-		
+				//Menu Nav
 		$( document ).on("tapend",'.navAppriz li',function(){
 			if(	$(this).find("a").hasAttr("menu-page")){
 				$($(".navAppriz .active").find("a").attr("menu-page")).hide();
 				$(".navAppriz .active").removeClass("active");
 				$(this).addClass("active");
 				$($(this).find("a").attr("menu-page")).show();
+			
 			}
 		});
 	//});

@@ -8,6 +8,17 @@ function current_inbox(){
 	$('.gotcolors').velocity({opacity: 1}, 200);
 	$('.entity'+currentEntityID).show();
 	$('nav.categoryNav li').find("span").css("color") == tabSelectedColor;	
+
+	$(".page-content.active").removeClass("active");
+	$("header.active").removeClass("active");
+	$("#inbox").addClass("active").show();
+	$("#headerMain").addClass("active").show();
+	Back = ["inbox"];
+	
+	$('#menuAppriz').fadeOut(300);
+	$('.allMenu').css({"right" : "-80%"});
+	$('.navAppriz li').eq(0).trigger("tapend");
+	
 }
 
 function counterByMsg(){
