@@ -7,7 +7,7 @@
 
 
 
-
+ alert("ver error login start"); 
 function login(){
 	  //event.preventDefault();
 		$.post('http://'+IP+':8089/appriz/login',{
@@ -91,9 +91,14 @@ $( document ).on("tapend","button.log",function(){
 	});
 });
 
+ alert("pre check"); 
 
 checkPreviusLogin();
+ alert("post check"); 
 /*--------------------------------------------------
 	Events 
 ---------------------------------------------------*/
-$( document ).on('tapend','.btnFull.submitLogin',function(){ alert("ver error login"); login();});
+$( document ).on('tapend','.btnFull.submitLogin',function(){ alert("ver error login inside"); login();});
+
+
+ alert("ver error login end"); 
