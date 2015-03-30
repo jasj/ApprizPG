@@ -43,9 +43,9 @@ function login(){
 
 
 function checkPreviusLogin(){
-	/*
+	
 	$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey:  typeof device !== 'undefined' ? device.uuid : "Browser" },function(data) {
-	if("idSecretClient" in data ){
+	/*if("idSecretClient" in data ){
 			//	navigator.splashscreen.hide();
 				$("div#login").hide();
 				$("div#appHolder").show();
@@ -81,7 +81,7 @@ function checkPreviusLogin(){
 	}).fail(function( e )alert( e ));
 	*/
 	alert(333);
-}
+});}
 /*
 $( document ).on("tapend","button.log",function(){
 	$.jStorage.flush();
