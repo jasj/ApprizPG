@@ -43,7 +43,7 @@ function login(){
 
 
 function checkPreviusLogin(){
-	alert(device !== 'undefined' ? device.uuid : "Browser");
+	alert(typeof device !== 'undefined' ? device.uuid : "Browser");
 	$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey:  typeof device !== 'undefined' ? device.uuid : "Browser" },function(data) {
 	if("idSecretClient" in data ){
 			//	navigator.splashscreen.hide();
