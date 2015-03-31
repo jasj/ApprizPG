@@ -1,21 +1,37 @@
- document.addEventListener("deviceready", onDeviceReady, false);
+ // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
 
     // device APIs are available
     //
     function onDeviceReady() {
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
-        window.resolveLocalFileSystemURI("file:///example.txt", onResolveSuccess, fail);
-		alert("fready");
-	}
-
-    function onFileSystemSuccess(fileSystem) {
-       alert(fileSystem.name);
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
     }
 
-    function onResolveSuccess(fileEntry) {
-        alert(fileEntry.name);
+    function gotFS(fileSystem) {
+        fileSystem.root.getFile("readme.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+    }
+
+    function gotFileEntry(fileEntry) {
+        fileEntry.createWriter(gotFileWriter, fail);
+    }
+
+    function gotFileWriter(writer) {
+        writer.onwriteend = function(evt) {
+            console.log("contents of file now 'some sample text'");
+            writer.truncate(11);
+            writer.onwriteend = function(evt) {
+                console.log("contents of file now 'some sample'");
+                writer.seek(4);
+                writer.write(" different text");
+                writer.onwriteend = function(evt){
+                    console.log("contents of file now 'some different text'");
+                }
+            };
+        };
+        writer.write("some sample text");
     }
 
     function fail(error) {
-       alert(error.code);
+        console.log(error.code);
     }
