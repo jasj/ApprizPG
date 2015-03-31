@@ -5,7 +5,7 @@
 
 function current_inbox(){
 	$('.Message').hide();
-	$('.gotcolors').velocity({opacity: 1}, 200);
+	$('.gotcolors').animate({opacity: 1}, 200);
 	$('.entity'+currentEntityID).show();
 	$('nav.categoryNav li').find("span").css("color") == tabSelectedColor;	
 
@@ -94,20 +94,20 @@ function makeSwipe(id){
 							mContainer.css({"margin-left" : "-150px"},{mobileHA: false}); //show delete button
 							
 					}else if(direction=='left' & distance < (150) & actualMargin < 0){
-							mContainer.velocity({"margin-left" : "0px"},{mobileHA: false}); //no show the delete button
+							mContainer.animate({"margin-left" : "0px"},{mobileHA: false}); //no show the delete button
 							
 					}else if(direction=='left' & distance < (window.innerWidth*0.3) & actualMargin > window.innerWidth){
-							mContainer.velocity({"margin-left" : window.innerWidth+"px"},{mobileHA: false});
+							mContainer.animate({"margin-left" : window.innerWidth+"px"},{mobileHA: false});
 					}else if(direction=='right' & distance > (window.innerWidth*0.3) & actualMargin > window.innerWidth*0.3){
-							mContainer.velocity({"margin-left" : window.innerWidth+"px"},{mobileHA: false});
+							mContainer.animate({"margin-left" : window.innerWidth+"px"},{mobileHA: false});
 						
 					}else if(direction=='right'  & actualMargin >-150){
-							mContainer.velocity({"margin-left" : "0px"},{mobileHA: false});
+							mContainer.animate({"margin-left" : "0px"},{mobileHA: false});
 						
 					}
 					
 					else {
-						mContainer.velocity({"margin-left" : "0px"},{mobileHA: false});
+						mContainer.animate({"margin-left" : "0px"},{mobileHA: false});
 						
 				
 					}
@@ -126,7 +126,7 @@ function makeSwipe(id){
 
 						if(actualMargin < 0){
 							
-							//msg.velocity({"margin-left" : "0px"});
+							//msg.animate({"margin-left" : "0px"});
 						}else{
 							if(distance < window.innerWidth){
 								msg.css({"margin-left": distance});
