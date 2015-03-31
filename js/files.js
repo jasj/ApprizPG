@@ -10,13 +10,16 @@
 
     function gotFS(fileSystem) {
         fileSystem.root.getFile("readme.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+		alert(gotFS);
     }
 
     function gotFileEntry(fileEntry) {
         fileEntry.createWriter(gotFileWriter, fail);
+		alert(gotFileEntry);
     }
 
     function gotFileWriter(writer) {
+		alert(gotFileWriter);
         writer.onwriteend = function(evt) {
             console.log("contents of file now 'some sample text'");
             writer.truncate(11);
@@ -33,5 +36,6 @@
     }
 
     function fail(error) {
+		alert(error);
         console.log(error.code);
     }
