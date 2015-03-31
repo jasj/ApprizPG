@@ -36,6 +36,9 @@ function login(){
 				
 			}	
 	}).fail(function(e) {
+		alert(e);
+		idScretClient = $.jStorage.get('idSecretClient');
+		showInfoD($.t("Conexion Error"),$.t("There is a connection error Appriz services"),function(){},function(){})
 		
 });
 	
@@ -43,7 +46,7 @@ function login(){
 
 
 function checkPreviusLogin(){
-	
+	currentEntityID  = ($.jStorage.index().indexOf('currentEntityID') > -1  ) ? $.jStorage.get('currentEntityID') : 0;
 	$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey:  typeof device !== 'undefined' ? device.uuid : "Browser" },function(data) {
 	if("idSecretClient" in data ){
 			//	navigator.splashscreen.hide();
@@ -60,7 +63,7 @@ function checkPreviusLogin(){
 				$('.splash').fadeOut(1000,function(){});
 	
 				callNewMSG();
-				currentEntityID  = $.jStorage.get('currentEntityID');
+				
 				reloadEntities();
 				
 				//$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
@@ -77,7 +80,19 @@ function checkPreviusLogin(){
 			});
 
 		}
-	}).fail(function( ){});
+	}).fail(function(e) {
+		if($.jStorage.index().indexOf('idSecretClient') > -1){
+			idScretClient = $.jStorage.get('idSecretClient');
+			$("#login").hide();
+			$("#appHolder").show();
+			if($.jStorage.index().indexOf('msg') > -1){$('#categories').html(atob($.jStorage.get('msg')));}
+			if($.jStorage.index().indexOf('entities') > -1){$('#entities ul').html(atob($.jStorage.get('entities')));}
+			current_inbox();
+			counterByMsg();
+			makeSwipe();
+			showInfoD($.t("Offline Mode"),$.t("some features are not enabled in this mode"),function(){});
+		}
+});
 	
 }
 

@@ -32,15 +32,17 @@ function reloadEntities(){
 				counterByMsg();
 				loadEntityTemplate();
 				console.log(JSON.stringify(data));
+				$.jStorage.set('entities', btoa($('#entities ul').html()));
 			});
 			
 		}
 		
 function loadEntityTemplate(){
+	IMG = S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png?ver=1.0';
 	$('.bankLogo img').attr("alt", "");
-	$('.bankLogo img').attr("src", S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png?ver=1.0');
+	$('.bankLogo img').attr("src", IMG);
 	$('.bankBrand img').attr("alt", "");
-	$('.bankBrand img').attr("src", 'https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png?ver=1.0');
+	$('.bankBrand img').attr("src", IMG);
 	$('#entityStyle').attr("href",S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
 	tabSelectedColor = $("#colorHandle").css("color");//"rgb(85, 185, 73)"
 }
@@ -58,6 +60,7 @@ function makeSwipeEntity(id){
 
 $( document ).on("tapend", "#entities ul li",function(){
 	currentEntityID = $(this).attr("entityId");
+	$.jStorage.set('currentEntityID',currentEntityID) ;
 	loadEntityTemplate();
 	current_inbox();
 	counterByMsg();

@@ -63,8 +63,7 @@ function getValidTimePeriods(){
 		}
 		
 	},'json') .fail(function(e) {
-			//alert("conexion error!");
-		//alert( JSON.stringify(e));
+			showInfoD($.t("Offline Mode"),$.t("This option is disabled in Offline Mode"),function(){back=["inbox","inbox"];$(".icon-back").trigger("tapend")});
 	}).done(function(){});
 	
 }
@@ -85,8 +84,7 @@ function processRuleChange(){
 			}
 		
 	},'json') .fail(function(e) {
-		console.log("conexion error!");
-		console.log( JSON.stringify(e));
+		showInfoD($.t("Offline Mode"),$.t("This option is disabled in Offline Mode"),function(){back=["inbox","inbox"];$(".icon-back").trigger("tapend")});
 	}).done(function(){});
 	
 	return tmp_ruleChange;

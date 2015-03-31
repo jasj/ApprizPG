@@ -25,7 +25,7 @@ function requestService(serviceObj){
 		}
 	
 	},'json') .fail(function(e) {
-
+		showInfoD($.t("Offline Mode"),$.t("This option is disabled in Offline Mode"),function(){back=["inbox","inbox"];$(".icon-back").trigger("tapend")});
 	}).done(function(){});
 }
 

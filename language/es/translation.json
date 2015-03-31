@@ -64,5 +64,8 @@
   "You was succesfully subscribe to" : "Usted se ha suscrito a",
   "Do you want to subscribe another entity?" : "Desea suscribirse a otra entidad?" ,
   "Your request was succesfully send" : "Su solicitud fue enviada",
-  "Sucessfull!" : "¡Éxito!"
+  "Sucessfull!" : "¡Éxito!",
+  "Offline Mode" : "Modo fuera sin conección",
+  "some features are not enabled in this mode" : "algunas caracteristicas no estan habilitadas en este modo",
+  "Hay un error de conexión con los servicios de Appriz" : "Hay un error de conexión con los servicios de Appriz"
 }

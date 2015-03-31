@@ -19,3 +19,4 @@
     IP = '54.81.6.137';
 	PIN = "0AWE";
 	back = [];
+	stateChangeLst = [];

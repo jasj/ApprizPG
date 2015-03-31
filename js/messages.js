@@ -65,6 +65,20 @@ function reportMsgState(){
 				console.log(JSON.stringify(data));
 			});
 }		
+
+function syncronizeOffLineMsg(){
+	if(stateChangeLst.length > 0){
+		while( stateChangeLst.length > 0){
+			var msg = stateChangeLst.pop();
+			if(msg["state"] == "DELETED"){
+				$('#'+msg["state"]).remove();
+			}else{
+				$('#'+msg["state"]).removeClass('unread');
+			}
+		}
+		reportMsgState();
+	}
+}
 		
 function makeSwipe(id){
 		
@@ -102,6 +116,8 @@ function makeSwipe(id){
 				swipeStatus:function(event, phase, direction, distance , duration , fingerCount) {
 				 if((phase === $.fn.swipe.phases.PHASE_END || phase === $.fn.swipe.phases.PHASE_CANCEL )& distance == 0)  {
 						showMessage($(this).attr("id"));
+						$.jStorage.set('msg', btoa($('#categories').html()));
+						stateChangeLst.push({msg : $(this).parent().parent().parent().attr("id") , state : "READED"});
 				 }else{
 					var msg = $(this).find(".moveContainer");
 					var actualMargin = parseInt(msg.css("margin-left").replace(/[^-\d\.]/g, '') );
@@ -202,6 +218,7 @@ function makeSwipe(id){
 					
 					$.jStorage.set('msg_div', btoa($('#categories').html()));
 				});
+				syncronizeOffLineMsg();
 			},'json') .fail(function(e) {
 					$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').hide(1000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
 			
@@ -211,6 +228,7 @@ function makeSwipe(id){
 				counterByMsg();
 				makeSwipe();
 				fix_messages();
+				$.jStorage.set('msg', btoa($('#categories').html()));
 				
 		//	counterByMsg();$('.refreshing_list').hide(); 
 			});
@@ -219,8 +237,10 @@ function makeSwipe(id){
 				
 		//Delete Btn
 		$( document ).on("tapend",".deleteSwipe",function(){
+			stateChangeLst.push({msg : $(this).parent().parent().parent().attr("id") , state : "DELETED"});
 			$(this).parent().parent().parent().remove();
 			reportMsgState();
+			$.jStorage.set('msg', btoa($('#categories').html()));
 			counterByMsg();
 		});
 				
