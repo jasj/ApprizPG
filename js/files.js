@@ -46,4 +46,4 @@
 	$.get("https://s.yimg.com/zz/combo?pv/static/lib/srp-core-css-purple_3acecc2e83faa9ba766268df3f1c20c1.css",function(data){
 		alert(1);
 		alert(data);
-	});
+	  });}
