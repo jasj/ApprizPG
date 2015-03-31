@@ -5,16 +5,17 @@
     function onDeviceReady() {
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
         window.resolveLocalFileSystemURI("file:///example.txt", onResolveSuccess, fail);
-    }
+		alert("fready");
+	}
 
     function onFileSystemSuccess(fileSystem) {
-        console.log(fileSystem.name);
+       alert(fileSystem.name);
     }
 
     function onResolveSuccess(fileEntry) {
-        console.log(fileEntry.name);
+        alert(fileEntry.name);
     }
 
     function fail(error) {
-        console.log(error.code);
+       alert(error.code);
     }
