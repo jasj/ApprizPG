@@ -15,8 +15,20 @@
 
     function gotFileEntry(fileEntry) {
         fileEntry.createWriter(gotFileWriter, fail);
-		alert(gotFileEntry);
+		readDAtaUrl("readme.txt");
     }
+	
+	function readDAtaUrl(file) {
+    var reader = new FileReader();
+    reader.onloadend = function (evt) {
+        console.log("read success");
+        console.log(evt.target.result);
+    };
+    alert(reader.readAsDataURL(file));
+	
+	
+};
+
 
     function gotFileWriter(writer) {
 		
@@ -35,30 +47,3 @@
 $(document).ready(function() {
 	
 });
-
-
-
-
-
-var fileTransfer = new FileTransfer();
-var uri = encodeURI("https://s.yimg.com/zz/combo?pv/static/lib/srp-core-css-purple_3acecc2e83faa9ba766268df3f1c20c1.css");
-fileURL =  "cdvfile://localhost/persistent/path/to/file.txt";
-fileTransfer.download(
-    uri,
-    fileURL,
-    function(entry) {
-		alert("hi");
-        console.log("download complete: " + entry.toURL());
-    },
-    function(error) {
-        console.log("download error source " + error.source);
-        console.log("download error target " + error.target);
-        console.log("upload error code" + error.code);
-    },
-    false,
-    {
-        headers: {
-            "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-        }
-    }
-);
