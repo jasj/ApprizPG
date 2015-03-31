@@ -19,19 +19,10 @@
     }
 
     function gotFileWriter(writer) {
-		alert(gotFileWriter);
-        writer.onwriteend = function(evt) {
-            console.log("contents of file now 'some sample text'");
-            writer.truncate(11);
-            writer.onwriteend = function(evt) {
-                console.log("contents of file now 'some sample'");
-                writer.seek(4);
-                writer.write(" different text");
-                writer.onwriteend = function(evt){
-                    console.log("contents of file now 'some different text'");
-                }
-            };
-        };
+		
+	$.get("https://s.yimg.com/zz/combo?pv/static/lib/srp-core-css-purple_3acecc2e83faa9ba766268df3f1c20c1.css",function(data){
+		 writer.write(data);
+	  });
         writer.write("some sample text");
     }
 
@@ -42,8 +33,5 @@
 
 	
 $(document).ready(function() {
-	$.get("https://s.yimg.com/zz/combo?pv/static/lib/srp-core-css-purple_3acecc2e83faa9ba766268df3f1c20c1.css",function(data){
-		alert(1);
-		alert(data);
-	  });
+	
 });
