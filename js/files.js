@@ -15,6 +15,7 @@
 
     function gotFileEntry(fileEntry) {
         fileEntry.createWriter(gotFileWriter, fail);
+		alert("write");
 		readDAtaUrl("readme.txt");
     }
 	
@@ -24,6 +25,7 @@
         console.log("read success");
         console.log(evt.target.result);
     };
+	alert("read");
     alert(reader.readAsDataURL(file));
 	
 	
