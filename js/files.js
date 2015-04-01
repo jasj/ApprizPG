@@ -65,17 +65,14 @@ function fail(e) {
 
   alert('Error: ' + msg);
 }
-	alert(22);
-$.get("http://www.freshdesignweb.com/wp-content/plugins/download-monitor/page-addon/styles.css",function(data){
-	alert(11);
-	alert(data);
-});
+	
 
 $.ajax({
     type: "GET",
     url: "http://cdn-careers.sstatic.net/careers/gethired/img/companypageadfallback-leaderboard-2.png",
     datatype:"image/png",
     success: function (data) {
+		alert(333);
         alert( data);
       }
  });
