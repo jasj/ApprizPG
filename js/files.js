@@ -23,14 +23,14 @@ function getFileLocalURL(file, object, target){
 	}
 }
 
-function downloadContent(file,url){
+function downloadContent(file,url,version){
 	if(fSys != null){
 		 fSys.root.getFile(file, {create: true, exclusive: false}, 
 		 function(fileEntry){
 			fileEntry.createWriter(function(writer){
 				$.get(url,function(data){
 					writer.write(data);
-					alert(data);
+					$.jStorage.set(file,version);
 				});
 			}, fail);
 		  }
