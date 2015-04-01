@@ -47,6 +47,7 @@ function loadEntityTemplate(){
 	$('.bankLogo img').attr("src", IMG);
 	$('.bankBrand img').attr("alt", "");
 	$('.bankBrand img').attr("src", IMG);
+	getFileLocalURL(FormatInteger(currentEntityID,4)+".css", $('#entityStyle'), "href");
 	$('#entityStyle').attr("href",S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
 	tabSelectedColor = $("#colorHandle").css("color");//"rgb(85, 185, 73)"
 }
