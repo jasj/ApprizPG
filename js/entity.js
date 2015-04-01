@@ -16,7 +16,7 @@ function reloadEntities(){
 					
 				entities = '';
 				data.forEach(function(entity){
-					
+					downloadContent(entity["entityID"]+".css",S3Bucket+entity["entityID"]+'/CSS/entity.css');
 				entities +='<li id="entity_'+entity["entityID"]+'" entityId="'+entity["entityID"]+'"><div class="bubble2"></div><img src="https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(entity["entityID"],4)+'/Advertising/Logos/overWhite_logo.png?ver=1.0" alt="'+entity["entityName"]+'"/> <button class="deleteSwipe">Delete</button></li>';
 					
 					
