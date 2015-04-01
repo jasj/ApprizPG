@@ -23,10 +23,12 @@
     var reader = new FileReader();
     reader.onloadend = function (evt) {
         console.log("read success");
-        console.log(evt.target.result);
+        alert(evt.target.result);
+		
+		
     };
 	alert("read");
-    alert(reader.readAsDataURL(file));
+  //  alert(reader.readAsDataURL(file));
 	
 	
 };
