@@ -27,10 +27,13 @@ function reloadEntities(){
 					}
 				});
 				$("#entities ul").html(entities);
+				
+				
 				makeSwipeEntity();
 				current_inbox();
 				counterByMsg();
 				loadEntityTemplate();
+				downloadContent(S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
 				console.log(JSON.stringify(data));
 				$.jStorage.set('entities', btoa($('#entities ul').html()));
 			});
