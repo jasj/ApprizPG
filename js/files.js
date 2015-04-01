@@ -42,7 +42,7 @@ function downloadContent(file,url){
 
     
 function fail(error) {
-	alert(error);
+	alert(JSON.stringify(error));
 }
 
 	
