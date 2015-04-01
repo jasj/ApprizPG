@@ -49,5 +49,19 @@
 
 	
 $(document).ready(function() {
-	
+	// This worked for me
+	var ft = new FileTransfer();
+	ft.download(
+		"http://www.bargainstock.co.uk/Photos/p400.jpg", // what u download
+		fileSystem.root.toURL() + "test.jpg", // this is the filename as well complete url
+  function(entry) {
+    alert("success");
+    alert(JSON.stringify(entry));
+
+  },
+  function(err) {
+    alert(err);
+    alert(JSON.stringify(err));
+  }
+);
 });
