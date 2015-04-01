@@ -25,12 +25,13 @@ function getFileLocalURL(file, object, target){
 
 function downloadContent(file,url,version){
 	if(fSys != null){
-		 fSys.root.getFile(file, {create: true, exclusive: false}, 
+		 fSys.root.getFile(file, {create: true, exclusive: true}, 
 		 function(fileEntry){
 			fileEntry.createWriter(function(writer){
 				$.get(url,function(data){
 					writer.write(data);
 					$.jStorage.set(file,version);
+					alert(667);
 				});
 			}, fail);
 		  }
