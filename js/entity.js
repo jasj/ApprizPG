@@ -33,6 +33,7 @@ function reloadEntities(){
 				current_inbox();
 				counterByMsg();
 				loadEntityTemplate();
+				alert(S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
 				downloadContent(S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
 				console.log(JSON.stringify(data));
 				$.jStorage.set('entities', btoa($('#entities ul').html()));

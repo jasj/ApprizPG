@@ -42,7 +42,7 @@ function downloadContent(file,url){
 
     
 function fail(error) {
-	console.log(error);
+	alert(error);
 }
 
 	
