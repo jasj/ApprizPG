@@ -42,9 +42,21 @@
     }
 
     function gotFileEntry(fileEntry) {
-        fileEntry.createWriter(gotFileWriter, fail);
-		alert("write");
-		readDAtaUrl("readme.txt");
+		
+		 fileEntry.file(function(file) {
+       var reader = new FileReader();
+
+       reader.onloadend = function(e) {
+         alert(this.result);
+        
+       };
+
+       reader.readAsText(file);
+    }, errorHandler);
+		
+       // fileEntry.createWriter(gotFileWriter, fail);
+		//alert("write");
+		
     }
 	
 	function readDAtaUrl(file) {
