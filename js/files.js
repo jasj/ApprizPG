@@ -73,7 +73,7 @@ $.ajax({
     datatype:"image/png",
     success: function (data) {
 		alert(333);
-        alert( data);
+    //    alert( data);
       }
  });
 
