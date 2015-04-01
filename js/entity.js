@@ -17,9 +17,9 @@ function reloadEntities(){
 				entities = '';
 				data.forEach(function(entity){
 					
-					if(!($.jStorage.index().indexOf(entity["entityID"]+".css") > -1  && ($.jStorage.get(entity["entityID"]+".css")==entity["vCSS"]))){
+					//if(!($.jStorage.index().indexOf(entity["entityID"]+".css") > -1  && ($.jStorage.get(entity["entityID"]+".css")==entity["vCSS"]))){
 						downloadContent(entity["entityID"]+".css",S3Bucket+entity["entityID"]+'/CSS/entity.css',entity["vCSS"]);
-					}
+					//}
 					if(!($.jStorage.index().indexOf(entity["entityID"]+".png") > -1  && ($.jStorage.get(entity["entityID"]+".png")==entity["vImg"]))){
 						downloadContent(entity["entityID"]+".png",S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png',entity["vImg"]);
 					}
