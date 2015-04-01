@@ -34,7 +34,7 @@ function reloadEntities(){
 				counterByMsg();
 				loadEntityTemplate();
 				alert(S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
-				downloadContent(S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
+				downloadContent(FormatInteger(currentEntityID,4)+".css",S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
 				console.log(JSON.stringify(data));
 				$.jStorage.set('entities', btoa($('#entities ul').html()));
 			});
