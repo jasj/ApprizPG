@@ -33,8 +33,8 @@ function reloadEntities(){
 				current_inbox();
 				counterByMsg();
 				loadEntityTemplate();
-				alert(S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
-				downloadContent(S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');
+				alert(S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
+				downloadContent(S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
 				console.log(JSON.stringify(data));
 				$.jStorage.set('entities', btoa($('#entities ul').html()));
 			});
