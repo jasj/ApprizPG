@@ -1,0 +1,120 @@
+nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
+	color : #55B949;
+}
+
+.bankSection {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYoAAAANCAYAAAC3vCnEAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wMeBC8vZh7zzgAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAB9ElEQVR42u3bz24TMRDH8e+MN5tAQUiVeuKZuPG0vBEXDqjQJl7PcEgoSSG21PKnKr+PFGUVZ2dtj5XZSGt7/+FdIvIf8cGKd4t+O3Z3bGYn7wAe7afPTtoZxe+bcjkb28yG8e1o/L+KY6PzbdA/2mB80Z0fIs/O7T4//euXjHv9PY1jWfvjz/4CscECshzNT/bXR3o3v6R3+++HFXR2fu/ayyHfBY7WdLHj+OUoooiIyANvXkRERIVCREREhUJERFQoREREhUJERFQoRETkaZn+xUVv55lcGiyVQjK7s7IgWiOXyqfXL5karFsyR2AZNIdagupwUTfKnDyYjTYCDOTR6Xa42zJ+PD8/2piU2X+OnvzTW5uO9xnYmeNHzM9wfKP8nH4x781HJN19BnZmHN/juPXb7bets0O/LQ59PMx7K4+M299HQU7d3BplsE/jiRSKq+vtfr7MCS9EFqBAcZjgzZdrHMNxzPcvn5zixuxArfq1ExF5zv8ovq4bLY00Z4lGa0bNJNjvOnzbkmbJ4tCs0MJgl3ganhCTEici8rwLxWZDRmBLMLnxYgVTgrVGtsrni0YzZ+v7YmERTM2Yl2BuSpqIyLMvFFe3r9jVLbXe4LZjWgVGpS437HZbJi4pxv6F4wmbVlgvsAr4eLFS5kRE/pJvGN2pJl/hul4AAAAASUVORK5CYII=');
+}
+
+#categories li .infoBank h2 {
+	color : #636466;
+}
+
+#categories li .icon-arrow .path1::before {
+	color : #55B949;
+}
+
+#categories li .icon-myAlerts .path1::before, .icon-notifications, .icon-alerts, .icon-promotions, .icon-services {
+	color : #55B949;
+}
+
+.topHeader {
+    background: none repeat scroll 0% 0% #55B949;
+}
+
+nav.categoryNav span {
+ 
+}
+
+nav.categoryNav {
+    background: none repeat scroll 0% 0% rgba(47, 47, 50, 0.96);
+}
+
+#entities .newEntity {
+	background: none repeat scroll 0% 0% #55B949;
+}
+
+#categories .details h3, .details_ h3 {
+    color: #55B949;
+}
+
+nav.categoryNav span:hover {
+color: #55B949;
+}
+
+nav.categoryNav .icon-myAlerts.active .path1:before {
+    content: "\e60b";
+    color: #55B949;
+
+}
+
+.options .optionBtn {
+    background: #55B949;
+}
+
+.options .btnBank2:hover {
+    background: #55B949;
+}
+
+.dropdownOption ul li {
+    border-bottom: 1px solid #005B99 !important;
+}
+
+.oneOption {
+	color: #55B949;
+}
+
+nav.navAppriz ul li.active a {
+    color: #55B949;
+
+}
+
+nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
+    color: #55B949;
+}
+
+.contentMenu ul li button:hover .icon1 {
+    color: #55B949;
+
+}
+
+.products ul li button , .services ul li button{
+	color: #55B949;
+}
+
+.products h3 {
+    color: #55B949;
+}
+
+.editOption li input {
+	color: #55B949;
+}
+
+.editOption li select{
+	color: #55B949;
+}
+
+.products ul li button .icon-arrow .path1::before, .services ul li button .icon-arrow .path1::before {
+	color: #55B949;
+}
+
+.productNav li.active button{
+	color: #55B949;
+}
+
+.productNav .icon-myAlerts .path1::before {
+	color: #55B949;
+}
+
+input.toggle:checked + label::before {
+	 background: #55B949;
+}
+
+.productNav li button{
+	 background: none repeat scroll 0% 0% rgba(47, 47, 50, 0.96)
+}
+
+#colorHandle{
+	display : none;
+	color: rgb(85, 185, 73);
+}
