@@ -24,19 +24,19 @@ function getFileLocalURL(file, object, target){
 }
 
 function downloadContent(file,url,version){
-	console.log(664);
-	console.log(url)
+	//alert(664);
+	//alert(url)
 	if(fSys != null){
 		 fSys.root.getFile(file, {create: true, exclusive: false}, 
 		 function(fileEntry){
 			fileEntry.createWriter(function(writer){
-				console.log(665);
+				alert(665);
 				$.get(url,function(data){
-					console.log(666);
+					alert(666);
 					writer.write(data);
 					$.jStorage.set(file,version);
-					console.log(667);
-				}).fail(function(e){console.log(JSON.stringify(e))});
+					alert(667);
+				}).fail(function(e){alert(JSON.stringify(e))});
 			}, fail);
 		  }
 		 , fail);
@@ -92,7 +92,7 @@ function fail(e) {
       break;
   };
 
-  console.log('Error: ' + msg);
+  //alert('Error: ' + msg);
 }
 	
 
@@ -106,11 +106,11 @@ function downloadContentIMG(file,url,version){
 			uri,
 			cordova.file.documentsDirectory + file,
 			function(entry) {
-			   console.log("download complete: " + entry.toURL());
+			  // alert("download complete: " + entry.toURL());
 			},
 			function(error) {
-				console.log("download error source " + error.source);
-				console.log("download error target " + error.target);
+				//alert("download error source " + error.source);
+				//alert("download error target " + error.target);
 				fail(error);
 			},
 			true
