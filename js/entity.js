@@ -53,9 +53,9 @@ function loadEntityTemplate(){
 	$('.bankLogo img').attr("src", IMG);
 	$('.bankBrand img').attr("alt", "");
 	$('.bankBrand img').attr("src", IMG);*/
-	getFileLocalURL(FormatInteger(currentEntityID,4)+".png", $('.bankLogo img'), "src");
-	getFileLocalURL(FormatInteger(currentEntityID,4)+".png", $('.bankBrand img'), "src");
-	getFileLocalURL(FormatInteger(currentEntityID,4)+".css", $('#entityStyle'), "href");
+	getFileLocalURL(currentEntityID+".png", $('.bankLogo img'), "src");
+	getFileLocalURL(currentEntityID+".png", $('.bankBrand img'), "src");
+	getFileLocalURL(currentEntityID+".css", $('#entityStyle'), "href");
 	//$('#entityStyle').attr("href",S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
 	tabSelectedColor = $("#colorHandle").css("color");//"rgb(85, 185, 73)"
 }
