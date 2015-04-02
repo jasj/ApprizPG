@@ -95,11 +95,11 @@ function downloadContentIMG(file,url,version){
 	}*/
 	
 	var fileTransfer = new FileTransfer();
-var uri = encodeURI("http://www.autm.net/AM/Images/GET_INVOLVED.jpgp");
+var uri = encodeURI(url);
 
 fileTransfer.download(
     uri,
-    fileURL,
+    file,
     function(entry) {
        alert("download complete: " + entry.toURL());
     },
