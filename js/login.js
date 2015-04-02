@@ -92,8 +92,8 @@ function checkPreviusLogin(){
 			current_inbox();
 			counterByMsg();
 			makeSwipe();
-			loadEntityTemplate();
-			showInfoD($.t("Offline Mode"),$.t("some features are not enabled in this mode"),function(){});
+			
+			showInfoD($.t("Offline Mode"),$.t("some features are not enabled in this mode"),function(){loadEntityTemplate();});
 		}
 });
 	
