@@ -19,7 +19,7 @@ function getFileLocalURL(file, object, target,url){
 		 function(fileEntry){
 			 object.attr(target,fileEntry.toURL());
 		 }
-		 , fail);
+		 , function(e){object.attr(target,url)});
 	}else{
 		 object.attr(target,url);
 	}
@@ -33,7 +33,7 @@ function downloadContent(file,url,version){
 				$.get(url,function(data){
 					writer.write(data);
 					$.jStorage.set(file,version);
-				}).fail(function(e){alert(JSON.stringify(e))});
+				}).fail(function(e){});
 			}, fail);
 		  }
 		 , fail);
