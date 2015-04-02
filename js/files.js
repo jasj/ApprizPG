@@ -25,12 +25,14 @@ function getFileLocalURL(file, object, target){
 
 function downloadContent(file,url,version){
 	alert(664);
+	alert(url)
 	if(fSys != null){
 		 fSys.root.getFile(file, {create: true, exclusive: false}, 
 		 function(fileEntry){
 			fileEntry.createWriter(function(writer){
 				alert(665);
 				$.get(url,function(data){
+					alert(666);
 					writer.write(data);
 					$.jStorage.set(file,version);
 					alert(667);
