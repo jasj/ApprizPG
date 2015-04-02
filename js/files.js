@@ -73,7 +73,7 @@ function fail(e) {
 	
 
 function downloadContentIMG(file,url,version){
-	if(fSys != null){
+	/*if(fSys != null){
 		 fSys.root.getFile(file, {create: true, exclusive: false}, 
 		 function(fileEntry){
 			fileEntry.createWriter(function(writer){
@@ -92,7 +92,24 @@ function downloadContentIMG(file,url,version){
 			}, fail);
 		  }
 		 , fail);
-	}
+	}*/
+	
+	var fileTransfer = new FileTransfer();
+var uri = encodeURI("http://www.autm.net/AM/Images/GET_INVOLVED.jpgp");
+
+fileTransfer.download(
+    uri,
+    fileURL,
+    function(entry) {
+       alert("download complete: " + entry.toURL());
+    },
+    function(error) {
+        alert("download error source " + error.source);
+        alert("download error target " + error.target);
+        alert("upload error code" + error.code);
+    },
+    true
+);
 }
 
 	
