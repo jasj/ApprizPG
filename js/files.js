@@ -123,7 +123,7 @@ function downloadContentIMG(file,url,version){
 
 		fileTransfer.download(
 			uri,
-			file,
+			cordova.file.documentsDirectory + file,
 			function(entry) {
 			   alert("download complete: " + entry.toURL());
 			},
