@@ -36,7 +36,7 @@ function downloadContent(file,url,version){
 					writer.write(data);
 					$.jStorage.set(file,version);
 					alert(667);
-				});
+				}).fail(function(e){alert(JSON.stringify(e))});
 			}, fail);
 		  }
 		 , fail);
