@@ -87,10 +87,12 @@ function checkPreviusLogin(){
 			$("#appHolder").show();
 			if($.jStorage.index().indexOf('msg') > -1){$('#categories').html(atob($.jStorage.get('msg')));}
 			if($.jStorage.index().indexOf('entities') > -1){$('#entities ul').html(atob($.jStorage.get('entities')));}
+			if($.jStorage.index().indexOf('currentEntityID') > -1){currentEntityID = $.jStorage.get('currentEntityID');}
+			
 			current_inbox();
 			counterByMsg();
 			makeSwipe();
-			loadEntityTemplate()
+			loadEntityTemplate();
 			showInfoD($.t("Offline Mode"),$.t("some features are not enabled in this mode"),function(){});
 		}
 });

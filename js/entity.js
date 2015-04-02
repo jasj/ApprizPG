@@ -48,14 +48,11 @@ function reloadEntities(){
 		}
 		
 function loadEntityTemplate(){
-	//IMG = S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png?ver=1.0';
-	/*$('.bankLogo img').attr("alt", "");
-	$('.bankLogo img').attr("src", IMG);
-	$('.bankBrand img').attr("alt", "");
-	$('.bankBrand img').attr("src", IMG);*/
-	getFileLocalURL(currentEntityID+".png", $('.bankLogo img'), "src");
-	getFileLocalURL(currentEntityID+".png", $('.bankBrand img'), "src");
-	getFileLocalURL(currentEntityID+".css", $('#entityStyle'), "href");
+	oIMG = S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png?ver=1.0';
+	oCSS = S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css';
+	getFileLocalURL(currentEntityID+".png", $('.bankLogo img'), "src",oIMG);
+	getFileLocalURL(currentEntityID+".png", $('.bankBrand img'), "src",oIMG);
+	getFileLocalURL(currentEntityID+".css", $('#entityStyle'), "href",oCSS);
 	//$('#entityStyle').attr("href",S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
 	tabSelectedColor = $("#colorHandle").css("color");//"rgb(85, 185, 73)"
 }
