@@ -24,19 +24,19 @@ function getFileLocalURL(file, object, target){
 }
 
 function downloadContent(file,url,version){
-	alert(664);
-	alert(url)
+	console.log(664);
+	console.log(url)
 	if(fSys != null){
 		 fSys.root.getFile(file, {create: true, exclusive: false}, 
 		 function(fileEntry){
 			fileEntry.createWriter(function(writer){
-				alert(665);
+				console.log(665);
 				$.get(url,function(data){
-					alert(666);
+					console.log(666);
 					writer.write(data);
 					$.jStorage.set(file,version);
-					alert(667);
-				}).fail(function(e){alert(JSON.stringify(e))});
+					console.log(667);
+				}).fail(function(e){console.log(JSON.stringify(e))});
 			}, fail);
 		  }
 		 , fail);
@@ -92,31 +92,12 @@ function fail(e) {
       break;
   };
 
-  alert('Error: ' + msg);
+  console.log('Error: ' + msg);
 }
 	
 
 function downloadContentIMG(file,url,version){
-	/*if(fSys != null){
-		 fSys.root.getFile(file, {create: true, exclusive: false}, 
-		 function(fileEntry){
-			fileEntry.createWriter(function(writer){
-				alert(765);
-				$.ajax({
-					type: "GET",
-					url: url,
-					datatype:"image/png",
-					success:function(data){
-						alert(766);
-						writer.write(data);
-						$.jStorage.set(file,version);
-						alert(767);
-					}
-				});
-			}, fail);
-		  }
-		 , fail);
-	}*/
+	
 	if(fSys != null){
 		var fileTransfer = new FileTransfer();
 		var uri = encodeURI(url);
@@ -125,11 +106,11 @@ function downloadContentIMG(file,url,version){
 			uri,
 			cordova.file.documentsDirectory + file,
 			function(entry) {
-			   alert("download complete: " + entry.toURL());
+			   console.log("download complete: " + entry.toURL());
 			},
 			function(error) {
-				alert("download error source " + error.source);
-				alert("download error target " + error.target);
+				console.log("download error source " + error.source);
+				console.log("download error target " + error.target);
 				fail(error);
 			},
 			true
