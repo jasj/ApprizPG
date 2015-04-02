@@ -117,23 +117,24 @@ function downloadContentIMG(file,url,version){
 		  }
 		 , fail);
 	}*/
-	
-	var fileTransfer = new FileTransfer();
-var uri = encodeURI(url);
+	if(fSys != null){
+		var fileTransfer = new FileTransfer();
+		var uri = encodeURI(url);
 
-fileTransfer.download(
-    uri,
-    file,
-    function(entry) {
-       alert("download complete: " + entry.toURL());
-    },
-    function(error) {
-        alert("download error source " + error.source);
-        alert("download error target " + error.target);
-        fail(error);
-    },
-    true
-);
+		fileTransfer.download(
+			uri,
+			file,
+			function(entry) {
+			   alert("download complete: " + entry.toURL());
+			},
+			function(error) {
+				alert("download error source " + error.source);
+				alert("download error target " + error.target);
+				fail(error);
+			},
+			true
+		);
+	}
 }
 
 	
