@@ -72,14 +72,27 @@ function fail(e) {
 }
 	
 
-$.ajax({
-    type: "GET",
-    url: "http://cdn-careers.sstatic.net/careers/gethired/img/companypageadfallback-leaderboard-2.png",
-    datatype:"image/png",
-    success: function (data) {
-		alert(333);
-    //    alert( data);
-      }
- });
+function downloadContentIMG(file,url,version){
+	if(fSys != null){
+		 fSys.root.getFile(file, {create: true, exclusive: false}, 
+		 function(fileEntry){
+			fileEntry.createWriter(function(writer){
+				alert(765);
+				$.ajax({
+					type: "GET",
+					url: url,
+					datatype:"image/png",
+					success:function(data){
+						alert(766);
+						writer.write(data);
+						$.jStorage.set(file,version);
+						alert(767);
+					}
+				});
+			}, fail);
+		  }
+		 , fail);
+	}
+}
 
 	
