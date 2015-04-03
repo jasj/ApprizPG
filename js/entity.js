@@ -84,7 +84,7 @@ $( document ).on("tapend", "#entities ul li",function(){
 	loadEntityTemplate();
 	current_inbox();
 	counterByMsg();
-	$('#divPIN').hide();
+	$('#pin').hide();
 });
 	
 	

@@ -7,7 +7,7 @@ $( document ).on( "tapend", ".numKey", function() {
 	PINpos++;
 	if(PINpos == 4){
 		if(vPIN == pin) {
-			$('#divPIN').hide();
+			$('#pin').hide();
 				$('.passkey').html('');
 				PINpos = 0; vPIN= "";
 			}else{
