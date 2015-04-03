@@ -64,6 +64,8 @@ function checkPreviusLogin(){
 				reloadEntities();
 				callNewMSG();
 				
+				if(pinPolicy==0){$('#pin').show();}
+				
 				
 				
 				//$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
