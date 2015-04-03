@@ -27,6 +27,8 @@ function login(){
 				reloadEntities();
 				callNewMSG();
 				pin = data['pin'];
+				atWifi = data["onlyWIFI"];
+				retention =  data["retention"];
 				//getValidTimePeriods();
 				//reloadEntities();
 			
@@ -57,8 +59,12 @@ function checkPreviusLogin(){
 				logId = data["logId"];
 				pinPolicy = data["pinPolicy"];
 				pin = data["pin"];
+				atWifi = data["onlyWIFI"];
+				retention =  data["retention"];
 				$.jStorage.set('idSecretClient', data['idSecretClient']);
 				$.jStorage.set('pin', data['pin']);
+				$.jStorage.set('retention', data['retention']);
+				$.jStorage.set('onlyWIFI', data['onlyWIFI']);
 				
 				$('.splash').fadeOut(1000,function(){});
 				reloadEntities();
@@ -101,6 +107,8 @@ function checkPreviusLogin(){
 			if($.jStorage.index().indexOf('msg') > -1){$('#categories').html(atob($.jStorage.get('msg')));}
 			if($.jStorage.index().indexOf('entities') > -1){$('#entities ul').html(atob($.jStorage.get('entities')));}
 			if($.jStorage.index().indexOf('currentEntityID') > -1){currentEntityID = $.jStorage.get('currentEntityID');}
+			if($.jStorage.index().indexOf('onlyWIFI') > -1){atWifi = $.jStorage.get('onlyWIFI');} else{ atWifi =1}
+			if($.jStorage.index().indexOf('retention') > -1){retention = $.jStorage.get('retention');}else{ retention =4}
 			
 			current_inbox();
 			counterByMsg();

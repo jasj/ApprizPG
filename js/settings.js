@@ -5,7 +5,10 @@ $(document).on('tapend' ,'#settingsPage .btnFull', function(){
 		pinPolicy   			:  $("#pinPolicy").prop('checked') ? 0 : 1,
 		onlyWIFI				:  $("#atWifi").prop('checked') ? 1 : 0
 	}, function(data){
-		showInfoD($.t('Change Settings'),$.t('The settings was changed!'),function(){$('.moldHide, .dialogAlert').hide(); pinPolicy  =  $("#pinPolicy").prop('checked') ? 0 : 1});
+		showInfoD($.t('Change Settings'),$.t('The settings was changed!'),function(){$('.moldHide, .dialogAlert').hide(); 
+		pinPolicy  =  $("#pinPolicy").prop('checked') ? 0 : 1});
+		atWifi =  $("#atWifi").prop('checked') ? 1 : 0;
+		retention =   parseInt($('.isThis').find('span').html());
 	});
 });
 
@@ -46,10 +49,11 @@ $('#pinChg .btnFull').tapend(function(){
 		showInfoD($.t('Wrong PIN'),$.t('PIN must be of fourth digits'),function(){$('.moldHide, .dialogAlert').hide();});
 		$('#pinChg input[type="tel"]').eq(0).val("");
 	}
+});
 
-	
-	
-	
-
-
+$( document ).on('tapend','[page-content=settingsPage]',function(){
+	$('#pinPolicy').prop('checked', pinPolicy == 1 ? false : true);
+	$('#atWifi').prop('checked', atWifi == 1 ? true : false);
+	$("#settingsPage .weeksOption input").prop('checked', false);
+	$("#settingsPage [week="+(retention =="undefined" ? 4 : retention)+"]").prev().prop('checked', true);
 });

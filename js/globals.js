@@ -20,3 +20,5 @@
 	PIN = "0AWE";
 	back = [];
 	stateChangeLst = [];
+	retention = 1;
+	atWifi = 0;
