@@ -61,10 +61,10 @@ function checkPreviusLogin(){
 				$.jStorage.set('pin', data['pin']);
 				
 				$('.splash').fadeOut(1000,function(){});
-	
+				reloadEntities();
 				callNewMSG();
 				
-				reloadEntities();
+				
 				
 				//$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
 				//$('.header_demo img').attr('src','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png');

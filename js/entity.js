@@ -26,10 +26,11 @@ function reloadEntities(){
 				entities +='<li id="entity_'+entity["entityID"]+'" entityId="'+entity["entityID"]+'"><div class="bubble2"></div><img src="https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(entity["entityID"],4)+'/Advertising/Logos/overWhite_logo.png?ver=1.0" alt="'+entity["entityName"]+'"/> <button class="deleteSwipe">Delete</button></li>';
 					
 					
-				
+				alert(currentEntityID);
 					if( currentEntityID < 1 || isNaN(currentEntityID)){
 						currentEntityID  = entity["entityID"];
 						lastCSS = 2;
+						alert(currentEntityID);
 					}
 				});
 				$("#entities ul").html(entities);
