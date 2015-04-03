@@ -31,7 +31,6 @@ function reloadEntities(){
 					if( currentEntityID < 1 || isNaN(currentEntityID)){
 						currentEntityID  = entity["entityID"];
 						lastCSS = 2;
-						alert(currentEntityID);
 						frsTime = 1;
 						$.jStorage.set('currentEntityID',currentEntityID) ;
 					}
@@ -85,6 +84,7 @@ $( document ).on("tapend", "#entities ul li",function(){
 	loadEntityTemplate();
 	current_inbox();
 	counterByMsg();
+	$('#divPIN').hide();
 });
 	
 	

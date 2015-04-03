@@ -10,7 +10,7 @@ function addProducts(products,view){
 }
 function getProducts(view){
 	
-	if(pinPolicy==1){$('#pin').show();}
+	if(pinPolicy==1){$('#divPIN').show();}
 		$.post('http://'+IP+':8089/appriz/getProductsByClient',{"idSecretClient": idScretClient,"entityName": $('#entities li[entityId='+currentEntityID+']').find('img').attr("alt"),"view":view,},function(data){
 			console.log(JSON.stringify(data));
 			
