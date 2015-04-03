@@ -10,6 +10,13 @@ $( document ).on( "tapend", ".numKey", function() {
 			$('#pin').hide();
 				$('.passkey').html('');
 				PINpos = 0; vPIN= "";
+				//$("#inbox").show();
+				$('#categories').show();
+				$('#ads').show();
+				$('.categoryNav').show();
+				
+				//$('.fullWrapper').show();
+				$('.icon-menu').show();
 			}else{
 					showInfoD($.t('Wrong PIN'),$.t('The PIN that you used is invalid'),function(){});
 			}

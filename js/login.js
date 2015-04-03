@@ -64,7 +64,18 @@ function checkPreviusLogin(){
 				reloadEntities();
 				callNewMSG();
 				
-				if(pinPolicy==0){$('#pin').show();}
+				if(pinPolicy==0){
+					$('#pin').show();
+				
+					$('#categories').hide();
+					$('#ads').hide();
+					$('.categoryNav').hide();
+					
+				//	$('.fullWrapper').hide();
+					$('.icon-menu').hide();
+					
+				}
+				
 				
 				
 				

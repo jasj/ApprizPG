@@ -52,6 +52,9 @@
 		$("#"+$("#"+$(this).attr("page-content")+".page-content").attr("header")).find('.headerText').html($.t($("#"+$(this).attr("page-content")+".page-content").attr("headerText")));
 		$('#menuAppriz').fadeOut(300);
 			$('.allMenu').velocity({"right" : "-80%"});
+			if( $(this).attr("page-content") == "settingsPage"  && pinPolicy==1 ){
+				$('#pin').show();
+			}
 	});
 	//page back
 	

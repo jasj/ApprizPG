@@ -48,6 +48,8 @@ $('#pinChg .btnFull').tapend(function(){
 	}
 
 	
+	
+	
 
 
 });
