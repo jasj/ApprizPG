@@ -25,12 +25,13 @@ function reloadEntities(){
 					//}
 				entities +='<li id="entity_'+entity["entityID"]+'" entityId="'+entity["entityID"]+'"><div class="bubble2"></div><img src="https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(entity["entityID"],4)+'/Advertising/Logos/overWhite_logo.png?ver=1.0" alt="'+entity["entityName"]+'"/> <button class="deleteSwipe">Delete</button></li>';
 					
-					
+				var frsTime = 0;	
 				alert(currentEntityID);
 					if( currentEntityID < 1 || isNaN(currentEntityID)){
 						currentEntityID  = entity["entityID"];
 						lastCSS = 2;
 						alert(currentEntityID);
+						frsTime = 1;
 					}
 				});
 				$("#entities ul").html(entities);
@@ -39,7 +40,7 @@ function reloadEntities(){
 				makeSwipeEntity();
 				current_inbox();
 				counterByMsg();
-				loadEntityTemplate();
+				loadEntityTemplate(frsTime);
 			//	alert(S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
 			//	downloadContent(FormatInteger(currentEntityID,4)+".css",S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
 				console.log(JSON.stringify(data));
@@ -48,12 +49,19 @@ function reloadEntities(){
 			
 		}
 		
-function loadEntityTemplate(){
+function loadEntityTemplate(frsTime){
 	oIMG = S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png?ver=1.0';
 	oCSS = S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css';
-	getFileLocalURL(currentEntityID+".png", $('.bankLogo img'), "src",oIMG);
-	getFileLocalURL(currentEntityID+".png", $('.bankBrand img'), "src",oIMG);
-	getFileLocalURL(currentEntityID+".css", $('#entityStyle'), "href",oCSS);
+	if(frsTime == 1) {
+		$('.bankLogo img').attr("src",oIMG);
+		$('.bankBrand img').attr("src",oIMG);
+		$('#entityStyle').attr("href",oCSS);
+	}else{
+		getFileLocalURL(currentEntityID+".png", $('.bankLogo img'), "src",oIMG);
+		getFileLocalURL(currentEntityID+".png", $('.bankBrand img'), "src",oIMG);
+		getFileLocalURL(currentEntityID+".css", $('#entityStyle'), "href",oCSS);
+	}
+	
 	//$('#entityStyle').attr("href",S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
 	tabSelectedColor = $("#colorHandle").css("color");//"rgb(85, 185, 73)"
 }
