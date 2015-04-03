@@ -18,7 +18,6 @@ function getFileLocalURL(file, object, target,url){
 		 fSys.root.getFile(file, {create: true, exclusive: false}, 
 		 function(fileEntry){
 			 object.attr(target,fileEntry.toURL());
-			 alert(fileEntry.toURL());
 		 }
 		 , function(e){object.attr(target,url)});
 	}else{

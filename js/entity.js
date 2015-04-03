@@ -27,12 +27,13 @@ function reloadEntities(){
 				entities +='<li id="entity_'+entity["entityID"]+'" entityId="'+entity["entityID"]+'"><div class="bubble2"></div><img src="https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(entity["entityID"],4)+'/Advertising/Logos/overWhite_logo.png?ver=1.0" alt="'+entity["entityName"]+'"/> <button class="deleteSwipe">Delete</button></li>';
 					
 				
-				alert(currentEntityID);
+				
 					if( currentEntityID < 1 || isNaN(currentEntityID)){
 						currentEntityID  = entity["entityID"];
 						lastCSS = 2;
 						alert(currentEntityID);
 						frsTime = 1;
+						$.jStorage.set('currentEntityID',currentEntityID) ;
 					}
 				});
 				$("#entities ul").html(entities);
@@ -57,7 +58,6 @@ function loadEntityTemplate(frsTime){
 		$('.bankLogo img').attr("src",oIMG);
 		$('.bankBrand img').attr("src",oIMG);
 		$('#entityStyle').attr("href",oCSS);
-		alert(currentEntityID);
 	}else{
 		getFileLocalURL(currentEntityID+".png", $('.bankLogo img'), "src",oIMG);
 		getFileLocalURL(currentEntityID+".png", $('.bankBrand img'), "src",oIMG);
