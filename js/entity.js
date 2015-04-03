@@ -56,6 +56,7 @@ function loadEntityTemplate(frsTime){
 		$('.bankLogo img').attr("src",oIMG);
 		$('.bankBrand img').attr("src",oIMG);
 		$('#entityStyle').attr("href",oCSS);
+		alert(currentEntityID);
 	}else{
 		getFileLocalURL(currentEntityID+".png", $('.bankLogo img'), "src",oIMG);
 		getFileLocalURL(currentEntityID+".png", $('.bankBrand img'), "src",oIMG);
