@@ -103,7 +103,7 @@ function downloadContentIMG(file,url,version){
 			uri,
 			cordova.file.dataDirectory + file,
 			function(entry) {
-			  
+			  	$.jStorage.set(file,version);
 			},
 			function(error) {
 				
