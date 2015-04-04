@@ -1121,13 +1121,17 @@ nav.categoryNav ul li a {
 
 nav.categoryNav span {
     content: "\e60b";
+	color: #D5D4D3;
     /*color: rgb(85, 185, 73);*/
 }
 
-nav.categoryNav span:hover {
+nav.categoryNav span.active{
     content: "\e60b";
-    color: #005B99;
+	color: #005B99;
+    /*color: rgb(85, 185, 73);*/
 }
+
+
 
 nav.categoryNav .icon-myAlerts {
     font-size: 40px;
@@ -2446,9 +2450,7 @@ h4.user {
 	background: white;
 }
 
-.historye{
-	border-bottom: 1px solid gray;
-}
+
 
 .wraperWindows {
     position: absolute;

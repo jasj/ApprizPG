@@ -232,6 +232,7 @@ function makeSwipe(id){
 				fix_messages();
 				$.jStorage.set('msg', btoa($('#categories').html()));
 				$('.refreshing_list').hide(); 
+				$("*").scrollTop(1);
 				
 		//	counterByMsg();$('.refreshing_list').hide(); 
 			});
@@ -250,22 +251,18 @@ function makeSwipe(id){
 		//Filter handle
 		$( document ).on("tapend",'nav.categoryNav li',function(){
 		
-			if( $(this).find("span").css("color") == tabSelectedColor){
-				$(this).find("span").css({content: "\e60b",color: tabUnSelectedColor});
+			if( $(this).find("span").hasClass("active")){
 				$(this).find("span").removeClass("active");
 				$('.typemsg'+$(this).attr("typemsg")).hide();
 			}else{
-				$(this).find("span").css({content: "\e60b",color: tabSelectedColor});
-				$(this).find('.path1').css({color: tabSelectedColor});
 				$(this).find("span").addClass("active");
 				$('.typemsg'+$(this).attr("typemsg")+'[identity='+currentEntityID+']').show();
-				
 			}
 			$("*").scrollTop(1);
 		});
 		
 		$( document ).on("taphold",'nav.categoryNav li',function(){
-			$('nav.categoryNav span').css({content: "\e60b",color: tabUnSelectedColor});
+			
 			$('#categories li').not($('.typemsg'+$(this).attr("typemsg")+'[identity='+currentEntityID+']')).hide();
 			$('nav.categoryNav span').removeClass("active");
 			//$(this).css({content: "\e60b",color: tabSelectedColor});
