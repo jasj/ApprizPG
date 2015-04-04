@@ -22,6 +22,8 @@ function showMessage(id){
 	$("#MessageDetail.page-content").addClass("active").show();
 	//Hide history  page
 	$(".historye").hide();
+	//Show Appends page
+	$(".appends").show();
 	//Put default history button label
 	$("#showHistory").html($.t("History")) ;
 	//Begin a safe path if services doesnt exist 
@@ -124,8 +126,20 @@ $( document ).on('tapend','#showHistory',function(){
 	if($(this).html() == $.t("History")){
 		$(".historye").show();
 		$(this).html($.t("back"));
+		$(".appends").hide();
 	}else{
 		$(".historye").hide();
 		$(this).html($.t("History"));
+		$(".appends").show();
 	}
+});
+
+$( document ).on('tapend','.wraperWindows',function(){
+	//$('.dropdownOption').velocity({'bottom': (-$('.dropdownOption').height()-50)+"px"});
+	//	$(".appends").css({"z-index": 40});
+});
+
+$( document ).on('tapend','.dropdownOption ul li',function(){
+	requestService({"idMessage": $(this).attr('msg'), "code": $(this).attr('services'), "description": $(this).find('.oneOption').html()});
+		console.log(JSON.stringify({"idMessage": $(this).attr('msg'), "code": $(this).attr('services'), "description": $(this).html()}));
 });
