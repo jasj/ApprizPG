@@ -26,19 +26,26 @@ function getFileLocalURL(file, object, target,url){
 }
 
 function downloadContent(file,url,version){
+	
 	if(fSys != null){
-		 fSys.root.getFile(cordova.file.dataDirectory + file, {create: true, exclusive: false}, 
-		 function(fileEntry){
-			fileEntry.createWriter(function(writer){
-				$.get(url,function(data){
-					writer.write(data);
-					$.jStorage.set(file,version);
-				}).fail(function(e){});
-			}, fail);
-		  }
-		 , fail);
+		var fileTransfer = new FileTransfer();
+		var uri = encodeURI(url);
+
+		fileTransfer.download(
+			uri,
+			cordova.file.dataDirectory + file,
+			function(entry) {
+			  	$.jStorage.set(file,version);
+			},
+			function(error) {
+				
+				fail(error);
+			},
+			true
+		);
 	}
 }
+
 
     
 function fail(e) {
@@ -93,25 +100,5 @@ function fail(e) {
 }
 	
 
-function downloadContentIMG(file,url,version){
-	
-	if(fSys != null){
-		var fileTransfer = new FileTransfer();
-		var uri = encodeURI(url);
-
-		fileTransfer.download(
-			uri,
-			cordova.file.dataDirectory + file,
-			function(entry) {
-			  	$.jStorage.set(file,version);
-			},
-			function(error) {
-				
-				fail(error);
-			},
-			true
-		);
-	}
-}
 
 	

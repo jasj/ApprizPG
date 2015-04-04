@@ -232,7 +232,8 @@ function makeSwipe(id){
 				fix_messages();
 				$.jStorage.set('msg', btoa($('#categories').html()));
 				$('.refreshing_list').hide(); 
-				$("*").scrollTop(1);
+				$("*").scrollTop(2);
+				$(nav.categoryNav li span).addClass("active");
 				
 		//	counterByMsg();$('.refreshing_list').hide(); 
 			});
@@ -250,7 +251,6 @@ function makeSwipe(id){
 				
 		//Filter handle
 		$( document ).on("tapend",'nav.categoryNav li',function(){
-		
 			if( $(this).find("span").hasClass("active")){
 				$(this).find("span").removeClass("active");
 				$('.typemsg'+$(this).attr("typemsg")).hide();
