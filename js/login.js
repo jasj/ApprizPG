@@ -11,6 +11,8 @@
 
 function login(){
 	  //event.preventDefault();
+	  var patFemail = /(\S+)@/;
+	  var logAs = $('.loginBox input').eq(0).val().match(patFemail)[1];
 		$.post('http://'+IP+':8089/appriz/login',{
 			"email" : $('.loginBox input').eq(0).val(),
 			"password":$('.loginBox input').eq(1).val(),
@@ -24,6 +26,8 @@ function login(){
 				idScretClient = data["idSecretClient"];
 				$.jStorage.set('idSecretClient', data['idSecretClient']);
 				$.jStorage.set('pin', data['pin']);
+				$.jStorage.set('logAs', logAs);
+				$('.user div').html($.jStorage.get('logAs'));
 				reloadEntities();
 				callNewMSG();
 				pin = data['pin'];
@@ -65,6 +69,7 @@ function checkPreviusLogin(){
 				$.jStorage.set('pin', data['pin']);
 				$.jStorage.set('retention', data['retention']);
 				$.jStorage.set('onlyWIFI', data['onlyWIFI']);
+				$('.user div').html($.jStorage.get('logAs'));
 				
 				$('.splash').fadeOut(1000,function(){});
 				reloadEntities();
@@ -109,7 +114,7 @@ function checkPreviusLogin(){
 			if($.jStorage.index().indexOf('currentEntityID') > -1){currentEntityID = $.jStorage.get('currentEntityID');}
 			if($.jStorage.index().indexOf('onlyWIFI') > -1){atWifi = $.jStorage.get('onlyWIFI');} else{ atWifi =1}
 			if($.jStorage.index().indexOf('retention') > -1){retention = $.jStorage.get('retention');}else{ retention =4}
-			
+			$('.user div').html($.jStorage.get('logAs'));
 			current_inbox();
 			counterByMsg();
 			makeSwipe();

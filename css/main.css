@@ -2433,6 +2433,23 @@ h4.user {
     z-index: 5;
 }
 
+
+.historye {
+    position: absolute;
+    top: 235px;
+    left: 5px;
+    right: 5px;
+    bottom: 70px;
+    overflow-y: auto;
+    z-index: 5;
+	display : none;
+	background: white;
+}
+
+.historye{
+	border-bottom: 1px solid gray;
+}
+
 .wraperWindows {
     position: absolute;
     left: 0px;
@@ -2648,4 +2665,13 @@ right: 0px;
 #colorHandle{
 	display : none;
 	color: rgb(0, 91, 153);
+}
+
+.refreshing_list{
+	text-align : center;
+	border-bottom: 1px solid gray;
+}
+
+#ads{
+	display : none;
 }

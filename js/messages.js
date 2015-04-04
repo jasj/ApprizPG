@@ -168,8 +168,7 @@ function makeSwipe(id){
 		
 				$('.refreshing_list').show();
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
-			//	$('#message_div').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i> Refreshing ...</div>");aprzSipner
-			$('#categories').html("");
+			$('#categories').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i> " +$.t("Refreshing")+ "...</div>");
 				console.log(JSON.stringify(data));
 				
 				$.each(data,function(index, message){
@@ -184,7 +183,8 @@ function makeSwipe(id){
 					//child msg
 			
 					if( ( 'idParent' in message) && ($('#categories #'+message['idParent']).length>0)){
-						
+						var postDate = new Date(message['postdate']);
+						var dateText = postDate.toLocaleString();
 						if(message['state'] == 3){
 							$('#categories #'+message['idParent']).attr('read',$('#categories #'+message['idParent']).hasAttr('read') ? $('#categories #'+message['idParent']).attr('read')+','+message['idMessage'] : message['idMessage']);
 						}else{
@@ -192,10 +192,10 @@ function makeSwipe(id){
 							$('#'+message['idMessage']).addClass('unread');
 						}
 						if($('#categories #'+message['idParent']).hasAttr('history')){
-							$('#categories #'+message['idParent']).attr('history',btoa(atob($('#categories #'+message['idParent']).attr('history'))+";"+message['shortMessage']+":"+message['longMessage']));
+							$('#categories #'+message['idParent']).attr('history',btoa(atob($('#categories #'+message['idParent']).attr('history'))+";"+message['shortMessage']+"^"+message['longMessage']+"^"+dateText));
 							
 						}else{
-							$('#categories #'+message['idParent']).attr('history',btoa(message['shortMessage']+":"+message['longMessage']));
+							$('#categories #'+message['idParent']).attr('history',btoa(message['shortMessage']+"^"+message['longMessage']+"^"+dateText));
 						}
 						console.log(atob($('#categories #'+message['idParent']).attr('history')));
 
@@ -207,7 +207,9 @@ function makeSwipe(id){
 						var dotState =  message['bulb'] == 1   ? 'dotDone' : message['bulb'] == 2   ? 'dotProgress' : message['bulb'] == 3   ? 'dotError' :  'dotNone';
 						
 						var postDate = new Date(message['postdate']);
-						var postDateS = postDate.getFullYear() + "-"+FormatInteger(postDate.getMonth() + 1,2)+ "-"+FormatInteger(postDate.getDate(),2) +" "+postDate.getHours()+":"+postDate.getMinutes()+":"+postDate.getSeconds();
+						var postDateS = postDate.toLocaleString();
+						
+					//	var postDateS = postDate.getFullYear() + "-"+FormatInteger(postDate.getMonth() + 1,2)+ "-"+FormatInteger(postDate.getDate(),2) +" "+postDate.getHours()+":"+postDate.getMinutes()+":"+postDate.getSeconds();
 						$('#categories').append( "<li class='Message "+( message['state'] < 3 ? "unread" : "" )+" typemsg"+message['type']+" entity"+message['idEntity']+"' id='"+message['idMessage']+"' bulb='"+message['bulb']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><div class='moveContainer'><div class='details'><h3>"+message['longMessage']+"</h3></div><div class='centralLI'><div class='iconCat'>"+Icon+"</div><div class='infoBank'><h2>"+message['shortMessage']+"</h2><h6 class='dateBank'><span class='icon-primitive-dot "+dotState+"'></span><date>"+postDateS+"<date></h6></div><button class='icon-arrow'><span class='path1'></span><span class='path2'></span></button></div><div class='rightLI'><button class='deleteSwipe'>Delete</button></div ></div></li>");
 						
 						$.jStorage.set('msg_div', btoa($('#categories').html()));
@@ -229,6 +231,7 @@ function makeSwipe(id){
 				makeSwipe();
 				fix_messages();
 				$.jStorage.set('msg', btoa($('#categories').html()));
+				$('.refreshing_list').hide(); 
 				
 		//	counterByMsg();$('.refreshing_list').hide(); 
 			});
@@ -258,7 +261,7 @@ function makeSwipe(id){
 				$('.typemsg'+$(this).attr("typemsg")+'[identity='+currentEntityID+']').show();
 				
 			}
-			$("*").scrollTop(0);
+			$("*").scrollTop(1);
 		});
 		
 		$( document ).on("taphold",'nav.categoryNav li',function(){
@@ -266,6 +269,16 @@ function makeSwipe(id){
 			$('#categories li').not($('.typemsg'+$(this).attr("typemsg")+'[identity='+currentEntityID+']')).hide();
 			$('nav.categoryNav span').removeClass("active");
 			//$(this).css({content: "\e60b",color: tabSelectedColor});
+		});
+		
+		
+		$('#appHolder').parent().parent().parent().bind('scroll', function()
+		{
+			if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() == 0){
+				 callNewMSG();
+				 current_inbox();
+			}
+			
 		});
 		
 		

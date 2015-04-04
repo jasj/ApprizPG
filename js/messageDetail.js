@@ -20,6 +20,10 @@ function showMessage(id){
 	$(".page-content.active").removeClass("active");
 	//Show details page
 	$("#MessageDetail.page-content").addClass("active").show();
+	//Hide history  page
+	$(".historye").hide();
+	//Put default history button label
+	$("#showHistory").html($.t("History")) ;
 	//Begin a safe path if services doesnt exist 
 	try{
 		//convert service attribute to original request format
@@ -84,10 +88,26 @@ function showMessage(id){
 	//Choose the entity header 
 	$("header.active").removeClass("active");
 	$("#headerEntity").addClass("active");
+	
+
+	try{
+		strHistory = "";
+		tmp_hist = atob(msg.attr('history')).split(';');
+		console.log(tmp_hist.length);
+		for(var i = 0; i < tmp_hist.length ; i++){
+			tmp_history = tmp_hist[i].split('^');
+			strHistory = strHistory + "<div><h4>"+tmp_history[0]+"</h4><p>"+tmp_history[1]+"</p><p>"+tmp_history[2]+"</p></div>"
+		};
+		$('.historye').html(strHistory);
+		$('#showHistory').show();
+	}
+	catch(e){
+		$('#showHistory').hide();
+	}
 		
 }
 
-$( document ).on('tapend','.optionBtn',function(){
+$( document ).on('tapend','#showOptions',function(){
 	
 	if($('.dropdownOption').css("bottom") == "50px"){
 	//	alert($('.dropdownOption').height() );
@@ -97,5 +117,15 @@ $( document ).on('tapend','.optionBtn',function(){
 	else{
 		$(".appends").css({"z-index": 0});
 		$('.dropdownOption').velocity({'bottom' : '50px'});
+	}
+});
+
+$( document ).on('tapend','#showHistory',function(){
+	if($(this).html() == $.t("History")){
+		$(".historye").show();
+		$(this).html($.t("back"));
+	}else{
+		$(".historye").hide();
+		$(this).html($.t("History"));
 	}
 });

@@ -1,13 +1,14 @@
 
 function addServices(services){
-	$('#services .services ul').html('');
+
 	 console.log(JSON.stringify(services));
 	for( service in services){
-	
 		$('#services .services ul').append('<li service="'+service+'"><button><srv>'+services[service]+'</srv><span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span></button></li>');
 	}
+	$(".refreshing_list").hide();
 }
 function getServices(productName){
+	$('#services .services ul').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i> " +$.t("Refreshing")+ "...</div>");
 	$.post('http://'+IP+':8089/appriz/getServicesByProduct',{"idSecretClient": idScretClient,"productName":productName,},function(data){
 			if (data["status"]== 200){
 				addServices(data["services"]);

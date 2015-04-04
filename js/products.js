@@ -2,15 +2,17 @@
 view = "unselect";
 function addProducts(products,view){
 	$(".productNav li").eq(0).find("button").html(view  == "rules" ? '<span class="icon-myAlerts"><span class="path1"></span><span class="path2"></span></span>'+$.t('My Alerts') : '<span class="icon-services"><span class="path1"></span></span>'+$.t('Services'));
-	$('#products .products ul').html('');
 	for( product in products){
 		$('#products .products ul').append('<li page-content='+view+'><button><prd>'+product+'</prd><span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span></button></li>');
 	}
+	$(".refreshing_list").hide();
+	
 
 }
 function getProducts(view){
-	
+	$('#products .products ul').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i> " +$.t("Refreshing")+ "...</div>");
 	if(pinPolicy==1){$('#pin').show();}
+	$()
 		$.post('http://'+IP+':8089/appriz/getProductsByClient',{"idSecretClient": idScretClient,"entityName": $('#entities li[entityId='+currentEntityID+']').find('img').attr("alt"),"view":view,},function(data){
 			console.log(JSON.stringify(data));
 			

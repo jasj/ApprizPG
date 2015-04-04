@@ -6,11 +6,7 @@ function timePicker(objs){
 		return timePickerString+"</fieldset>";
 	}
 function addRules(objs){
-	var toAppend = '';
-	$('#rules .products ul').html('');
-	
-	
-						
+	var toAppend = '';				
 	$.each(objs,function(index,obj){;
 		toAppend  =  "<li class='rule' id='rule_"+obj["idRule"]+"'><h3>"+obj["ruleName"]+"</h3>";
 	//	toAppend +=  " <div class='onoffswitch'><input type='checkbox' name='onoffswitch' class='onoffswitch-checkbox' id='switchRule"+obj["idRule"]+"' "+(obj["active"] ? "checked" : "")+">";
@@ -28,11 +24,11 @@ function addRules(objs){
 		if("idTime" in obj ) {$('select:last option[value="'+obj["idTime"]+'"]').prop('selected', true); $('idTime:last').html($('select:last option[value="'+obj["idTime"]+'"]').html());}
 	});
 	$('#rules_div').append("<div style='width: 100%; height: 150px;'></div>");
-	
+	$(".refreshing_list").hide();
 }
 
 function getRules(productName){
-
+	$('#rules .products ul').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i> " +$.t("Refreshing")+ "...</div>");
 		$.post('http://'+IP+':8089/appriz/getRulesByProduct',{"idSecretClient": idScretClient,"productName":productName,},function(data){
 			if (data["status"]== 200){
 				addRules(data["rules"]);
