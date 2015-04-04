@@ -78,6 +78,7 @@ function makeSwipeEntity(id){
 		
 		swipeStatus:function(event, phase, direction, distance , duration , fingerCount) {
 				 if((phase === $.fn.swipe.phases.PHASE_END || phase === $.fn.swipe.phases.PHASE_CANCEL )& distance == 0)  {
+						
 						currentEntityID = $(this).attr("entityId");
 						$.jStorage.set('currentEntityID',currentEntityID) ;
 						loadEntityTemplate();

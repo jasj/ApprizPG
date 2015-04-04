@@ -15,7 +15,7 @@ function gotFS(fileSystem) {
 
 function getFileLocalURL(file, object, target,url){
 	if(fSys != null){
-		 fSys.root.getFile( cordova.file.dataDirectory + file, {create: true, exclusive: false}, 
+		 fSys.root.getFile(file, {create: true, exclusive: false}, 
 		 function(fileEntry){
 			 object.attr(target,fileEntry.toURL());
 		 }
@@ -27,7 +27,7 @@ function getFileLocalURL(file, object, target,url){
 
 function downloadContent(file,url,version){
 	if(fSys != null){
-		 fSys.root.getFile(cordova.file.dataDirectory + file, {create: true, exclusive: false}, 
+		 fSys.root.getFile(file, {create: true, exclusive: false}, 
 		 function(fileEntry){
 			fileEntry.createWriter(function(writer){
 				$.get(url,function(data){
