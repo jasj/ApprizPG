@@ -233,7 +233,7 @@ function makeSwipe(id){
 				$.jStorage.set('msg', btoa($('#categories').html()));
 				$('.refreshing_list').hide(); 
 				$("*").scrollTop(2);
-				$(nav.categoryNav li span).addClass("active");
+				$("nav.categoryNav li span").addClass("active");
 				
 		//	counterByMsg();$('.refreshing_list').hide(); 
 			});
