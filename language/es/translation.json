@@ -68,5 +68,7 @@
   "Offline Mode" : "Modo fuera sin conección",
   "some features are not enabled in this mode" : "algunas caracteristicas no estan habilitadas en este modo",
   "Hay un error de conexión con los servicios de Appriz" : "Hay un error de conexión con los servicios de Appriz",
-  "Refreshing" : "Refrescando"
+  "Refreshing" : "Refrescando",
+  "Unsuscribe Confirmation" : "Confirmación Desinscripción",
+  "Are you sure that you want to unsuscribe to" : "Esta seguro que desea desincribirse de"
 }

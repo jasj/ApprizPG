@@ -20,14 +20,17 @@ function getServices(productName){
 }
 
 function requestService(serviceObj){
-	$.post('http://'+IP+':8089/appriz/sendServiceRequest',$.extend({"idSecretClient": idScretClient},serviceObj),function(data){
-		if (data["status"]== 200){
-			showInfoD($.t('Sucessfull!'),$.t('Your request was succesfully send'),function(){$('.moldHide, .dialogAlert').hide();});
-		}
-	
-	},'json') .fail(function(e) {
-		showInfoD($.t("Offline Mode"),$.t("This option is disabled in Offline Mode"),function(){back=["inbox","inbox"];$(".icon-back").trigger("tapend")});
-	}).done(function(){});
+	showAlert($.t("Confirm Request "),serviceObj["description"],function(){
+		$('.moldHide, .dialogAlert').hide();
+		$.post('http://'+IP+':8089/appriz/sendServiceRequest',$.extend({"idSecretClient": idScretClient},serviceObj),function(data){
+			if (data["status"]== 200){
+				showInfoD($.t('Sucessfull!'),$.t('Your request was succesfully send'),function(){$('.moldHide, .dialogAlert').hide();});
+			}
+		
+		},'json') .fail(function(e) {
+			showInfoD($.t("Offline Mode"),$.t("This option is disabled in Offline Mode"),function(){back=["inbox","inbox"];$(".icon-back").trigger("tapend")});
+		}).done(function(){});
+	},function(){$('.moldHide, .dialogAlert').hide();});
 }
 
 $( document ).on("tapend","[page-content=services]",function(){

@@ -54,7 +54,7 @@ function showAlert(title,text,yesFn,noFn){
 		$('#modal2Btn').hide();
 		yesFn();
 	});
-	$( document ).on('click','.yesBtn',function(){
+	$( document ).on('click','.noBtn',function(){
 		$('#modal2Btn').hide();
 		noFn();
 	});

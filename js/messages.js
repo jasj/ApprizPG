@@ -91,23 +91,25 @@ function makeSwipe(id){
 					var actualMargin = parseInt(mContainer.css("margin-left").replace(/[^-\d\.]/g, '') );
 					
 					if(direction=='left' & distance > (150) & actualMargin < 0){
-							mContainer.css({"margin-left" : "-150px"},{mobileHA: false}); //show delete button
+							mContainer.css({"margin-left" : "-150px"}); //show delete button
+							mContainer.addClass("deleteOptionActivate");
 							
 					}else if(direction=='left' & distance < (150) & actualMargin < 0){
-							mContainer.animate({"margin-left" : "0px"},{mobileHA: false}); //no show the delete button
+							mContainer.animate({"margin-left" : "0px"}); //no show the delete button
+							mContainer.removeClass("deleteOptionActivate");
 							
 					}else if(direction=='left' & distance < (window.innerWidth*0.3) & actualMargin > window.innerWidth){
-							mContainer.animate({"margin-left" : window.innerWidth+"px"},{mobileHA: false});
+							mContainer.animate({"margin-left" : window.innerWidth+"px"});
 					}else if(direction=='right' & distance > (window.innerWidth*0.3) & actualMargin > window.innerWidth*0.3){
-							mContainer.animate({"margin-left" : window.innerWidth+"px"},{mobileHA: false});
+							mContainer.animate({"margin-left" : window.innerWidth+"px"});
 						
 					}else if(direction=='right'  & actualMargin >-150){
-							mContainer.animate({"margin-left" : "0px"},{mobileHA: false});
+							mContainer.animate({"margin-left" : "0px"});
 						
 					}
 					
 					else {
-						mContainer.animate({"margin-left" : "0px"},{mobileHA: false});
+						mContainer.animate({"margin-left" : "0px"});
 						
 				
 					}
@@ -141,6 +143,8 @@ function makeSwipe(id){
 						if (distance< (150) & actualMargin < 1) {
 							
 							msg.css({"margin-left": -distance});
+							$(".deleteOptionActivate").animate({"margin-left" : "0px"});
+							$(".deleteOptionActivate").removeClass("deleteOptionActivate");
 							
 						}else{
 							if(actualMargin < 1){
@@ -241,7 +245,7 @@ function makeSwipe(id){
 				
 				
 		//Delete Btn
-		$( document ).on("tapend",".deleteSwipe",function(){
+		$( document ).on("tapend","#categories.deleteSwipe",function(){
 			stateChangeLst.push({msg : $(this).parent().parent().parent().attr("id") , state : "DELETED"});
 			$(this).parent().parent().parent().remove();
 			reportMsgState();

@@ -42,7 +42,7 @@
 
 <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
 
-<gap:plugin name="org.apache.cordova.splashscreen" version="0.3.3" />
+<gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
 
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />

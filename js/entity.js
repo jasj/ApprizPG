@@ -92,8 +92,15 @@ function makeSwipeEntity(id){
 	});
 }
 
-$( document ).on("tapend", "#entities ul li",function(){
-
+$( document ).on("tapend", "#entities .deleteSwipe",function(event){
+	
+	showAlert($.t("Unsuscribe Confirmation"),$.t("Are you sure that you want to unsuscribe to")+" <strong>"+$(this).parent().find('img').attr('alt')+"</strong>",function(){
+		$(this).parent().remove();
+	},
+	function(){
+	
+	}
+	);
 });
 	
 	
