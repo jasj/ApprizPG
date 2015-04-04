@@ -89,7 +89,7 @@ function fail(e) {
       break;
   };
 
-  //alert('Error: ' + msg);
+  alert('Error: ' + msg);
 }
 	
 
@@ -103,11 +103,10 @@ function downloadContentIMG(file,url,version){
 			uri,
 			cordova.file.dataDirectory + file,
 			function(entry) {
-			  // alert("download complete: " + entry.toURL());
+			  
 			},
 			function(error) {
-				//alert("download error source " + error.source);
-				//alert("download error target " + error.target);
+			
 				fail(error);
 			},
 			true
