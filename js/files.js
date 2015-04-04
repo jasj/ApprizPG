@@ -106,7 +106,7 @@ function downloadContentIMG(file,url,version){
 			  
 			},
 			function(error) {
-			
+				alert("aquiIMG");
 				fail(error);
 			},
 			true
