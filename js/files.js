@@ -89,7 +89,7 @@ function fail(e) {
       break;
   };
 
-  alert('Error: ' + msg);
+ // alert('Error: ' + msg);
 }
 	
 
@@ -106,7 +106,7 @@ function downloadContentIMG(file,url,version){
 			  
 			},
 			function(error) {
-				alert("aquiIMG");
+				
 				fail(error);
 			},
 			true
