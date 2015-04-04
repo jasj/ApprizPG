@@ -19,10 +19,12 @@ function reloadEntities(){
 				data.forEach(function(entity){
 					
 					if(!($.jStorage.index().indexOf(entity["entityID"]+".css") > -1  && ($.jStorage.get(entity["entityID"]+".css")==entity["vCSS"]))){
-						downloadContent(entity["entityID"]+".css",S3Bucket+FormatInteger(entity["entityID"],4)+'/CSS/entity.css',entity["vCSS"]);
+						downloadContentIMG(entity["entityID"]+".css",S3Bucket+FormatInteger(entity["entityID"],4)+'/CSS/entity.css',entity["vCSS"]);
+						frsTime = 1;
 					}
 					if(!($.jStorage.index().indexOf(entity["entityID"]+".png") > -1  && ($.jStorage.get(entity["entityID"]+".png")==entity["vImg"]))){
 					 downloadContentIMG(entity["entityID"]+".png",S3Bucket+FormatInteger(entity["entityID"],4)+'/Advertising/Logos/big_logo.png',entity["vImg"]);
+						frsTime = 1;
 					}
 				entities +='<li id="entity_'+entity["entityID"]+'" entityId="'+entity["entityID"]+'"><div class="bubble2"></div><img src="https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(entity["entityID"],4)+'/Advertising/Logos/overWhite_logo.png?ver=1.0" alt="'+entity["entityName"]+'"/> <button class="deleteSwipe">Delete</button></li>';
 					
