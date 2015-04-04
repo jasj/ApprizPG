@@ -118,6 +118,7 @@ function checkPreviusLogin(){
 			current_inbox();
 			counterByMsg();
 			makeSwipe();
+			makeSwipeEntity();
 			
 			showInfoD($.t("Offline Mode"),$.t("some features are not enabled in this mode"),function(){loadEntityTemplate();});
 		}
