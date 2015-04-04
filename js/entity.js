@@ -75,16 +75,22 @@ function makeSwipeEntity(id){
 		swipeRight:function(event, direction, distance, duration, fingerCount) {
 			$(this).find(".deleteSwipe").velocity({"right" : -(window.innerWidth*0.8+0.72)+"px"});
 		},	
+		
+		swipeStatus:function(event, phase, direction, distance , duration , fingerCount) {
+				 if((phase === $.fn.swipe.phases.PHASE_END || phase === $.fn.swipe.phases.PHASE_CANCEL )& distance == 0)  {
+						currentEntityID = $(this).attr("entityId");
+						$.jStorage.set('currentEntityID',currentEntityID) ;
+						loadEntityTemplate();
+						current_inbox();
+						counterByMsg();
+						$('#pin').hide();
+				 }
+		}
 	});
 }
 
 $( document ).on("tapend", "#entities ul li",function(){
-	currentEntityID = $(this).attr("entityId");
-	$.jStorage.set('currentEntityID',currentEntityID) ;
-	loadEntityTemplate();
-	current_inbox();
-	counterByMsg();
-	$('#pin').hide();
+
 });
 	
 	
