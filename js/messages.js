@@ -214,7 +214,7 @@ function makeSwipe(id){
 						var postDateS = postDate.toLocaleDateString() + " " + postDate.getHours() +    ":" +  FormatInteger(postDate.getMinutes(),2) +    ":" + FormatInteger(postDate.getSeconds(),2) ;
 						
 					//	var postDateS = postDate.getFullYear() + "-"+FormatInteger(postDate.getMonth() + 1,2)+ "-"+FormatInteger(postDate.getDate(),2) +" "+postDate.getHours()+":"+postDate.getMinutes()+":"+postDate.getSeconds();
-						$('#categories').append( "<li class='Message "+( message['state'] < 3 ? "unread" : "" )+" typemsg"+message['type']+" entity"+message['idEntity']+"' id='"+message['idMessage']+"' bulb='"+message['bulb']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><div class='moveContainer'><div class='details'><h3>"+message['longMessage']+"</h3></div><div class='centralLI'><div class='iconCat'>"+Icon+"</div><div class='infoBank'><h2>"+message['shortMessage']+"</h2><h6 class='dateBank'><span class='icon-primitive-dot "+dotState+"'></span><date>"+postDateS+"<date></h6></div><button class='icon-arrow'><span class='path1'></span><span class='path2'></span></button></div><div class='rightLI'><button class='deleteSwipe'>Delete</button></div ></div></li>");
+						$('#categories').append( "<li class='Message "+( message['state'] < 3 ? "unread" : "" )+" typemsg"+message['type']+" entity"+message['idEntity']+"' id='"+message['idMessage']+"' bulb='"+message['bulb']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><div class='moveContainer'><div class='details'><h3>"+message['longMessage']+"</h3></div><div class='centralLI'><div class='iconCat'>"+Icon+"</div><div class='infoBank'><h2>"+message['shortMessage']+"</h2><h6 class='dateBank'><span class='icon-primitive-dot "+dotState+"'></span><date>"+postDateS+"<date></h6></div><buttoni class='icon-arrow'><span class='path1'></span><span class='path2'></span></buttoni></div><div class='rightLI'><button class='deleteSwipe'>Delete</button></div ></div></li>");
 						
 						$.jStorage.set('msg_div', btoa($('#categories').html()));
 					
@@ -245,7 +245,7 @@ function makeSwipe(id){
 				
 				
 		//Delete Btn
-		$( document ).on("tapend","#categories.deleteSwipe",function(){
+		$( document ).on("tapend","#categories .deleteSwipe",function(){
 			stateChangeLst.push({msg : $(this).parent().parent().parent().attr("id") , state : "DELETED"});
 			$(this).parent().parent().parent().remove();
 			reportMsgState();
@@ -297,8 +297,9 @@ $( document ).on("tapend","#deleteAllBtn",function(){
 	},function(){});
 });	
 
-
+/*
 $( document ).on("tapend","#categories .icon-arrow",function(){
 	showMessage($(this).parent().parent().parent().attr("id"));
 })
-showMessage(id)
+
+*/
