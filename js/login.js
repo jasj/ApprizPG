@@ -116,10 +116,12 @@ function checkPreviusLogin(){
 			counterByMsg();
 			makeSwipe();
 			makeSwipeEntity();
+			currentEntityID = $.jStorage.get('currentEntityID');
+			loadEntityTemplate();
 			$("div#appHolder").show();
 				$("div#login").fadeOut(1000,function(){});
 			
-			showInfoD($.t("Offline Mode"),$.t("some features are not enabled in this mode"),function(){loadEntityTemplate();});
+			showInfoD($.t("Offline Mode"),$.t("some features are not enabled in this mode"),function(){});
 		}
 });
 	
