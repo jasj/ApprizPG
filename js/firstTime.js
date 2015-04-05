@@ -20,33 +20,41 @@ $('#first-time .btnFull').tapend(function(){
 				var patt = /^\d{4}$/;
 				
 				if( patt.test($('#first-time input[type="tel"]').eq(0).val())){
-					$.post('http://'+IP+':8089/appriz/createNewUser',{
-						email 		: $('#first-time input[type="email"]').eq(0).val(),
-						password	: $('#first-time input[type="password"]').eq(0).val(),
-						retention   : parseInt($('.isThis').find('span').html()),//parseInt($('.unikOptions .active').attr('weeks')),
-						pinPolicy   : $("#pinPolicyFT").prop('checked') ? 0 : 1,
-						pin 		: $('#first-time input[type="tel"]').eq(0).val(),
-						phoneDevice :  typeof device !== 'undefined' ? device.model : "Browser",
-						so 			: typeof device !== 'undefined' ? device.platform : "Browser",
-						pushKey		: "",
-						uuid		: typeof device !== 'undefined' ? device.uuid : "Browser"
-					},function(data){
-						$.jStorage.set('idSecretClient', data['idSecretClient']);
-						idScretClient = data['idSecretClient'];
-						console.log(JSON.stringify(data));
-						showAlert($.t('Appriz User Created'),$.t('Your user was created, do you want to suscribe to an entity now?'),
-						
-						function(){
-							$('.moldHide, .dialogAlert , .icon-back').hide();
-								$("#entities .newEntity").trigger("tapend");
-							//	$('#first-time').hide();
-								$('#Suscri').show();
+					if($("#first-time .weeksOption input:checked").length == 1){
+						$.post('http://'+IP+':8089/appriz/createNewUser',{
+							email 		: $('#first-time input[type="email"]').eq(0).val(),
+							password	: $('#first-time input[type="password"]').eq(0).val(),
+							retention   : parseInt($('.isThis').find('span').html()),//parseInt($('.unikOptions .active').attr('weeks')),
+							pinPolicy   : $("#pinPolicyFT").prop('checked') ? 0 : 1,
+							pin 		: $('#first-time input[type="tel"]').eq(0).val(),
+							phoneDevice :  typeof device !== 'undefined' ? device.model : "Browser",
+							so 			: typeof device !== 'undefined' ? device.platform : "Browser",
+							pushKey		: "",
+							uuid		: typeof device !== 'undefined' ? device.uuid : "Browser"
+						},function(data){
+							if(data["status"] == 200){
+								$.jStorage.set('idSecretClient', data['idSecretClient']);
+								idScretClient = data['idSecretClient'];
+								console.log(JSON.stringify(data));
+								showAlert($.t('Appriz User Created'),$.t('Your user was created, do you want to suscribe to an entity now?'),
 								
-						},
-						function(){
-							$('.moldHide, .dialogAlert').hide();
+								function(){
+									$('.moldHide, .dialogAlert , .icon-back').hide();
+										$("#entities .newEntity").trigger("tapend");
+									//	$('#first-time').hide();
+										$('#Suscri').show();
+										
+								},
+								function(){
+									$('.moldHide, .dialogAlert').hide();
+								});
+							}else{
+								showInfoD($.t("Error"),$.t("Email was taken"),function(){},function(){});
+							}
 						});
-					});
+					}else{
+						showInfoD($.t('Error'),$.t('You need to select a retention policy'),function(){$('.moldHide, .dialogAlert').hide();});
+					}
 				}else{
 					showInfoD($.t('Wrong Accses Code'),$.t('PIN must be of fourth digits'),function(){$('.moldHide, .dialogAlert').hide();});
 				}

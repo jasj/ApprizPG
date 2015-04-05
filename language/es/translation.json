@@ -70,5 +70,6 @@
   "Hay un error de conexión con los servicios de Appriz" : "Hay un error de conexión con los servicios de Appriz",
   "Refreshing" : "Refrescando",
   "Unsuscribe Confirmation" : "Confirmación Desinscripción",
-  "Are you sure that you want to unsuscribe to" : "Esta seguro que desea desincribirse de"
+  "Are you sure that you want to unsuscribe to" : "Esta seguro que desea desincribirse de",
+  "You need to select a retention policy":"Seleccione un periodo de rentención"
 }
