@@ -2706,6 +2706,8 @@ right: 0px;
 	height: 102%;
 	background:url(../img/logo.png) no-repeat center center;
 	background-size: 90%;
+	z-index: 9999999999;
+	
 	
 }
 
@@ -2725,5 +2727,5 @@ font-size: 16px;
 
 
 div#login{
-	z-index: 99999999px;
+	z-index: 9999999999;
 }

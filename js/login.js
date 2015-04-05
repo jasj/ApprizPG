@@ -23,6 +23,7 @@ function login(){
 			if(data["status"] == 200){
 				$("div#login").hide();
 				$("div#appHolder").show();
+				$('.wConteiner div').hide();
 				idScretClient = data["idSecretClient"];
 				$.jStorage.set('idSecretClient', data['idSecretClient']);
 				$.jStorage.set('pin', data['pin']);
@@ -69,6 +70,7 @@ function offLineMode(){
 			currentEntityID = $.jStorage.get('currentEntityID');
 			loadEntityTemplate();
 			$("div#appHolder").show();
+			$('.wConteiner div').hide();
 				$("div#login").fadeOut(1000,function(){});
 			
 			showInfoD($.t("Offline Mode"),$.t("some features are not enabled in this mode"),function(){});
@@ -111,6 +113,7 @@ function checkPreviusLogin(){
 					
 				}
 				$("div#appHolder").show();
+				$('.wConteiner div').hide();
 				$("div#login").fadeOut(1000,function(){});
 				
 				
