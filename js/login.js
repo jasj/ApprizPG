@@ -51,6 +51,30 @@ function login(){
 }
 
 
+function offLineMode(){
+			if($.jStorage.index().indexOf('idSecretClient') > -1){
+			idScretClient = $.jStorage.get('idSecretClient');
+			$("#login").hide();
+			$("#appHolder").show();
+			if($.jStorage.index().indexOf('msg') > -1){$('#categories').html(atob($.jStorage.get('msg')));}
+			if($.jStorage.index().indexOf('entities') > -1){$('#entities ul').html(atob($.jStorage.get('entities')));}
+			if($.jStorage.index().indexOf('currentEntityID') > -1){currentEntityID = $.jStorage.get('currentEntityID');}
+			if($.jStorage.index().indexOf('onlyWIFI') > -1){atWifi = $.jStorage.get('onlyWIFI');} else{ atWifi =1}
+			if($.jStorage.index().indexOf('retention') > -1){retention = $.jStorage.get('retention');}else{ retention =4}
+			$('.user div').html($.jStorage.get('logAs'));
+			current_inbox();
+			counterByMsg();
+			makeSwipe();
+			makeSwipeEntity();
+			currentEntityID = $.jStorage.get('currentEntityID');
+			loadEntityTemplate();
+			$("div#appHolder").show();
+				$("div#login").fadeOut(1000,function(){});
+			
+			showInfoD($.t("Offline Mode"),$.t("some features are not enabled in this mode"),function(){});
+		}
+}
+
 function checkPreviusLogin(){
 	currentEntityID  = ($.jStorage.index().indexOf('currentEntityID') > -1  ) ? $.jStorage.get('currentEntityID') : 0;
 	$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey:  typeof device !== 'undefined' ? device.uuid : "Browser" },function(data) {
@@ -102,27 +126,7 @@ function checkPreviusLogin(){
 
 		
 	}).fail(function(e) {
-		if($.jStorage.index().indexOf('idSecretClient') > -1){
-			idScretClient = $.jStorage.get('idSecretClient');
-			$("#login").hide();
-			$("#appHolder").show();
-			if($.jStorage.index().indexOf('msg') > -1){$('#categories').html(atob($.jStorage.get('msg')));}
-			if($.jStorage.index().indexOf('entities') > -1){$('#entities ul').html(atob($.jStorage.get('entities')));}
-			if($.jStorage.index().indexOf('currentEntityID') > -1){currentEntityID = $.jStorage.get('currentEntityID');}
-			if($.jStorage.index().indexOf('onlyWIFI') > -1){atWifi = $.jStorage.get('onlyWIFI');} else{ atWifi =1}
-			if($.jStorage.index().indexOf('retention') > -1){retention = $.jStorage.get('retention');}else{ retention =4}
-			$('.user div').html($.jStorage.get('logAs'));
-			current_inbox();
-			counterByMsg();
-			makeSwipe();
-			makeSwipeEntity();
-			currentEntityID = $.jStorage.get('currentEntityID');
-			loadEntityTemplate();
-			$("div#appHolder").show();
-				$("div#login").fadeOut(1000,function(){});
-			
-			showInfoD($.t("Offline Mode"),$.t("some features are not enabled in this mode"),function(){});
-		}
+			offLineMode();
 });
 	
 }
@@ -142,3 +146,4 @@ $( document ).on("tapend","button.log",function(){
 	Events 
 ---------------------------------------------------*/
 $( document ).on('tapend','.btnFull.submitLogin',function(){ login();});
+$( document ).on('tapend','#Waiting p',function(){offLineMode();});
