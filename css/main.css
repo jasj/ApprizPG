@@ -2689,3 +2689,37 @@ right: 0px;
 #ads{
 	display : none;
 }
+
+#Waiting{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right : 0px;
+	bottom:0px;
+	
+	background: white;
+	z-index: 999999;
+}
+
+.wConteiner{
+	width : 100%;
+	height: 102%;
+	background:url(../img/logo.png) no-repeat center center;
+	background-size: 90%;
+	
+}
+
+.wConteiner div{
+position: absolute;
+bottom: 35px;
+text-align: center;
+left: 10px;
+right: 10px;
+color: #9F2C90;
+font-size: 16px;
+
+}
+
+div#login{
+	z-index: 99999999px;
+}

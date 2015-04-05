@@ -56,8 +56,7 @@ function checkPreviusLogin(){
 	$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey:  typeof device !== 'undefined' ? device.uuid : "Browser" },function(data) {
 	if("idSecretClient" in data ){
 			//	navigator.splashscreen.hide();
-				$("div#login").hide();
-				$("div#appHolder").show();
+				
 				if(data["pinPolicy"]==0){$('#divPIN').show();}
 				idScretClient = data["idSecretClient"];
 				logId = data["logId"];
@@ -87,7 +86,8 @@ function checkPreviusLogin(){
 					$('.icon-menu').hide();
 					
 				}
-				
+				$("div#appHolder").show();
+				$("div#login").fadeOut(1000,function(){});
 				
 				
 				
@@ -97,14 +97,10 @@ function checkPreviusLogin(){
 				//current_inbox();
 		}else{
 			//navigator.splashscreen.hide();
-				$('.splash').fadeOut(1000,function(){
-				var heightEnd = Math.floor(window.innerHeight /2)-120;
-				$('.LOGIN_FORM').css({"top" : heightEnd+"px"});
-				$( '.LOGIN_BOTTOM , .LogginTop').velocity({"height" : 0},1000); 
-			
-			});
+				$("#Waiting").fadeOut(1000,function(){});
+		};
 
-		}
+		
 	}).fail(function(e) {
 		if($.jStorage.index().indexOf('idSecretClient') > -1){
 			idScretClient = $.jStorage.get('idSecretClient');
@@ -120,6 +116,8 @@ function checkPreviusLogin(){
 			counterByMsg();
 			makeSwipe();
 			makeSwipeEntity();
+			$("div#appHolder").show();
+				$("div#login").fadeOut(1000,function(){});
 			
 			showInfoD($.t("Offline Mode"),$.t("some features are not enabled in this mode"),function(){loadEntityTemplate();});
 		}

@@ -1,8 +1,10 @@
 
 function onDeviceReady(){
-	
+	try{
+		onDeviceReady_fm();
+	}catch(e){
+	}
 	checkPreviusLogin();
-	onDeviceReady_fm();
 }
 
 
