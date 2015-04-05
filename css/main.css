@@ -1066,7 +1066,7 @@ label.css-label {
 
 }
 
-#ads,#deleteAllBtn {
+#ads2,#deleteAllBtn {
     position: relative;
     width: 100%;
     z-index: 1999;
@@ -1086,7 +1086,7 @@ label.css-label {
 	
 }
 
-#ads .icon-cross {
+#ads2 .icon-cross {
     color: #636466;
     font-size: 14px;
     border: none;
@@ -1866,11 +1866,11 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     }
 
 
-    #ads {
+    #ads2 {
         max-width: 100%;
     }
 
-    #ads img {
+    #ads2 img {
         width: 100%;
     }
 
@@ -2686,7 +2686,7 @@ right: 0px;
 	border-bottom: 1px solid gray;
 }
 
-#ads{
+#ads2{
 	display : none;
 }
 
