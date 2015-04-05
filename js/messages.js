@@ -296,3 +296,9 @@ $( document ).on("tapend","#deleteAllBtn",function(){
 		$("#deleteAllBtn").hide();
 	},function(){});
 });	
+
+
+$( document ).on("tapend","#categories .icon-arrow",function(){
+	showMessage($(this).parent().parent().parent().attr("id"));
+})
+showMessage(id)
