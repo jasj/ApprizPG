@@ -2719,6 +2719,10 @@ color: #9F2C90;
 font-size: 16px;
 
 }
+.wConteiner div p{
+	display: none;
+}
+
 
 div#login{
 	z-index: 99999999px;

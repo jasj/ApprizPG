@@ -4,6 +4,7 @@ function onDeviceReady(){
 		onDeviceReady_fm();
 	}catch(e){
 	}
+	setTimeout(function(){ $(".wConteiner div p").show();},3000);
 	checkPreviusLogin();
 }
 

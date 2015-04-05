@@ -127,7 +127,7 @@ function checkPreviusLogin(){
 		
 	}).fail(function(e) {
 			offLineMode();
-});
+	});
 	
 }
 
