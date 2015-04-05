@@ -93,11 +93,9 @@ function makeSwipe(id){
 					if(direction=='left' & distance > (150) & actualMargin < 0){
 							mContainer.css({"margin-left" : "-150px"}); //show delete button
 							mContainer.addClass("deleteOptionActivate");
-							
+							$("#deleteAllBtn").show();
 					}else if(direction=='left' & distance < (150) & actualMargin < 0){
-							mContainer.animate({"margin-left" : "0px"}); //no show the delete button
-							mContainer.removeClass("deleteOptionActivate");
-							
+							mContainer.animate({"margin-left" : "0px"}).removeClass("deleteOptionActivate"); //no show the delete button		
 					}else if(direction=='left' & distance < (window.innerWidth*0.3) & actualMargin > window.innerWidth){
 							mContainer.animate({"margin-left" : window.innerWidth+"px"});
 					}else if(direction=='right' & distance > (window.innerWidth*0.3) & actualMargin > window.innerWidth*0.3){
@@ -105,6 +103,7 @@ function makeSwipe(id){
 						
 					}else if(direction=='right'  & actualMargin >-150){
 							mContainer.animate({"margin-left" : "0px"});
+						
 						
 					}
 					
@@ -127,7 +126,7 @@ function makeSwipe(id){
 					if(direction=='right'){
 
 						if(actualMargin < 0){
-							
+							$("#deleteAllBtn").hide();
 							//msg.animate({"margin-left" : "0px"});
 						}else{
 							if(distance < window.innerWidth){
@@ -143,8 +142,9 @@ function makeSwipe(id){
 						if (distance< (150) & actualMargin < 1) {
 							
 							msg.css({"margin-left": -distance});
-							$(".deleteOptionActivate").animate({"margin-left" : "0px"});
-							$(".deleteOptionActivate").removeClass("deleteOptionActivate");
+							$(".deleteOptionActivate").not(msg).animate({"margin-left" : "0px"});
+							$(".deleteOptionActivate").not(msg).removeClass("deleteOptionActivate");
+							
 							
 						}else{
 							if(actualMargin < 1){

@@ -1066,12 +1066,24 @@ label.css-label {
 
 }
 
-#ads {
+#ads,#deleteAllBtn {
     position: relative;
     width: 100%;
     z-index: 1999;
     margin: 0 auto;
     max-width: 640px;
+}
+
+#deleteAllBtn{
+	height: 40px;
+	padding: 10px;
+	color: white;
+	font-weight: 1000;
+	text-align : center;
+	background: #E75040;
+	display : none;
+}
+	
 }
 
 #ads .icon-cross {
