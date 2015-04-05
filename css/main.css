@@ -2728,4 +2728,14 @@ font-size: 16px;
 
 div#login{
 	z-index: 9999999999;
+	 vertical-align: middle;
+    display: table-cell;
+	height: 100%;
+}
+
+#mainw{
+	vertical-align: middle;
+    display: table-cell;
+	height: 100%;
+	width: 100%;
 }
