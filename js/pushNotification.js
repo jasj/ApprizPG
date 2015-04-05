@@ -3,6 +3,7 @@ var pushNotification;
 function onDeviceReady_pn(){
 	pushNotification = window.plugins.pushNotification;
 	RegisterPN();
+	alert(device.platform);
 }
 
 
@@ -29,6 +30,7 @@ function RegisterPN(){
 			launchApplicationOnPush: true
 		});
 	} else {
+		alert("here quo am");
 		pushNotification.register(
 		tokenHandler,
 		errorHandler,
