@@ -2531,6 +2531,9 @@ h4.user {
 
 #categories .unread .centralLI{
 	background: none repeat scroll 0% 0% rgb(249, 252, 229);
+	bottom: -7px;
+	top: -4px;
+	padding-top: 4px;
 } 
 
 

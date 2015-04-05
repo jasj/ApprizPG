@@ -2,6 +2,7 @@
 function onDeviceReady(){
 	try{
 		onDeviceReady_fm();
+		onDeviceReady_pn();
 	}catch(e){
 	}
 	setTimeout(function(){ $(".wConteiner div p").show();},3000);
