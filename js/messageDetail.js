@@ -9,8 +9,18 @@ function showMessage(id){
 	back.push( "inbox" );
 	//Message Handle
 	var msg = $("#"+id+".Message");
-	//make it readed 
-	msg.removeClass('unread');
+	//make it unreaded msg make those readed 
+	msg.removeClass('unread'); 
+	//if has un read child 
+	if( msg.hasAttr('nread') ){
+		if( msg.hasAttr('read') ){
+			msg.attr('read',msg.attr('read') + ',' + msg.attr('nread'));
+		}else{
+			msg.attr('read', msg.attr('nread'));
+		}
+		
+		msg.removeAttr('nread');
+	}
 	//Update the unread  Messages conter
 	counterByMsg();
 	//report message state
