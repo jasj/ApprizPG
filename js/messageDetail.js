@@ -1,6 +1,10 @@
 
 
 function showMessage(id){
+	//Normalize inbox
+	$("#deleteAllBtn").hide();
+	$(".deleteOptionActivate").removeClass("deleteOptionActivate");
+	$(".moveContainer").css({"margin-left" : "0px"});
 	//Indicate tback page
 	back.push( "inbox" );
 	//Message Handle

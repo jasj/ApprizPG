@@ -167,8 +167,8 @@ function makeSwipe(id){
 				
 //bring message for this client
 		function callNewMSG(){
-		
-		date = new Date();
+			$("#deleteAllBtn").hide();
+			date = new Date();
 		
 				$('.refreshing_list').show();
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
@@ -286,4 +286,9 @@ function makeSwipe(id){
 	
 		
 		
-		
+$( document ).on("tapend","#deleteAllBtn",function(){
+	showAlert($.t("Delete All"),$.t("Do you want to delete all messages?"),function(){
+		$('.entity'+currentEntityID).remove();
+		$("#deleteAllBtn").hide();
+	},function(){});
+});	
