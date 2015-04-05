@@ -70,7 +70,8 @@ function checkPreviusLogin(){
 				$.jStorage.set('retention', data['retention']);
 				$.jStorage.set('onlyWIFI', data['onlyWIFI']);
 				$('.user div').html($.jStorage.get('logAs'));
-				
+				currentEntityID = $.jStorage.get('currentEntityID');
+				loadEntityTemplate();
 				$('.splash').fadeOut(1000,function(){});
 				reloadEntities();
 				callNewMSG();

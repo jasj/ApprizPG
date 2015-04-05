@@ -1,11 +1,11 @@
-document.addEventListener("deviceready", onDeviceReady, false);
+
 
     // device APIs are available
     //
 	
 fSys = null;
 
-function onDeviceReady() {
+function onDeviceReady_fm() {
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 }
 

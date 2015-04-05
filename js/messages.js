@@ -275,6 +275,10 @@ function makeSwipe(id){
 		
 		$('#appHolder').parent().parent().parent().bind('scroll', function()
 		{
+			$("#deleteAllBtn").hide();
+			$(".deleteOptionActivate").animate({"margin-left" : "0px"});
+			$(".deleteOptionActivate").removeClass("deleteOptionActivate");
+			
 			if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() == 0){
 				 callNewMSG();
 				 current_inbox();
