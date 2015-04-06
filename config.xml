@@ -7,6 +7,15 @@
     <author email="asegreda@smartsoftint.com" href="http://smartsoftint.com">
         PhoneGap Team
     </author>
+	
+	<widget 
+	xmlns="http://www.w3.org/ns/widgets" 
+	xmlns:gap="http://phonegap.com/ns/1.0" 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	id="me.app.id" 
+	version="1.0.0">
+	
+	
     <preference name="permissions" value="none" />
     <preference name="phonegap-version" value="3.7.0" />
     <preference name="orientation" value="portrait" />
@@ -23,6 +32,9 @@
 	<preference name="DisallowOverscroll" value="true" />
 	<preference name="EnableViewportScale" value="true" />
 
+	<gap:config-file platform="android" parent="/manifest">
+     <application android:debuggable="true" />
+</gap:config-file>
 
 <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
 
@@ -69,7 +81,8 @@
     <gap:splash gap:platform="ios" height="1024" src="www/res/screen/ios/screen-ipad-portrait.png" width="768" />
     <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
-    <access origin="*" />
+  
+  <access origin="*" />
 	
 
 	
