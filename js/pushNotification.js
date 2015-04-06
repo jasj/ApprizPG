@@ -13,7 +13,7 @@ function RegisterPN(){
     successHandler,
     errorHandler,
     {
-        "senderID":"replace_with_sender_id",
+        "senderID":"125107308805",
         "ecb":"onNotification"
     });
 	} else if ( device.platform == 'blackberry10'){
@@ -30,7 +30,7 @@ function RegisterPN(){
 			launchApplicationOnPush: true
 		});
 	} else {
-		alert("here quo am");
+		
 		pushNotification.register(
 		tokenHandler,
 		errorHandler,
@@ -175,8 +175,8 @@ function onNotificationWP8(e) {
 }
 
 function jsonErrorHandler(error) {
-        $("#app-status-ul").append('<li style="color:red;">error:' + error.code + '</li>');
-        $("#app-status-ul").append('<li style="color:red;">error:' + error.message + '</li>');
+        alert('<li style="color:red;">error:' + error.code + '</li>');
+        alert('<li style="color:red;">error:' + error.message + '</li>');
     }
 	
 function successHandler (result) {
