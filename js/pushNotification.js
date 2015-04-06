@@ -3,7 +3,7 @@ var pushNotification;
 function onDeviceReady_pn(){
 	pushNotification = window.plugins.pushNotification;
 	RegisterPN();
-	alert(device.platform);
+	console.log(device.platform);
 }
 
 
@@ -47,7 +47,7 @@ function RegisterPN(){
 function onNotificationAPN (event) {
     if ( event.alert )
     {
-        navigator.notification.alert(event.alert);
+        navigator.notification.console.log(event.alert);
     }
 
     if ( event.sound )
@@ -66,14 +66,14 @@ function onNotificationAPN (event) {
 
 // Android and Amazon Fire OS
 function onNotification(e) {
-    alert('<li>EVENT -> RECEIVED:' + e.event + '</li>');
+    console.log('<li>EVENT -> RECEIVED:' + e.event + '</li>');
 
     switch( e.event )
     {
     case 'registered':
         if ( e.regid.length > 0 )
         {
-            alert('<li>REGISTERED -> REGID:' + e.regid + "</li>");
+            console.log('<li>REGISTERED -> REGID:' + e.regid + "</li>");
             // Your GCM push server needs to know the regID before it can push to this device
             // here is where you might want to send it the regID for later use.
             console.log("regID = " + e.regid);
@@ -85,7 +85,7 @@ function onNotification(e) {
         // you might want to play a sound to get the user's attention, throw up a dialog, etc.
         if ( e.foreground )
         {
-            alert('<li>--INLINE NOTIFICATION--' + '</li>');
+            console.log('<li>--INLINE NOTIFICATION--' + '</li>');
 
             // on Android soundname is outside the payload.
             // On Amazon FireOS all custom attributes are contained within payload
@@ -98,27 +98,27 @@ function onNotification(e) {
         {  // otherwise we were launched because the user touched a notification in the notification tray.
             if ( e.coldstart )
             {
-                alert('<li>--COLDSTART NOTIFICATION--' + '</li>');
+                console.log('<li>--COLDSTART NOTIFICATION--' + '</li>');
             }
             else
             {
-                alert('<li>--BACKGROUND NOTIFICATION--' + '</li>');
+                console.log('<li>--BACKGROUND NOTIFICATION--' + '</li>');
             }
         }
 
-       alert('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
+       console.log('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
            //Only works for GCM
-       alert('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
+       console.log('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
        //Only works on Amazon Fire OS
        $status.append('<li>MESSAGE -> TIME: ' + e.payload.timeStamp + '</li>');
     break;
 
     case 'error':
-        alert('<li>ERROR -> MSG:' + e.msg + '</li>');
+        console.log('<li>ERROR -> MSG:' + e.msg + '</li>');
     break;
 
     default:
-        alert('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
+        console.log('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
     break;
   }
 }
@@ -144,7 +144,7 @@ function pushNotificationHandler(pushpayload) {
 function tokenHandler (result) {
     // Your iOS push server needs to know the token before it can push to this device
     // here is where you might want to send it the token for later use.
-    alert('device token = ' + result);
+    console.log('device token = ' + result);
 }
 
 if(device.platform == "Win32NT"){
@@ -170,19 +170,19 @@ function onNotificationWP8(e) {
         }
 
     if (e.type == "raw" && e.jsonContent) {
-        alert(e.jsonContent.Body);
+        console.log(e.jsonContent.Body);
     }
 }
 
 function jsonErrorHandler(error) {
-        alert('<li style="color:red;">error:' + error.code + '</li>');
-        alert('<li style="color:red;">error:' + error.message + '</li>');
+        console.log('<li style="color:red;">error:' + error.code + '</li>');
+        console.log('<li style="color:red;">error:' + error.message + '</li>');
     }
 	
 function successHandler (result) {
-    alert('result = ' + result);
+    console.log('result = ' + result);
 }
 
 function errorHandler (error) {
-    alert('error = ' + error);
+    console.log('error = ' + error);
 }
