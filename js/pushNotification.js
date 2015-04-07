@@ -89,7 +89,7 @@ function onNotification(e) {
 
             // on Android soundname is outside the payload.
             // On Amazon FireOS all custom attributes are contained within payload
-            var soundfile = e.soundname || e.payload.sound;
+          //  var soundfile = e.soundname || e.payload.sound;
             // if the notification contains a soundname, play it.
           //  var my_media = new Media("/android_asset/www/"+ soundfile);
           //  my_media.play();
@@ -110,7 +110,6 @@ function onNotification(e) {
            //Only works for GCM
        console.log('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
        //Only works on Amazon Fire OS
-       $status.append('<li>MESSAGE -> TIME: ' + e.payload.timeStamp + '</li>');
     break;
 
     case 'error':
