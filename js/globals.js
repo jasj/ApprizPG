@@ -22,3 +22,4 @@
 	stateChangeLst = [];
 	retention = 1;
 	atWifi = 0;
+	PN = 0;

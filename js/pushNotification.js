@@ -77,6 +77,7 @@ function onNotification(e) {
             // Your GCM push server needs to know the regID before it can push to this device
             // here is where you might want to send it the regID for later use.
             console.log("regID = " + e.regid);
+			PN = e.regid;
         }
     break;
 
@@ -144,6 +145,7 @@ function tokenHandler (result) {
     // Your iOS push server needs to know the token before it can push to this device
     // here is where you might want to send it the token for later use.
     console.log('device token = ' + result);
+	PN = result;
 }
 
 if(device.platform == "Win32NT"){

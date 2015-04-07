@@ -18,7 +18,7 @@ function login(){
 			"password":$('.loginBox input').eq(1).val(),
 			"phone": typeof device !== 'undefined' ? device.model : "Browser",
 			"os": typeof device !== 'undefined' ? device.platform : "Browser",
-			"pushKey":  typeof device !== 'undefined' ? device.uuid : "Browser"
+			"pushKey":  typeof device !== 'undefined' ? PN : "Browser"
 		},function(data){
 			if(data["status"] == 200){
 				$("div#login").hide();
