@@ -29,7 +29,7 @@ $('#first-time .btnFull').tapend(function(){
 							pin 		: $('#first-time input[type="tel"]').eq(0).val(),
 							phoneDevice :  typeof device !== 'undefined' ? device.model : "Browser",
 							so 			: typeof device !== 'undefined' ? device.platform : "Browser",
-							pushKey		: "",
+							pushKey		: PN,
 							uuid		: typeof device !== 'undefined' ? device.uuid : "Browser"
 						},function(data){
 							if(data["status"] == 200){

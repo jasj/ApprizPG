@@ -18,6 +18,7 @@ function login(){
 			"password":$('.loginBox input').eq(1).val(),
 			"phone": typeof device !== 'undefined' ? device.model : "Browser",
 			"os": typeof device !== 'undefined' ? device.platform : "Browser",
+			"uuid":  typeof device !== 'undefined' ? device.uuid : "Browser"
 			"pushKey":  typeof device !== 'undefined' ? PN : "Browser"
 		},function(data){
 			if(data["status"] == 200){
@@ -79,7 +80,7 @@ function offLineMode(){
 
 function checkPreviusLogin(){
 	currentEntityID  = ($.jStorage.index().indexOf('currentEntityID') > -1  ) ? $.jStorage.get('currentEntityID') : 0;
-	$.post('http://'+IP+':8089/appriz/getCurrentSession',{pushKey:  typeof device !== 'undefined' ? device.uuid : "Browser" },function(data) {
+	$.post('http://'+IP+':8089/appriz/getCurrentSession',{uuid:  typeof device !== 'undefined' ? device.uuid : "Browser" },function(data) {
 	if("idSecretClient" in data ){
 			//	navigator.splashscreen.hide();
 				
