@@ -15,14 +15,15 @@ function gotFS(fileSystem) {
 
 function getFileLocalURL(file, object, target,url){
 	if(fSys != null){
-		 fSys.root.getFile(cordova.file.dataDirectory + file, {create: true, exclusive: false}, 
+		 fSys.root.getFile(cordova.file.dataDirectory + file, {}, 
 		 function(fileEntry){
 			 alert(fileEntry);
 			 object.attr(target,fileEntry.toURL());
 		 }
 		 , function(e){
 			 alert(JSON.stringify(e));
-			 object.attr(target,url); downloadContent(file,url,version)});
+			 object.attr(target,url);
+			 downloadContent(file,url,version)});
 	}else{
 		 object.attr(target,url);
 	}
@@ -39,19 +40,24 @@ function downloadContent(file,url,version){
 			cordova.file.dataDirectory + file,
 			function(entry) {
 			  	$.jStorage.set(file,version);
+				alert(1)
 			},
 			function(error) {
 				
-				fail(error);
+				alert("DW"+JSON.stringify(error));
 			},
 			true
 		);
+		
+		
 	}
 }
 
 
+
+
     
-function fail(e) {
+function failLoading(e) {
 	var msg = '';
 
   switch (e.code) {
@@ -99,7 +105,7 @@ function fail(e) {
       break;
   };
 
- // alert('Error: ' + msg);
+  alert('Error: ' + msg);
 }
 	
 
