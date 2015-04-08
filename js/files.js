@@ -40,7 +40,7 @@ function downloadContent(file,url,version){
 			cordova.file.dataDirectory + file,
 			function(entry) {
 			  	$.jStorage.set(file,version);
-				alert(1)
+				alert(1);
 			},
 			function(error) {
 				
@@ -57,7 +57,7 @@ function downloadContent(file,url,version){
 
 
     
-function failLoading(e) {
+function fail(e) {
 	var msg = '';
 
   switch (e.code) {
