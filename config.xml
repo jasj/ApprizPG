@@ -30,7 +30,7 @@
 
 <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
 
-
+<gap:plugin name="de.appplant.cordova.plugin.badge" version="0.6.3" />
 
 <gap:plugin name="org.apache.cordova.device-orientation" version="0.3.9" />
 
