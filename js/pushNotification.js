@@ -46,7 +46,7 @@ function RegisterPN(){
 // iOS
 function onNotificationAPN (event) {
 	//cordova.plugins.notification.badge.set(100);
-	window.plugins.toast.showLongBottom('Nuevo Mensaje!', function(a){console.log('toast success: ' + a)}, function(b){console.log('toast error: ' + b)});
+	window.plugins.toast.showLongBottom(event.alert, function(a){console.log('toast success: ' + a)}, function(b){console.log('toast error: ' + b)});
     if ( event.alert )
     {
         navigator.notification.console.log(event.alert);
@@ -90,7 +90,7 @@ function onNotification(e) {
         if ( e.foreground )
         {
             console.log('<li>--INLINE NOTIFICATION--' + '</li>');
-			window.plugins.toast.showLongBottom('Nuevo Mensaje!', function(a){console.log('toast success: ' + a)}, function(b){console.log('toast error: ' + b)});
+			window.plugins.toast.showLongBottom(e.payload.message, function(a){console.log('toast success: ' + a)}, function(b){console.log('toast error: ' + b)});
 
             // on Android soundname is outside the payload.
             // On Amazon FireOS all custom attributes are contained within payload
