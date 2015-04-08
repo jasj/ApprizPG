@@ -17,7 +17,7 @@ function getFileLocalURL(file, object, target,url){
 	if(fSys != null){
 		 fSys.root.getFile(cordova.file.dataDirectory + file, {}, 
 		 function(fileEntry){
-			 alert(fileEntry);
+			 alert("si");
 			 object.attr(target,fileEntry.toURL());
 		 }
 		 , function(e){
