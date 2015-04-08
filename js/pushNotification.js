@@ -147,7 +147,7 @@ function tokenHandler (result) {
     console.log('device token = ' + result);
 	PN = result;
 }
-
+/*
 if(device.platform == "Win32NT"){
     pushNotification.register(
         channelHandler,
@@ -159,7 +159,7 @@ if(device.platform == "Win32NT"){
             "errcb": "jsonErrorHandler"
         });
 }
-
+*/
 //handle MPNS notifications for WP8
 function onNotificationWP8(e) {
 
