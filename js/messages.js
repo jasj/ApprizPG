@@ -86,7 +86,7 @@ function makeSwipe(id){
 				
 				//Generic swipe handler for all directions
 				swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-					oneTimeSendAjax =false;
+					
 					var mContainer = $(this).find(".moveContainer");
 					var actualMargin = parseInt(mContainer.css("margin-left").replace(/[^-\d\.]/g, '') );
 					
@@ -169,7 +169,7 @@ function makeSwipe(id){
 		function callNewMSG(){
 			$("#deleteAllBtn").hide();
 			date = new Date();
-		
+		if(oneTimeSendAjax){
 				$('.refreshing_list').show();
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
 			$('#categories').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i> " +$.t("Refreshing")+ "...</div>");
@@ -238,10 +238,11 @@ function makeSwipe(id){
 				$('.refreshing_list').hide(); 
 				$("*").scrollTop(2);
 				$("nav.categoryNav li span").addClass("active");
+				setTimeout(function(){oneTimeSendAjax = false;},500);
 				
 		//	counterByMsg();$('.refreshing_list').hide(); 
 			});
-		}
+		}}
 				
 				
 		//Delete Btn
