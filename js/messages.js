@@ -170,6 +170,7 @@ function makeSwipe(id){
 			$("#deleteAllBtn").hide();
 			date = new Date();
 		if(oneTimeSendAjax){
+			oneTimeSendAjax = false;
 				$('.refreshing_list').show();
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
 			$('#categories').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i> " +$.t("Refreshing")+ "...</div>");
@@ -238,7 +239,7 @@ function makeSwipe(id){
 				$('.refreshing_list').hide(); 
 				$("*").scrollTop(2);
 				$("nav.categoryNav li span").addClass("active");
-				setTimeout(function(){oneTimeSendAjax = false;},500);
+				setTimeout(function(){oneTimeSendAjax = true;},500);
 				
 		//	counterByMsg();$('.refreshing_list').hide(); 
 			});
