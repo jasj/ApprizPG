@@ -45,6 +45,7 @@ function RegisterPN(){
 
 // iOS
 function onNotificationAPN (event) {
+	cordova.plugins.notification.badge.set(100);
     if ( event.alert )
     {
         navigator.notification.console.log(event.alert);
@@ -82,6 +83,7 @@ function onNotification(e) {
     break;
 
     case 'message':
+		cordova.plugins.notification.badge.set(200);
         // if this flag is set, this notification happened while we were in the foreground.
         // you might want to play a sound to get the user's attention, throw up a dialog, etc.
         if ( e.foreground )
@@ -174,6 +176,14 @@ function onNotificationWP8(e) {
         console.log(e.jsonContent.Body);
     }
 }
+
+cordova.plugins.notification.badge.hasPermission(function (granted) {
+     console.log('Permission has been granted: ' + granted);
+});
+
+cordova.plugins.notification.badge.registerPermission(function (granted) {
+     console.log('Permission has been granted: ' + granted);
+});
 
 function jsonErrorHandler(error) {
         console.log('<li style="color:red;">error:' + error.code + '</li>');
