@@ -26,6 +26,6 @@ function fix_messages(){
 }
 
 $("body").css({"height" : window.innerHeight});
-$(".details_").css({"width" : (window.innerWidth - window.innerWidth*2*0.04)});
+$(".details_").css({"width" : (window.innerWidth - window.innerWidth*2*0.0405)});
 $(".userInfo div").css({"width": window.innerWidth*0.8*0.49,  "text-overflow": "ellipsis", " overflow":"hidden"});
 $("#login").css({"height" : window.innerHeight});
