@@ -19,7 +19,7 @@ function getFileLocalURL(file, object, target,url){
 		 function(fileEntry){
 			 object.attr(target,fileEntry.toURL());
 		 }
-		 , function(e){object.attr(target,url)});
+		 , function(e){object.attr(target,url); downloadContent(file,url,version)});
 	}else{
 		 object.attr(target,url);
 	}
