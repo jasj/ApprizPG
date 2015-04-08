@@ -20,7 +20,9 @@ function getFileLocalURL(file, object, target,url){
 			 alert(fileEntry);
 			 object.attr(target,fileEntry.toURL());
 		 }
-		 , function(e){object.attr(target,url); downloadContent(file,url,version)});
+		 , function(e){
+			 alert(JSON.stringify(e));
+			 object.attr(target,url); downloadContent(file,url,version)});
 	}else{
 		 object.attr(target,url);
 	}
