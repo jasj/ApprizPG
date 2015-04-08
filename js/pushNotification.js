@@ -45,7 +45,8 @@ function RegisterPN(){
 
 // iOS
 function onNotificationAPN (event) {
-	cordova.plugins.notification.badge.set(100);
+	//cordova.plugins.notification.badge.set(100);
+	window.plugins.toast.showLongBottom('Nuevo Mensaje!', function(a){console.log('toast success: ' + a)}, function(b){console.log('toast error: ' + b)});
     if ( event.alert )
     {
         navigator.notification.console.log(event.alert);
@@ -83,12 +84,13 @@ function onNotification(e) {
     break;
 
     case 'message':
-		cordova.plugins.notification.badge.set(200);
+		//cordova.plugins.notification.badge.set(200);
         // if this flag is set, this notification happened while we were in the foreground.
         // you might want to play a sound to get the user's attention, throw up a dialog, etc.
         if ( e.foreground )
         {
             console.log('<li>--INLINE NOTIFICATION--' + '</li>');
+			window.plugins.toast.showLongBottom('Nuevo Mensaje!', function(a){console.log('toast success: ' + a)}, function(b){console.log('toast error: ' + b)});
 
             // on Android soundname is outside the payload.
             // On Amazon FireOS all custom attributes are contained within payload
