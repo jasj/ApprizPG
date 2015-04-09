@@ -47,7 +47,6 @@ function login(){
 				
 			}	
 	}).fail(function(e) {
-		alert(e);
 		idScretClient = $.jStorage.get('idSecretClient');
 		showInfoD($.t("Conexion Error"),$.t("There is a connection error Appriz services"),function(){},function(){})
 		

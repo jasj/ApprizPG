@@ -246,7 +246,7 @@ function makeSwipe(id){
 				$.jStorage.set('msg', btoa($('#categories').html()));
 				$('.refreshing_list').hide().removeClass("seen"); 
 				
-				$("*").scrollTop(0);
+				$("*").scrollTop(2);
 				$("nav.categoryNav li span").addClass("active");
 				setTimeout(function(){oneTimeSendAjax = true;},500);
 				
@@ -274,7 +274,7 @@ function makeSwipe(id){
 				$(this).find("span").addClass("active");
 				$('.typemsg'+$(this).attr("typemsg")+'[identity='+currentEntityID+']').show();
 			}
-			$("*").scrollTop(0);
+			$("*").scrollTop(2);
 		});
 		
 		$( document ).on("taphold",'nav.categoryNav li',function(){
