@@ -31,6 +31,9 @@ function login(){
 				$.jStorage.set('logAs', logAs);
 				$('.user div').html($.jStorage.get('logAs'));
 				reloadEntities();
+				//checkWithOutEntity();
+				setTimeout(function(){ 	checkWithOutEntity();}, 3000);
+				//$("div#login").fadeOut(1000,function(){checkWithOutEntity()});
 				callNewMSG();
 				pin = data['pin'];
 				atWifi = data["onlyWIFI"];
@@ -72,11 +75,14 @@ function offLineMode(){
 			loadEntityTemplate();
 			$("div#appHolder").show();
 			$('.wConteiner div').hide();
-				$("div#login").fadeOut(1000,function(){});
+				$("div#login").fadeOut(1000,function(){checkWithOutEntity()});
+				
 			
 			showInfoD($.t("Offline Mode"),$.t("some features are not enabled in this mode"),function(){});
 		}
 }
+
+
 
 function checkPreviusLogin(){
 	currentEntityID  = ($.jStorage.index().indexOf('currentEntityID') > -1  ) ? $.jStorage.get('currentEntityID') : 0;
@@ -115,8 +121,9 @@ function checkPreviusLogin(){
 				}
 				$("div#appHolder").show();
 				$('.wConteiner div').hide();
-				$("div#login").fadeOut(1000,function(){});
 				
+				$("div#login").fadeOut(1000,function(){	checkWithOutEntity();});
+			
 				
 				
 				//$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');

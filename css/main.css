@@ -2742,3 +2742,12 @@ div#login{
 	height: 100%;
 	width: 100%;
 }
+
+.out{
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  font-size: 42px;
+  color: white;
+  visibility: hidden;
+}

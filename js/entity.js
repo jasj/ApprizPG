@@ -2,17 +2,9 @@
 	
 */
 function reloadEntities(){
+	
 			$.post('http://'+IP+':8089/appriz/getCustomerEntities',{"idSecretClient": idScretClient},function(data){
-					if(data.length == 0){
-						$('#Suscri').show();
-						hideIt = "#Suscri";	
-						$('#menuBtn').hide();
-						$(".iconBtn").show();
-						$(".iconBtn").attr("logOut",1);
-						$('link[typeCss="bank"]').attr('href','css/appriz.css');
-						$('.header_demo img').attr('src','img/appriz-logo-horizontal.png');
-					lastCSS = 1;
-					}
+				
 					
 				entities = '';
 				var frsTime = 0;	
@@ -44,6 +36,7 @@ function reloadEntities(){
 				current_inbox();
 				counterByMsg();
 				loadEntityTemplate(frsTime);
+				
 			//	alert(S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
 			//	downloadContent(FormatInteger(currentEntityID,4)+".css",S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
 				console.log(JSON.stringify(data));

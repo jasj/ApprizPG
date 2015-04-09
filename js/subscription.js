@@ -9,17 +9,17 @@ $('#suscribe .btnFull').tapend(function(){
 		if (data["status"] == 200){
 			$('#menuBtn').show();
 			reloadEntities();
-			showAlert($.t('Subscription Sucessfull'), $.t("You was succesfully subscribe to")+": <b>"+data["entityName"]+"</b>. "+$.t("Do you want to subscribe another entity? "),
+				$('.out').css({"visibility" : "hidden"});
+			showInfoD($.t('Subscription Sucessfull'), $.t("You was succesfully subscribe to")+": <b>"+data["entityName"]+"</b>. ",
+				
 				function(){
-					$('.moldHide, .dialogAlert').hide();
-					$('#suscribe input').eq(0).val("");
-					$('#suscribe input').eq(1).val("");
-				},
-				function(){
+					
 					$('.moldHide, .dialogAlert').hide();
 					$('#suscribe input').eq(0).val("");
 					$('#suscribe input').eq(1).val("");
 					$('#Suscri').hide();
+					$('.icon-menu').show();
+					$('.out').hide();
 				}
 			);
 		}else{

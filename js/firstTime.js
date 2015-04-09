@@ -36,18 +36,13 @@ $('#first-time .btnFull').tapend(function(){
 								$.jStorage.set('idSecretClient', data['idSecretClient']);
 								idScretClient = data['idSecretClient'];
 								console.log(JSON.stringify(data));
-								showAlert($.t('Appriz User Created'),$.t('Your user was created, do you want to suscribe to an entity now?'),
+								showInfoD($.t('Appriz User Created'),$.t('Now you need to subscribe to an entity'),
 								
 								function(){
-									$('.moldHide, .dialogAlert , .icon-back').hide();
-										$("#entities .newEntity").trigger("tapend");
-									//	$('#first-time').hide();
-										$('#Suscri').show();
+									checkWithOutEntity();
 										
-								},
-								function(){
-									$('.moldHide, .dialogAlert').hide();
-								});
+								}
+								);
 							}else{
 								showInfoD($.t("Error"),$.t("Email was taken"),function(){},function(){});
 							}
@@ -66,4 +61,19 @@ $('#first-time .btnFull').tapend(function(){
 	}else{
 		showInfoD($.t('Wrong Email'),$.t('This email is not valid'),function(){$('.moldHide, .dialogAlert').hide();});
 	}
+});
+
+
+function checkWithOutEntity(){
+	if($("#entities ul li").length ==0){
+			$('.moldHide, .dialogAlert , .icon-back').hide();
+			$("#entities .newEntity").trigger("tapend");
+			$('.icon-menu').hide();
+			$('.out').css({"visibility" : "visible"});
+			$('#Suscri').show();
+	}
+}
+
+$(".out").tapend(function(){
+		$("button.log").trigger("tapend");
 });
