@@ -220,7 +220,7 @@ function makeSwipe(id){
 						
 					//	var postDateS = postDate.getFullYear() + "-"+FormatInteger(postDate.getMonth() + 1,2)+ "-"+FormatInteger(postDate.getDate(),2) +" "+postDate.getHours()+":"+postDate.getMinutes()+":"+postDate.getSeconds();
 						$('#categories .MsG').prepend( "<li class='Message "+( message['state'] < 3 ? "unread" : "" )+" typemsg"+message['type']+" entity"+message['idEntity']+"' id='"+message['idMessage']+"' bulb='"+message['bulb']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><div class='moveContainer'><div class='details'><h3>"+message['longMessage']+"</h3></div><div class='centralLI'><div class='iconCat'>"+Icon+"</div><div class='infoBank'><h2>"+message['shortMessage']+"</h2><h6 class='dateBank'><span class='icon-primitive-dot "+dotState+"'></span><date>"+postDateS+"<date></h6></div><buttoni class='icon-arrow'><span class='path1'></span><span class='path2'></span></buttoni></div><div class='rightLI'><button class='deleteSwipe'>Delete</button></div ></div></li>");
-						$('#categories li').eq(0).css({"margin-top" : "0px"});
+						
 						$.jStorage.set('msg_div', btoa($('#categories').html()));
 					
 						//console.log(JSON.stringify(data));
@@ -258,6 +258,7 @@ function makeSwipe(id){
 			reportMsgState();
 			$.jStorage.set('msg', btoa($('#categories').html()));
 			counterByMsg();
+				$("#deleteAllBtn").hide();
 		});
 				
 		//Filter handle
