@@ -1,6 +1,16 @@
 
 
 function showMessage(id){
+	//If the content if HTML show htmlMSG
+	if(/^<html>/.test($(this).attr('longMSG'))){
+		$('.plainMSG').hide();
+		$('.htmlMSG').show();
+		$('.htmlMSG').html("");
+		$('.htmlMSG').append($(this).attr('longMSG'));
+	}else{
+		$('.htmlMSG').hide();
+		$('.plainMSG').show();
+	}
 	//Normalize inbox
 	$("#deleteAllBtn").hide();
 	$(".deleteOptionActivate").removeClass("deleteOptionActivate");
