@@ -71,5 +71,6 @@
   "Refreshing" : "Refrescando",
   "Unsuscribe Confirmation" : "Confirmación Desinscripción",
   "Are you sure that you want to unsuscribe to" : "Esta seguro que desea desincribirse de",
-  "You need to select a retention policy":"Seleccione un periodo de rentención"
+  "You need to select a retention policy":"Seleccione un periodo de rentención",
+  "This message contains rich content" : "Este mensaje contiene contenido enriquesido"
 }

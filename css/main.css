@@ -560,10 +560,15 @@ header .icon-menu {
     display: block;
 }
 
+.imglogo{
+	max-height:80px !important;
+}
+
 img {
     display: block;
     max-width: 100%;
     height: auto;
+	
 }
 
 .login {
@@ -2369,6 +2374,9 @@ img.bankLogo {
     max-height: 80px !important;
     max-width: calc(100% - 100px) !important;
 }
+.bankLogo img{
+	max-height:80px;
+}
 
 .menu-main {
     position: absolute !important;
@@ -2761,3 +2769,4 @@ div#login{
 	right:0px;
 	overflow-x : hide;
 }
+

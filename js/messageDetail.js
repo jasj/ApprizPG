@@ -1,12 +1,15 @@
 
 
 function showMessage(id){
+	//Message Handle
+	var msg = $("#"+id+".Message");
 	//If the content if HTML show htmlMSG
-	if(/^<html>/.test($(this).attr('longMSG'))){
+	var longMSG = atob(msg.attr('longMSG'));
+	if(/^<html>/.test(longMSG)){
 		$('.plainMSG').hide();
 		$('.htmlMSG').show();
 		$('.htmlMSG').html("");
-		$('.htmlMSG').append($(this).attr('longMSG'));
+		$('.htmlMSG').append(longMSG);
 	}else{
 		$('.htmlMSG').hide();
 		$('.plainMSG').show();
@@ -17,8 +20,7 @@ function showMessage(id){
 	$(".moveContainer").css({"margin-left" : "0px"});
 	//Indicate tback page
 	back.push( "inbox" );
-	//Message Handle
-	var msg = $("#"+id+".Message");
+	
 	//make it unreaded msg make those readed 
 	msg.removeClass('unread'); 
 	//if has un read child 
