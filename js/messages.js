@@ -173,7 +173,7 @@ function makeSwipe(id){
 			oneTimeSendAjax = false;
 				$('.refreshing_list').show();
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
-			$('#categories').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i> " +$.t("Refreshing")+ "...</div>");
+			$('#categories').html("<div class='refreshing_list seen'><i class='fa fa-spinner fa-spin'></i> " +$.t("Refreshing")+ "...</div><div class='MsG'></div>");
 				console.log(JSON.stringify(data));
 				
 				$.each(data,function(index, message){
@@ -191,7 +191,9 @@ function makeSwipe(id){
 						var postDate = new Date(message['postdate']);
 						var dateText = postDate.toLocaleString();
 						var dotState =  message['bulb'] == 1   ? 'dotDone' : message['bulb'] == 2   ? 'dotProgress' : message['bulb'] == 3   ? 'dotError' :  'dotNone';
+						$('#categories #'+message['idParent']).attr('bulb',message['bulb']);
 						$('#categories #'+message['idParent']+" .icon-primitive-dot").removeClass("dotDone").removeClass("dotProgress").removeClass("dotError").removeClass("dotNone").addClass(dotState);
+						
 						if(message['state'] == 3){
 							$('#categories #'+message['idParent']).attr('read',$('#categories #'+message['idParent']).hasAttr('read') ? $('#categories #'+message['idParent']).attr('read')+','+message['idMessage'] : message['idMessage']);
 						}else{
@@ -217,8 +219,8 @@ function makeSwipe(id){
 						var postDateS = postDate.toLocaleDateString() + " " + postDate.getHours() +    ":" +  FormatInteger(postDate.getMinutes(),2) +    ":" + FormatInteger(postDate.getSeconds(),2) ;
 						
 					//	var postDateS = postDate.getFullYear() + "-"+FormatInteger(postDate.getMonth() + 1,2)+ "-"+FormatInteger(postDate.getDate(),2) +" "+postDate.getHours()+":"+postDate.getMinutes()+":"+postDate.getSeconds();
-						$('#categories').append( "<li class='Message "+( message['state'] < 3 ? "unread" : "" )+" typemsg"+message['type']+" entity"+message['idEntity']+"' id='"+message['idMessage']+"' bulb='"+message['bulb']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><div class='moveContainer'><div class='details'><h3>"+message['longMessage']+"</h3></div><div class='centralLI'><div class='iconCat'>"+Icon+"</div><div class='infoBank'><h2>"+message['shortMessage']+"</h2><h6 class='dateBank'><span class='icon-primitive-dot "+dotState+"'></span><date>"+postDateS+"<date></h6></div><buttoni class='icon-arrow'><span class='path1'></span><span class='path2'></span></buttoni></div><div class='rightLI'><button class='deleteSwipe'>Delete</button></div ></div></li>");
-						
+						$('#categories .MsG').prepend( "<li class='Message "+( message['state'] < 3 ? "unread" : "" )+" typemsg"+message['type']+" entity"+message['idEntity']+"' id='"+message['idMessage']+"' bulb='"+message['bulb']+"' longMSG='"+message['longMessage']+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><div class='moveContainer'><div class='details'><h3>"+message['longMessage']+"</h3></div><div class='centralLI'><div class='iconCat'>"+Icon+"</div><div class='infoBank'><h2>"+message['shortMessage']+"</h2><h6 class='dateBank'><span class='icon-primitive-dot "+dotState+"'></span><date>"+postDateS+"<date></h6></div><buttoni class='icon-arrow'><span class='path1'></span><span class='path2'></span></buttoni></div><div class='rightLI'><button class='deleteSwipe'>Delete</button></div ></div></li>");
+						$('#categories li').eq(0).css({"margin-top" : "0px"});
 						$.jStorage.set('msg_div', btoa($('#categories').html()));
 					
 						//console.log(JSON.stringify(data));
@@ -229,7 +231,7 @@ function makeSwipe(id){
 				});
 				syncronizeOffLineMsg();
 			},'json') .fail(function(e) {
-					$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').hide(1000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
+					$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').fade0ut(3000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
 			
 				//alert( JSON.stringify(e));getRules(kilomanyaroB)
 			}).done(function(){ 
@@ -238,7 +240,8 @@ function makeSwipe(id){
 				makeSwipe();
 				fix_messages();
 				$.jStorage.set('msg', btoa($('#categories').html()));
-				$('.refreshing_list').hide(); 
+				$('.refreshing_list').hide().removeClass("seen"); 
+				
 				$("*").scrollTop(2);
 				$("nav.categoryNav li span").addClass("active");
 				setTimeout(function(){oneTimeSendAjax = true;},500);
