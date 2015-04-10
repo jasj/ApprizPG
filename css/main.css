@@ -552,12 +552,13 @@ header .icon-menu {
 }
 
 .bankSection .icon-menu {
-    border: none;
-    color: #FFFFFF;
-    font-size: 51px;
-    background: none;
-    line-height: 76px;
-    display: block;
+  border: none;
+  color: #FFFFFF;
+  font-size: 32PX;
+  background: none;
+  line-height: 76px;
+  display: block;
+  margin-top: 5px;
 }
 
 .imglogo{
@@ -917,10 +918,11 @@ label.css-label {
     width: 100px;
     display: inline-block;
     padding: 0 0 0 30px;
+	line-height: 3.5 !important;
 }
 
 #categories li .icon-myAlerts, .icon-notifications, .icon-alerts, .icon-promotions, .icon-services {
-    font-size: 2.3em;
+    font-size: 32px;
 }
 
 #categories li .icon-myAlerts .path1:before, .icon-notifications, .icon-alerts, .icon-promotions, .icon-services {
@@ -2057,7 +2059,7 @@ overflow: auto;
     }
 
     #categories li .icon-myAlerts, .icon-notifications, .icon-alerts, .icon-promotions, .icon-services {
-        font-size: 30px;
+        font-size: 32px;
     }
 
     #categories li {
@@ -2170,7 +2172,7 @@ overflow: auto;
     }
 
     .bankSection .icon-menu {
-        font-size: 46px;
+        font-size: 32px;
         line-height: 91px;
 
     }
@@ -2181,7 +2183,7 @@ overflow: auto;
 
 
     #categories li .icon-myAlerts, .icon-notifications, .icon-alerts, .icon-promotions, .icon-services {
-        font-size: 28px;
+        font-size: 32px;
     }
 
     .contentMenu ul li button {
@@ -2694,7 +2696,7 @@ right: 0px;
 
 .refreshing_list{
 	text-align : center;
-	border-bottom: 1px solid gray;
+	font-size : 48px;
 }
 
 #ads2{
@@ -2768,5 +2770,19 @@ div#login{
 	left:0px;
 	right:0px;
 	overflow-x : hide;
+}
+
+.magicalArrow{
+	  display: table-cell;
+  height: 80px;
+  font-size: 32px;
+  vertical-align: middle;
+  color: #55B949;
+  width: 40px;
+  text-align: right;
+}
+
+.px5{
+	  margin-top: -5px;
 }
 

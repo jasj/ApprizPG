@@ -173,7 +173,7 @@ function makeSwipe(id){
 			oneTimeSendAjax = false;
 				$('.refreshing_list').show();
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
-			$('#categories').html("<div class='refreshing_list seen'><i class='fa fa-spinner fa-spin'></i> " +$.t("Refreshing")+ "...</div><div class='MsG'></div>");
+			$('#categories').html("<div class='refreshing_list seen'><i class='fa fa-spinner fa-spin'></i></div><div class='MsG'></div>");
 				console.log(JSON.stringify(data));
 				
 				$.each(data,function(index, message){
@@ -223,7 +223,7 @@ function makeSwipe(id){
 						if(/^<html>/.test(LONG_MSG)){
 							LONG_MSG = $.t("This message contains rich content");
 						}
-						$('#categories .MsG').prepend( "<li class='Message "+( message['state'] < 3 ? "unread" : "" )+" typemsg"+message['type']+" entity"+message['idEntity']+"' id='"+message['idMessage']+"' bulb='"+message['bulb']+"' longMSG='"+btoa(message['longMessage'])+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><div class='moveContainer'><div class='details'><h3>"+LONG_MSG+"</h3></div><div class='centralLI'><div class='iconCat'>"+Icon+"</div><div class='infoBank'><h2>"+message['shortMessage']+"</h2><h6 class='dateBank'><span class='icon-primitive-dot "+dotState+"'></span><date>"+postDateS+"<date></h6></div><buttoni class='icon-arrow'><span class='path1'></span><span class='path2'></span></buttoni></div><div class='rightLI'><button class='deleteSwipe'>Delete</button></div ></div></li>");
+						$('#categories .MsG').prepend( "<li class='Message "+( message['state'] < 3 ? "unread" : "" )+" typemsg"+message['type']+" entity"+message['idEntity']+"' id='"+message['idMessage']+"' bulb='"+message['bulb']+"' longMSG='"+btoa(message['longMessage'])+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><div class='moveContainer'><div class='details'><h3>"+LONG_MSG+"</h3></div><div class='centralLI'><div class='iconCat'>"+Icon+"</div><div class='infoBank'><h2>"+message['shortMessage']+"</h2><h6 class='dateBank'><span class='icon-primitive-dot "+dotState+"'></span><date>"+postDateS+"<date></h6></div><div class='magicalArrow'><i class='fa fa-angle-right'></i></div></div><div class='rightLI'><button class='deleteSwipe'>Delete</button></div ></div></li>");
 						
 						$.jStorage.set('msg_div', btoa($('#categories').html()));
 					
@@ -235,7 +235,7 @@ function makeSwipe(id){
 				});
 				syncronizeOffLineMsg();
 			},'json') .fail(function(e) {
-					$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').fade0ut(3000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
+					$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').fadeOut(3000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
 			
 				//alert( JSON.stringify(e));getRules(kilomanyaroB)
 			}).done(function(){ 
@@ -244,7 +244,7 @@ function makeSwipe(id){
 				makeSwipe();
 				fix_messages();
 				$.jStorage.set('msg', btoa($('#categories').html()));
-				$('.refreshing_list').hide().removeClass("seen"); 
+				$('.refreshing_list').fadeOut(1000); 
 				
 				$("*").scrollTop(2);
 				$("nav.categoryNav li span").addClass("active");
