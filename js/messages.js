@@ -285,23 +285,73 @@ function makeSwipe(id){
 		});
 		
 		
-		$('#appHolder').parent().parent().parent().bind('scroll', function()
-		{
-			$("#deleteAllBtn").hide();
-			$(".deleteOptionActivate").animate({"margin-left" : "0px"});
-			$(".deleteOptionActivate").removeClass("deleteOptionActivate");
-			
-			if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() == 0){
-				 callNewMSG();
-				 current_inbox();
-			}
-			
-		});
+	scrollEvent =  function(evt)
+	{
+		console.log("scroll  at: " + $(this).scrollTop() + "   time: " + Date.now());
+		margintop = 103;
+		$("#deleteAllBtn").hide();
+		$(".deleteOptionActivate").animate({"margin-left" : "0px"});
+		$(".deleteOptionActivate").removeClass("deleteOptionActivate");
 		
-		
+		if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <2){
+			
+			$('#appHolder').parent().parent().parent().on('touchstart', function(evt)
+				{
+					if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <2){
+						margintop =103;
+					//	console.log(evt);
+						//	evt.preventDefault();
+						//	var touches = touchEvent.changedTouches;
+						//	console.log("scroll start at: " + $(this).scrollTop() + "   y: " + touches[0].pageY);
+					}
+				});
+				
+				$('#appHolder').parent().parent().parent().on('touchmove', function(ev){
+					if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <2){
+						if(margintop == 103){}
+						if(margintop< 150){
+							margintop++;
+							$("#categories").css({"margin-top" : margintop+"px"});
+						}
+					}
+					
+				});
+				
+				$('#appHolder').parent().parent().parent().on('touchend', function(ev)
+				{
+					if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <2){
+						console.log("scroll stop at: " + $(this).scrollTop() + "   time: " + Date.now());
+						
+						//$('#appHolder').parent().parent().parent().unbind();
+						$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
+						
+						$("*").scrollTop(2);
+						
+						if(margintop < 150 ){
+							$("#categories").animate({"margin-top" : "103px"});
+						}else{
+							$("#categories").css({"margin-top" : "103px"});
+							callNewMSG();
+							current_inbox();
+							//
+						}
+						margintop =103;
+					}
+						
+				
+					
+				});
+	}}
 	
+	
+	$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
+		
+			
+				
 		
 		
+		
+
 $( document ).on("tapend","#deleteAllBtn",function(){
 	showAlert($.t("Delete All"),$.t("Do you want to delete all messages?"),function(){
 		$('.entity'+currentEntityID).remove();

@@ -63,6 +63,7 @@
 	//page back
 	
 	$( document ).on("tapend","a.icon-back",function(){
+		
 		if(!$.isEmptyObject(rulesChanges)){
 				showAlert($.t("Rule Changed"), $.t("Do you want to save changes?") , function(){
 					processRuleChange();

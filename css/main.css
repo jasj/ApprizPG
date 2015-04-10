@@ -282,7 +282,8 @@ ul li {
 }
 
 .icon-back:before {
-    content: "\e601";
+    content: "\f060";
+	font-family: 'FontAwesome';
 }
 
 .icon-delete:before {
@@ -2786,3 +2787,7 @@ div#login{
 	  margin-top: -5px;
 }
 
+.MsG{
+	position: relative;
+	margin-top : 3px;
+}

@@ -24,3 +24,4 @@
 	atWifi = 0;
 	PN = 0;
 	oneTimeSendAjax = true;
+	margintop =103;
