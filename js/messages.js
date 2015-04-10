@@ -173,7 +173,7 @@ function makeSwipe(id){
 			oneTimeSendAjax = false;
 				$('.refreshing_list').show();
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
-			$('#categories').html("<div class='refreshing_list seen'><i class='fa fa-spinner fa-spin'></i></div><div class='MsG'></div>");
+			$('#categories').html("<div class='scrollingArrow'><i class='fa fa-angle-double-down' ></i></div><div class='refreshing_list seen'><i class='fa fa-spinner fa-spin'></i></div><div class='MsG'></div>");
 				console.log(JSON.stringify(data));
 				
 				$.each(data,function(index, message){
@@ -309,8 +309,9 @@ function makeSwipe(id){
 				$('#appHolder').parent().parent().parent().on('touchmove', function(ev){
 					if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <2){
 						if(margintop == 103){}
-						if(margintop< 150){
+						if(margintop< 250){
 							margintop++;
+							$(".scrollingArrow").show();
 							$("#categories").css({"margin-top" : margintop+"px"});
 						}
 					}
@@ -326,6 +327,7 @@ function makeSwipe(id){
 						$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
 						
 						$("*").scrollTop(2);
+						$(".scrollingArrow").hide();
 						
 						if(margintop < 150 ){
 							$("#categories").animate({"margin-top" : "103px"});
@@ -333,7 +335,6 @@ function makeSwipe(id){
 							$("#categories").css({"margin-top" : "103px"});
 							callNewMSG();
 							current_inbox();
-							//
 						}
 						margintop =103;
 					}

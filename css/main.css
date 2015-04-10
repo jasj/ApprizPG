@@ -2791,3 +2791,12 @@ div#login{
 	position: relative;
 	margin-top : 3px;
 }
+
+#headerEntity{
+} 
+
+.scrollingArrow{
+	width:100%; 
+	text-align:center;
+	display: none;
+}
