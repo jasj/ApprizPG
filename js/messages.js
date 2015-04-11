@@ -324,13 +324,13 @@ function makeSwipe(id){
 						console.log("scroll stop at: " + $(this).scrollTop() + "   time: " + Date.now());
 						
 						//$('#appHolder').parent().parent().parent().unbind();
-						$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
+						//$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
 						
 						//$("*").scrollTop(2);
 						$(".scrollingArrow").hide();
 						
 						if(margintop < 150 ){
-							$("#categories").animate({"margin-top" : "103px"});
+							
 						}else{
 							$("#categories").css({"margin-top" : "103px"});
 							callNewMSG();
@@ -338,6 +338,8 @@ function makeSwipe(id){
 						}
 						margintop =103;
 						$("#categories").css({"margin-top" : "103px"});
+					}else{
+						$("#categories").animate({"margin-top" : "103px"});
 					}
 						
 					$('#appHolder').parent().parent().parent().unbind("touchend");
