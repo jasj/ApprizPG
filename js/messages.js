@@ -287,7 +287,7 @@ function makeSwipe(id){
 		
 	scrollEvent =  function(evt)
 	{
-		
+		console.log("scroll  at: " + $(this).scrollTop() + "   time: " + Date.now());
 		margintop = 103;
 		$("#deleteAllBtn").hide();
 		$(".deleteOptionActivate").animate({"margin-left" : "0px"});
@@ -307,35 +307,26 @@ function makeSwipe(id){
 				});
 				
 				$('#appHolder').parent().parent().parent().on('touchmove', function(ev){
-					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 || margintop > 102)){
+					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 || margin-top > 105)){
 						if(margintop == 103){}
 						if(margintop< 150){
 							margintop++;
 							$(".scrollingArrow").show();
 							$("#categories").css({"margin-top" : margintop+"px"});
 						}
-						else{
-								
-						}
-					}else if( $(".page-content.active").attr("id") == "inbox" ){
-						$("#categories").animate({"margin-top" : "103px"});
-					}else{
-						$("#categories").css({"margin-top" : "103px"});
-					}
-						
+					}else
 					
 				});
 				
 				$('#appHolder').parent().parent().parent().on('touchend', function(ev)
 				{
-					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 || margintop > 105)){
-						
+					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 || margin-top > 105)){
+						console.log("scroll stop at: " + $(this).scrollTop() + "   time: " + Date.now());
 						
 						//$('#appHolder').parent().parent().parent().unbind();
-						$('#appHolder').parent().parent().parent().unbind("touchmove").unbind("touchend");;
 						$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
 						
-						
+						$("*").scrollTop(2);
 						$(".scrollingArrow").hide();
 						
 						if(margintop < 150 ){
@@ -345,14 +336,7 @@ function makeSwipe(id){
 							callNewMSG();
 							current_inbox();
 						}
-						margintop = 103;
-						//$("*").scrollTop(2);
-					}else if( $(".page-content.active").attr("id") == "inbox" ){
-						$("#categories").animate({"margin-top" : "103px"});
-						margintop = 103;
-					}else{
-						$("#categories").css({"margin-top" : "103px"});
-						margintop = 103;
+						margintop =103;
 					}
 						
 				
