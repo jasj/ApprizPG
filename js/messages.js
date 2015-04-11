@@ -297,13 +297,14 @@ function makeSwipe(id){
 			
 			$('#appHolder').parent().parent().parent().on('touchstart', function(evt)
 				{
-					if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <2){
+					//if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <2){
 						margintop =103;
+						$("#categories").animate({"margin-top" : "103px"});
 					//	console.log(evt);
 						//	evt.preventDefault();
 						//	var touches = touchEvent.changedTouches;
 						//	console.log("scroll start at: " + $(this).scrollTop() + "   y: " + touches[0].pageY);
-					}
+					//}
 				});
 				
 				$('#appHolder').parent().parent().parent().on('touchmove', function(ev){
