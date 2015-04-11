@@ -332,7 +332,8 @@ function makeSwipe(id){
 						
 						
 						//$('#appHolder').parent().parent().parent().unbind();
-						//$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
+						$('#appHolder').parent().parent().parent().unbind("touchmove").unbind("touchend");;
+						$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
 						
 						
 						$(".scrollingArrow").hide();
