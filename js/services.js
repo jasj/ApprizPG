@@ -8,7 +8,7 @@ function addServices(services){
 	$(".refreshing_list").hide();
 }
 function getServices(productName){
-	$('#services .services ul').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i> " +$.t("Refreshing")+ "...</div>");
+	$('#services .services ul').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i> </div>");
 	$.post('http://'+IP+':8089/appriz/getServicesByProduct',{"idSecretClient": idScretClient,"productName":productName,},function(data){
 			if (data["status"]== 200){
 				addServices(data["services"]);

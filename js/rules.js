@@ -28,7 +28,7 @@ function addRules(objs){
 }
 
 function getRules(productName){
-	$('#rules .products ul').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i> " +$.t("Refreshing")+ "...</div>");
+	$('#rules .products ul').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i></div>");
 		$.post('http://'+IP+':8089/appriz/getRulesByProduct',{"idSecretClient": idScretClient,"productName":productName,},function(data){
 			if (data["status"]== 200){
 				addRules(data["rules"]);
