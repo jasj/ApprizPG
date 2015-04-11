@@ -297,23 +297,25 @@ function makeSwipe(id){
 			
 			$('#appHolder').parent().parent().parent().on('touchstart', function(evt)
 				{
-					//if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <2){
+					if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <2){
 						margintop =103;
-						$("#categories").animate({"margin-top" : "103px"});
 					//	console.log(evt);
 						//	evt.preventDefault();
 						//	var touches = touchEvent.changedTouches;
 						//	console.log("scroll start at: " + $(this).scrollTop() + "   y: " + touches[0].pageY);
-					//}
+					}
 				});
 				
 				$('#appHolder').parent().parent().parent().on('touchmove', function(ev){
-					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 || margin-top > 105)){
+					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 || margintop > 102)){
 						if(margintop == 103){}
 						if(margintop< 150){
 							margintop++;
 							$(".scrollingArrow").show();
 							$("#categories").css({"margin-top" : margintop+"px"});
+						}
+						else{
+								
 						}
 					}else if( $(".page-content.active").attr("id") == "inbox" ){
 						$("#categories").animate({"margin-top" : "103px"});
@@ -326,13 +328,13 @@ function makeSwipe(id){
 				
 				$('#appHolder').parent().parent().parent().on('touchend', function(ev)
 				{
-					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 || margin-top > 105)){
-						console.log("scroll stop at: " + $(this).scrollTop() + "   time: " + Date.now());
+					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 || margintop > 103)){
+						
 						
 						//$('#appHolder').parent().parent().parent().unbind();
-						$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
+						//$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
 						
-						$("*").scrollTop(2);
+						
 						$(".scrollingArrow").hide();
 						
 						if(margintop < 150 ){
@@ -343,6 +345,7 @@ function makeSwipe(id){
 							current_inbox();
 						}
 						margintop =103;
+						$("*").scrollTop(2);
 					}else if( $(".page-content.active").attr("id") == "inbox" ){
 						$("#categories").animate({"margin-top" : "103px"});
 					}else{
