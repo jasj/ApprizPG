@@ -307,7 +307,7 @@ function makeSwipe(id){
 				});
 				
 				$('#appHolder').parent().parent().parent().on('touchmove', function(ev){
-					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 || margin-top > 105)){
+					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 )){
 						if(margintop == 103){}
 						if(margintop< 150){
 							margintop++;
@@ -320,13 +320,13 @@ function makeSwipe(id){
 				
 				$('#appHolder').parent().parent().parent().on('touchend', function(ev)
 				{
-					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 || margin-top > 105)){
+					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 )){
 						console.log("scroll stop at: " + $(this).scrollTop() + "   time: " + Date.now());
 						
 						//$('#appHolder').parent().parent().parent().unbind();
 						$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
 						
-						$("*").scrollTop(2);
+						//$("*").scrollTop(2);
 						$(".scrollingArrow").hide();
 						
 						if(margintop < 150 ){
@@ -337,9 +337,12 @@ function makeSwipe(id){
 							current_inbox();
 						}
 						margintop =103;
+						$("#categories").css({"margin-top" : "103px"});
 					}
 						
-				
+					$('#appHolder').parent().parent().parent().unbind("touchend");
+					$('#appHolder').parent().parent().parent().unbind("touchmove");
+					
 					
 				});
 	}}
