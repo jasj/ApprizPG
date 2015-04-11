@@ -287,7 +287,7 @@ function makeSwipe(id){
 		
 	scrollEvent =  function(evt)
 	{
-		console.log("scroll  at: " + $(this).scrollTop() + "   time: " + Date.now());
+		
 		margintop = 103;
 		$("#deleteAllBtn").hide();
 		$(".deleteOptionActivate").animate({"margin-left" : "0px"});
@@ -328,7 +328,7 @@ function makeSwipe(id){
 				
 				$('#appHolder').parent().parent().parent().on('touchend', function(ev)
 				{
-					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 || margintop > 103)){
+					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 || margintop > 105)){
 						
 						
 						//$('#appHolder').parent().parent().parent().unbind();
@@ -344,12 +344,14 @@ function makeSwipe(id){
 							callNewMSG();
 							current_inbox();
 						}
-						margintop =103;
-						$("*").scrollTop(2);
+						margintop = 103;
+						//$("*").scrollTop(2);
 					}else if( $(".page-content.active").attr("id") == "inbox" ){
 						$("#categories").animate({"margin-top" : "103px"});
+						margintop = 103;
 					}else{
 						$("#categories").css({"margin-top" : "103px"});
+						margintop = 103;
 					}
 						
 				
