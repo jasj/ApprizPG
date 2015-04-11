@@ -314,7 +314,7 @@ function makeSwipe(id){
 							$(".scrollingArrow").show();
 							$("#categories").css({"margin-top" : margintop+"px"});
 						}
-					}else
+					}
 					
 				});
 				
