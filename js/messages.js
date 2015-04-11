@@ -309,12 +309,17 @@ function makeSwipe(id){
 				$('#appHolder').parent().parent().parent().on('touchmove', function(ev){
 					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 || margin-top > 105)){
 						if(margintop == 103){}
-						if(margintop< 250){
+						if(margintop< 150){
 							margintop++;
 							$(".scrollingArrow").show();
 							$("#categories").css({"margin-top" : margintop+"px"});
 						}
+					}else if( $(".page-content.active").attr("id") == "inbox" ){
+						$("#categories").animate({"margin-top" : "103px"});
+					}else{
+						$("#categories").css({"margin-top" : "103px"});
 					}
+						
 					
 				});
 				
@@ -337,6 +342,10 @@ function makeSwipe(id){
 							current_inbox();
 						}
 						margintop =103;
+					}else if( $(".page-content.active").attr("id") == "inbox" ){
+						$("#categories").animate({"margin-top" : "103px"});
+					}else{
+						$("#categories").css({"margin-top" : "103px"});
 					}
 						
 				
