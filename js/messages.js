@@ -287,7 +287,7 @@ function makeSwipe(id){
 		
 	scrollEvent =  function(evt)
 	{
-		console.log("scroll  at: " + $(this).scrollTop() + "   time: " + Date.now());
+
 		margintop = 103;
 		$("#deleteAllBtn").hide();
 		$(".deleteOptionActivate").animate({"margin-left" : "0px"});
@@ -295,7 +295,7 @@ function makeSwipe(id){
 		
 		if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <2){
 			
-			$('#appHolder').parent().parent().parent().on('touchstart', function(evt)
+			$('#categories').on('touchstart', function(evt)
 				{
 					if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <2){
 						margintop =103;
@@ -306,7 +306,7 @@ function makeSwipe(id){
 					}
 				});
 				
-				$('#appHolder').parent().parent().parent().on('touchmove', function(ev){
+				$('#categories').on('touchmove', function(ev){
 					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 )){
 						if(margintop == 103){}
 						if(margintop< 150){
@@ -318,10 +318,10 @@ function makeSwipe(id){
 					
 				});
 				
-				$('#appHolder').parent().parent().parent().on('touchend', function(ev)
+				$('#categories').on('touchend', function(ev)
 				{
 					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 )){
-						console.log("scroll stop at: " + $(this).scrollTop() + "   time: " + Date.now());
+		
 						
 						//$('#appHolder').parent().parent().parent().unbind();
 						//$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
@@ -342,8 +342,8 @@ function makeSwipe(id){
 						$("#categories").animate({"margin-top" : "103px"});
 					}
 						
-					$('#appHolder').parent().parent().parent().unbind("touchend");
-					$('#appHolder').parent().parent().parent().unbind("touchmove");
+					$('#categories').unbind("touchend");
+					$('#categories').unbind("touchmove");
 					
 					
 				});
