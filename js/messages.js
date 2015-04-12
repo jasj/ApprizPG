@@ -347,7 +347,11 @@ function makeSwipe(id){
 					
 					
 				});
-	}}
+	}
+		else{
+			$("#categories").css({"margin-top" : "103px"});
+		}
+	}
 	
 	
 	$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
