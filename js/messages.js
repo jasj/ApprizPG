@@ -255,6 +255,101 @@ function makeSwipe(id){
 		}}
 				
 				
+				
+				
+				
+				
+				
+		//bring message for this client
+		function callMSGback(){
+			$("#deleteAllBtn").hide();
+			date = new Date();
+		if(oneTimeSendAjax){
+			oneTimeSendAjax = false;
+			
+			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
+			$('#categories').html("<div class='scrollingArrow'><i class='fa fa-angle-double-down' ></i></div><div class='refreshing_list seen'><i class='fa fa-spinner fa-spin'></i></div><div class='MsG'></div>");
+				console.log(JSON.stringify(data));
+				
+				$.each(data,function(index, message){
+					if($('#'+message['idMessage']).length > 0){ 
+						makeSwipe(message['idMessage']);
+						if(message['state'] == 3){
+							$('#'+message['idMessage']).removeClass('unread')
+						}
+							var bulb =  message['bulb'] == 1   ? 'img/ledlightgreen.png' : message['bulb'] == 2   ? 'img/ledlighyellow.png' : message['bulb'] == 3   ? 'img/ledlightred.png' :  'img/ledlighgray.png';
+						    $('#'+message['idMessage']).find('.bulb').attr('src',bulb);
+					}else{
+					//child msg
+			
+					if( ( 'idParent' in message) && ($('#categories #'+message['idParent']).length>0)){
+						var postDate = new Date(message['postdate']);
+						var dateText = postDate.toLocaleString();
+						var dotState =  message['bulb'] == 1   ? 'dotDone' : message['bulb'] == 2   ? 'dotProgress' : message['bulb'] == 3   ? 'dotError' :  'dotNone';
+						$('#categories #'+message['idParent']).attr('bulb',message['bulb']);
+						$('#categories #'+message['idParent']+" .icon-primitive-dot").removeClass("dotDone").removeClass("dotProgress").removeClass("dotError").removeClass("dotNone").addClass(dotState);
+						
+						if(message['state'] == 3){
+							$('#categories #'+message['idParent']).attr('read',$('#categories #'+message['idParent']).hasAttr('read') ? $('#categories #'+message['idParent']).attr('read')+','+message['idMessage'] : message['idMessage']);
+						}else{
+							$('#categories #'+message['idParent']).attr('nread',$('#categories #'+message['idParent']).hasAttr('nread') ? $('#categories #'+message['idParent']).attr('nread')+','+message['idMessage'] : message['idMessage']);
+							$('#categories #'+message['idParent']).addClass('unread');
+						}
+						if($('#categories #'+message['idParent']).hasAttr('history')){
+							$('#categories #'+message['idParent']).attr('history',btoa(atob($('#categories #'+message['idParent']).attr('history'))+";"+message['shortMessage']+"^"+message['longMessage']+"^"+dateText));
+							
+						}else{
+							$('#categories #'+message['idParent']).attr('history',btoa(message['shortMessage']+"^"+message['longMessage']+"^"+dateText));
+						}
+						console.log(atob($('#categories #'+message['idParent']).attr('history')));
+
+						 
+					
+					}else{ 
+				
+						var Icon = message['type'] == 1 ? '<span class="icon-myAlerts"><span class="path1"></span><span class="path2"></span></span>'  : message['type'] == 2 ? '<span class="icon-alerts path1"></span>' : message['type'] == 3 ? '<span class="icon-notifications"></span>' :  message['type'] == 4 ?  '<span class="icon-promotions"></span>' : '<span class="icon-services"></span>';
+						var dotState =  message['bulb'] == 1   ? 'dotDone' : message['bulb'] == 2   ? 'dotProgress' : message['bulb'] == 3   ? 'dotError' :  'dotNone';
+						
+						var postDate = new Date(message['postdate']);
+						var postDateS = postDate.toLocaleDateString() + " " + postDate.getHours() +    ":" +  FormatInteger(postDate.getMinutes(),2) +    ":" + FormatInteger(postDate.getSeconds(),2) ;
+						
+					//	var postDateS = postDate.getFullYear() + "-"+FormatInteger(postDate.getMonth() + 1,2)+ "-"+FormatInteger(postDate.getDate(),2) +" "+postDate.getHours()+":"+postDate.getMinutes()+":"+postDate.getSeconds();
+						var LONG_MSG = message['longMessage'];
+						if(/^<html>/.test(LONG_MSG)){
+							LONG_MSG = $.t("This message contains rich content");
+						}
+						$('#categories .MsG').prepend( "<li class='Message "+( message['state'] < 3 ? "unread" : "" )+" typemsg"+message['type']+" entity"+message['idEntity']+"' id='"+message['idMessage']+"' bulb='"+message['bulb']+"' longMSG='"+btoa(message['longMessage'])+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><div class='moveContainer'><div class='details'><h3>"+LONG_MSG+"</h3></div><div class='centralLI'><div class='iconCat'>"+Icon+"</div><div class='infoBank'><h2>"+message['shortMessage']+"</h2><h6 class='dateBank'><span class='icon-primitive-dot "+dotState+"'></span><date>"+postDateS+"<date></h6></div><div class='magicalArrow'><i class='fa fa-angle-right'></i></div></div><div class='rightLI'><button class='deleteSwipe'>Delete</button></div ></div></li>");
+						
+						$.jStorage.set('msg_div', btoa($('#categories').html()));
+					
+						//console.log(JSON.stringify(data));
+					}
+					}
+					
+					$.jStorage.set('msg_div', btoa($('#categories').html()));
+				});
+				syncronizeOffLineMsg();
+			},'json') .fail(function(e) {
+					$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').fadeOut(3000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
+			
+				//alert( JSON.stringify(e));getRules(kilomanyaroB)
+			}).done(function(){ 
+				current_inbox();
+				counterByMsg();
+				makeSwipe();
+				fix_messages();
+				$.jStorage.set('msg', btoa($('#categories').html()));
+				$('.refreshing_list').fadeOut(1000); 
+				
+				
+				$("nav.categoryNav li span").addClass("active");
+				setTimeout(function(){oneTimeSendAjax = true;},500);
+				
+		//	counterByMsg();$('.refreshing_list').hide(); 
+			});
+		}}
+						
+				
 		//Delete Btn
 		$( document ).on("tapend","#categories .deleteSwipe",function(){
 			stateChangeLst.push({msg : $(this).parent().parent().parent().attr("id") , state : "DELETED"});
@@ -321,9 +416,9 @@ StartXCategories = 0;
 				
 				$('#categories').on('touchmove', function(ev){
 					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 )){
-						//ev.preventDefault();
+						ev.preventDefault();
 						 var deltaY = (getCoord(ev,"Y") -StartYCategories);
-						 if(deltaY >10){
+						 if(deltaY >20){
 							//console.log("deltaX: " + ( getCoord(ev,"X") - StartXCategories ) +"  -- " +"deltaY: " + (getCoord(ev,"Y") -StartYCategories)  );
 							if(margintop == 103){}
 							if(margintop< 150){

@@ -50,6 +50,7 @@ function onNotificationAPN (event) {
     if ( event.alert )
     {
         navigator.notification.console.log(event.alert);
+		callMSGback();
     }
 
     if ( event.sound )
@@ -91,7 +92,7 @@ function onNotification(e) {
         {
             console.log('<li>--INLINE NOTIFICATION--' + '</li>');
 			window.plugins.toast.showLongBottom(e.payload.message, function(a){console.log('toast success: ' + a)}, function(b){console.log('toast error: ' + b)});
-
+			callMSGback();
             // on Android soundname is outside the payload.
             // On Amazon FireOS all custom attributes are contained within payload
           //  var soundfile = e.soundname || e.payload.sound;
