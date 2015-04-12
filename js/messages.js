@@ -284,6 +284,15 @@ function makeSwipe(id){
 			//$(this).css({content: "\e60b",color: tabSelectedColor});
 		});
 		
+	function getCoord(e, c) {
+    return /touch/.test(e.type) ? (e.originalEvent || e).changedTouches[0]['page' + c] : e['page' + c];
+}
+
+
+StartYCategories = 0;
+StartXCategories = 0;
+
+		
 		
 	scrollEvent =  function(evt)
 	{
@@ -297,10 +306,14 @@ function makeSwipe(id){
 			
 			$('#categories').on('touchstart', function(evt)
 				{
+					
 					if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <2){
 						margintop =103;
-					//	console.log(evt);
-						//	evt.preventDefault();
+						StartXCategories = getCoord(evt,"X");
+						StartYCategories = getCoord(evt,"Y");
+						console.log("StartX: " + StartXCategories +"  -- " +"StartY: " + StartYCategories  );
+						
+						
 						//	var touches = touchEvent.changedTouches;
 						//	console.log("scroll start at: " + $(this).scrollTop() + "   y: " + touches[0].pageY);
 					}
@@ -308,12 +321,20 @@ function makeSwipe(id){
 				
 				$('#categories').on('touchmove', function(ev){
 					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 )){
-						if(margintop == 103){}
-						if(margintop< 150){
-							margintop++;
-							$(".scrollingArrow").show();
-							$("#categories").css({"margin-top" : margintop+"px"});
-						}
+						//ev.preventDefault();
+						 var deltaY = (getCoord(ev,"Y") -StartYCategories);
+						 if(deltaY >10){
+							//console.log("deltaX: " + ( getCoord(ev,"X") - StartXCategories ) +"  -- " +"deltaY: " + (getCoord(ev,"Y") -StartYCategories)  );
+							if(margintop == 103){}
+							if(margintop< 150){
+								margintop++;
+								$(".scrollingArrow").show();
+								$("#categories").css({"margin-top" : margintop+"px"});
+							}
+						 }
+						 else{
+							 $("#categories").css({"margin-top" : "103px"});
+						 }
 					}
 					
 				});
@@ -321,7 +342,7 @@ function makeSwipe(id){
 				$('#categories').on('touchend', function(ev)
 				{
 					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 )){
-		
+						ev.preventDefault();
 						
 						//$('#appHolder').parent().parent().parent().unbind();
 						//$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
