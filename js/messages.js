@@ -397,12 +397,12 @@ StartXCategories = 0;
 		$(".deleteOptionActivate").animate({"margin-left" : "0px"});
 		$(".deleteOptionActivate").removeClass("deleteOptionActivate");
 		
-		if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <2){
+		if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <3){
 			
 			$('#categories').on('touchstart', function(evt)
 				{
 					
-					if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <2){
+					if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <3){
 						margintop =103;
 						StartXCategories = getCoord(evt,"X");
 						StartYCategories = getCoord(evt,"Y");
@@ -415,7 +415,7 @@ StartXCategories = 0;
 				});
 				
 				$('#categories').on('touchmove', function(ev){
-					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 )){
+					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <3 )){
 						ev.preventDefault();
 						 var deltaY = (getCoord(ev,"Y") -StartYCategories);
 						 if(deltaY >20){
@@ -436,7 +436,7 @@ StartXCategories = 0;
 				
 				$('#categories').on('touchend', function(ev)
 				{
-					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <2 )){
+					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <3 )){
 						ev.preventDefault();
 						
 						//$('#appHolder').parent().parent().parent().unbind();
