@@ -344,7 +344,7 @@ function makeSwipe(id){
 				
 				$("nav.categoryNav li span").addClass("active");
 				setTimeout(function(){oneTimeSendAjax = true;},500);
-				
+				checkWithOutEntity();
 		//	counterByMsg();$('.refreshing_list').hide(); 
 			});
 		}}

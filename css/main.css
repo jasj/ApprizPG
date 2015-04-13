@@ -559,7 +559,11 @@ header .icon-menu {
   background: none;
   line-height: 76px;
   display: block;
-  margin-top: 5px;
+  margin-top: 11px;
+}
+
+#headerMain  .icon-menu {
+	 margin-top: 5px !important;
 }
 
 .imglogo{
@@ -970,7 +974,6 @@ label.css-label {
     border: none;
     background: none;
     position: absolute;
-    right: alc(150px+5px);
     z-index: 1000;
     top: 16px;
 }
@@ -1327,7 +1330,7 @@ nav.categoryNav .icon-myAlerts.active .path2:before {
     width: 100%;
     height: 100%;
     background: #000;
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 .navAppriz button {
@@ -1682,12 +1685,10 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     line-height: 55px;
     font-size: 1.3em;
     color: white;
+	margin-top: 7px;
 }
 
-.productNav li button:hover {
-    background: #b6b7b8 !important;
-    color: white !important;
-}
+
 
 .productNav li.active button {
     background: #FFFFFF;
@@ -1756,12 +1757,18 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     position: absolute;
     right: 1%;
     top: 12%;
-    font-size: 50px;
+	margin-top: 10px;
+ 
 }
 
 .products ul li button .icon-arrow .path1:before , .services ul li button .icon-arrow .path1:before{
-    content: "\e614";
+    content: "\f105";
     color: rgb(0, 91, 153);
+	font-family: 'FontAwesome';
+	font-weight : normal;
+	font-size: 22px;
+	
+	
 }
 
 .products .onoffswitch , .services .onoffswitch {
@@ -2291,6 +2298,7 @@ overflow: auto;
         right: 4%;
         top: 24%;
         font-size: 40px;
+		margin-top: -20px;
     }
 
     header h2 {
@@ -2799,4 +2807,8 @@ div#login{
 	width:100%; 
 	text-align:center;
 	display: none;
+}
+
+div.products li span.arrow{
+	margin-top: -10px;
 }

@@ -1,6 +1,10 @@
 
 
 function showMessage(id){
+	//For old Androids
+	$(".details_").css({"width" : (window.innerWidth - window.innerWidth*2*0.04)});
+	$(".detail_fixed").css({"margin-left" : "0px"});
+	
 	//Message Handle
 	var msg = $("#"+id+".Message");
 	//If the content if HTML show htmlMSG

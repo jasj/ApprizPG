@@ -3,7 +3,7 @@ function addServices(services){
 
 	 console.log(JSON.stringify(services));
 	for( service in services){
-		$('#services .services ul').append('<li service="'+service+'"><button><srv>'+services[service]+'</srv><span class="icon-arrow"><span class="path1"></span><span class="path2"></span></span></button></li>');
+		$('#services .services ul').append('<li service="'+service+'"><button><srv>'+services[service]+'</srv><span class="icon-arrow"></button></li>');
 	}
 	$(".refreshing_list").hide();
 }

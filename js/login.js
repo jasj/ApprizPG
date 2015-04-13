@@ -31,8 +31,7 @@ function login(){
 				$.jStorage.set('logAs', logAs);
 				$('.user div').html($.jStorage.get('logAs'));
 				reloadEntities();
-				//checkWithOutEntity();
-				setTimeout(function(){ 	checkWithOutEntity();}, 3000);
+				
 				//$("div#login").fadeOut(1000,function(){checkWithOutEntity()});
 				callNewMSG();
 				pin = data['pin'];
@@ -121,7 +120,7 @@ function checkPreviusLogin(){
 				$("div#appHolder").show();
 				$('.wConteiner div').hide();
 				
-				$("div#login").fadeOut(1000,function(){	checkWithOutEntity();});
+				$("div#login").fadeOut(1000,function(){	});
 			
 				
 				
