@@ -39,6 +39,10 @@ $('#first-time .btnFull').tapend(function(){
 								showInfoD($.t('Appriz User Created'),$.t('Now you need to subscribe to an entity'),
 								
 								function(){
+									var patFemail = /(\S+)@/;
+									logAs = $('#first-time input[type="email"]').eq(0).val().match(patFemail)[1];
+									$.jStorage.set('logAs', logAs);
+									$('.user div').html($.jStorage.get('logAs'));
 									checkWithOutEntity();
 										
 								}
