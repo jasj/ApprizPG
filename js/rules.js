@@ -73,7 +73,7 @@ function processRuleChange(){
 	rulesChanges = {};
 	console.log(JSON.stringify(tmp_ruleChange));
 	
-	$.post('http://'+IP+':8089/appriz/setRulesByProduct',{"idSecretClient": idScretClient,"productName": currentProduct, "rules":tmp_ruleChange},function(data){
+	$.post('http://'+IP+':8089/appriz/setRulesByProduct',{"idSecretClient": idScretClient,"productName": currentProduct, "rules":tmp_ruleChange, "entityName" : $('#entities li[entityId='+currentEntityID+']').find('img').attr("alt")},function(data){
 			console.log(JSON.stringify(data));
 			if (data["status"]== 200){
 				SPickerString = timePicker(data["periods"]);
