@@ -96,7 +96,7 @@ $( document ).on("tapend","[page-content=rules]",function(){
 });
 
 
-$( document ).on('tapend','#rules li h3',function(){
+$( document ).on('tapend','#rules li',function(){
 	$(this).parent().find('.dropdownBox').toggle();
 });
 
