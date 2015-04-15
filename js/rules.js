@@ -97,7 +97,7 @@ $( document ).on("tapend","[page-content=rules]",function(){
 
 
 $( document ).on('tapend','#rules li',function(){
-	$(this).parent().find('.dropdownBox').toggle();
+	$(this).find('.dropdownBox').toggle();
 });
 
 //change values on rule description

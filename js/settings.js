@@ -1,15 +1,20 @@
 $(document).on('tapend' ,'#settingsPage .btnFull', function(){
-	$.post('http://'+IP+':8089/appriz/setAprzCustomerSettings',{
-		idSecretClient			:  idScretClient,
-		retention   			:  parseInt($('.isThis').find('span').html()),
-		pinPolicy   			:  $("#pinPolicy").prop('checked') ? 0 : 1,
-		onlyWIFI				:  $("#atWifi").prop('checked') ? 1 : 0
-	}, function(data){
-		showInfoD($.t('Change Settings'),$.t('The settings was changed!'),function(){$('.moldHide, .dialogAlert').hide(); 
-		pinPolicy  =  $("#pinPolicy").prop('checked') ? 0 : 1});
-		atWifi =  $("#atWifi").prop('checked') ? 1 : 0;
-		retention =   parseInt($('.isThis').find('span').html());
-	});
+	var ret =  parseInt($('.isThis').find('span').html());
+		if(ret == 1 || ret == 2 || ret == 3 || ret == 4){
+			$.post('http://'+IP+':8089/appriz/setAprzCustomerSettings',{
+				idSecretClient			:  idScretClient,
+				retention   			:  parseInt($('.isThis').find('span').html()),
+				pinPolicy   			:  $("#pinPolicy").prop('checked') ? 0 : 1,
+				onlyWIFI				:  $("#atWifi").prop('checked') ? 1 : 0
+			}, function(data){
+				showInfoD($.t('Change Settings'),$.t('The settings was changed!'),function(){$('.moldHide, .dialogAlert').hide(); 
+				pinPolicy  =  $("#pinPolicy").prop('checked') ? 0 : 1});
+				atWifi =  $("#atWifi").prop('checked') ? 1 : 0;
+				retention =   parseInt($('.isThis').find('span').html());
+			});
+		}else{
+			showInfoD($.t('Error'),$.t('You need to select a retention policy'),function(){$('.moldHide, .dialogAlert').hide();});
+		}
 });
 
 $('#passwordChg .btnFull').tapend(function(){
@@ -56,4 +61,6 @@ $( document ).on('tapend','[page-content=settingsPage]',function(){
 	$('#atWifi').prop('checked', atWifi == 1 ? true : false);
 	$("#settingsPage .weeksOption input").prop('checked', false);
 	$("#settingsPage [week="+(retention =="undefined" ? 4 : retention)+"]").prev().prop('checked', true);
+	$("#settingsPage [week="+(retention =="undefined" ? 4 : retention)+"]").parent().addClass('isThis');
+	$
 });
