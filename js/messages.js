@@ -406,7 +406,7 @@ StartXCategories = 0;
 						margintop =103;
 						StartXCategories = getCoord(evt,"X");
 						StartYCategories = getCoord(evt,"Y");
-						console.log("StartX: " + StartXCategories +"  -- " +"StartY: " + StartYCategories  );
+					
 						
 						
 						//	var touches = touchEvent.changedTouches;
@@ -418,7 +418,7 @@ StartXCategories = 0;
 					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <3 )){
 						ev.preventDefault();
 						 var deltaY = (getCoord(ev,"Y") -StartYCategories);
-						 if(deltaY >20){
+						 if(deltaY >10){
 							//console.log("deltaX: " + ( getCoord(ev,"X") - StartXCategories ) +"  -- " +"deltaY: " + (getCoord(ev,"Y") -StartYCategories)  );
 							if(margintop == 103){}
 							if(margintop< 150){
