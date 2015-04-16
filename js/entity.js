@@ -46,7 +46,7 @@ function reloadEntities(){
 		}
 		
 function loadEntityTemplate(frsTime){
-	oIMG = S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png?ver=1.0';
+	oIMG = S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png';
 	oCSS = S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css';
 	if(frsTime == 1) {
 		$('.bankLogo img').attr("src",oIMG);

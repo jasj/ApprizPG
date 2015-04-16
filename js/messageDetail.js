@@ -145,9 +145,11 @@ $( document ).on('tapend','#showOptions',function(){
 	//	alert($('.dropdownOption').height() );
 		$('.dropdownOption').velocity({'bottom': (-$('.dropdownOption').height()-50)+"px"});
 		$(".appends").css({"z-index": 40});
+		$(".htmlMSG").css({"z-index": 40});
 	}
 	else{
 		$(".appends").css({"z-index": 0});
+		$(".htmlMSG").css({"z-index": 0});
 		$('.dropdownOption').velocity({'bottom' : '50px'});
 	}
 });

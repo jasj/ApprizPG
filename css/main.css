@@ -2779,6 +2779,7 @@ div#login{
 	left:0px;
 	right:0px;
 	overflow-x : hide;
+	z-index:999;
 }
 
 .magicalArrow{
