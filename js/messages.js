@@ -445,7 +445,7 @@ StartXCategories = 0;
 						//$("*").scrollTop(2);
 						$(".scrollingArrow").hide();
 						
-						if(margintop < 150 ){
+						if(margintop < 120 ){
 							
 						}else{
 							$("#categories").css({"margin-top" : "103px"});

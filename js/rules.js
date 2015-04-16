@@ -100,6 +100,10 @@ $( document ).on('tapend','#rules li',function(){
 	$(this).find('.dropdownBox').toggle();
 });
 
+$( document ).on('tapend','.dropdownBox',function(event){
+	event.stopPropagation();
+});
+
 //change values on rule description
 $(document).on('keyup','.rule input[type=tel]',function(){
 		$(this).parent().parent().parent().parent().parent().find($(this).attr('field')).html($(this).val());
