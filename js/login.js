@@ -83,6 +83,7 @@ function offLineMode(){
 
 
 function checkPreviusLogin(){
+	setTimeout(function(){$('#Waiting p').show();},3000);
 	currentEntityID  = ($.jStorage.index().indexOf('currentEntityID') > -1  ) ? $.jStorage.get('currentEntityID') : 0;
 	$.post('http://'+IP+':8089/appriz/getCurrentSession',{uuid:  typeof device !== 'undefined' ? device.uuid : "Browser" },function(data) {
 	if("idSecretClient" in data ){
