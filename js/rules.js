@@ -8,7 +8,7 @@ function timePicker(objs){
 function addRules(objs){
 	var toAppend = '';				
 	$.each(objs,function(index,obj){;
-		toAppend  =  "<li class='rule' id='rule_"+obj["idRule"]+"'><h3>"+obj["ruleName"]+"</h3>";
+		toAppend +=  "<li class='rule' id='rule_"+obj["idRule"]+"'><h3>"+obj["ruleName"]+"</h3>";
 	//	toAppend +=  " <div class='onoffswitch'><input type='checkbox' name='onoffswitch' class='onoffswitch-checkbox' id='switchRule"+obj["idRule"]+"' "+(obj["active"] ? "checked" : "")+">";
 		toAppend +=   "<div class='onoffswitch'><input type='checkbox' name='toggle_"+obj["idRule"]+"' id='toggle_"+obj["idRule"]+"' class='toggle' "+(obj["active"] ? "checked" : "")+"><label for='toggle_"+obj["idRule"]+"'></label></div>";
 		toAppend +=  "<div class='dropdownBox'>";
@@ -20,9 +20,10 @@ function addRules(objs){
 		if("varation" in obj ) toAppend = toAppend + "<li><h4>"+$.t("Variation")+"</h4><input type='tel' field='varation' maxlength='10' placeholder='"+obj["varation"]+"'/></td></tr>";
 		if("idTime" in obj ) toAppend = toAppend + "<li><h4>"+$.t("Time")+"</h4><select class='SelectStyle'>"+SPickerString+"</select><span class='icon-pencil'</span></li>";
 		toAppend = toAppend + "</ul></div></div> </li>";
-		$('#rules .products>ul').append(toAppend);
+	//	$('#rules .products>ul').append(toAppend);
 		if("idTime" in obj ) {$('select:last option[value="'+obj["idTime"]+'"]').prop('selected', true); $('idTime:last').html($('select:last option[value="'+obj["idTime"]+'"]').html());}
 	});
+	$('#rules .products ul').html(toAppend);
 	$('#rules_div').append("<div style='width: 100%; height: 150px;'></div>");
 	$(".refreshing_list").hide();
 }
@@ -97,6 +98,7 @@ $( document ).on("tapend","[page-content=rules]",function(){
 
 
 $( document ).on('tapend','#rules li',function(){
+		$('.dropdownBox').not($(this).find('.dropdownBox')).hide();
 	$(this).find('.dropdownBox').toggle();
 });
 
@@ -106,10 +108,28 @@ $( document ).on('tapend','.dropdownBox',function(event){
 
 //change values on rule description
 $(document).on('keyup','.rule input[type=tel]',function(){
+		
 		$(this).parent().parent().parent().parent().parent().find($(this).attr('field')).html($(this).val());
-		addRuleChange($(this).parent().parent().parent().parent().parent().attr('id').replace(/rule_(\S+)/,"$1"),$(this).attr('field'),$(this).val());
+		$(this).parent().parent().find('input[type=tel]').each(function(){
+			addRuleChange($(this).parent().parent().parent().parent().parent().attr('id').replace(/rule_(\S+)/,"$1"),$(this).attr('field'),$(this).val() == null || $(this).val() == "" ? $(this).attr("placeholder")  : $(this).val() );	
+		});
+		$(this).parent().parent().find('.SelectStyle').each(function(){
+			addRuleChange($(this).parent().parent().parent().parent().parent().attr('id').replace(/rule_(\S+)/,"$1"),'idTime',$(this).find('option:selected').val());
+		});
+		
 		$(this).parent().parent().parent().parent().parent().find('input[type=checkbox]').attr('checked','true');
 });
+
+$(document).on('change','.SelectStyle',function(){
+		$(this).parent().parent().parent().parent().parent().parent().find('idTime').html($(this).find('option:selected').html());
+		$(this).css({"color" : "#1A73B6"});
+		$(this).parent().parent().find('input[type=tel]').each(function(){
+			addRuleChange($(this).parent().parent().parent().parent().parent().attr('id').replace(/rule_(\S+)/,"$1"),$(this).attr('field'),$(this).val() == null || $(this).val() == "" ?    $(this).attr("placeholder") : $(this).val());	
+		});
+		addRuleChange($(this).parent().parent().parent().parent().parent().attr('id').replace(/rule_(\S+)/,"$1"),'idTime',$(this).find('option:selected').val());
+		$(this).parent().parent().parent().parent().parent().parent().find('input[type=checkbox]').attr('checked','true');
+		
+	});
 
 
 //active rule

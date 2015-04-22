@@ -10,6 +10,7 @@ function addProducts(products,view){
 
 }
 function getProducts(view){
+	$('#products p.title').html((view == 'rules' ? 'My Alerts' : 'Services')+'<i class="fa fa-angle-double-right"></i>Products </p>')
 	$('#products .products ul').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i> </div>");
 	if(pinPolicy==1){$('#pin').show();}
 	$()
