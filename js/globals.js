@@ -16,8 +16,8 @@
 	currentEntityID = 0;
 	logId = 0 ;
 	pinPolicy = -1;
-    IP = '54.81.6.137'; //testing
-   // IP = '54.237.36.135';
+   // IP = '54.81.6.137'; //testing
+    IP = '54.237.36.135';
 	PIN = "0AWE";
 	back = [];
 	stateChangeLst = [];
