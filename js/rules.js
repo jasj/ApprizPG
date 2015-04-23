@@ -135,11 +135,12 @@ $(document).on('change','.SelectStyle',function(){
 
 //active rule
 $( document ).on("tapend",'input.toggle + label',function(e){
+		e.stopPropagation();
 		var rId = $(this).parent().parent().attr('id').replace(/rule_(\S+)/,"$1");
 		console.log(rId);
-		if(!$(this).prev().is(":checked")){
+		if($(this).prev().is(":checked")){
 			console.log('checked');
-			$('.dropdownBox').hide();
+			$('.dropdownBox').not($(this).parent().parent().find(".dropdownBox")).hide();
 			$(this).parent().parent().find(".dropdownBox").show();
 			$(this).parent().parent().find('.dropdownBox input').each(function(){
 				console.log('table input');
@@ -152,6 +153,7 @@ $( document ).on("tapend",'input.toggle + label',function(e){
 
 		}else{
 			rulesChanges[rId] = {"idRule" : rId} // disable rule
+			$(this).parent().parent().find(".dropdownBox").hide();
 		}
 	});
 	

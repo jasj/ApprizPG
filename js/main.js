@@ -100,6 +100,7 @@ $(".weeksOption li").tapend(function(){
 	$(".weeksOption li").removeClass('isThis');
 	$(this).addClass('isThis');
    $(this).parent().find('input').not($(this).find('[type=checkbox]')).prop('checked', false);
+   $(this).find('[type=checkbox]')..prop('checked', true);
 	//$(this).find('input').prop('checked', true);
 	
 });
