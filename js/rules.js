@@ -29,7 +29,6 @@ function addRules(objs){
 }
 
 function getRules(productName){
-	$('#rules .products').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i></div>");
 	$.post('http://'+IP+':8089/appriz/getRulesByProduct',{"idSecretClient": idScretClient,"productName":productName,},function(data){
 			if (data["status"]== 200){
 				addRules(data["rules"]);
@@ -91,11 +90,11 @@ function processRuleChange(){
 		
 
 $( document ).on("tapend","[page-content=rules]",function(){
-		//$.ajaxSetup({async:false});
+		$('#rules .products').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i></div>");
 		$("#rules .productNav li").eq(1).find("button").html($(this).find("prd").html());
 		getValidTimePeriods($(this).find("prd").html())
 		
-		//$.ajaxSetup({async:true});
+		
 });
 
 
