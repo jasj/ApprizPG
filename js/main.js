@@ -105,6 +105,18 @@ $(".weeksOption li").tapend(function(){
 });
 
 
+$( document ).on("click",'input + label',function(e){
+    e.preventDefault();
+});
+
+$( document ).on("tapend",'input + label',function(e){
+	$(this).prev().prop("checked", !$(this).prev().prop("checked"));
+	
+});
+
+
+
+
 //Load Translated
 
 $.i18n.init({ lng: navigator.language , resGetPath: 'language/__lng__/__ns__.json',fallbackLng: 'en'},function(){

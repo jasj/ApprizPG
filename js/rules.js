@@ -134,10 +134,10 @@ $(document).on('change','.SelectStyle',function(){
 
 
 //active rule
-$( document ).on('change','input.toggle',function(){
+$( document ).on("tapend",'input.toggle + label',function(e){
 		var rId = $(this).parent().parent().attr('id').replace(/rule_(\S+)/,"$1");
 		console.log(rId);
-		if($(this).is(":checked")){
+		if($(this).prev().is(":checked")){
 			console.log('checked');
 			$('.dropdownBox').hide();
 			$(this).parent().parent().find(".dropdownBox").show();

@@ -83,6 +83,7 @@ function offLineMode(){
 
 
 function checkPreviusLogin(){
+	if($.jStorage.index().indexOf('msg') > -1){$('#categories').html(atob($.jStorage.get('msg')));}
 	setTimeout(function(){$('#Waiting p').show();},3000);
 	currentEntityID  = ($.jStorage.index().indexOf('currentEntityID') > -1  ) ? $.jStorage.get('currentEntityID') : 0;
 	$.post('http://'+IP+':8089/appriz/getCurrentSession',{uuid:  typeof device !== 'undefined' ? device.uuid : "Browser" },function(data) {
