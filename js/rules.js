@@ -137,7 +137,7 @@ $(document).on('change','.SelectStyle',function(){
 $( document ).on("tapend",'input.toggle + label',function(e){
 		var rId = $(this).parent().parent().attr('id').replace(/rule_(\S+)/,"$1");
 		console.log(rId);
-		if($(this).prev().is(":checked")){
+		if(!$(this).prev().is(":checked")){
 			console.log('checked');
 			$('.dropdownBox').hide();
 			$(this).parent().parent().find(".dropdownBox").show();
