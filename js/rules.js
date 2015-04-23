@@ -7,7 +7,7 @@ function timePicker(objs){
 	}
 function addRules(objs){
 	var toAppend = '';				
-	$.each(objs,function(index,obj){;
+	$.each(objs,function(index,obj){
 		toAppend +=  "<li class='rule' id='rule_"+obj["idRule"]+"'><h3>"+obj["ruleName"]+"</h3>";
 	//	toAppend +=  " <div class='onoffswitch'><input type='checkbox' name='onoffswitch' class='onoffswitch-checkbox' id='switchRule"+obj["idRule"]+"' "+(obj["active"] ? "checked" : "")+">";
 		toAppend +=   "<div class='onoffswitch'><input type='checkbox' name='toggle_"+obj["idRule"]+"' id='toggle_"+obj["idRule"]+"' class='toggle' "+(obj["active"] ? "checked" : "")+"><label for='toggle_"+obj["idRule"]+"'></label></div>";
@@ -23,14 +23,14 @@ function addRules(objs){
 	//	$('#rules .products>ul').append(toAppend);
 		if("idTime" in obj ) {$('select:last option[value="'+obj["idTime"]+'"]').prop('selected', true); $('idTime:last').html($('select:last option[value="'+obj["idTime"]+'"]').html());}
 	});
-	$('#rules .products ul').html(toAppend);
+	$('#rules .products').html("<ul>"+toAppend+"</ul>");
 	$('#rules_div').append("<div style='width: 100%; height: 150px;'></div>");
 	$(".refreshing_list").hide();
 }
 
 function getRules(productName){
-	$('#rules .products ul').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i></div>");
-		$.post('http://'+IP+':8089/appriz/getRulesByProduct',{"idSecretClient": idScretClient,"productName":productName,},function(data){
+	$('#rules .products').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i></div>");
+	$.post('http://'+IP+':8089/appriz/getRulesByProduct',{"idSecretClient": idScretClient,"productName":productName,},function(data){
 			if (data["status"]== 200){
 				addRules(data["rules"]);
 			}
@@ -53,7 +53,7 @@ function addRuleChange(idRule,field,value){
 }
 		
 
-function getValidTimePeriods(){
+function getValidTimePeriods(prd){
 	$.post('http://'+IP+':8089/appriz/getTimePeriods',{"secretKey" : secretKey,"entityId" : parseInt(currentEntityID)},function(data){
 		if (data["status"]== 200){
 			SPickerString = timePicker(data["periods"]);
@@ -61,7 +61,9 @@ function getValidTimePeriods(){
 		
 	},'json') .fail(function(e) {
 			showInfoD($.t("Offline Mode"),$.t("This option is disabled in Offline Mode"),function(){back=["inbox","inbox"];$(".icon-back").trigger("tapend")});
-	}).done(function(){});
+	}).done(function(){
+		getRules(prd);
+	});
 	
 }
 
@@ -89,11 +91,11 @@ function processRuleChange(){
 		
 
 $( document ).on("tapend","[page-content=rules]",function(){
-		$.ajaxSetup({async:false});
+		//$.ajaxSetup({async:false});
 		$("#rules .productNav li").eq(1).find("button").html($(this).find("prd").html());
-		getValidTimePeriods()
-		getRules($(this).find("prd").html());
-		$.ajaxSetup({async:true});
+		getValidTimePeriods($(this).find("prd").html())
+		
+		//$.ajaxSetup({async:true});
 });
 
 
