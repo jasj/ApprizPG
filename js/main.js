@@ -74,6 +74,7 @@
 			}
 			console.log(JSON.stringify(back));
 		var inBack = back.pop();
+		alert(inBack);
 		$('#pin').hide();
 		if(inBack != "undefined" && inBack != "Login" ){
 			$(".page-content.active").removeClass("active");
@@ -118,6 +119,9 @@ function backKeyDown() {
   $("a.icon-back").trigger("tapend");
 }
 
+function menuKeyDown{
+	$(".menu-main , .icon-menu").trigger("tapend");
+}
 
 
 
