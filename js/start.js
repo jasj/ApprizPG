@@ -3,6 +3,7 @@ function onDeviceReady(){
 	try{
 		onDeviceReady_fm();
 		onDeviceReady_pn();
+		document.addEventListener("backbutton", backKeyDown, true);
 	}catch(e){
 	}
 	setTimeout(function(){ $(".wConteiner div p").show();},3000);

@@ -113,6 +113,11 @@ $( document ).on("tapend",'.weeksOption li',function(e){
 	
 });
 
+//Buttons
+function backKeyDown() { 
+  $("a.icon-back").trigger("tapend");
+}
+
 
 
 
