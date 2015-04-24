@@ -76,7 +76,10 @@
 		var inBack = back.pop();
 		alert(inBack);
 		$('#pin').hide();
-		if(inBack != "undefined" && inBack != "Login" ){
+		if(inBack != "undefined" ){
+			
+		}
+		else if(inBack != "Login" ){
 			$(".page-content.active").removeClass("active");
 			$("header.active").removeClass("active");
 			$("#"+inBack).addClass("active").show();
