@@ -2,6 +2,16 @@
    Base styles: Appriz App
    ========================================================================== */
 
+   
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 html,
 button,
 input,
@@ -9,6 +19,8 @@ select,
 textarea {
     color: #222;
 }
+
+
 
 html {
     font-size: 1em;
@@ -756,7 +768,7 @@ input, .btnAction {
 
 /*Inputs check weeks styles*/
 
-input[type=checkbox].css-checkbox {
+input[type=radio].css-checkbox {
     position: absolute;
     z-index: -1000;
     left: -1000px;
@@ -769,7 +781,7 @@ input[type=checkbox].css-checkbox {
     border: 0;
 }
 
-input[type=checkbox].css-checkbox + label.css-label {
+input[type=radio].css-checkbox + label.css-label {
     padding-left: 8px;
     height: 22px;
     display: inline-block;
@@ -782,12 +794,12 @@ input[type=checkbox].css-checkbox + label.css-label {
 
 }
 
-input[type=checkbox].css-checkbox:checked + label.css-label {
+input[type=radio].css-checkbox:checked + label.css-label {
     background-position: -374px 0px;
 
 }
 
-input[type=checkbox].css-checkbox + label.css-label {
+input[type=radio].css-checkbox + label.css-label {
     background-position: 1px 0px;
     font-size: 18px;
     color: #636466;

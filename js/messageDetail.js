@@ -139,8 +139,8 @@ function showMessage(id){
 		
 }
 
-$( document ).on('tapend','#showOptions',function(){
-	
+$( document ).on('tapend','#showOptions',function(e){
+	e.stopPropagation();
 	if($('.dropdownOption').css("bottom") == "50px"){
 	//	alert($('.dropdownOption').height() );
 		$('.dropdownOption').velocity({'bottom': (-$('.dropdownOption').height()-50)+"px"});
@@ -167,8 +167,8 @@ $( document ).on('tapend','#showHistory',function(){
 });
 
 $( document ).on('tapend','.wraperWindows',function(){
-	//$('.dropdownOption').velocity({'bottom': (-$('.dropdownOption').height()-50)+"px"});
-	//	$(".appends").css({"z-index": 40});
+	$('.dropdownOption').velocity({'bottom': (-$('.dropdownOption').height()-50)+"px"});
+	$(".appends").css({"z-index": 40});
 });
 
 $( document ).on('tapend','.dropdownOption ul li',function(){

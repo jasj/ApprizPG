@@ -24,7 +24,7 @@ $('#first-time .btnFull').tapend(function(){
 						$.post('http://'+IP+':8089/appriz/createNewUser',{
 							email 		: $('#first-time input[type="email"]').eq(0).val(),
 							password	: $('#first-time input[type="password"]').eq(0).val(),
-							retention   : parseInt($('.isThis').find('span').html()),//parseInt($('.unikOptions .active').attr('weeks')),
+							retention   : parseInt($("#first-time .weeksOption input:checked").val()),//parseInt($('.unikOptions .active').attr('weeks')),
 							pinPolicy   : $("#pinPolicyFT").prop('checked') ? 0 : 1,
 							pin 		: $('#first-time input[type="tel"]').eq(0).val(),
 							phoneDevice :  typeof device !== 'undefined' ? device.model : "Browser",

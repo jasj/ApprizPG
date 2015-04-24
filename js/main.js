@@ -96,22 +96,20 @@
 	});
 	
 //Special elements:
-$(".weeksOption li").tapend(function(){
-	$(".weeksOption li").removeClass('isThis');
-	$(this).addClass('isThis');
-   $(this).parent().find('input').not($(this).find('[type=checkbox]')).prop('checked', false);
-   $(this).find('[type=checkbox]').prop('checked', true);
-	//$(this).find('input').prop('checked', true);
-	
-});
+
 
 
 $( document ).on("click",'input + label',function(e){
     e.preventDefault();
 });
 
-$( document ).on("tapend",'input + label',function(e){
+$( document ).on("tapend",'input[type=checkbox] + label',function(e){
 	$(this).prev().prop("checked", !$(this).prev().prop("checked"));
+	
+});
+
+$( document ).on("tapend",'.weeksOption li',function(e){
+	$(this).find('input').prop("checked", true);
 	
 });
 

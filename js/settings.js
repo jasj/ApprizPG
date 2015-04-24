@@ -1,9 +1,9 @@
 $(document).on('tapend' ,'#settingsPage .btnFull', function(){
-	var ret =  parseInt($('.isThis').find('span').html());
+	var ret =  parseInt($('input:radio[name=checkboxG1]:checked').val());
 		if(ret == 1 || ret == 2 || ret == 3 || ret == 4){
 			$.post('http://'+IP+':8089/appriz/setAprzCustomerSettings',{
 				idSecretClient			:  idScretClient,
-				retention   			:  parseInt($('.isThis').find('span').html()),
+				retention   			:  parseInt(ret),
 				pinPolicy   			:  $("#pinPolicy").prop('checked') ? 0 : 1,
 				onlyWIFI				:  $("#atWifi").prop('checked') ? 1 : 0
 			}, function(data){
