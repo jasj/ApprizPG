@@ -119,7 +119,7 @@ function backKeyDown() {
   $("a.icon-back").trigger("tapend");
 }
 
-function menuKeyDown{
+function menuKeyDown(){
 	$(".menu-main , .icon-menu").trigger("tapend");
 }
 
