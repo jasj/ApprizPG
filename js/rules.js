@@ -21,9 +21,18 @@ function addRules(objs){
 		if("idTime" in obj ) toAppend = toAppend + "<li><h4>"+$.t("Time")+"</h4><select class='SelectStyle'>"+SPickerString+"</select><span class='icon-pencil'</span></li>";
 		toAppend = toAppend + "</ul></div></div> </li>";
 	//	$('#rules .products>ul').append(toAppend);
-		if("idTime" in obj ) {$('select:last option[value="'+obj["idTime"]+'"]').prop('selected', true); $('idTime:last').html($('select:last option[value="'+obj["idTime"]+'"]').html());}
+		//if("idTime" in obj ) {
+		   // $('#rule_'+obj["idRule"]+' select option[value="'+obj["idTime"]+'"]').prop('selected', true); $('idTime:last').html($('select:last option[value="'+obj["idTime"]+'"]').html());}
 	});
 	$('#rules .products').html("<ul>"+toAppend+"</ul>");
+	$('#rules .products select').each(function(){
+		var idTime = $(this).parent().parent().parent().parent().find('idTime').html();
+		$(this).find('option[value="'+idTime+'"]').prop('selected', true);
+		$(this).parent().parent().parent().parent().find('idTime').html($(this).find('option[value="'+idTime+'"]').html());
+		
+	});
+	
+	
 	$('#rules_div').append("<div style='width: 100%; height: 150px;'></div>");
 	$(".refreshing_list").hide();
 }
