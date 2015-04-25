@@ -75,8 +75,9 @@
 			console.log(JSON.stringify(back));
 		var inBack = back.pop();
 		$('#pin').hide();
-		if(inBack != "undefined" ){
-			inBack = "inbox";	
+		if(inBack != "i")
+		if(inBack != "undefined" ){	
+			navigator.app.exitApp();
 		}
 		if(inBack != "Login" ){
 			$(".page-content.active").removeClass("active");
@@ -122,7 +123,7 @@ function backKeyDown() {
 }
 
 function menuKeyDown(){
-	$(".menu-main , .icon-menu").trigger("tapend");
+	$(".menu-main").trigger("tapend");
 }
 
 
