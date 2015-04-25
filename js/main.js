@@ -116,14 +116,16 @@ $( document ).on("tapend",'.weeksOption li',function(e){
 	
 });
 
-androidBackBtn = true;
+androidBackBtn = 0;
 //Buttons
 function backKeyDown() { 
-	if(androidBackBtn){
+	if(androidBackBtn==1){
 		androidBackBtn =false;
 		$("a.icon-back").trigger("tapend");
+	}else if(androidBackBtn==4){
+		androidBackBtn =0;
 	}else{
-		androidBackBtn =true;
+			androidBackBtn ++;
 	}
 }
 
