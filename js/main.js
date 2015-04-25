@@ -74,7 +74,6 @@
 			}
 			console.log(JSON.stringify(back));
 		var inBack = back.pop();
-		alert(inBack);
 		$('#pin').hide();
 		if(inBack != "undefined" ){
 			inBack = "inbox";	
