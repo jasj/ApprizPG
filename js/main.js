@@ -75,8 +75,7 @@
 			console.log(JSON.stringify(back));
 		var inBack = back.pop();
 		$('#pin').hide();
-		if(inBack != "i")
-		if(inBack != "undefined" ){	
+		if(inBack == "undefined" ){	
 			navigator.app.exitApp();
 		}
 		if(inBack != "Login" ){
