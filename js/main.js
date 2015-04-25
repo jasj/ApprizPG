@@ -77,9 +77,9 @@
 		alert(inBack);
 		$('#pin').hide();
 		if(inBack != "undefined" ){
-			
+			inBack = "inbox";	
 		}
-		else if(inBack != "Login" ){
+		if(inBack != "Login" ){
 			$(".page-content.active").removeClass("active");
 			$("header.active").removeClass("active");
 			$("#"+inBack).addClass("active").show();
