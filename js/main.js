@@ -117,9 +117,14 @@ $( document ).on("tapend",'.weeksOption li',function(e){
 	
 });
 
+androidBackBtn = true;
 //Buttons
 function backKeyDown() { 
-  $("a.icon-back").trigger("tapend");
+	if(androidBackBtn){
+		androidBackBtn =false;
+		$("a.icon-back").trigger("tapend");
+		setTimeout(function(){androidBackBtn = true;},500);
+	}
 }
 
 function menuKeyDown(){
