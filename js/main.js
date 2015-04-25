@@ -60,7 +60,7 @@
 			}
 		
 	});
-	//page back
+	//page backt
 	
 	$( document ).on("tapend","a.icon-back",function(){
 		
