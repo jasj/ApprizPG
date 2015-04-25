@@ -122,7 +122,8 @@ function backKeyDown() {
 	if(androidBackBtn){
 		androidBackBtn =false;
 		$("a.icon-back").trigger("tapend");
-		setTimeout(function(){androidBackBtn = true;},500);
+	}else{
+		androidBackBtn =true;
 	}
 }
 
