@@ -62,7 +62,7 @@
 	});
 	//page backt
 	
-	back = function(){
+	backFn = function(){
 		
 		if(!$.isEmptyObject(rulesChanges)){
 				showAlert($.t("Rule Changed"), $.t("Do you want to save changes?") , function(){
@@ -98,7 +98,7 @@
 			
 	}
 	
-	$( document ).on("tapend","a.icon-back",back());
+	$( document ).on("tapend","a.icon-back",backFn());
 	
 //Special elements:
 
@@ -123,7 +123,7 @@ androidBackBtn = 0;
 function backKeyDown() { 
 		
 		androidBackBtn++;
-		back();
+		backFn();
 }
 
 function menuKeyDown(){
