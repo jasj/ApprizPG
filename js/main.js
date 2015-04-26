@@ -62,7 +62,9 @@
 	});
 	//page backt
 	
-	backFn = function(){
+	
+	
+	$( document ).on("tapend","a.icon-back", function(){
 		
 		if(!$.isEmptyObject(rulesChanges)){
 				showAlert($.t("Rule Changed"), $.t("Do you want to save changes?") , function(){
@@ -96,9 +98,7 @@
 			window.location.reload(true);
 		}
 			
-	}
-	
-	$( document ).on("tapend","a.icon-back",backFn());
+	});
 	
 //Special elements:
 
@@ -123,7 +123,37 @@ androidBackBtn = 0;
 function backKeyDown() { 
 		
 		androidBackBtn++;
-		backFn();
+		if(!$.isEmptyObject(rulesChanges)){
+				showAlert($.t("Rule Changed"), $.t("Do you want to save changes?") , function(){
+					processRuleChange();
+				},function(){
+					rulesChanges = {};
+				});
+				
+			}
+			console.log(JSON.stringify(back));
+		var inBack = back.pop();
+		$('#pin').hide();
+		if(inBack == "undefined" ){	
+			navigator.app.exitApp();
+		}
+		if(inBack != "Login" ){
+			$(".page-content.active").removeClass("active");
+			$("header.active").removeClass("active");
+			$("#"+inBack).addClass("active").show();
+			$("#"+$("#"+inBack).attr("header")).addClass("active").show();
+		}else if(inBack == "Login"){
+			$("#login").show();
+			$("#appHolder").hide();
+			$(".page-content.active").removeClass("active");
+			$("header.active").removeClass("active");
+			$("#headerMain").addClass("active").show();
+			$("#inbox").addClass("active").show();
+			
+		}else{
+			try{navigator.splashscreen.show();}catch(e){}
+			window.location.reload(true);
+		}
 }
 
 function menuKeyDown(){
