@@ -12,6 +12,7 @@
 function login(){
 	  //event.preventDefault();
 	  var patFemail = /(\S+)@/;
+	  try{
 	  var logAs = $('.loginBox input').eq(0).val().match(patFemail)[1];
 		$.post('http://'+IP+':8089/appriz/login',{
 			"email" : $('.loginBox input').eq(0).val(),
@@ -50,8 +51,13 @@ function login(){
 		showInfoD($.t("Conexion Error"),$.t("There is a connection error Appriz services"),function(){},function(){})
 		
 });
-	
+	  }catch(e){
+		  showInfoD($.t('Wrong credentials'),$.t('The credentials that you use are invalid'),function(){$('.moldHide, .dialogAlert').hide();});
+				$('.loginBox input').eq(1).val("")
+	  }
 }
+
+
 
 
 function offLineMode(){
@@ -158,3 +164,10 @@ $( document ).on("tapend","button.log",function(){
 ---------------------------------------------------*/
 $( document ).on('tapend','.btnFull.submitLogin',function(){ login();});
 $( document ).on('tapend','#Waiting p',function(){offLineMode();});
+
+$(".loginBox input").eq(1).keyup(function (e) {
+    if (e.keyCode == 13) {
+       login();
+    }
+});
+
