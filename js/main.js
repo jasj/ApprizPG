@@ -122,6 +122,10 @@ androidBackBtn = 0;
 //Buttons
 function backKeyDown() { 
 		
+		if($('.page-content.active').attr('id') == "inbox"){
+			alert("Hey");
+			navigator.app.exitApp();
+		}else{
 		androidBackBtn++;
 		if(!$.isEmptyObject(rulesChanges)){
 				showAlert($.t("Rule Changed"), $.t("Do you want to save changes?") , function(){
@@ -134,6 +138,7 @@ function backKeyDown() {
 			console.log(JSON.stringify(back));
 		var inBack = back.pop();
 		$('#pin').hide();
+		
 		if(inBack == "undefined" ){	
 			navigator.app.exitApp();
 		}
@@ -154,6 +159,7 @@ function backKeyDown() {
 			try{navigator.splashscreen.show();}catch(e){}
 			window.location.reload(true);
 		}
+	}
 }
 
 function menuKeyDown(){
