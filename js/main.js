@@ -62,7 +62,7 @@
 	});
 	//page backt
 	
-	$( document ).on("tapend","a.icon-back",function(){
+	back = function(){
 		
 		if(!$.isEmptyObject(rulesChanges)){
 				showAlert($.t("Rule Changed"), $.t("Do you want to save changes?") , function(){
@@ -96,7 +96,9 @@
 			window.location.reload(true);
 		}
 			
-	});
+	}
+	
+	$( document ).on("tapend","a.icon-back",back());
 	
 //Special elements:
 
@@ -119,9 +121,9 @@ $( document ).on("tapend",'.weeksOption li',function(e){
 androidBackBtn = 0;
 //Buttons
 function backKeyDown() { 
-		$("a.icon-back").trigger("tapend");
+		
 		androidBackBtn++;
-		alert(androidBackBtn);
+		back();
 }
 
 function menuKeyDown(){
