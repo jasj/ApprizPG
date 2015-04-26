@@ -123,7 +123,6 @@ androidBackBtn = 0;
 function backKeyDown() { 
 		
 		if($('.page-content.active').attr('id') == "inbox"){
-			alert("Hey");
 			navigator.app.exitApp();
 		}else{
 		androidBackBtn++;
