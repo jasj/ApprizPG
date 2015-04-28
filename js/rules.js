@@ -124,6 +124,7 @@ $(document).on('keyup','.rule input[type=tel]',function(){
 			addRuleChange($(this).parent().parent().parent().parent().parent().attr('id').replace(/rule_(\S+)/,"$1"),$(this).attr('field'),$(this).val() == null || $(this).val() == "" ? $(this).attr("placeholder")  : $(this).val() );	
 		});
 		$(this).parent().parent().find('.SelectStyle').each(function(){
+		
 			addRuleChange($(this).parent().parent().parent().parent().parent().attr('id').replace(/rule_(\S+)/,"$1"),'idTime',$(this).find('option:selected').val());
 		});
 		
@@ -156,7 +157,7 @@ $( document ).on("tapend",'input.toggle + label',function(e){
 				addRuleChange(rId,$(this).attr('field'),$(this).val() == "" ? $(this).attr("placeholder") : $(this).val());
 				
 			});
-			$(this).parent().parent().find('table option:selected').each(function(){
+			$(this).parent().parent().find('option:selected').each(function(){
 				addRuleChange(rId,'idTime',$(this).val());
 			});
 
