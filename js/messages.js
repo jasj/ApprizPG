@@ -211,7 +211,7 @@ function makeSwipe(id){
 						 
 					
 					}else{ 
-				
+					 try{
 						var Icon = message['type'] == 1 ? '<span class="icon-myAlerts"><span class="path1"></span><span class="path2"></span></span>'  : message['type'] == 2 ? '<span class="icon-alerts path1"></span>' : message['type'] == 3 ? '<span class="icon-notifications"></span>' :  message['type'] == 4 ?  '<span class="icon-promotions"></span>' : '<span class="icon-services"></span>';
 						var dotState =  message['bulb'] == 1   ? 'dotDone' : message['bulb'] == 2   ? 'dotProgress' : message['bulb'] == 3   ? 'dotError' :  'dotNone';
 						
@@ -228,7 +228,10 @@ function makeSwipe(id){
 						$.jStorage.set('msg_div', btoa($('#categories').html()));
 					
 						//console.log(JSON.stringify(data));
+					}catch(e){console.log(e);}
 					}
+					
+					
 					}
 					
 					$.jStorage.set('msg_div', btoa($('#categories').html()));
