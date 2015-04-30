@@ -138,7 +138,7 @@ $(document).on('change','.SelectStyle',function(){
 			addRuleChange($(this).parent().parent().parent().parent().parent().attr('id').replace(/rule_(\S+)/,"$1"),$(this).attr('field'),$(this).val() == null || $(this).val() == "" ?    $(this).attr("placeholder") : $(this).val());	
 		});
 		addRuleChange($(this).parent().parent().parent().parent().parent().attr('id').replace(/rule_(\S+)/,"$1"),'idTime',$(this).find('option:selected').val());
-		$(this).parent().parent().parent().parent().parent().parent().find('input[type=checkbox]').attr('checked','true');
+		$(this).parent().parent().parent().parent().parent().find('input[type=checkbox]').attr('checked','true');
 		
 	});
 
