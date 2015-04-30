@@ -108,6 +108,10 @@ $( document ).on("tapend","[page-content=rules]",function(){
 
 
 $( document ).on('tapend','.rule',function(ev){
+		alert(startTap.Y);
+		alert( ev.pageY);
+		
+		
 		alert(Math.abs(startTap.Y - ev.pageY) );
 	if(Math.abs(startTap.Y - ev.pageY) < 10){
 	
