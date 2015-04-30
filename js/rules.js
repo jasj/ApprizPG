@@ -108,7 +108,7 @@ $( document ).on("tapend","[page-content=rules]",function(){
 
 
 $( document ).on('tapend','.rule',function(ev){
-		console.log(Math.abs(startTap.Y - ev.pageY) );
+		alert(Math.abs(startTap.Y - ev.pageY) );
 	if(Math.abs(startTap.Y - ev.pageY) < 10){
 	
 		$('.dropdownBox').not($(this).find('.dropdownBox')).hide();
