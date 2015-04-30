@@ -107,9 +107,11 @@ $( document ).on("tapend","[page-content=rules]",function(){
 });
 
 
-$( document ).on('tapend','.rule',function(){
-    $('.dropdownBox').not($(this).find('.dropdownBox')).hide();
-	$(this).find('.dropdownBox').toggle();
+$( document ).on('tapend','.rule',function(ev){
+	if(Math.abs(startTap.Y - ev.pageY) < 10){
+		$('.dropdownBox').not($(this).find('.dropdownBox')).hide();
+		$(this).find('.dropdownBox').toggle();
+	}
 });
 
 $( document ).on('tapend','.dropdownBox',function(event){

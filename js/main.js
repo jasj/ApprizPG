@@ -167,6 +167,15 @@ function menuKeyDown(){
 
 
 
+//Star in Tap
+startTap = { X : 0 , Y : 0}
+$("*").tapstart(function(ev){
+	console.log(ev.pageX);
+	startTap.X = ev.pageX;
+	startTap.Y = ev.pageY;
+	
+});
+
 //Load Translated
 
 $.i18n.init({ lng: navigator.language , resGetPath: 'language/__lng__/__ns__.json',fallbackLng: 'en'},function(){
