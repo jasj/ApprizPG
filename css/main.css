@@ -513,7 +513,7 @@ header.loginHead {
     background: -ms-linear-gradient(left, #9e3f9a 17%, #9e3f9a 17%, #636466 17%); /* IE10+ */
     background: linear-gradient(to right, #9e3f9a 17%, #9e3f9a 17%, #636466 17%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9e3f9a', endColorstr='#636466', GradientType=1); /* IE6-9 */
-    min-height: 50px;
+    height: 92px;
 }
 
 header {
@@ -525,7 +525,7 @@ header {
     background: -ms-linear-gradient(left, #9e3f9a 17%, #9e3f9a 17%, #636466 17%); /* IE10+ */
     background: linear-gradient(to right, #9e3f9a 17%, #9e3f9a 17%, #636466 17%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9e3f9a', endColorstr='#636466', GradientType=1); /* IE6-9 */
-    min-height: 50px;
+    height: 92px;
     position: fixed;
     width: 100%;
     z-index: 2000;
@@ -877,7 +877,7 @@ label.css-label {
 }
 
 .mainBankSection {
-    min-height: 100px;
+    height: 100px;
 }
 
 .bankSection h2 a {
@@ -1356,7 +1356,7 @@ nav.categoryNav .icon-myAlerts.active .path2:before {
     margin: 0;
     overflow: hidden;
     padding: 1% 3% 1% 3%;
-    min-height: 80px;
+    height: 80px;
 }
 
 .topHeader .bankBrand {
