@@ -108,6 +108,7 @@ $( document ).on("tapend","[page-content=rules]",function(){
 
 
 $( document ).on('tapend','.rule',function(ev){
+	alert(ev);
 		alert(startTap.Y);
 		alert( ev.pageY);
 		
