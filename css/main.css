@@ -1859,7 +1859,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 
 .editOption li select{
     float: left;
-    width: 30%;
+    /*width: 30%;*/
     padding: 0;
     margin: 18px 10px 0 12%;
     background: #e8e8e8;
