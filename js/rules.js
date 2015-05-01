@@ -108,7 +108,7 @@ $( document ).on("tapend","[page-content=rules]",function(){
 
 
 $( document ).on('tapend','.rule',function(ev){
-		console.log("andres");
+		console.log(ev);
 		console.log("final:"+ev.pageY || ev.originalEvent.touches[0].pageY);
 		var endY = ev.pageY || ev.originalEvent.touches[0].pageY;
 		
