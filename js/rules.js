@@ -110,6 +110,7 @@ $( document ).on("tapend","[page-content=rules]",function(){
 $( document ).on('tapend','.rule',function(ev){
 		
 		var endY = ev.pageY || ev.originalEvent.touches[0].pageY;
+		console.log(endY);
 		
 		alert(Math.abs(startTap.Y - endY) );
 	if(Math.abs(startTap.Y - endY) < 10){
