@@ -486,6 +486,7 @@ $( document ).on("tapend","#deleteAllBtn",function(){
 		$('.entity'+currentEntityID).remove();
 		$("#deleteAllBtn").hide();
 		reportMsgState();
+		counterByMsg();
 	},function(){});
 });	
 
