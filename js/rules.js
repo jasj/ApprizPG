@@ -99,21 +99,20 @@ function processRuleChange(){
 		
 
 $( document ).on("tapend","[page-content=rules]",function(){
+	var endY = ev.pageY || ev.originalEvent.changedTouches[0].pageY;
+	if(Math.abs(startTap.Y - endY) < 10){
 		$('#rules .products').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i></div>");
 		$("#rules .productNav li").eq(1).find("button").html($(this).find("prd").html());
-		getValidTimePeriods($(this).find("prd").html())
+		getValidTimePeriods($(this).find("prd").html());
+	}
 		
 		
 });
 
 
 $( document ).on('tapend','.rule',function(ev){
-		console.log(ev);
-		console.log("final:"+ev.pageY || ev.originalEvent.changedTouches[0].pageY);
-		var endY = ev.pageY || ev.originalEvent.changedTouches[0].pageY;
 		
-		
-		console.log("finalAbs:"+Math.abs(startTap.Y - endY) );
+	var endY = ev.pageY || ev.originalEvent.changedTouches[0].pageY;
 	if(Math.abs(startTap.Y - endY) < 10){
 	
 		$('.dropdownBox').not($(this).find('.dropdownBox')).hide();
