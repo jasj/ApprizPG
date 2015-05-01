@@ -372,7 +372,7 @@ function makeSwipe(id){
 				$(this).find("span").addClass("active");
 				$('.typemsg'+$(this).attr("typemsg")+'[identity='+currentEntityID+']').show();
 			}
-			$("*").scrollTop(2);
+			$("*").scrollTop(0);
 		});
 		
 		$( document ).on("taphold",'nav.categoryNav li',function(){
