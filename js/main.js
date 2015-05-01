@@ -170,10 +170,10 @@ function menuKeyDown(){
 //Star in Tap
 startTap = { X : 0 , Y : 0}
 $("*").tapstart(function(ev){
-	console.log(ev.pageX);
-	startTap.X = ev.pageX;
-	startTap.Y = ev.pageY;
 	
+	startTap.X = ev.pageX || ev.originalEvent.touches[0].pageX;
+	startTap.Y = ev.pageY || ev.originalEvent.touches[0].pageY;
+	console.log(startTap.X );
 });
 
 //Load Translated

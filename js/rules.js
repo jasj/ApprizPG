@@ -108,13 +108,11 @@ $( document ).on("tapend","[page-content=rules]",function(){
 
 
 $( document ).on('tapend','.rule',function(ev){
-	alert(JSON.stringify(ev));
-		alert(startTap.Y);
-		alert( ev.pageY);
 		
+		var endY = ev.pageY || ev.originalEvent.touches[0].pageY;
 		
-		alert(Math.abs(startTap.Y - ev.pageY) );
-	if(Math.abs(startTap.Y - ev.pageY) < 10){
+		alert(Math.abs(startTap.Y - endY) );
+	if(Math.abs(startTap.Y - endY) < 10){
 	
 		$('.dropdownBox').not($(this).find('.dropdownBox')).hide();
 		$(this).find('.dropdownBox').toggle();
