@@ -5,9 +5,12 @@ function checkEmail(email){
 }
 
 $('.newUserlink').tapend(function(){
-	$("#login , .menu-main").hide();
-	$("#appHolder").show();
-	back.push("Login");
+	var endY = ev.pageY || ev.originalEvent.changedTouches[0].pageY;
+	if(Math.abs(startTap.Y - endY) < 10){
+		$("#login , .menu-main").hide();
+		$("#appHolder").show();
+		back.push("Login");
+	}
 });
 
 $('#first-time .btnFull').tapend(function(){

@@ -34,10 +34,19 @@ function requestService(serviceObj){
 }
 
 $( document ).on("tapend","[page-content=services]",function(){
-	$("#services .productNav li").eq(1).find("button").html($(this).find("prd").html());
-	getServices($(this).find("prd").html());
+ 	var endY = ev.pageY || ev.originalEvent.changedTouches[0].pageY;
+	if(Math.abs(startTap.Y - endY) < 10){
+		$("#services .productNav li").eq(1).find("button").html($(this).find("prd").html());
+		getServices($(this).find("prd").html());
+	}
 });
 
 $(document ).on("tapend","[service]",function(){
-	requestService({"productName": currentProduct, "code": $(this).attr('service'), "description": $(this).find("srv").html()});
+		var endY = ev.pageY || ev.originalEvent.changedTouches[0].pageY;
+		
+		
+		
+	if(Math.abs(startTap.Y - endY) < 10){
+		requestService({"productName": currentProduct, "code": $(this).attr('service'), "description": $(this).find("srv").html()});
+	}
 });
