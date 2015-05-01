@@ -104,6 +104,8 @@ $( document ).on("tapend","[page-content=rules]",function(ev){
 		$('#rules .products').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i></div>");
 		$("#rules .productNav li").eq(1).find("button").html($(this).find("prd").html());
 		getValidTimePeriods($(this).find("prd").html());
+	}else{
+		ev.stopPropagation();
 	}
 		
 		
@@ -175,7 +177,7 @@ $( document ).on("tapend",'input.toggle + label',function(e){
 		}
 	});
 	
-$('.icon-pencil').tapend(function(){
+$( document ).on("tapend",".icon-pencil",function(){
 	$(this).prev().focus();
 });
 	
