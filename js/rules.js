@@ -110,9 +110,9 @@ $( document ).on("tapend","[page-content=rules]",function(){
 $( document ).on('tapend','.rule',function(ev){
 		
 		var endY = ev.pageY || ev.originalEvent.touches[0].pageY;
-		console.log(endY);
+		console.log("final:"+endY);
 		
-		alert(Math.abs(startTap.Y - endY) );
+		console.log("finalAbs:"+Math.abs(startTap.Y - endY) );
 	if(Math.abs(startTap.Y - endY) < 10){
 	
 		$('.dropdownBox').not($(this).find('.dropdownBox')).hide();
