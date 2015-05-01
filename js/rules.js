@@ -116,9 +116,10 @@ $( document ).on('tapend','.rule',function(ev){
 		
 	var endY = ev.pageY || ev.originalEvent.changedTouches[0].pageY;
 	if(Math.abs(startTap.Y - endY) < 10){
-	
+		$('.rule.active').not($(this)).removeClass('active');
 		$('.dropdownBox').not($(this).find('.dropdownBox')).hide();
 		$(this).find('.dropdownBox').toggle();
+		$(this).toggleClass('active');
 	}
 });
 
@@ -162,6 +163,8 @@ $( document ).on("tapend",'input.toggle + label',function(e){
 			console.log('checked');
 			$('.dropdownBox').not($(this).parent().parent().find(".dropdownBox")).hide();
 			$(this).parent().parent().find(".dropdownBox").show();
+			$('.rule.active').not($(this).parent().parent()).removeClass('active');
+			$(this).parent().parent().addClass('active');
 			$(this).parent().parent().find('.dropdownBox input').each(function(){
 				console.log('table input');
 				addRuleChange(rId,$(this).attr('field'),$(this).val() == "" ? $(this).attr("placeholder") : $(this).val());
@@ -174,6 +177,7 @@ $( document ).on("tapend",'input.toggle + label',function(e){
 		}else{
 			rulesChanges[rId] = {"idRule" : rId} // disable rule
 			$(this).parent().parent().find(".dropdownBox").hide();
+			$(this).parent().parent().removeClass('active');
 		}
 	});
 	

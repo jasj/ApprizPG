@@ -1762,7 +1762,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 }
 
 .products ul li:hover , .services ul li:hover {
-    background: #e8e8e8
+   /* background: #e8e8e8*/
 }
 
 .products ul li button .icon-arrow , .services ul li button .icon-arrow {
