@@ -178,7 +178,7 @@ $( document ).on("tapend",'input.toggle + label',function(e){
 	});
 	
 $( document ).on("tapend",".icon-pencil",function(){
-	$(this).prev().focus();
+//	$(this).prev().focus();
 });
 	
 //avoid non numeric symbols

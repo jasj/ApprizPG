@@ -41,24 +41,27 @@
 	
 	
 	//Page Changer
-	$( document ).on("tapend","[page-content]",function(){
-		$('#pin').hide();
-		$("#deleteAllBtn").hide();
-		$(".deleteOptionActivate").removeClass("deleteOptionActivate");
-		$(".moveContainer").css({"margin-left" : "0px"});
-		if(back.length == 1 && back[0] == "Login"){}else{
-		back.push( $(".page-content.active").attr("id"));}
-		$(".page-content.active").removeClass("active");
-		$("header.active").removeClass("active");
-		$("#"+$(this).attr("page-content")+".page-content").addClass("active").show();
-		$("#"+$("#"+$(this).attr("page-content")+".page-content").attr("header")).addClass("active").show();
-		$("#"+$("#"+$(this).attr("page-content")+".page-content").attr("header")).find('.headerText').html($.t($("#"+$(this).attr("page-content")+".page-content").attr("headerText")));
-		$('#menuAppriz').fadeOut(300);
-			$('.allMenu').velocity({"right" : "-80%"});
-			if( $(this).attr("page-content") == "settingsPage"  && pinPolicy==1 ){
-				$('#pin').show();
-			}
-		
+	$( document ).on("tapend","[page-content]",function(ev){
+		var endY = ev.pageY || ev.originalEvent.changedTouches[0].pageY;
+		if(Math.abs(startTap.Y - endY) < 10){
+			$('#pin').hide();
+			$("#deleteAllBtn").hide();
+			$(".deleteOptionActivate").removeClass("deleteOptionActivate");
+			$(".moveContainer").css({"margin-left" : "0px"});
+			if(back.length == 1 && back[0] == "Login"){}else{
+			back.push( $(".page-content.active").attr("id"));}
+			$(".page-content.active").removeClass("active");
+			$("header.active").removeClass("active");
+			$("#"+$(this).attr("page-content")+".page-content").addClass("active").show();
+			$("#"+$("#"+$(this).attr("page-content")+".page-content").attr("header")).addClass("active").show();
+			$("#"+$("#"+$(this).attr("page-content")+".page-content").attr("header")).find('.headerText').html($.t($("#"+$(this).attr("page-content")+".page-content").attr("headerText")));
+			$('#menuAppriz').fadeOut(300);
+				$('.allMenu').velocity({"right" : "-80%"});
+				if( $(this).attr("page-content") == "settingsPage"  && pinPolicy==1 ){
+					$('#pin').show();
+				}
+		}
+			
 	});
 	//page backt
 	
