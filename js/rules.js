@@ -98,7 +98,7 @@ function processRuleChange(){
 }
 		
 
-$( document ).on("tapend","[page-content=rules]",function(){
+$( document ).on("tapend","[page-content=rules]",function(ev){
 	var endY = ev.pageY || ev.originalEvent.changedTouches[0].pageY;
 	if(Math.abs(startTap.Y - endY) < 10){
 		$('#rules .products').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i></div>");

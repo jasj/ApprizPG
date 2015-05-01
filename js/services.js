@@ -33,7 +33,7 @@ function requestService(serviceObj){
 	},function(){$('.moldHide, .dialogAlert').hide();});
 }
 
-$( document ).on("tapend","[page-content=services]",function(){
+$( document ).on("tapend","[page-content=services]",function(ev){
  	var endY = ev.pageY || ev.originalEvent.changedTouches[0].pageY;
 	if(Math.abs(startTap.Y - endY) < 10){
 		$("#services .productNav li").eq(1).find("button").html($(this).find("prd").html());

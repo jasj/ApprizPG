@@ -4,7 +4,7 @@ function checkEmail(email){
 	return pat.test(email);
 }
 
-$('.newUserlink').tapend(function(){
+$('.newUserlink').tapend(function(ev){
 	var endY = ev.pageY || ev.originalEvent.changedTouches[0].pageY;
 	if(Math.abs(startTap.Y - endY) < 10){
 		$("#login , .menu-main").hide();
