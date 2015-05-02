@@ -434,6 +434,8 @@ StartXCategories = 0;
 							
 							 $('#categories').unbind("touchend");
 							 $('#categories').unbind("touchmove");
+							  $('#categories').unbind("touchstart");
+							 
 							 margintop =103;
 							$("#categories").css({"margin-top" : "103px"});
 							$(".scrollingArrow").hide();
