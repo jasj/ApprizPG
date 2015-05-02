@@ -419,7 +419,7 @@ StartXCategories = 0;
 				$(document).on('*','scroll',function(ev){console.log("nice");console.log(ev)});
 				$('#categories').on('touchmove', function(ev){
 					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <3 )){
-						ev.preventDefault();
+						
 						 var deltaY = (getCoord(ev,"Y") -StartYCategories);
 						 if(deltaY >10){
 							//console.log("deltaX: " + ( getCoord(ev,"X") - StartXCategories ) +"  -- " +"deltaY: " + (getCoord(ev,"Y") -StartYCategories)  );
@@ -429,10 +429,8 @@ StartXCategories = 0;
 								$(".scrollingArrow").show();
 								$("#categories").css({"margin-top" : margintop+"px"});
 							}
+							ev.preventDefault();
 						 }else if(deltaY < 10){
-							 
-							 $(this).parent().scrollTop(-1*deltaY);
-							 console.log( $(this).parent().parent().parent().scrollTop());
 							 $('#categories').trigger('touchend');
 						 }
 						 else{
