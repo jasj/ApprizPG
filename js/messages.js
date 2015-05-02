@@ -416,7 +416,7 @@ StartXCategories = 0;
 						//	console.log("scroll start at: " + $(this).scrollTop() + "   y: " + touches[0].pageY);
 					}
 				});
-				
+				$(document).on('*','scroll',function(ev){console.log("nice");console.log(ev)});
 				$('#categories').on('touchmove', function(ev){
 					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <3 )){
 						ev.preventDefault();
@@ -429,18 +429,12 @@ StartXCategories = 0;
 								$(".scrollingArrow").show();
 								$("#categories").css({"margin-top" : margintop+"px"});
 							}
-						 }else if(deltaY < -10){
-							// alert(deltaY);
-							
-							 $('#categories').unbind("touchend");
-							
-							  $('#categories').unbind("touchstart");
+						 }/*else if(deltaY < 0){
 							 
-							 margintop--;
-							$("#categories").css({"margin-top" : margintop+"px"});
-							$(".scrollingArrow").hide();
-							console.log($("#categories").css("margin-top"));
-						 }
+							 $(this).parent().scrollTop(-1*deltaY);
+							 console.log( $(this).parent().parent().parent().scrollTop());
+							 
+						 }*/
 						 else{
 							 $("#categories").css({"margin-top" : "103px"});
 						 }
