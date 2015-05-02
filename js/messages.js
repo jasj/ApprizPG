@@ -430,11 +430,13 @@ StartXCategories = 0;
 								$("#categories").css({"margin-top" : margintop+"px"});
 							}
 						 }else if(deltaY < -10){
+							// alert(deltaY);
 							 $('#categories').unbind("touchend");
 							 $('#categories').unbind("touchmove");
 							 margintop =103;
 							$("#categories").css({"margin-top" : "103px"});
 							$(".scrollingArrow").hide();
+							$(this).scrollTop(4)
 						 }
 						 else{
 							 $("#categories").css({"margin-top" : "103px"});
