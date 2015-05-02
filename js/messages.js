@@ -430,7 +430,7 @@ StartXCategories = 0;
 								$("#categories").css({"margin-top" : margintop+"px"});
 							}
 						 }else if(deltaY < -10){
-							 $(this).scrollTop(3)
+							 $(this).scrollTop($(this).scrollTop()+1);
 						 }
 						 else{
 							 $("#categories").css({"margin-top" : "103px"});
