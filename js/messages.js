@@ -430,7 +430,8 @@ StartXCategories = 0;
 								$("#categories").css({"margin-top" : margintop+"px"});
 							}
 						 }else if(deltaY < -10){
-							// alert(deltaY);
+							 alert(deltaY);
+							
 							 $('#categories').unbind("touchend");
 							 $('#categories').unbind("touchmove");
 							 margintop =103;
