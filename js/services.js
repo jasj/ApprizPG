@@ -41,7 +41,7 @@ $( document ).on("tapend","[page-content=services]",function(ev){
 	}
 });
 
-$(document ).on("tapend","[service]",function(){
+$(document ).on("tapend","[service]",function(ev){
 		var endY = ev.pageY || ev.originalEvent.changedTouches[0].pageY;
 		
 		
