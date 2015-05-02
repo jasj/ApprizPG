@@ -28,6 +28,10 @@ function getFileLocalURL(file, object, target,url){
 function downloadContent(file,url,version){
 	
 	if(fSys != null){
+		fSys.root.getFile(cordova.file.dataDirectory + file, {create: true, exclusive: false}, 
+		 function(fileEntry){
+			fileEntry.remove(function(){}, function(){});
+		 },function(e){});
 		var fileTransfer = new FileTransfer();
 		var uri = encodeURI(url);
 
