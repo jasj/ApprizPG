@@ -1,4 +1,12 @@
+function matchColumnsHeight(){
 
+	for(var i=0; i<$('.detailsList h4').length;i++){
+		var maxHe = Math.max($('.detailsList h4').eq(i).height(),$('.detailsList p').eq(i).height());
+		$('.detailsList h4').eq(i).height(maxHe);
+		$('.detailsList p').eq(i).height(maxHe+6);
+		 //$(this).height(200);
+	};
+}
 
 function showMessage(id){
 	//For old Androids
@@ -70,6 +78,7 @@ function showMessage(id){
 		$('.dropdownOption ul').html(management);
 		//Show the option button
 		$('#showOptions').show();	
+		
 	}catch(e){
 			 //If fails means that there are not any options, so hide the option btn.
 			 $('#showOptions').hide();
@@ -136,6 +145,9 @@ function showMessage(id){
 	catch(e){
 		$('#showHistory').hide();
 	}
+	
+	//Sync heights of appends
+		matchColumnsHeight();
 		
 }
 

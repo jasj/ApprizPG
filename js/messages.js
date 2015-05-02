@@ -44,7 +44,7 @@ function reportMsgState(){
 			
 			$('.Message').each(function( index ) {
 				report["m"+$(this).attr("id")] = $(this).hasClass("unread") ? "unread" : "readed"; 
-				console.log($(this).attr("id"));
+				//console.log($(this).attr("id"));
 				if($(this).hasAttr('read')){
 					var msgS = $(this).attr('read').split(',');
 					for(var i = 0 ; i < msgS.length ; i++){
@@ -60,9 +60,9 @@ function reportMsgState(){
 				}
 				
 			});
-			console.log(JSON.stringify(report));
+			//console.log(JSON.stringify(report));
 			$.post('http://'+IP+':8089/appriz/setMessageStatus', {"idSecretClient": idScretClient, msgStatus:report }, function(data){
-				console.log(JSON.stringify(data));
+				//console.log(JSON.stringify(data));
 			});
 }		
 
@@ -174,7 +174,7 @@ function makeSwipe(id){
 				$('.refreshing_list').show();
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
 			$('#categories').html("<div class='scrollingArrow'><i class='fa fa-angle-double-down' ></i></div><div class='refreshing_list seen'><i class='fa fa-spinner fa-spin'></i></div><div class='MsG'></div>");
-				console.log(JSON.stringify(data));
+				//console.log(JSON.stringify(data));
 				
 				$.each(data,function(index, message){
 					if($('#'+message['idMessage']).length > 0){ 
@@ -206,7 +206,7 @@ function makeSwipe(id){
 						}else{
 							$('#categories #'+message['idParent']).attr('history',btoa(message['shortMessage']+"^"+message['longMessage']+"^"+dateText));
 						}
-						console.log(atob($('#categories #'+message['idParent']).attr('history')));
+						//console.log(atob($('#categories #'+message['idParent']).attr('history')));
 
 						 
 					
@@ -272,7 +272,7 @@ function makeSwipe(id){
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
 			$('#categories').html("<div class='scrollingArrow'><i class='fa fa-angle-double-down' ></i></div><div class='refreshing_list seen'><i class='fa fa-spinner fa-spin'></i></div><div class='MsG'></div>");
 			$('.refreshing_list').hide();	
-				console.log(JSON.stringify(data));
+				//console.log(JSON.stringify(data));
 				
 				$.each(data,function(index, message){
 					if($('#'+message['idMessage']).length > 0){ 
