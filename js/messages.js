@@ -429,6 +429,8 @@ StartXCategories = 0;
 								$(".scrollingArrow").show();
 								$("#categories").css({"margin-top" : margintop+"px"});
 							}
+						 }else if(deltaY < -10){
+							 $(this).scrollTop(3)
 						 }
 						 else{
 							 $("#categories").css({"margin-top" : "103px"});
