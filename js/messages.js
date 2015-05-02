@@ -429,12 +429,12 @@ StartXCategories = 0;
 								$(".scrollingArrow").show();
 								$("#categories").css({"margin-top" : margintop+"px"});
 							}
-						 }/*else if(deltaY < 0){
+						 }else if(deltaY < 10){
 							 
 							 $(this).parent().scrollTop(-1*deltaY);
 							 console.log( $(this).parent().parent().parent().scrollTop());
-							 
-						 }*/
+							 $('#categories').trigger('touchend');
+						 }
 						 else{
 							 $("#categories").css({"margin-top" : "103px"});
 						 }
