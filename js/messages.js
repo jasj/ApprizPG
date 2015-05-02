@@ -433,13 +433,13 @@ StartXCategories = 0;
 							// alert(deltaY);
 							
 							 $('#categories').unbind("touchend");
-							 $('#categories').unbind("touchmove");
+							
 							  $('#categories').unbind("touchstart");
 							 
-							 margintop =103;
-							$("#categories").css({"margin-top" : "103px"});
+							 margintop--;
+							$("#categories").css({"margin-top" : margintop+"px"});
 							$(".scrollingArrow").hide();
-							$(this).scrollTop(4)
+							console.log($("#categories").css("margin-top"));
 						 }
 						 else{
 							 $("#categories").css({"margin-top" : "103px"});
