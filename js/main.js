@@ -42,8 +42,12 @@
 	
 	//Page Changer
 	$( document ).on("tapend","[page-content]",function(ev){
-		var endY = ev.pageY || ev.originalEvent.changedTouches[0].pageY;
-		if(Math.abs(startTap.Y - endY) < 10){
+		var noTouch = false;
+		try{
+			 endY = ev.pageY || ev.originalEvent.changedTouches[0].pageY;
+		}catch(e){noTouch = true;}
+		console.log(noTouch);
+		if(noTouch || Math.abs(startTap.Y - endY) < 10){
 			$('#pin').hide();
 			$("#deleteAllBtn").hide();
 			$(".deleteOptionActivate").removeClass("deleteOptionActivate");

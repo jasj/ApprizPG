@@ -19,6 +19,9 @@ function current_inbox(){
 	$('.allMenu').css({"right" : "-80%"});
 	$('.navAppriz li').eq(0).trigger("tapend");
 	
+	checkWithOutEntity();
+	getAds();
+	
 }
 
 function counterByMsg(){
@@ -167,12 +170,19 @@ function makeSwipe(id){
 				
 //bring message for this client
 		function callNewMSG(){
+			$('.icon-menu').show();
+					$('.icon-back').show();
+	
 			$("#deleteAllBtn").hide();
 			date = new Date();
 		if(oneTimeSendAjax){
 			oneTimeSendAjax = false;
+			console.time("MSGProcFull");
 				$('.refreshing_list').show();
+				console.time("PostReq");
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
+			console.timeEnd("PostReq");
+			console.time("MSGProc");
 			$('#categories').html("<div class='scrollingArrow'><i class='fa fa-angle-double-down' ></i></div><div class='refreshing_list seen'><i class='fa fa-spinner fa-spin'></i></div><div class='MsG'></div>");
 				//console.log(JSON.stringify(data));
 				
@@ -224,9 +234,9 @@ function makeSwipe(id){
 							LONG_MSG = $.t("This message contains rich content");
 						}
 						$('#categories .MsG').prepend( "<li class='Message "+( message['state'] < 3 ? "unread" : "" )+" typemsg"+message['type']+" entity"+message['idEntity']+"' id='"+message['idMessage']+"' bulb='"+message['bulb']+"' longMSG='"+btoa(message['longMessage'])+"' services='"+btoa(JSON.stringify(message['services']))+"' appends='"+btoa(JSON.stringify(message['appends']))+"' idEntity='"+message['idEntity']+"'><div class='moveContainer'><div class='details'><h3>"+LONG_MSG+"</h3></div><div class='centralLI'><div class='iconCat'>"+Icon+"</div><div class='infoBank'><h2>"+message['shortMessage']+"</h2><h6 class='dateBank'><span class='icon-primitive-dot "+dotState+"'></span><date>"+postDateS+"<date></h6></div><div class='magicalArrow'><i class='fa fa-angle-right'></i></div></div><div class='rightLI'><button class='deleteSwipe'>Delete</button></div ></div></li>");
-						
+						console.timeEnd("MSGProc");
 						$.jStorage.set('msg_div', btoa($('#categories').html()));
-					
+						
 						//console.log(JSON.stringify(data));
 					}catch(e){console.log(e);}
 					}
@@ -247,6 +257,7 @@ function makeSwipe(id){
 				makeSwipe();
 				fix_messages();
 				$.jStorage.set('msg', btoa($('#categories').html()));
+				console.timeEnd("MSGProcFull");
 				$('.refreshing_list').fadeOut(1000); 
 				
 				$("*").scrollTop(2);
@@ -265,12 +276,15 @@ function makeSwipe(id){
 				
 		//bring message for this client
 		function callMSGback(){
+			$('.icon-menu').show();
+					$('.icon-back').show();
 			$("#deleteAllBtn").hide();
 			date = new Date();
 		if(oneTimeSendAjax){
 			oneTimeSendAjax = false;
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
-			$('#categories').html("<div class='scrollingArrow'><i class='fa fa-angle-double-down' ></i></div><div class='refreshing_list seen'><i class='fa fa-spinner fa-spin'></i></div><div class='MsG'></div>");
+			
+$('#categories').html("<div class='scrollingArrow'><i class='fa fa-angle-double-down' ></i></div><div class='refreshing_list seen'><i class='fa fa-spinner fa-spin'></i></div><div class='MsG'></div>");
 			$('.refreshing_list').hide();	
 				//console.log(JSON.stringify(data));
 				

@@ -10,7 +10,7 @@ $(document).on('tapend' ,'#settingsPage .btnFull', function(){
 				showInfoD($.t('Change Settings'),$.t('The settings was changed!'),function(){$('.moldHide, .dialogAlert').hide(); 
 				pinPolicy  =  $("#pinPolicy").prop('checked') ? 0 : 1});
 				atWifi =  $("#atWifi").prop('checked') ? 1 : 0;
-				retention =   parseInt($('.isThis').find('span').html());
+				retention =  parseInt(ret);
 			});
 		}else{
 			showInfoD($.t('Error'),$.t('You need to select a retention policy'),function(){$('.moldHide, .dialogAlert').hide();});

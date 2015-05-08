@@ -27,6 +27,7 @@ function login(){
 				$("div#appHolder").show();
 				$('.wConteiner div').hide();
 				idScretClient = data["idSecretClient"];
+				
 				$.jStorage.set('idSecretClient', data['idSecretClient']);
 				$.jStorage.set('pin', data['pin']);
 				$.jStorage.set('logAs', logAs);
@@ -98,6 +99,7 @@ function checkPreviusLogin(){
 				
 				if(data["pinPolicy"]==0){$('#divPIN').show();}
 				idScretClient = data["idSecretClient"];
+				console.log(idScretClient);
 				logId = data["logId"];
 				pinPolicy = data["pinPolicy"];
 				pin = data["pin"];
@@ -112,7 +114,7 @@ function checkPreviusLogin(){
 				loadEntityTemplate();
 				$('.splash').fadeOut(1000,function(){});
 				reloadEntities();
-				callNewMSG();
+				callMSGback();
 				
 				if(pinPolicy==0){
 					$('#pin').show();
@@ -149,9 +151,11 @@ function checkPreviusLogin(){
 }
 
 $( document ).on("tapend","button.log",function(){
-	$.jStorage.flush();
 	$.post('http://'+IP+':8089/appriz/logout', {"logId" : logId}, function(data){
+		console.log(data);
+		
 		$.jStorage.flush();
+		
 		try{navigator.splashscreen.show();}catch(e){}
 		window.location.reload(true);
 	});

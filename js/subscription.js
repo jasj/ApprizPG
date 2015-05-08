@@ -19,6 +19,7 @@ $('#suscribe .btnFull').tapend(function(){
 					$('#suscribe input').eq(1).val("");
 					$('#Suscri').hide();
 					$('.icon-menu').show();
+					$('.icon-back').show();
 					$('.out').hide();
 				}
 			);

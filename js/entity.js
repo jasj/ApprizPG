@@ -5,7 +5,7 @@ function reloadEntities(){
 	
 			$.post('http://'+IP+':8089/appriz/getCustomerEntities',{"idSecretClient": idScretClient},function(data){
 				
-					
+					console.dir(data.length);
 				entities = '';
 				var frsTime = 0;	
 				data.forEach(function(entity){
