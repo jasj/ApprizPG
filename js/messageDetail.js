@@ -1,11 +1,14 @@
 function matchColumnsHeight(){
-
+	var maxWi = 0;
 	for(var i=0; i<$('.detailsList h4').length;i++){
 		var maxHe = Math.max($('.detailsList h4').eq(i).height(),$('.detailsList p').eq(i).height());
+		maxWi = Math.max(Math.max($('.detailsList h4').eq(i).width(),maxWi));
 		$('.detailsList h4').eq(i).height(maxHe);
 		$('.detailsList p').eq(i).height(maxHe+6);
 		 //$(this).height(200);
 	};
+	$('.detailsList h4').css({ width: maxWi});
+	
 }
 
 function showMessage(id){
