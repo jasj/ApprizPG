@@ -64,7 +64,7 @@ function onNotificationAPN (event) {
     {
         pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, 300);
     }
-	 pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, 300);
+	
 }
 
 

@@ -40,6 +40,9 @@ function counterByMsg(){
 			bn.html($('.unread.entity'+$(this).attr('entityId')).length == 0 ? "" : $('.unread.entity'+$(this).attr('entityId')).length);
 			bn.css($('.unread.entity'+$(this).attr('entityId')).length > 0 ? {"border" : "1px solid #dadada"} : {"border" : "0px solid #dadada"});
 		});
+		
+		 pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, $('.unread').length);
+    
 	}
 	
 function reportMsgState(){
