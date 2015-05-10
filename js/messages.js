@@ -102,14 +102,15 @@ function makeSwipe(id){
 							mContainer.addClass("deleteOptionActivate");
 							$("#deleteAllBtn").show();
 					}else if(direction=='left' & distance < (150) & actualMargin < 0){
-							mContainer.animate({"margin-left" : "0px"}).removeClass("deleteOptionActivate"); //no show the delete button		
+							mContainer.animate({"margin-left" : "0px"}).removeClass("deleteOptionActivate").removeClass("detailOptionActivate");; //no show the delete button		
 					}else if(direction=='left' & distance < (window.innerWidth*0.3) & actualMargin > window.innerWidth){
 							mContainer.animate({"margin-left" : window.innerWidth+"px"});
 					}else if(direction=='right' & distance > (window.innerWidth*0.3) & actualMargin > window.innerWidth*0.3){
 							mContainer.animate({"margin-left" : window.innerWidth+"px"});
+							mContainer.addClass("detailOptionActivate");
 						
 					}else if(direction=='right'  & actualMargin >-150){
-							mContainer.animate({"margin-left" : "0px"});
+							mContainer.animate({"margin-left" : "0px"}).removeClass("deleteOptionActivate").removeClass("detailOptionActivate"); ;
 						
 						
 					}
@@ -137,6 +138,8 @@ function makeSwipe(id){
 							//msg.animate({"margin-left" : "0px"});
 						}else{
 							if(distance < window.innerWidth){
+								$('.detailOptionActivate,.deleteOptionActivate').not(msg).animate({"margin-left" : "0px"});
+								$('.detailOptionActivate,.deleteOptionActivate').not(msg).removeClass("deleteOptionActivate").removeClass("detailOptionActivate");
 								msg.css({"margin-left": distance});
 							}else{
 								msg.css({"margin-left": window.innerWidth});
@@ -149,8 +152,8 @@ function makeSwipe(id){
 						if (distance< (150) & actualMargin < 1) {
 							
 							msg.css({"margin-left": -distance});
-							$(".deleteOptionActivate").not(msg).animate({"margin-left" : "0px"});
-							$(".deleteOptionActivate").not(msg).removeClass("deleteOptionActivate");
+							$(".deleteOptionActivate, .detailOptionActivate ").not(msg).animate({"margin-left" : "0px"});
+							$(".deleteOptionActivate, .detailOptionActivate").not(msg).removeClass("deleteOptionActivate").removeClass("detailOptionActivate");
 							
 							
 						}else{
