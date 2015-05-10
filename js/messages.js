@@ -138,6 +138,7 @@ function makeSwipe(id){
 							//msg.animate({"margin-left" : "0px"});
 						}else{
 							if(distance < window.innerWidth){
+									$("#deleteAllBtn").hide();
 								$('.detailOptionActivate,.deleteOptionActivate').not(msg).animate({"margin-left" : "0px"});
 								$('.detailOptionActivate,.deleteOptionActivate').not(msg).removeClass("deleteOptionActivate").removeClass("detailOptionActivate");
 								msg.css({"margin-left": distance});
