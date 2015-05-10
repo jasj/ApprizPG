@@ -1089,12 +1089,12 @@ label.css-label {
 
 }
 
-#ads2,#deleteAllBtn {
+#ads2{
     position: relative;
     width: 100%;
     z-index: 1999;
     margin: 0 auto;
-    max-width: 640px;
+
 }
 
 #deleteAllBtn{
@@ -1105,6 +1105,14 @@ label.css-label {
 	text-align : center;
 	background: #E75040;
 	display : none;
+	width: 100%;
+    z-index: 1999;
+	bottom: 0px;
+	left:0px;
+	right:0px;
+	position: absolute;
+	border-top: 1px solid;
+	
 }
 	
 }
