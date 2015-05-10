@@ -7,7 +7,7 @@ function matchColumnsHeight(){
 		$('.detailsList p').eq(i).height(maxHe+6);
 		 //$(this).height(200);
 	};
-	$('.detailsList h4').css({ width: maxWi});
+	//$('.detailsList h4').css({ width: maxWi});
 	
 }
 
