@@ -183,6 +183,14 @@ $("*").tapstart(function(ev){
 	console.log(startTap.X );
 });
 
+$.fn.textWidth = function(text, font) {
+    if (!$.fn.textWidth.fakeEl) $.fn.textWidth.fakeEl = $('<span>').hide().appendTo(document.body);
+    $.fn.textWidth.fakeEl.text(text || this.val() || this.text()).css('font', font || this.css('font'));
+    return $.fn.textWidth.fakeEl.width();
+};
+
+
+
 //Load Translated
 
 $.i18n.init({ lng: navigator.language , resGetPath: 'language/__lng__/__ns__.json',fallbackLng: 'en'},function(){

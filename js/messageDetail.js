@@ -2,19 +2,21 @@ function matchColumnsHeight(){
 	var maxWi = 0;
 	for(var i=0; i<$('.detailsList h4').length;i++){
 		var maxHe = Math.max($('.detailsList h4').eq(i).height(),$('.detailsList p').eq(i).height());
-		maxWi = Math.max(Math.max($('.detailsList h4').eq(i).width(),maxWi));
+		maxWi = Math.max(Math.max($('.detailsList h4').eq(i).textWidth(),maxWi));
 		$('.detailsList h4').eq(i).height(maxHe);
 		$('.detailsList p').eq(i).height(maxHe+6);
 		 //$(this).height(200);
 	};
-	//$('.detailsList h4').css({ width: maxWi});
+	$('.detailsList .row').css({ width: (window.innerWidth - window.innerWidth*0.14 -maxWi)});
+	$('.detailsList h4').css({ width: maxWi});
+	$('.detailsList .row:first-child').css({ width: maxWi});
 	
 }
 
 function showMessage(id){
 	//For old Androids
-	$(".details_").css({"width" : (window.innerWidth - window.innerWidth*2*0.04)});
-	$(".detail_fixed").css({"margin-left" : "0px"});
+	//$(".details_").css({"width" : (window.innerWidth - window.innerWidth*2*0.04)});
+	//$(".detail_fixed").css({"margin-left" : "0px"});
 	
 	//Message Handle
 	var msg = $("#"+id+".Message");

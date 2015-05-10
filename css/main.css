@@ -1212,6 +1212,7 @@ nav.categoryNav .icon-myAlerts.active .path2:before {
 
 .detailsList .row:first-child {
     width: 22%;
+	overflow: auto;
 }
 
 .detailsList .row {
@@ -1223,7 +1224,7 @@ nav.categoryNav .icon-myAlerts.active .path2:before {
 .detailsList .row h4 {
     text-align: right;
     line-height: 9px;
-	width: 100%;
+	
 
 }
 
