@@ -96,7 +96,7 @@ function checkPreviusLogin(){
 	$.post('http://'+IP+':8089/appriz/getCurrentSession',{uuid:  typeof device !== 'undefined' ? device.uuid : "Browser" },function(data) {
 	if("idSecretClient" in data ){
 			//	navigator.splashscreen.hide();
-				
+				if($.jStorage.index().indexOf('msg') > -1){$('#categories').html(atob($.jStorage.get('msg')));}
 				if(data["pinPolicy"]==0){$('#divPIN').show();}
 				idScretClient = data["idSecretClient"];
 				console.log(idScretClient);
@@ -114,6 +114,7 @@ function checkPreviusLogin(){
 				loadEntityTemplate();
 				$('.splash').fadeOut(1000,function(){});
 				reloadEntities();
+				
 				callMSGback();
 				
 				if(pinPolicy==0){
