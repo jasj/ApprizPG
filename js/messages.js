@@ -20,7 +20,10 @@ function current_inbox(){
 	$('.navAppriz li').eq(0).trigger("tapend");
 	
 	checkWithOutEntity();
-	getAds();
+	if(currentEntityID>0)
+	{
+		getAds(); 
+	} //----> ERROR
 	
 }
 

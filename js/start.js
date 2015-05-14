@@ -1,5 +1,6 @@
 
 function onDeviceReady(){
+	
 	try{
 		onDeviceReady_fm();
 		onDeviceReady_pn();
@@ -8,7 +9,10 @@ function onDeviceReady(){
 	}catch(e){
 	}
 	setTimeout(function(){ $(".wConteiner div p").show();},3000);
+	
+	
 	checkPreviusLogin();
+	console.log("onDeviceReady");
 }
 
 

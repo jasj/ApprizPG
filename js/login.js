@@ -14,6 +14,7 @@ function login(){
 	  var patFemail = /(\S+)@/;
 	  try{
 	  var logAs = $('.loginBox input').eq(0).val().match(patFemail)[1];
+	  
 		$.post('http://'+IP+':8089/appriz/login',{
 			"email" : $('.loginBox input').eq(0).val(),
 			"password":$('.loginBox input').eq(1).val(),
@@ -23,11 +24,13 @@ function login(){
 			"pushKey":  typeof device !== 'undefined' ? PN : "Browser"
 		},function(data){
 			if(data["status"] == 200){
+				console.log("sambuka    " + JSON.stringify(data));
 				$("div#login").hide();
 				$("div#appHolder").show();
 				$('.wConteiner div').hide();
 				idScretClient = data["idSecretClient"];
-				
+				logId = data["idSession"]; // cambio de segreda
+				console.log("LogID: " +logId);
 				$.jStorage.set('idSecretClient', data['idSecretClient']);
 				$.jStorage.set('pin', data['pin']);
 				$.jStorage.set('logAs', logAs);
@@ -90,6 +93,10 @@ function offLineMode(){
 
 
 function checkPreviusLogin(){
+	
+	console.log($.jStorage.index().indexOf('currentEntityID'));
+	
+	
 	if($.jStorage.index().indexOf('msg') > -1){$('#categories').html(atob($.jStorage.get('msg')));}
 	setTimeout(function(){$('#Waiting p').show();},3000);
 	currentEntityID  = ($.jStorage.index().indexOf('currentEntityID') > -1  ) ? $.jStorage.get('currentEntityID') : 0;
@@ -111,10 +118,11 @@ function checkPreviusLogin(){
 				$.jStorage.set('onlyWIFI', data['onlyWIFI']);
 				$('.user div').html($.jStorage.get('logAs'));
 				currentEntityID = $.jStorage.get('currentEntityID');
-				loadEntityTemplate();
+				//loadEntityTemplate();
 				$('.splash').fadeOut(1000,function(){});
 				reloadEntities();
 				
+				loadEntityTemplate(); 
 				callMSGback();
 				
 				if(pinPolicy==0){
@@ -133,6 +141,7 @@ function checkPreviusLogin(){
 				
 				$("div#login").fadeOut(1000,function(){	});
 			
+			
 				
 				
 				//$('link[typeCss="bank"]').attr('href','https://s3.amazonaws.com/tst_appriz_clients/'+FormatInteger(currentEntityID,4)+'/CSS/theme.css');
@@ -149,21 +158,64 @@ function checkPreviusLogin(){
 			offLineMode();
 	});
 	
+	
 }
 
 $( document ).on("tapend","button.log",function(){
+	console.log("Encontrando a button.log event click");
+	
 	$.post('http://'+IP+':8089/appriz/logout', {"logId" : logId}, function(data){
-		console.log(data);
+		//console.log(data);
 		
 		$.jStorage.flush();
 		
 		try{navigator.splashscreen.show();}catch(e){}
 		window.location.reload(true);
+	})
 	});
-});
+	
 
 
 
+function genPass(){
+	
+var iteration = 0;
+var password = "";
+var randomNumber;
+var special = false;
+
+while(iteration < 9){
+randomNumber = (Math.floor((Math.random() * 100)) % 94) + 33;
+if(!special){
+if ((randomNumber >=33) && (randomNumber <=47)) { continue; }
+if ((randomNumber >=58) && (randomNumber <=64)) { continue; }
+if ((randomNumber >=91) && (randomNumber <=96)) { continue; }
+if ((randomNumber >=123) && (randomNumber <=126)) { continue; }
+}
+iteration++;
+password += String.fromCharCode(randomNumber);
+}
+return password;
+	
+}
+
+
+function resetPass(){
+	var p = genPass();
+	var inputText = $('#inputResetPass').eq(0).val();
+	
+	$.post('http://'+IP+':8089/appriz/setPassword',{
+		email			:   inputText,
+		password   			: p
+	}, function(data){
+		showInfoD($.t('Contraseña reiniciada'),$.t('Se ha enviado una clave genérica a su correo electrónico.'),function(){$('.moldHide, .dialogAlert').hide();});
+		
+	});
+	
+}
+
+
+$( document ).on('tapend','#reset-pass .btnFull',function(){ resetPass();});
 /*--------------------------------------------------
 	Events 
 ---------------------------------------------------*/

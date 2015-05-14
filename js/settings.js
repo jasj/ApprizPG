@@ -1,5 +1,7 @@
-$(document).on('tapend' ,'#settingsPage .btnFull', function(){
-	var ret =  parseInt($('input:radio[name=checkboxG1]:checked').val());
+
+var stringSett;
+function guardarCambios(){
+		var ret =  parseInt($('input:radio[name=checkboxG1]:checked').val());
 		if(ret == 1 || ret == 2 || ret == 3 || ret == 4){
 			$.post('http://'+IP+':8089/appriz/setAprzCustomerSettings',{
 				idSecretClient			:  idScretClient,
@@ -15,6 +17,37 @@ $(document).on('tapend' ,'#settingsPage .btnFull', function(){
 		}else{
 			showInfoD($.t('Error'),$.t('You need to select a retention policy'),function(){$('.moldHide, .dialogAlert').hide();});
 		}
+	
+}
+
+function valorSet(){
+	
+	//var pinPol=$('#pinPolicy').eq(0).val();
+	var pinPol=$('#pinPolicy').prop("checked").toString();
+	var atWif = $('#atWifi').prop("checked").toString();
+	var checkBo=($('input:radio[name=checkboxG1]:checked').val());
+	 stringSett = pinPol+atWif+checkBo;
+	
+}
+
+function compararSett(p,w,c){
+	var setActual = p+w+c;
+	if(setActual==stringSett){}
+	else{
+		showAlert($.t("Guardar cambios"),$.t("Desea guardar los cambios realizados"),function(){
+		guardarCambios();
+	},function(){$('.moldHide, .dialogAlert').hide();});
+	}
+}
+
+
+$(document).on('tapend' ,'.icon-back.backSet', function(){
+compararSett($('#pinPolicy').prop("checked").toString(),$('#atWifi').prop("checked").toString(),$('input:radio[name=checkboxG1]:checked').val());
+});
+
+$(document).on('tapend' ,'#settingsPage .btnFull', function(){
+ guardarCambios();
+ valorSet();
 });
 
 $('#passwordChg .btnFull').tapend(function(){
@@ -38,7 +71,7 @@ $('#passwordChg .btnFull').tapend(function(){
 	}
 
 
-});
+});												
 
 $('#pinChg .btnFull').tapend(function(){
 	var patt = /^\d{4}$/;

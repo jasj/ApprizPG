@@ -594,6 +594,15 @@ img {
 	margin-left:5%;
 }
 
+.resetPass {
+	
+    width: 90%;
+	height: 100%;
+	margin-top: 60%;	
+	margin-left:5%;
+	
+}
+
 .login .logo {
     display: block;
     padding: 16% 0 10% 0;
@@ -702,7 +711,8 @@ input, .btnAction {
     font-size: 30px;
     text-align: center;
     display: block;
-    padding: 8% 0 0 0;
+    padding: 1% 0 0 0;
+	
 }
 
 .newUserlink:hover {
@@ -1594,6 +1604,7 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
     display: block;
     float: left;
     padding: 31px 0 0 16px;
+	
 
     width: 43px;
 }
@@ -2007,7 +2018,7 @@ overflow: auto;
     .newUserlink {
         font-size: 18px;
         width: 100%;
-        line-height: 87px;
+        line-height: 50px;
         text-align: center;
     }
 

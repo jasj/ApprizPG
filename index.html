@@ -50,6 +50,7 @@
                             <span class="icon-lock"></span>
                         </div>
                         <button class="btnFull submitLogin" i18Trans="Login"></button>
+						<a class="newUserlink" i18Trans="Forgot my password" page-content="reset-pass"></a>
                         <a class="newUserlink" i18Trans="Are you new Appriz User?" page-content="first-time"></a>
                     </fieldset>
                 </formo>
@@ -95,7 +96,7 @@
                 <li>
                     <a menu-page="#entities" class="icon-entities px5"></a>
                 </li>
-                <li page-content="settingsPage">
+                <li page-content="settingsPage" onClick="valorSet();">
                     <a class="icon-settings px5" ></a>
                 </li>
             </ul>
@@ -141,6 +142,17 @@
 		<h2 class="headerText"></h2>
 		<button class="icon-menu menu-main"></button>
      </header>
+	 
+	 
+	 	<header id="headerSett">
+		<i class="out fa fa-power-off"></i>
+		<a class="icon-back backSet" href="#"></a>
+		<h2 class="headerText"></h2>
+		<button class="icon-menu menu-main"></button>
+     </header>
+	 
+	 
+	 
 	  <header class="bankSection" id="headerEntity" >
                 <a class="icon-back"></a>
                 <h2><a class="bankLogo" href="#" page-content="inbox"><img src="img/bac.png" alt="Bank"/></a></h2>
@@ -223,7 +235,7 @@
 	</div>
 
 
-	<div  id='settingsPage' class='page-content' header='headerGeneral' headerText="Settings">
+	<div  id='settingsPage' class='page-content' header='headerSett' headerText="Settings">
 			
 				<section id="main">
 					<div class="settings">
@@ -284,6 +296,23 @@
                 <div class="products"><ul></ul></div><!--close products-->
             </section><!--close main-->
 </div>
+
+<div  id='reset-pass' class='page-content' header='headerGeneral' headerText="Password reset">
+
+		<div class='resetPass'>
+				<section id="main" >
+						<input type="text" id="inputResetPass" i18Trans="Email" i18Target="placeholder"/>
+						<button class='btnFull'   i18Trans='Reset' style="margin-top:7%"></button>
+				</section>
+		</div>
+       
+</div>
+
+
+
+
+
+
 
 <div  id='services' class='page-content' header='headerEntity'>
 	          <!--close bank section header-->
@@ -464,6 +493,7 @@
             </div><!--close modal-->
 		</div>
 <!-- Generic Scripts  -->
+<script src="js/globals.js"></script>
 <script src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <script src="js/psudo.js"></script>
@@ -479,7 +509,7 @@
 <script src="js/iscroll.js"></script>
 
 <!--pages Scripts -->
-<script src="js/globals.js"></script>
+
 <script src="js/main.js"></script>
 <script src="js/login.js"></script>
 <script src="js/entity.js"></script>

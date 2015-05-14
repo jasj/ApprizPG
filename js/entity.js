@@ -1,11 +1,14 @@
 /*
 	
 */
+
+
 function reloadEntities(){
-	
+	console.log("Metodo reloadEntities");
 			$.post('http://'+IP+':8089/appriz/getCustomerEntities',{"idSecretClient": idScretClient},function(data){
 				
 					console.dir(data.length);
+					if(data.length==0){noEntity=true;}
 				entities = '';
 				var frsTime = 0;	
 				data.forEach(function(entity){
@@ -41,25 +44,30 @@ function reloadEntities(){
 			//	downloadContent(FormatInteger(currentEntityID,4)+".css",S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
 				console.log(JSON.stringify(data));
 				$.jStorage.set('entities', btoa($('#entities ul').html()));
+				
+			
 			});
 			
 		}
 		
 function loadEntityTemplate(frsTime){
+	
+	console.log("firstT:"+frsTime);
 	oIMG = S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png';
 	oCSS = S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css';
 	if(frsTime == 1) {
 		$('.bankLogo img').attr("src",oIMG);
 		$('.bankBrand img').attr("src",oIMG);
 		$('#entityStyle').attr("href",oCSS);
+		
+		
 	}else{
 		getFileLocalURL(currentEntityID+".png", $('.bankLogo img'), "src",oIMG);
 		getFileLocalURL(currentEntityID+".png", $('.bankBrand img'), "src",oIMG);
 		getFileLocalURL(currentEntityID+".css", $('#entityStyle'), "href",oCSS);
+	
 	}
 	
-	//$('#entityStyle').attr("href",S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css');
-	tabSelectedColor = $("#colorHandle").css("color");//"rgb(85, 185, 73)"
 }
 		
 function makeSwipeEntity(id){

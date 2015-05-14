@@ -84,3 +84,6 @@ function checkWithOutEntity(){
 $(".out").tapend(function(){
 		$("button.log").trigger("tapend");
 });
+
+
+
