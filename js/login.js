@@ -208,7 +208,13 @@ function resetPass(){
 		email			:   inputText,
 		password   			: p
 	}, function(data){
+		
+		if(data["status"] == 200){
 		showInfoD($.t('Contraseña reiniciada'),$.t('Se ha enviado una clave genérica a su correo electrónico.'),function(){$('.moldHide, .dialogAlert').hide();});
+		}
+		else{
+			showInfoD($.t('Correo incorrecto'),$.t('El correo electronico no existe'),function(){$('.moldHide, .dialogAlert').hide();});
+		}
 		
 	});
 	
