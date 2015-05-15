@@ -35,15 +35,17 @@ function login(){
 				$.jStorage.set('pin', data['pin']);
 				$.jStorage.set('logAs', logAs);
 				$('.user div').html($.jStorage.get('logAs'));
+				retention =  data["retention"];
 				reloadEntities();
 				
 				//$("div#login").fadeOut(1000,function(){checkWithOutEntity()});
 				callNewMSG();
 				pin = data['pin'];
 				atWifi = data["onlyWIFI"];
-				retention =  data["retention"];
+				
 				//getValidTimePeriods();
 				//reloadEntities();
+				console.log("retention:"+data["retention"] + "wifi:"+data["onlyWIFI"] + "pin"+ data['pin']);
 			
 			}else{
 				showInfoD($.t('Wrong credentials'),$.t('The credentials that you use are invalid'),function(){$('.moldHide, .dialogAlert').hide();});

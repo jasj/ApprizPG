@@ -1,6 +1,6 @@
 
 function onDeviceReady(){
-	
+	FastClick.attach(document.body);
 	try{
 		onDeviceReady_fm();
 		onDeviceReady_pn();
