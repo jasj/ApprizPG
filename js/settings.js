@@ -33,7 +33,7 @@ function valorSet(){
 function compararSett(p,w,c){
 	var setActual = p+w+c;
 	if(setActual!=stringSett){
-		showAlert($.t("Guardar cambios"),$.t("Desea guardar los cambios realizados"),function(){
+		showAlert($.t("Save changes"),$.t("Do you want to save the changes?"),function(){
 		guardarCambios();
 	},function(){$('.moldHide, .dialogAlert').hide();});
 	}
