@@ -2491,6 +2491,13 @@ h4.user {
     height: 100%;
 }
 
+.noMessages{
+color: #636466;
+  font-size: 1.17em;
+ text-align:center;
+ 
+
+}
 .appends {
     position: absolute;
     top: 235px;
