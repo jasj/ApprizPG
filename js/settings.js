@@ -95,5 +95,5 @@ $( document ).on('tapend','[page-content=settingsPage]',function(){
 	$("#settingsPage .weeksOption input").prop('checked', false);
 	$("#settingsPage [week="+(retention =="undefined" ? 4 : retention)+"]").prev().prop('checked', true);
 	$("#settingsPage [week="+(retention =="undefined" ? 4 : retention)+"]").parent().addClass('isThis');
-	$
+	valorSet();
 });
