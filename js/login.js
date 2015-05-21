@@ -65,6 +65,7 @@ function login(){
 
 
 function offLineMode(){
+	console.log("offMode");
 			if($.jStorage.index().indexOf('idSecretClient') > -1){
 			idScretClient = $.jStorage.get('idSecretClient');
 			$("#login").hide();

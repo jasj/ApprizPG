@@ -77,6 +77,7 @@ function reportMsgState(){
 }		
 
 function syncronizeOffLineMsg(){
+	console.log("sincroOff");
 	if(stateChangeLst.length > 0){
 		while( stateChangeLst.length > 0){
 			var msg = stateChangeLst.pop();
