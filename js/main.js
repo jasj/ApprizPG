@@ -87,6 +87,15 @@
 		if(inBack == "undefined" ){	
 			navigator.app.exitApp();
 		}
+		
+		if(scrollPosition>0){
+			console.log("sd");
+				$("html, body").animate({ scrollTop: scrollPosition }, 1);
+			
+				scrollPosition=0;
+				}
+				
+		
 		if(inBack != "Login" ){
 			$(".page-content.active").removeClass("active");
 			$("header.active").removeClass("active");

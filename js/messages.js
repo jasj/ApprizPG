@@ -426,12 +426,12 @@ StartXCategories = 0;
 		$(".deleteOptionActivate").animate({"margin-left" : "0px"});
 		$(".deleteOptionActivate").removeClass("deleteOptionActivate");
 		
-		if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <3){
+		if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <10){
 			
 			$('#categories').on('touchstart', function(evt)
 				{
 					
-					if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <3){
+					if( $(".page-content.active").attr("id") == "inbox" && $(this).scrollTop() <10){
 						margintop =103;
 						StartXCategories = getCoord(evt,"X");
 						StartYCategories = getCoord(evt,"Y");
@@ -444,7 +444,7 @@ StartXCategories = 0;
 				});
 				$(document).on('*','scroll',function(ev){console.log("nice");console.log(ev)});
 				$('#categories').on('touchmove', function(ev){
-					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <3 )){
+					if( $(".page-content.active").attr("id") == "inbox" && ($(this).scrollTop() <10 )){
 						
 						 var deltaY = (getCoord(ev,"Y") -StartYCategories);
 						 if(deltaY >10){

@@ -14,6 +14,10 @@ function matchColumnsHeight(){
 }
 
 function showMessage(id){
+	
+	scrollPosition = window.pageYOffset;
+	//scrollPosition = $(window).scrollTop();
+	console.log("scro "+ scrollPosition)
 	//For old Androids
 	//$(".details_").css({"width" : (window.innerWidth - window.innerWidth*2*0.04)});
 	//$(".detail_fixed").css({"margin-left" : "0px"});

@@ -5,7 +5,7 @@
 		
 */
 
-
+	var scrollPosition;
 	var pushNotification;
 	eregid = "123";
 	currentProduct = "kilomanyaroB";
