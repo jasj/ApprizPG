@@ -25,6 +25,8 @@ function current_inbox(){
 		getAds(); 
 	} //----> ERROR
 	
+		myScroll3 = new IScroll('#wrapper_message', { useTransition: false });
+	
 }
 
 function counterByMsg(){
@@ -195,7 +197,7 @@ function makeSwipe(id){
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
 			console.timeEnd("PostReq");
 			console.time("MSGProc");
-			$('#categories').html("<div class='scrollingArrow'><i class='fa fa-angle-double-down' ></i></div><div class='refreshing_list seen'><i class='fa fa-spinner fa-spin'></i></div><div class='MsG'></div>");
+			$('#categories').html("<div class='scrollingArrow'><i class='fa fa-angle-double-down' ></i></div><div class='refreshing_list seen'><i class='fa fa-spinner fa-spin'></i></div><div class='scroller'> <div class='MsG'></div></div>");
 				//console.log(JSON.stringify(data));
 				
 				$.each(data,function(index, message){
@@ -278,7 +280,10 @@ function makeSwipe(id){
 				
 		//	counterByMsg();$('.refreshing_list').hide(); 
 			});
-		}}
+		}
+		
+		
+		}
 				
 				
 				
@@ -376,8 +381,14 @@ $('#categories').html("<div class='scrollingArrow'><i class='fa fa-angle-double-
 				checkWithOutEntity();
 		//	counterByMsg();$('.refreshing_list').hide(); 
 			});
-		}}
+		}
+			//$('#wrapper_message').height(window.innerHeight - 150);
+			
+		}
 						
+				
+				
+				
 				
 		//Delete Btn
 		$( document ).on("tapend","#categories .deleteSwipe",function(){
@@ -418,7 +429,7 @@ StartXCategories = 0;
 
 		
 		
-	scrollEvent =  function(evt)
+/* 	scrollEvent =  function(evt)
 	{
 
 		margintop = 103;
@@ -500,13 +511,15 @@ StartXCategories = 0;
 			$("#categories").css({"margin-top" : "103px"});
 		}
 	}
+	 */
 	
-	
-	$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
+//	$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
 		
 			
+			myScroll3.on('scroll', function () {
 				
-		
+			
+			});
 		
 		
 

@@ -6,6 +6,7 @@ function addServices(services){
 		$('#services .services ul').append('<li service="'+service+'"><button><srv>'+services[service]+'</srv><span class="icon-arrow"></button></li>');
 	}
 	$(".refreshing_list").hide();
+	myScroll2 = new IScroll('.services.serviceList', { useTransition: false });
 }
 function getServices(productName){
 	$('#services .services ul').html("<div class='refreshing_list'><i class='fa fa-spinner fa-spin'></i> </div>");

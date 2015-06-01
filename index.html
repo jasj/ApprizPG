@@ -15,13 +15,31 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+ <link rel="stylesheet" href="css/scroller.css">
 
-    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+	 
 	<link rel="stylesheet" href="css/entity.css" id="entityStyle">
 	<link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+ 
 
+	
+	<script type="text/javascript">
+
+var myScroll;
+
+function loaded () {
+	myScroll = new IScroll('#wrapper', { useTransition: false });
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+loaded ();
+</script>
+	
+	
+	
+	
+	
 </head>
 <body class="apprizApp">
 <!--[if lt IE 7]>
@@ -163,11 +181,19 @@
 <div id="growingSpace">	
 	<div  id='inbox' class='page-content active' header='headerMain'>
 		<section >
-			<ul id="categories" class="noselect">
-			
-			</ul>
-			<p class='noMessages' i18Trans="No messages to display"></p>
-			<!--close categories-->
+		<div id="wrapper_message">
+			<div class="scroller">
+			<div class="pullDown">
+				<span class="pullDownIcon">&nbsp;</span>
+				<span class="pullDownLabel">Pull down to refresh</span>
+			</div>
+				<ul id="categories" class="noselect">
+				
+				</ul>
+			</div>
+		</div>
+			<!--<p class='noMessages' i18Trans="No messages to display"></p>
+			close categories-->
 		</section>
 		<!--close main-->
 		
@@ -284,6 +310,12 @@
 				</section><!--close main-->
 
 	</div>
+	
+	
+	
+	
+	
+	
 </div>
 
 <div  id='products' class='page-content' header='headerEntity'>
@@ -325,7 +357,7 @@
                         <li class="active"><button disabled></button></li>
                     </ul>
                 </nav><!--close product Nav-->
-                <div class="services serviceList"><ul></ul></div><!--close products-->
+                <div class="services serviceList"><div class='scroller'><ul></ul></div></div><!--close products-->
             </section><!--close main-->
 </div>
 
@@ -508,7 +540,7 @@
 <script src="js/generics.js"></script>
 <script src="js/files.js"></script>
 <script src="js/pushNotification.js"></script>
-<script src="js/iscroll.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
 
 <!--pages Scripts -->
 
