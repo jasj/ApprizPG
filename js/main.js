@@ -89,7 +89,7 @@
 		}
 		
 		if(scrollPosition>0){
-			console.log("sd");
+		console.log("dd"+scrollPosition);
 				$("html, body").animate({ scrollTop: scrollPosition }, 1);
 			
 				scrollPosition=0;
