@@ -410,7 +410,7 @@ $('#categories').html("<div class='scrollingArrow'><i class='fa fa-angle-double-
 				$(this).find("span").addClass("active");
 				$('.typemsg'+$(this).attr("typemsg")+'[identity='+currentEntityID+']').show();
 			}
-			$("*").scrollTop(0);
+			 myScroll3 = new IScroll('#wrapper_message', { useTransition: true });
 		});
 		
 		$( document ).on("taphold",'nav.categoryNav li',function(){
