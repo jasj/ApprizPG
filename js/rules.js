@@ -35,6 +35,8 @@ function addRules(objs){
 	
 	$('#rules_div').append("<div style='width: 100%; height: 150px;'></div>");
 	$(".refreshing_list").hide();
+	myScrolll = new IScroll('#listProducts', {preventDefault: false, useTransition: true });
+
 }
 
 function getRules(productName){

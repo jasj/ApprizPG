@@ -500,6 +500,7 @@ a {
     margin: 0 auto;
     background: #FFFFFF;
     height: 100%;
+	display: none;
 
 
 }
@@ -1270,6 +1271,7 @@ nav.categoryNav .icon-myAlerts.active .path2:before {
 .detailsList .row h4 {
     text-align: right;
     line-height: 9px;
+	white-space: nowrap;
 	
 
 }

@@ -178,6 +178,7 @@
 		<div id="wrapper_message">
 			<div class="scroller">
 			<div class="pullDown">
+			
 				<span class="pullDownIcon fa fa-spinner fa-spin"  >&nbsp;</span>
 				<span class="pullDownLabel" i18Trans="Pull down to refresh"></span>
 			</div>
@@ -234,7 +235,7 @@
 								<h6 class="dateBank"><span class="icon-primitive-dot dotInactive"></span>9 de Febrero 2015, 11:20:00</h6>
 								<hr class="line"/>
 							</div>
-							<div class="appends"></div>
+								<div class="appends"></div>
 							<div class="historye" ></div>
 
 						</div><!--close detail category-->
@@ -321,7 +322,7 @@
                         <li class="active"><button i18Trans="Products" disabled></button></li>
                     </ul>
                 </nav><!--close product Nav-->
-                <div class="products"><ul></ul></div><!--close products-->
+                <div class="products">><ul></ul></div><!--close products-->
             </section><!--close main-->
 </div>
 
@@ -365,8 +366,10 @@
 
                 </nav><!--close product Nav-->
 
-                <div class="products">
+                <div class="products" id="listProducts" >
+				<div class="scroller">
                     <ul> </ul>
+				</div>
                 </div><!--close products-->
 
             </section><!--close main-->
