@@ -96,4 +96,5 @@ $( document ).on('tapend','[page-content=settingsPage]',function(){
 	$("#settingsPage [week="+(retention =="undefined" ? 4 : retention)+"]").prev().prop('checked', true);
 	$("#settingsPage [week="+(retention =="undefined" ? 4 : retention)+"]").parent().addClass('isThis');
 	valorSet();
+	settingsScroller =  new IScroll('.settings', { preventDefault: false, probeType: 3, mouseWheel: true }); 
 });
