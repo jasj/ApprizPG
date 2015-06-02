@@ -226,7 +226,11 @@ $( document ).on('tapend','#reset-pass .btnFull',function(){ resetPass();});
 /*--------------------------------------------------
 	Events 
 ---------------------------------------------------*/
-$( document ).on('tapend','.btnFull.submitLogin',function(){ login();});
+$( document ).on('tapend','.btnFull.submitLogin',function(){ 
+
+login();
+
+});
 $( document ).on('tapend','#Waiting p',function(){offLineMode();});
 
 $(".loginBox input").eq(1).keyup(function (e) {

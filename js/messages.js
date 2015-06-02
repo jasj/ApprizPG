@@ -20,17 +20,39 @@ function current_inbox(){
 	$('.navAppriz li').eq(0).trigger("tapend");
 	
 	checkWithOutEntity();
-	if(currentEntityID>0)
-	{
-		getAds(); 
-	} //----> ERROR
+	//if(currentEntityID>0)
+	//{
+	//	getAds(); 
+	//} //----> ERROR
 	
 		
 	
 }
-
+var scr=0;
 function counterByMsg(){
-	   myScroll3 = new IScroll('#wrapper_message', { useTransition: true });
+	   myScroll3 = new IScroll('#wrapper_message', { probeType: 3, mouseWheel: true });
+	   myScroll3.on('scroll', function(){
+		   if(this.y>56 && scr==0){ 	 
+				$('.pullDownLabel').html($.t("Release to refresh"));
+				console.log(this.y>>0);
+				scr =1;
+				$('#wrapper_message').css('margin-top', '120px');
+						}});
+		
+		 myScroll3.on('scrollEnd', function(){
+			 if(scr==1){
+			 scr=0;
+			 
+			callNewMSG();
+			//current_inbox();
+			 
+			// $('#wrapper_message').css('margin-top', '70px');
+			 }
+			 
+		   });
+		
+		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
 		$('.bubble').eq(0).html( $('.typemsg1.unread.entity'+currentEntityID).length == 0 ? "" : $('.typemsg1.unread.entity'+currentEntityID).length).css($('.typemsg1.unread.entity'+currentEntityID).length == 0 ? {"display" : "none" } : {"display" : "block"});
 		$('.bubble').eq(1).html( $('.typemsg2.unread.entity'+currentEntityID).length == 0 ? "" : $('.typemsg2.unread.entity'+currentEntityID).length).css($('.typemsg2.unread.entity'+currentEntityID).length == 0 ? {"display" : "none" } : {"display" : "block"});
 		$('.bubble').eq(2).html( $('.typemsg3.unread.entity'+currentEntityID).length == 0 ? "" : $('.typemsg3.unread.entity'+currentEntityID).length).css($('.typemsg3.unread.entity'+currentEntityID).length == 0 ? {"display" : "none" } : {"display" : "block"});
@@ -185,6 +207,7 @@ function makeSwipe(id){
 				
 //bring message for this client
 		function callNewMSG(){
+			
 			$('.icon-menu').show();
 					$('.icon-back').show();
 	
@@ -193,12 +216,14 @@ function makeSwipe(id){
 		if(oneTimeSendAjax){
 			oneTimeSendAjax = false;
 			console.time("MSGProcFull");
-				$('.refreshing_list').show();
+				$('.pullDownIcon').css('visibility','visible');
+				$('.pullDownLabel').html($.t("Loading"));
+				
 				console.time("PostReq");
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
 			console.timeEnd("PostReq");
 			console.time("MSGProc");
-			$('#categories').html("<div class='scrollingArrow'><i class='fa fa-angle-double-down' ></i></div><div class='refreshing_list seen'><i class='fa fa-spinner fa-spin'></i></div><div class='scroller'> <div class='MsG'></div></div>");
+			$('#categories').html("<div class='MsG'></div>");
 				//console.log(JSON.stringify(data));
 				
 				$.each(data,function(index, message){
@@ -253,7 +278,10 @@ function makeSwipe(id){
 						$.jStorage.set('msg_div', btoa($('#categories').html()));
 						
 						//console.log(JSON.stringify(data));
-					}catch(e){console.log(e);}
+					}catch(e){
+						console.log(e);
+						
+					}
 					}
 					
 					
@@ -261,29 +289,42 @@ function makeSwipe(id){
 					
 					$.jStorage.set('msg_div', btoa($('#categories').html()));
 				});
+				
 				syncronizeOffLineMsg();
+				
 			},'json') .fail(function(e) {
-					$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').fadeOut(3000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
-			
-				//alert( JSON.stringify(e));getRules(kilomanyaroB)
+				//	$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').fadeOut(3000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
+			$('.pullDownLabel').html($.t("Unable to connect"));
+				
 			}).done(function(){ 
+		
 				current_inbox();
 				counterByMsg();
 				makeSwipe();
 				fix_messages();
 				$.jStorage.set('msg', btoa($('#categories').html()));
 				console.timeEnd("MSGProcFull");
-				$('.refreshing_list').fadeOut(1000); 
+			//	$('.refreshing_list').fadeOut(1000); 
+				$('#wrapper_message').css('margin-top', '63px');
+					$('.pullDownIcon').css('visibility','hidden');
+				$('.pullDownLabel').html($.t("Pull to refresh"));
 				
 				$("*").scrollTop(2);
 				$("nav.categoryNav li span").addClass("active");
 				setTimeout(function(){oneTimeSendAjax = true;},500);
 				
+				
 		//	counterByMsg();$('.refreshing_list').hide(); 
 			});
+				
 		}
-		
-		
+		else{
+				$('#wrapper_message').css('margin-top', '63px');
+				$('.pullDownIcon').css('visibility','hidden');
+				$('.pullDownLabel').html($.t("Pull to refresh"));
+				oneTimeSendAjax=true;
+			}
+		//ver
 		}
 				
 				
@@ -517,11 +558,6 @@ StartXCategories = 0;
 	
 //	$('#appHolder').parent().parent().parent().on('scroll', scrollEvent);
 		
-			
-			myScroll3.on('scroll', function () {
-				
-			
-			});
 		
 		
 

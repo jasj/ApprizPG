@@ -15,7 +15,9 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+ 
  <link rel="stylesheet" href="css/scroller.css">
+ 
 
     <link rel="stylesheet" href="css/main.css">
 	 
@@ -24,17 +26,7 @@
  
 
 	
-	<script type="text/javascript">
-
-var myScroll;
-
-function loaded () {
-	myScroll = new IScroll('#wrapper', { useTransition: false });
-}
-
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-loaded ();
-</script>
+	
 	
 	
 	
@@ -184,8 +176,8 @@ loaded ();
 		<div id="wrapper_message">
 			<div class="scroller">
 			<div class="pullDown">
-				<span class="pullDownIcon">&nbsp;</span>
-				<span class="pullDownLabel">Pull down to refresh</span>
+				<span class="pullDownIcon fa fa-spinner fa-spin"  >&nbsp;</span>
+				<span class="pullDownLabel" i18Trans="Pull down to refresh"></span>
 			</div>
 				<ul id="categories" class="noselect">
 				
@@ -527,6 +519,7 @@ loaded ();
             </div><!--close modal-->
 		</div>
 <!-- Generic Scripts  -->
+
 <script src="js/globals.js"></script>
 <script src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
@@ -541,6 +534,7 @@ loaded ();
 <script src="js/files.js"></script>
 <script src="js/pushNotification.js"></script>
 <script type="text/javascript" src="js/iscroll.js"></script>
+<script src="js/iscroll-probe.js"></script>
 
 <!--pages Scripts -->
 

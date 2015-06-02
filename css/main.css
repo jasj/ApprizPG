@@ -907,21 +907,30 @@ label.css-label {
     width: 58%;
 }
 #wrapper_message{
-margin-top: 70px;
+margin-top: 63px;
 }
-
+.pullDown .pullDownIcon{
+visibility:hidden;
+}
 
 .pullDown {
 
 background:#fff;
 height:40px;
 line-height:40px;
-font-weight:bold;
-font-size:0.8em;
-color:#888;
-margin-left: 30%;
+
+font-size:0.9em;
+color:#1B1B1B;
+
 }
 
+.pullDown span{
+display:table;
+margin:0 auto;
+margin-bottom:-10px;
+
+
+}
 
 
 #wrapper_message{
