@@ -152,7 +152,7 @@ function makeSwipe(id){
 				},
 				
 				swipeStatus:function(event, phase, direction, distance , duration , fingerCount) {
-				 if((phase === $.fn.swipe.phases.PHASE_END || phase === $.fn.swipe.phases.PHASE_CANCEL )& distance == 0)  {
+				 if((phase === $.fn.swipe.phases.PHASE_END || phase === $.fn.swipe.phases.PHASE_CANCEL )& distance < 15)  {
 						showMessage($(this).attr("id"));
 						$.jStorage.set('msg', btoa($('#categories').html()));
 						stateChangeLst.push({msg : $(this).parent().parent().parent().attr("id") , state : "READED"});
