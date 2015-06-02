@@ -203,7 +203,7 @@ function makeSwipe(id){
 			});
 		}
 		
-				
+				var unableToConnect=0;
 				
 //bring message for this client
 		function callNewMSG(){
@@ -295,7 +295,7 @@ function makeSwipe(id){
 			},'json') .fail(function(e) {
 				//	$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').fadeOut(3000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
 			$('.pullDownLabel').html($.t("Unable to connect"));
-				
+				unableToConnect=1;
 			}).done(function(){ 
 		
 				current_inbox();
@@ -318,11 +318,16 @@ function makeSwipe(id){
 			});
 				
 		}
-		else{
+		else{	
+				if(unableToConnect==1){
+					
+					oneTimeSendAjax=true;
+				}
+				else{
 				$('#wrapper_message').css('margin-top', '63px');
 				$('.pullDownIcon').css('visibility','hidden');
 				$('.pullDownLabel').html($.t("Pull to refresh"));
-				oneTimeSendAjax=true;
+				oneTimeSendAjax=true;}
 			}
 		//ver
 		}
