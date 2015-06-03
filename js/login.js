@@ -12,12 +12,16 @@
 function login(){
 	  //event.preventDefault();
 	  var patFemail = /(\S+)@/;
+	   //var whirPass= HexWhirlpool($('.loginBox input').eq(1).val());
+	   var whirPass= $('.loginBox input').eq(1).val();
+	  console.log(whirPass);
+	  
 	  try{
 	  var logAs = $('.loginBox input').eq(0).val().match(patFemail)[1];
-	  
+	
 		$.post('http://'+IP+':8089/appriz/login',{
 			"email" : $('.loginBox input').eq(0).val(),
-			"password":$('.loginBox input').eq(1).val(),
+			"password": whirPass,
 			"phone": typeof device !== 'undefined' ? device.model : "Browser",
 			"os": typeof device !== 'undefined' ? device.platform : "Browser",
 			"uuid":  typeof device !== 'undefined' ? device.uuid : "Browser",
@@ -202,12 +206,14 @@ return password;
 
 
 function resetPass(){
-	var p = genPass();
+	var tempPass = genPass();
 	var inputText = $('#inputResetPass').eq(0).val();
+	var tempPassEncrypt= HexWhirlpool(tempPass);
 	
 	$.post('http://'+IP+':8089/appriz/setPassword',{
 		email			:   inputText,
-		password   			: p
+		password   		:   tempPassEncrypt,
+		passMail		:	tempPass
 	}, function(data){
 		
 		if(data["status"] == 200){
