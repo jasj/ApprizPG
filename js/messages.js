@@ -34,18 +34,14 @@ function counterByMsg(){
 	   myScroll3.on('scroll', function(){
 		   if(this.y>45 && scr==0){ 	 
 				scr =1;
-				//$('#wrapper_message').css('margin-top', '100px');
-				
-				
-						}});
+	}});
 		
 		 myScroll3.on('scrollEnd', function(){
 			 $('#wrapper_message').css('margin-top', '110px');
-			 if(scr==1){
-			 scr=0;
+			  if(this.y<10 && scr==1){
+			  scr=0;
 			callNewMSG();
-			 }
-			 
+			  }
 		   });
 		
 		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
