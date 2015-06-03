@@ -32,11 +32,9 @@ var scr=0;
 function counterByMsg(){
 	   myScroll3 = new IScroll('#wrapper_message', { probeType: 3, mouseWheel: true });
 	   myScroll3.on('scroll', function(){
-		   if(this.y>56 && scr==0){ 	 
-			
-			
+		   if(this.y>45 && scr==0){ 	 
 				scr =1;
-				$('#wrapper_message').css('margin-top', '110px');
+				$('#wrapper_message').css('margin-top', '100px');
 				callNewMSG();
 						}});
 		
