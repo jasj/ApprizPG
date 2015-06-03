@@ -37,8 +37,9 @@ function counterByMsg(){
 	}});
 		
 		 myScroll3.on('scrollEnd', function(){
-			 $('#wrapper_message').css('margin-top', '110px');
+			
 			  if(this.y<10 && scr==1){
+				   $('#wrapper_message').css('margin-top', '110px');
 			  scr=0;
 			callNewMSG();
 			  }
