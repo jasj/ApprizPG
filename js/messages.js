@@ -203,7 +203,7 @@ function makeSwipe(id){
 				
 //bring message for this client
 		function callNewMSG(){
-			$('.pullDown').animate({'margin-top': '50px'}, 250);
+			$('.pullDown').css('margin-top', '50px');
 			$('.pullDownLabel').html($.t(""));
 			
 			$('.icon-menu').show();
