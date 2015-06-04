@@ -203,7 +203,7 @@ function makeSwipe(id){
 				
 //bring message for this client
 		function callNewMSG(){
-			$('.pullDown').css('margin-top', '50px');
+			$('.pullDown').animate({'marginTop': '90px'},500);
 			$('.pullDownLabel').html($.t(""));
 			
 			$('.icon-menu').show();
@@ -295,7 +295,7 @@ function makeSwipe(id){
 			$('.pullDownLabel').toggleClass('fa fa-circle-o-notch fa-spin fa-3x',false);
 			$('.pullDownLabel').html($.t("Unable to connect"));
 			setTimeout(function(){
-					$('.pullDown').css('margin-top', '0px');
+					$('.pullDown').animate({'marginTop': '0px'},500);
 					$('.pullDownLabel').html($.t("Pull down to refresh"));},2000);
 			
 				unableToConnect=1;
@@ -308,7 +308,7 @@ function makeSwipe(id){
 				$.jStorage.set('msg', btoa($('#categories').html()));
 				console.timeEnd("MSGProcFull");
 			//	$('.refreshing_list').fadeOut(1000); 
-				$('.pullDown').css('margin-top', '0px');
+				$('.pullDown').animate({'marginTop': '0px'},500);
 				$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
 				$('.pullDownLabel').html($.t("Pull to refresh"));
 				
@@ -326,7 +326,7 @@ function makeSwipe(id){
 					
 					$('.pullDownLabel').html($.t("Unable to connect"));
 			setTimeout(function(){
-					$('.pullDown').css('margin-top', '0px');
+					$('.pullDown').animate({'marginTop': '0px'},500);
 					$('.pullDownLabel').html($.t("Pull down to refresh"));},2000);
 					oneTimeSendAjax=true;
 				}
