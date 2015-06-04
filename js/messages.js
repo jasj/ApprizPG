@@ -352,8 +352,8 @@ function makeSwipe(id){
 			oneTimeSendAjax = false;
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
 			
-$('#categories').html("<div class='scrollingArrow'><i class='fa fa-angle-double-down' ></i></div><div class='refreshing_list seen'><i class='fa fa-spinner fa-spin'></i></div><div class='MsG'></div>");
-			$('.refreshing_list').hide();	
+$('#categories').html("<div class='MsG'></div>");
+			
 				//console.log(JSON.stringify(data));
 				
 				$.each(data,function(index, message){
