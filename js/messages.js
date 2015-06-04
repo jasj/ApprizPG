@@ -37,7 +37,7 @@ function counterByMsg(){
 	  myScroll3.on('scroll', function(){
 		  
 		   if(this.y>45 && scr===0){ 	 
-		   $('.pullDown').html('Release to refresh');
+		   
 				scr =1;
 								}
 		 
@@ -45,11 +45,13 @@ function counterByMsg(){
 			  });
  myScroll3.on('scrollEnd', function(){
 	 
-	   if(this.y<10 && scr===1){
+	   if(scr===1){
 			
 			scr=0;
+			scrollTo(0,0);
 			 $('.pullDown').html('Loading . . . ');
-			 $('#wrapper_message').css('margin-top', '110px');
+			$('#wrapper_message').css('margin-top', '110px');
+			
 			
 			callNewMSG();
 			  }		
@@ -214,7 +216,7 @@ function makeSwipe(id){
 		function callNewMSG(){
 	
 			$('.icon-menu').show();
-					$('.icon-back').show();
+			$('.icon-back').show();
 	
 			$("#deleteAllBtn").hide();
 			date = new Date();
