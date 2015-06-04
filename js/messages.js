@@ -216,7 +216,8 @@ function makeSwipe(id){
 			console.time("MSGProcFull");
 			//	$('.pullDownIcon').
 				
-				$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',true);
+			//	$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',true);
+				$('.pullDownLabel').html($.t("Loading . . . "));
 				console.time("PostReq");
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
 			console.timeEnd("PostReq");
@@ -309,7 +310,7 @@ function makeSwipe(id){
 				console.timeEnd("MSGProcFull");
 			//	$('.refreshing_list').fadeOut(1000); 
 				$('.pullDown').css('margin-top', '0px');
-				$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
+				//$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
 				$('.pullDownLabel').html($.t("Pull to refresh"));
 				
 				$("*").scrollTop(2);
@@ -325,7 +326,7 @@ function makeSwipe(id){
 				if(unableToConnect==1){
 					
 					$('.pullDownLabel').html($.t("Unable to connect"));
-			setTimeout(function(){
+					setTimeout(function(){
 					$('.pullDown').css('margin-top', '0px');
 					$('.pullDownLabel').html($.t("Pull down to refresh"));},2000);
 					oneTimeSendAjax=true;
