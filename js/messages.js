@@ -40,22 +40,19 @@ function counterByMsg(){
 		   
 				scr =1;
 								}
+								
+			if(scr===1 && this.y<10){
+			
+			scr=0;
+			
+			$('.pullDown').html('Loading . . . ');
+			$('#wrapper_message').css('margin-top', '110px');
+			callNewMSG();
+			  }	
 		 
 			  
 			  });
- myScroll3.on('scrollEnd', function(){
-	 
-	   if(scr===1){
-			
-			scr=0;
-			scrollTo(0,0);
-			 $('.pullDown').html('Loading . . . ');
-			$('#wrapper_message').css('margin-top', '110px');
-			
-			
-			callNewMSG();
-			  }		
- });
+
 		
 		
 		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
@@ -306,12 +303,18 @@ function makeSwipe(id){
 					$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').fadeOut(3000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
 				$('.pullDownLabel').toggleClass('fa fa-circle-o-notch fa-spin fa-3x',false);
 				$('.pullDownLabel').html($.t("Unable to connect"));
-			setTimeout(function(){
+				setTimeout(function(){
 					$('.pullDown').css('margin-top', '0px');
 					$('.pullDownLabel').html($.t("Pull down to refresh"));},2000);
 			
 				unableToConnect=1;
-				*/
+				
+				*/		
+					$('.pullDown').html('Unable to connect');
+						setTimeout(function(){
+							$('.pullDown').html('Pull down to refresh');
+							$('#wrapper_message').css('margin-top', '69px');},1500);
+							unableToConnect=1;
 			}).done(function(){ 
 		
 				current_inbox();
@@ -326,9 +329,10 @@ function makeSwipe(id){
 				$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
 				$('.pullDownLabel').html($.t("Pull to refresh"));
 				*/
-			 $('.pullDown').html('Pull down to refresh');
+			 
 			 $('#wrapper_message').css('margin-top', '69px');
-				$("*").scrollTop(2);
+			 $('.pullDown').html('Pull down to refresh');
+			//	$("*").scrollTop(2);
 				$("nav.categoryNav li span").addClass("active");
 				setTimeout(function(){oneTimeSendAjax = true;},500);
 				
@@ -338,6 +342,17 @@ function makeSwipe(id){
 				
 		}
 		else{	
+		if(unableToConnect===1){
+			$('.pullDown').html('Unable to connect');
+			setTimeout(function(){
+							
+							$('#wrapper_message').css('margin-top', '69px');
+							$('.pullDown').html('Pull down to refresh');
+							oneTimeSendAjax=true;
+							},1500);
+			
+		}
+		
 		
 		/*
 				if(unableToConnect==1){
