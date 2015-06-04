@@ -291,7 +291,7 @@ function makeSwipe(id){
 				
 			},'json') .fail(function(e) {
 				//	$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').fadeOut(3000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
-			$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
+			$('.pullDownLabel').toggleClass('fa fa-circle-o-notch fa-spin fa-3x',false);
 			$('.pullDownLabel').html($.t("Unable to connect"));
 			setTimeout(function(){
 					$('#wrapper_message').css('margin-top', '63px');
