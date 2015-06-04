@@ -35,14 +35,20 @@ function counterByMsg(){
 	  
 	  
 	  myScroll3.on('scroll', function(){
+		  
 		   if(this.y>45 && scr==0){ 	 
+		   $('.pullDown').html('Release to refresh');
 				scr =1;
 								}
 		   if(this.y<10 && scr==1){
 			
 			scr=0;
+			 $('.pullDown').html('Loading . . . ');
+			 $('#wrapper_message').css('margin-top', '110px');
+			
 			callNewMSG();
-			  }			
+			  }		
+			  
 			  });
 
 		
@@ -203,9 +209,7 @@ function makeSwipe(id){
 				
 //bring message for this client
 		function callNewMSG(){
-			$('.pullDown').css('margin-top', '50px');
-			$('.pullDownLabel').html($.t(""));
-			
+	
 			$('.icon-menu').show();
 					$('.icon-back').show();
 	
@@ -215,9 +219,10 @@ function makeSwipe(id){
 			oneTimeSendAjax = false;
 			console.time("MSGProcFull");
 			//	$('.pullDownIcon').
-				
 			//	$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',true);
-				$('.pullDownLabel').html($.t("Loading . . . "));
+			//	$('.pullDownLabel').html($.t("Loading . . . "));
+			
+			
 				console.time("PostReq");
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
 			console.timeEnd("PostReq");
@@ -292,14 +297,16 @@ function makeSwipe(id){
 				syncronizeOffLineMsg();
 				
 			},'json') .fail(function(e) {
-				//	$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').fadeOut(3000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
-			$('.pullDownLabel').toggleClass('fa fa-circle-o-notch fa-spin fa-3x',false);
-			$('.pullDownLabel').html($.t("Unable to connect"));
+				/*
+					$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').fadeOut(3000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
+				$('.pullDownLabel').toggleClass('fa fa-circle-o-notch fa-spin fa-3x',false);
+				$('.pullDownLabel').html($.t("Unable to connect"));
 			setTimeout(function(){
 					$('.pullDown').css('margin-top', '0px');
 					$('.pullDownLabel').html($.t("Pull down to refresh"));},2000);
 			
 				unableToConnect=1;
+				*/
 			}).done(function(){ 
 		
 				current_inbox();
@@ -308,11 +315,14 @@ function makeSwipe(id){
 				fix_messages();
 				$.jStorage.set('msg', btoa($('#categories').html()));
 				console.timeEnd("MSGProcFull");
-			//	$('.refreshing_list').fadeOut(1000); 
+				/*
+				$('.refreshing_list').fadeOut(1000); 
 				$('.pullDown').css('margin-top', '0px');
-				//$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
+				$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
 				$('.pullDownLabel').html($.t("Pull to refresh"));
-				
+				*/
+			 $('.pullDown').html('Pull down to refresh');
+			 $('#wrapper_message').css('margin-top', '69px');
 				$("*").scrollTop(2);
 				$("nav.categoryNav li span").addClass("active");
 				setTimeout(function(){oneTimeSendAjax = true;},500);
@@ -323,6 +333,8 @@ function makeSwipe(id){
 				
 		}
 		else{	
+		
+		/*
 				if(unableToConnect==1){
 					
 					$('.pullDownLabel').html($.t("Unable to connect"));
@@ -334,9 +346,10 @@ function makeSwipe(id){
 				else{
 				console.log("unable connect 0")
 		}}
+		*/
 		//ver
 		}
-				
+			}	
 				
 				
 				

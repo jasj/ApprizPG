@@ -908,7 +908,7 @@ label.css-label {
     width: 58%;
 }
 #wrapper_message{
-margin-top: 63px;
+margin-top: 69px;
 }
 
 
@@ -920,16 +920,13 @@ line-height:40px;
 
 font-size:0.9em;
 color:#1B1B1B;
-
-}
-
-.pullDown span{
 display:table;
 margin:0 auto;
 margin-bottom:-10px;
 
-
 }
+
+
 
 
 #wrapper_message{
