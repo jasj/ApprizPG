@@ -31,19 +31,22 @@ function current_inbox(){
 var scr=0;
 function counterByMsg(){
 	   myScroll3 = new IScroll('#wrapper_message', { probeType: 3, mouseWheel: true });
-	   myScroll3.on('scroll', function(){
+	   
+	  
+	  
+	  myScroll3.on('scroll', function(){
 		   if(this.y>45 && scr==0){ 	 
 				scr =1;
-	}});
-		
-		 myScroll3.on('scrollEnd', function(){
+}});
+	myScroll3.on('scrollEnd', function(){
 			
-			  if(this.y<10 && scr==1){
+			  if(this.y==0 && scr==1){
 				   $('#wrapper_message').css('margin-top', '110px');
 			  scr=0;
 			callNewMSG();
 			  }
 		   });
+		
 		
 		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
