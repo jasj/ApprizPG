@@ -36,11 +36,16 @@ function counterByMsg(){
 	  
 	  myScroll3.on('scroll', function(){
 		  
-		   if(this.y>45 && scr==0){ 	 
+		   if(this.y>45 && scr===0){ 	 
 		   $('.pullDown').html('Release to refresh');
 				scr =1;
 								}
-		   if(this.y<10 && scr==1){
+		 
+			  
+			  });
+ myScroll3.on('scrollEnd', function(){
+	 
+	   if(this.y<10 && scr===1){
 			
 			scr=0;
 			 $('.pullDown').html('Loading . . . ');
@@ -48,9 +53,7 @@ function counterByMsg(){
 			
 			callNewMSG();
 			  }		
-			  
-			  });
-
+ });
 		
 		
 		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
