@@ -88,11 +88,8 @@
 			navigator.app.exitApp();
 		}
 		
-		if(scrollPosition>0){
-		console.log("dd"+scrollPosition);
-				$("html, body").animate({ scrollTop: scrollPosition }, 1);
-			
-				scrollPosition=0;
+		if(scrollPosition!=0){
+		myScroll3.scrollTo(0,scrollPosition);
 				}
 				
 		

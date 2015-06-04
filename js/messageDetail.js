@@ -15,7 +15,10 @@ function matchColumnsHeight(){
 
 function showMessage(id){
 	
-	scrollPosition = window.pageYOffset;
+	scrollPosition = myScroll3.y;
+//console.log("scroll y "+myScroll3.y);
+//myScroll3.scrollTo(0, )
+
 
 	//console.log("scro "+ scrollPosition)
 	//For old Androids
