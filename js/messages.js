@@ -205,7 +205,7 @@ function makeSwipe(id){
 		function callNewMSG(){
 			$('.pullDown').css('margin-top', '50px');
 			$('.pullDownLabel').html($.t(""));
-			
+			myScroll3.refresh();
 			$('.icon-menu').show();
 					$('.icon-back').show();
 	
