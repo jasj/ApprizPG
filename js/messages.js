@@ -43,7 +43,7 @@ function counterByMsg(){
 								
 			if(scr===1 && this.y<10){
 			
-			scr=0;
+			
 			
 			$('.pullDown').html('Loading . . . ');
 			$('#wrapper_message').css('margin-top', '110px');
@@ -211,7 +211,7 @@ function makeSwipe(id){
 				
 //bring message for this client
 		function callNewMSG(){
-	
+			scr=0;
 			$('.icon-menu').show();
 			$('.icon-back').show();
 	
