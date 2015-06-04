@@ -37,15 +37,15 @@ function counterByMsg(){
 	  myScroll3.on('scroll', function(){
 		   if(this.y>45 && scr==0){ 	 
 				scr =1;
-}});
-	myScroll3.on('scrollEnd', function(){
-			
-			  if(this.y==0 && scr==1){
-				   $('#wrapper_message').css('margin-top', '110px');
-			  scr=0;
+								}
+		   if(this.y<10 && scr==1){
+			$('#wrapper_message').css('margin-top', '110px');
+			$('.pullDownLabel').html($.t(""));
+			scr=0;
 			callNewMSG();
-			  }
-		   });
+			  }			
+			  });
+
 		
 		
 		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
@@ -214,7 +214,7 @@ function makeSwipe(id){
 			oneTimeSendAjax = false;
 			console.time("MSGProcFull");
 			//	$('.pullDownIcon').
-				$('.pullDownLabel').html($.t(""));
+				
 				$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',true);
 				console.time("PostReq");
 			$.post('http://'+IP+':8089/appriz/getMessagesByClient',{"idSecretClient": idScretClient},function(data){
