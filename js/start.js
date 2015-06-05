@@ -13,7 +13,7 @@ function onDeviceReady(){
 	
 	checkPreviusLogin();
 	console.log("onDeviceReady");
-	
+	reportMsgState();
 	
 
 
