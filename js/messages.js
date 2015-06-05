@@ -31,27 +31,20 @@ function current_inbox(){
 var scr=0;
 function counterByMsg(){
 	   myScroll3 = new IScroll('#wrapper_message', { probeType: 3, mouseWheel: true });
-	   
-	  
-	  
-	  myScroll3.on('scroll', function(){
-		  
-		   if(this.y>45 && scr===0){ 	 
+	   myScroll3.on('scroll', function(){
 		   
-				scr =1;
-								}
-								
-			if(scr===1 && this.y<10){
-			
-			
-			
-			$('.pullDown').html('Loading . . . ');
-			$('#wrapper_message').css('margin-top', '110px');
-			callNewMSG();
-			  }	
-		 
-			  
-			  });
+		   if(this.y>45 && scr===0){ 
+		   
+		   scr =1;
+		   }
+		  if(scr===1 && this.y<10){
+				//$('.pullDown').html('Loading . . . ');
+				$('.pullDown').html('');
+				$('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',true);
+				$('#wrapper_message').css('margin-top', '110px');
+					callNewMSG();
+									}	
+		});
 
 		
 		
@@ -309,14 +302,14 @@ function makeSwipe(id){
 			
 				unableToConnect=1;
 				
-				*/		
+				*/			$('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',false);
 					$('.pullDown').html('Unable to connect');
 						setTimeout(function(){
 							$('.pullDown').html('Pull down to refresh');
 							$('#wrapper_message').css('margin-top', '69px');},1500);
 							unableToConnect=1;
 			}).done(function(){ 
-		
+		$('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',false);
 				current_inbox();
 				counterByMsg();
 				makeSwipe();
@@ -343,6 +336,7 @@ function makeSwipe(id){
 		}
 		else{	
 		if(unableToConnect===1){
+			$('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',false);
 			$('.pullDown').html('Unable to connect');
 			setTimeout(function(){
 							

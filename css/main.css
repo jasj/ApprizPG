@@ -926,7 +926,9 @@ margin-bottom:-10px;
 
 }
 
-
+.scroller .fa-spin {
+  margin-left: 48%;
+}
 
 
 #wrapper_message{
