@@ -178,6 +178,15 @@ function menuKeyDown(){
 	$(".menu-main").trigger("tapend");
 }
 
+function onResume(){
+	if(currentEntityID > 0){
+		try{
+			pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, $('.unread').length);
+		}catch(e){
+		}
+	}
+}
+
 
 
 //Star in Tap

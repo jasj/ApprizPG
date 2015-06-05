@@ -6,6 +6,8 @@ function onDeviceReady(){
 		onDeviceReady_pn();
 		document.addEventListener("backbutton", backKeyDown, true);
 	    document.addEventListener("menubutton", menuKeyDown, true);
+		document.addEventListener("resume", onResume, false);
+
 	}catch(e){
 	}
 	setTimeout(function(){ $(".wConteiner div p").show();},3000);
@@ -13,7 +15,7 @@ function onDeviceReady(){
 	
 	checkPreviusLogin();
 	console.log("onDeviceReady");
-	reportMsgState();
+	
 	
 
 
