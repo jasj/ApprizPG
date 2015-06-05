@@ -181,7 +181,7 @@ function menuKeyDown(){
 function onResume(){
 
 	if(currentEntityID > 0){
-	
+	console.log("-");
 		try{
 			pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, $('.unread').length);
 		}catch(e){
