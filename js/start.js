@@ -7,6 +7,7 @@ function onDeviceReady(){
 		document.addEventListener("backbutton", backKeyDown, true);
 	    document.addEventListener("menubutton", menuKeyDown, true);
 		document.addEventListener("resume", onResume, false);
+		document.addEventListener("pause", onPause, false);
 
 	}catch(e){
 	}

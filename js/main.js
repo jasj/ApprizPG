@@ -181,12 +181,22 @@ function menuKeyDown(){
 function onResume(){
 
 	if(currentEntityID > 0){
-	alert("onResume");
 		try{
 			pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, $('.unread').length);
 		}catch(e){
 		}
 	}
+}
+
+function onPause(){
+		if(currentEntityID > 0){
+		try{
+			pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, $('.unread').length);
+		}catch(e){
+		}
+	}
+	
+
 }
 
 
