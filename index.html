@@ -14,14 +14,26 @@
     <meta name="description" content="">
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory 
     <link rel="stylesheet" href="css/normalize.css">
+	 <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+	-->
+ <link rel="stylesheet" href="css/scroller.css">
+ 
+
     <link rel="stylesheet" href="css/main.css">
+	 
 	<link rel="stylesheet" href="css/entity.css" id="entityStyle">
 	<link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+ 
 
+	
+	
+	
+	
+	
+	
+	
 </head>
 <body class="apprizApp">
 <!--[if lt IE 7]>
@@ -163,11 +175,16 @@
 <div id="growingSpace">	
 	<div  id='inbox' class='page-content active' header='headerMain'>
 		<section >
-			<ul id="categories" class="noselect">
-			
-			</ul>
-			<p class='noMessages' i18Trans="No messages to display"></p>
-			<!--close categories-->
+		<div id="wrapper_message">
+			<div class="scroller">
+	<span class="pullDown">Pull to refresh</span>
+				<ul id="categories" class="noselect">
+				
+				</ul>
+			</div>
+		</div>
+			<!--<p class='noMessages' i18Trans="No messages to display"></p>
+			close categories-->
 		</section>
 		<!--close main-->
 		
@@ -214,7 +231,7 @@
 								<h6 class="dateBank"><span class="icon-primitive-dot dotInactive"></span>9 de Febrero 2015, 11:20:00</h6>
 								<hr class="line"/>
 							</div>
-							<div class="appends"></div>
+								<div class="appends"></div>
 							<div class="historye" ></div>
 
 						</div><!--close detail category-->
@@ -241,6 +258,7 @@
 			
 				<section id="main">
 					<div class="settings">
+					<div class="scroller">
 						<h3 i18Trans="Change your secret codes"></h3>
 						<button class="btnAction" page-content="passwordChg">
 							<text i18Trans="Change my Password"/></text>
@@ -279,11 +297,17 @@
 
 						<button class="btnFull" i18Trans="Save Settings"></button>
 
-
+				</div>
 					</div><!--close settings-->
 				</section><!--close main-->
 
 	</div>
+	
+	
+	
+	
+	
+	
 </div>
 
 <div  id='products' class='page-content' header='headerEntity'>
@@ -295,7 +319,7 @@
                         <li class="active"><button i18Trans="Products" disabled></button></li>
                     </ul>
                 </nav><!--close product Nav-->
-                <div class="products"><ul></ul></div><!--close products-->
+                <div class="products">><ul></ul></div><!--close products-->
             </section><!--close main-->
 </div>
 
@@ -325,7 +349,7 @@
                         <li class="active"><button disabled></button></li>
                     </ul>
                 </nav><!--close product Nav-->
-                <div class="services serviceList"><ul></ul></div><!--close products-->
+                <div class="services serviceList"><div class='scroller'><ul></ul></div></div><!--close products-->
             </section><!--close main-->
 </div>
 
@@ -339,8 +363,10 @@
 
                 </nav><!--close product Nav-->
 
-                <div class="products">
+                <div class="products" id="listProducts" >
+				<div class="scroller">
                     <ul> </ul>
+				</div>
                 </div><!--close products-->
 
             </section><!--close main-->
@@ -495,6 +521,8 @@
             </div><!--close modal-->
 		</div>
 <!-- Generic Scripts  -->
+
+<script src="js/whirpool.js"></script>
 <script src="js/globals.js"></script>
 <script src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
@@ -508,10 +536,11 @@
 <script src="js/generics.js"></script>
 <script src="js/files.js"></script>
 <script src="js/pushNotification.js"></script>
-<script src="js/iscroll.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script src="js/iscroll-probe.js"></script>
 
 <!--pages Scripts -->
-
+<script src="js/ads.js"></script>
 <script src="js/main.js"></script>
 <script src="js/login.js"></script>
 <script src="js/entity.js"></script>
@@ -526,7 +555,6 @@
 <script src="js/firstTime.js"></script>
 <script src="js/start.js"></script>
 <script src="js/demo.js"></script>
-<script src="js/ads.js"></script>
 
 
 

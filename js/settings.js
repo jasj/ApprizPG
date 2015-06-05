@@ -54,10 +54,10 @@ $('#passwordChg .btnFull').tapend(function(){
 	if($('#passwordChg input[type="password"]').eq(0).val().length > 8){
 		if($('#passwordChg input[type="password"]').eq(0).val() != $('#passwordChg input[type="password"]').eq(1).val()){
 	showInfoD($.t('Wrong data'),$.t('Passwords do not match'),function(){$('.moldHide, .dialogAlert').hide();});} else{
-	
+		var encryPass= HexWhirlpool($('#passwordChg input[type="password"]').eq(0).val());
 		$.post('http://'+IP+':8089/appriz/setAprzCustomerSettings',{
-		idSecretClient			:  idScretClient,
-		password   			: $('#passwordChg input[type="password"]').eq(0).val()
+		idSecretClient		:  idScretClient,
+		password   			: encryPass
 	}, function(data){
 		showInfoD($.t('Change password'),$.t('The password was changed!'),function(){$('.moldHide, .dialogAlert').hide(); });
 		$('.icon-back').trigger('tapend');
@@ -96,4 +96,5 @@ $( document ).on('tapend','[page-content=settingsPage]',function(){
 	$("#settingsPage [week="+(retention =="undefined" ? 4 : retention)+"]").prev().prop('checked', true);
 	$("#settingsPage [week="+(retention =="undefined" ? 4 : retention)+"]").parent().addClass('isThis');
 	valorSet();
+	settingsScroller =  new IScroll('.settings', { preventDefault: false, probeType: 3, mouseWheel: true }); 
 });
