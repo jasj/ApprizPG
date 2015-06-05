@@ -179,9 +179,9 @@ function menuKeyDown(){
 }
 
 function onResume(){
-alert("fuera if onResume  "+$('.unread').length);
+
 	if(currentEntityID > 0){
-		alert("onResume  "+$('.unread').length);
+	
 		try{
 			pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, $('.unread').length);
 		}catch(e){
