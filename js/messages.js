@@ -38,6 +38,7 @@ function counterByMsg(){
 		   scr =1;
 		   }
 		  if(scr===1 && this.y<10){
+			  scr=0;
 				//$('.pullDown').html('Loading . . . ');
 				$('.pullDown').html('');
 				$('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',true);
@@ -204,7 +205,7 @@ function makeSwipe(id){
 				
 //bring message for this client
 		function callNewMSG(){
-			scr=0;
+			
 			$('.icon-menu').show();
 			$('.icon-back').show();
 	
