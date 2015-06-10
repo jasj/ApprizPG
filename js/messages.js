@@ -350,7 +350,7 @@ function makeSwipe(id){
 							oneTimeSendAjax=true;
 							},1500);
 			
-		}
+		}else{scr=0;}
 		
 		
 		/*
