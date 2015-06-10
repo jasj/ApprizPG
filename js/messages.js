@@ -37,7 +37,7 @@ function counterByMsg(){
 		   
 		   scr =1;
 		   }
-		  if(scr===1 && this.y<10){
+		  if(scr===1 && this.y<25){
 			  scr=0;
 				//$('.pullDown').html('Loading . . . ');
 				$('.pullDown').html('');
