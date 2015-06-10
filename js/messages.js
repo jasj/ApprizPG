@@ -42,7 +42,7 @@ function counterByMsg(){
 				//$('.pullDown').html('Loading . . . ');
 				$('.pullDown').html('');
 				$('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',true);
-				$('#wrapper_message').css('margin-top', '110px');
+				$('#wrapper_message').css('margin-top', '95px');
 					callNewMSG();
 									}	
 		});
