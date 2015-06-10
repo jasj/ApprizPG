@@ -37,12 +37,12 @@ function counterByMsg(){
 		   
 		   scr =1;
 		   }
-		  if(scr===1 && this.y<35){
+		  if(scr===1 && this.y<25){
 			  scr=0;
 				//$('.pullDown').html('Loading . . . ');
 				$('.pullDown').html('');
 				$('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',true);
-				$('#wrapper_message').css('margin-top', '110px');
+				$('#wrapper_message').animate({ marginTop: '110px'});
 					callNewMSG();
 									}	
 		});
