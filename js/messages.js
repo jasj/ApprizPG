@@ -47,6 +47,11 @@ function counterByMsg(){
 					callNewMSG();
 									}	
 		}); */
+		
+		 myScroll3.on('scrollEnd', function(){
+			 
+			 alert("Coma Pollo");
+		 });
 
 		
 		
