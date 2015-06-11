@@ -31,8 +31,9 @@ function current_inbox(){
 var scr=0;
 function counterByMsg(){
 	   myScroll3 = new IScroll('#wrapper_message', { probeType: 3, mouseWheel: true });
-	   myScroll3.on('scroll', function(){
-		/*   
+	/*    myScroll3.on('scroll', function(){
+		   
+		   
 		   if(this.y>80 && scr===0){ 
 		   
 		   scr =1;
@@ -45,7 +46,7 @@ function counterByMsg(){
 				$('#wrapper_message').css('margin-top', '95px');
 					callNewMSG();
 									}	
-		});*/
+		}); */
 
 		
 		
@@ -214,9 +215,9 @@ function makeSwipe(id){
 		if(oneTimeSendAjax){
 			oneTimeSendAjax = false;
 			console.time("MSGProcFull");
-			//	$('.pullDownIcon').
-			//	$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',true);
-			//	$('.pullDownLabel').html($.t("Loading . . . "));
+				//	$('.pullDownIcon').
+				//	$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',true);
+				//	$('.pullDownLabel').html($.t("Loading . . . "));
 			
 			
 				console.time("PostReq");
@@ -303,13 +304,13 @@ function makeSwipe(id){
 			
 				unableToConnect=1;
 				
-				*//* 			$('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',false);
+				*/			/* $('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',false);
 					$('.pullDown').html('Unable to connect');
 						setTimeout(function(){
 							$('.pullDown').html('Pull down to refresh');
 							$('#wrapper_message').css('margin-top', '69px');},1500);
-							unableToConnect=1; */
-							//scr=0;
+							unableToConnect=1;
+							scr=0; */
 			}).done(function(){ 
 		//$('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',false);
 				current_inbox();
@@ -325,8 +326,8 @@ function makeSwipe(id){
 				$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
 				$('.pullDownLabel').html($.t("Pull to refresh"));
 				*/
-			 
-			/*  $('#wrapper_message').css('margin-top', '69px');
+			/*  
+			 $('#wrapper_message').css('margin-top', '69px');
 			 $('.pullDown').html('Pull down to refresh'); */
 			//	$("*").scrollTop(2);
 				$("nav.categoryNav li span").addClass("active");
@@ -338,7 +339,7 @@ function makeSwipe(id){
 				
 		}
 		else{	
-/* 		if(unableToConnect===1){
+		/* if(unableToConnect===1){
 			$('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',false);
 			$('.pullDown').html('Unable to connect');
 			
@@ -350,9 +351,9 @@ function makeSwipe(id){
 							oneTimeSendAjax=true;
 							},1500);
 			
-		}else{scr=0;} */
+		}else{scr=0;}
 		
-		
+		 */
 		/*
 				if(unableToConnect==1){
 					
