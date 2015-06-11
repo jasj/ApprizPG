@@ -40,6 +40,7 @@ function addRules(objs){
 }
 
 function getRules(productName){
+	console.log(productName);
 	$.post('http://'+IP+':8089/appriz/getRulesByProduct',{"idSecretClient": idScretClient,"productName":productName,},function(data){
 			if (data["status"]== 200){
 				addRules(data["rules"]);

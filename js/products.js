@@ -3,6 +3,7 @@ view = "unselect";
 function addProducts(products,view){
 	$(".productNav li").eq(0).find("button").html(view  == "rules" ? '<span class="icon-myAlerts"><span class="path1"></span><span class="path2"></span></span>'+$.t('My Alerts') : '<span class="icon-services"><span class="path1"></span></span>'+$.t('Services'));
 	for( product in products){
+		console.log(product);
 		$('#products .products ul').append('<li page-content='+view+'><button><prd>'+product+'</prd><span class="icon-arrow"><span class="path1"></span></button></li>');
 	}
 	$(".refreshing_list").hide();
@@ -32,6 +33,7 @@ function getProducts(view){
 
 
 $( document ).on("tapend","[products]",function(){
+		console.log("ddddddddddddd"+$(this).attr("products"));
 	getProducts($(this).attr("products"));
 });
 
