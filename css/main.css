@@ -925,7 +925,10 @@ margin-top: 69px;
   overflow: hidden;
 
 }
-
+.fa-3x {
+  font-size: 3em;
+  width: 42px;
+}
 #wrapper_message{
 	height : 400px;
 }
