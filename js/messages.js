@@ -55,10 +55,15 @@ function counterByMsg(){
 			if(spinnerOff){
 					document.getElementById("pullDownLabel").innerHTML = '';
 					$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',true);
-					spinnerOff=false;
-			}}
-			
-			
+					spinnerOff=false;	
+						setTimeout(function(){
+					$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
+					$('#wrapper_message > .scroller').css({top:58});
+					document.getElementById("pullDownLabel").innerHTML = 'Pull Down to refresh';
+					 spinnerOff=true;
+					 scrollInProgress=false;
+						}, 2000);	
+		}}
 		});
 		
 
