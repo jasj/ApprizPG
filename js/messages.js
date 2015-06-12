@@ -70,21 +70,20 @@ function counterByMsg(){
 					document.getElementById("pullDownLabel").innerHTML = '';
 					$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',true);
 					spinnerOff=false;	
-						setTimeout(function(){
-					$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
-					//$('#wrapper_message > .scroller').css({top:58});
 					
+					
+					setTimeout(function(){callNewMSG();
+					}, 400);	
+					
+			/* 			setTimeout(function(){
+					$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
 					 spinnerOff=true;
 					 scrollInProgress=false;
 					 $('.pullDownLabel').fadeIn(1,function(){
-						 // $('.pullDown').remove();
-						
-							document.getElementById("pullDownLabel").innerHTML = 'Pull Down to refresh';
-							
-					 });
-					 
+						document.getElementById("pullDownLabel").innerHTML = 'Pull Down to refresh';
+					});
 					 myScroll3.scrollTo(0,-1);
-						}, 2000);	
+						}, 2000);	 */
 		}}
 		});
 		
@@ -338,25 +337,34 @@ function makeSwipe(id){
 				syncronizeOffLineMsg();
 				
 			},'json') .fail(function(e) {
-				/*
-					$('.refreshing_list').css({"background-color" : "#888"}).html('Conexion error!').fadeOut(3000,function(){$('.refreshing_list').css({"background-color" : "#F5F5Ff"}).html('Refreshing list');});
-				$('.pullDownLabel').toggleClass('fa fa-circle-o-notch fa-spin fa-3x',false);
-				$('.pullDownLabel').html($.t("Unable to connect"));
-				setTimeout(function(){
-					$('.pullDown').css('margin-top', '0px');
-					$('.pullDownLabel').html($.t("Pull down to refresh"));},2000);
-			
-				unableToConnect=1;
 				
-				*/			/* $('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',false);
-					$('.pullDown').html('Unable to connect');
-						setTimeout(function(){
-							$('.pullDown').html('Pull down to refresh');
-							$('#wrapper_message').css('margin-top', '69px');},1500);
-							unableToConnect=1;
-							scr=0; */
+					$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
+					document.getElementById("pullDownLabel").innerHTML = 'Unable to connect';
+					
+					setTimeout(function(){
+					 spinnerOff=true;
+					 scrollInProgress=false;
+				
+					 myScroll3.scrollTo(0,-1);
+						}, 1000);
+				
+				
+				
+			
 			}).done(function(){ 
 		//$('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',false);
+			setTimeout(function(){
+					$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
+					 spinnerOff=true;
+					 scrollInProgress=false;
+					 $('.pullDownLabel').fadeIn(1,function(){
+						document.getElementById("pullDownLabel").innerHTML = 'Pull Down to refresh';
+					});
+					 myScroll3.scrollTo(0,-1);
+						}, 1);
+		
+		
+		
 				current_inbox();
 				counterByMsg();
 				makeSwipe();
@@ -383,36 +391,23 @@ function makeSwipe(id){
 				
 		}
 		else{	
-		/* if(unableToConnect===1){
-			$('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',false);
-			$('.pullDown').html('Unable to connect');
-			
-			setTimeout(function(){
-							
-							$('#wrapper_message').css('margin-top', '69px');
-							$('.pullDown').html('Pull down to refresh');
-							scr=0;
-							oneTimeSendAjax=true;
-							},1500);
-			
-		}else{scr=0;}
 		
-		 */
-		/*
-				if(unableToConnect==1){
+		
+		$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
+					document.getElementById("pullDownLabel").innerHTML = 'Unable to connect';
 					
-					$('.pullDownLabel').html($.t("Unable to connect"));
 					setTimeout(function(){
-					$('.pullDown').css('margin-top', '0px');
-					$('.pullDownLabel').html($.t("Pull down to refresh"));},2000);
-					oneTimeSendAjax=true;
-				}
-				else{
-				console.log("unable connect 0")
-		}}
-		*/
-		//ver
+					 spinnerOff=true;
+					 scrollInProgress=false;
+				
+					 myScroll3.scrollTo(0,-1);
+					 oneTimeSendAjax=true;
+						}, 1000);
+		
+		
 		}
+		
+		
 			}	
 				
 				
