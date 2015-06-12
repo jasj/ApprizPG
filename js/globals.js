@@ -4,7 +4,8 @@
 		Author: Juan Andres Segreda Johanning
 		
 */
-
+	var scrollInProgress=false;
+	var spinnerOff=true;
 	var scrollPosition=0;
 	var pushNotification;
 	eregid = "123";

@@ -922,13 +922,10 @@ font-size:0.9em;
 color:#1B1B1B;
 display:table;
 margin:0 auto;
-margin-bottom:-10px;
+  margin-bottom: 5px;
 
 }
 
-.scroller .fa-spin {
-  margin-left: 48%;
-}
 
 
 #wrapper_message{

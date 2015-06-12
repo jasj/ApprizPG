@@ -27,13 +27,6 @@
 	<link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">
  
 
-	
-	
-	
-	
-	
-	
-	
 </head>
 <body class="apprizApp">
 <!--[if lt IE 7]>
@@ -177,10 +170,17 @@
 		<section >
 		<div id="wrapper_message">
 			<div class="scroller">
-	<span class="pullDown">Pull to refresh</span>
+			
+		<div id="pullDown" class="pullDown">
+			<span class="pullDownIcon"></span><span id="pullDownLabel" class="pullDownLabel">Pull down to refresh...</span>
+		</div>
+	
 				<ul id="categories" class="noselect">
 				
 				</ul>
+				<div class="pullUp">
+			<span class="pullUpIcon"></span><span class="pullUpLabel">Pull up to refresh...</span>
+			</div>
 			</div>
 		</div>
 			<!--<p class='noMessages' i18Trans="No messages to display"></p>

@@ -28,31 +28,43 @@ function current_inbox(){
 		
 	
 }
-var scr=0;
-function counterByMsg(){
-	   myScroll3 = new IScroll('#wrapper_message', { probeType: 3, mouseWheel: true });
-	/*    myScroll3.on('scroll', function(){
-		   
-		   
-		   if(this.y>80 && scr===0){ 
-		   
-		   scr =1;
-		   }
-		  if(scr===1 && this.y<25){
-			  scr=2;
-				//$('.pullDown').html('Loading . . . ');
-				$('.pullDown').html('');
-				$('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',true);
-				$('#wrapper_message').css('margin-top', '95px');
-					callNewMSG();
-									}	
-		}); */
-		
-		 myScroll3.on('scrollEnd', function(){
-			 
-			 alert("Coma Pollo");
-		 });
 
+function counterByMsg(){
+
+	//pullDownEl = $('#pullDown');
+	
+	   myScroll3 = new IScroll('#wrapper_message', {
+		   probeType: 1, 
+		   mouseWheel: false,
+		   deceleration:0.0002,
+		  
+		   });
+		   
+	   myScroll3.on('scroll', function(){
+		   
+		if (this.y > 45 && !scrollInProgress ) {
+			document.getElementById("pullDownLabel").innerHTML = 'Release to refresh...';
+			$('#wrapper_message > .scroller').css({top:120});
+			scrollInProgress = true;
+			}
+}); 
+		
+		
+		myScroll3.on("scrollEnd",function(){
+			if(scrollInProgress){
+			if(spinnerOff){
+					document.getElementById("pullDownLabel").innerHTML = '';
+					$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',true);
+					spinnerOff=false;
+			}}
+			
+			
+		});
+		
+
+		
+		
+		
 		
 		
 		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
