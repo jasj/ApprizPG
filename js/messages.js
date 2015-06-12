@@ -37,19 +37,33 @@ function counterByMsg(){
 		   probeType: 1, 
 		   mouseWheel: false,
 		   deceleration:0.0002,
+		   posReset: {x: 0, y: 40}
 		  
 		   });
 		   
 	   myScroll3.on('scroll', function(){
-		   
-		if (this.y > 45 && !scrollInProgress ) {
+		   console.log(this.y);
+		if(this.y > 45) {console.dir($('#wrapper_message > .scroller').position())}
+		if (this.y >  50 &&  !scrollInProgress ) {
 			document.getElementById("pullDownLabel").innerHTML = 'Release to refresh...';
-			$('#wrapper_message > .scroller').css({top:120});
+			margintop=103;
 			scrollInProgress = true;
+			}else{
+				if (this.y >  50 && margintop < 100 && pass.y < this.y){
+					alert("d");
+					margintop++;
+					$('#wrapper_message > .scroller').css({top:margintop})
+				}else if (this.y >  50 && margintop < 100 && pass.y < this.y){
+					margintop--;
+					$('#wrapper_message > .scroller').css({top:margintop})
+				}
 			}
+			pass.y = this.y;
+			if(this.y>0){
+				$('.pullDownLabel').show();
+			}
+		
 }); 
-		
-		
 		myScroll3.on("scrollEnd",function(){
 			if(scrollInProgress){
 			if(spinnerOff){
@@ -58,10 +72,18 @@ function counterByMsg(){
 					spinnerOff=false;	
 						setTimeout(function(){
 					$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
-					$('#wrapper_message > .scroller').css({top:58});
-					document.getElementById("pullDownLabel").innerHTML = 'Pull Down to refresh';
+					//$('#wrapper_message > .scroller').css({top:58});
+					
 					 spinnerOff=true;
 					 scrollInProgress=false;
+					 $('.pullDownLabel').fadeIn(1,function(){
+						 // $('.pullDown').remove();
+						
+							document.getElementById("pullDownLabel").innerHTML = 'Pull Down to refresh';
+							
+					 });
+					 
+					 myScroll3.scrollTo(0,-1);
 						}, 2000);	
 		}}
 		});

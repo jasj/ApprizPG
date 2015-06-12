@@ -914,15 +914,15 @@ margin-top: 69px;
 
 .pullDown {
 
-background:#fff;
-height:40px;
-line-height:40px;
-
-font-size:0.9em;
-color:#1B1B1B;
-display:table;
-margin:0 auto;
-  margin-bottom: 5px;
+  background: #fff;
+  height: 91px;
+  line-height: 40px;
+  font-size: 0.9em;
+  color: #1B1B1B;
+  display: table;
+  margin: 0 auto;
+  margin-bottom: -44px;
+  overflow: hidden;
 
 }
 

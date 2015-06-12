@@ -27,5 +27,8 @@
 	atWifi = 0;
 	PN = 0;
 	oneTimeSendAjax = true;
-	margintop =103;
+	margintop =0;
 	entityCount = 0;
+	pass = {y : 0};
+	umbral= 0;
+	
