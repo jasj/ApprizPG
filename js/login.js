@@ -12,8 +12,9 @@
 function login(){
 	  //event.preventDefault();
 	  var patFemail = /(\S+)@/;
-	   //var whirPass= HexWhirlpool($('.loginBox input').eq(1).val());
-	  var whirPass= $('.loginBox input').eq(1).val();
+	   var whirPass= HexWhirlpool($('.loginBox input').eq(1).val());
+	   
+	  //var whirPass= $('.loginBox input').eq(1).val();
 	  console.log(whirPass);
 	  
 	  try{
