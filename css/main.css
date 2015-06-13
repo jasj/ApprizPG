@@ -1250,6 +1250,7 @@ nav.categoryNav .icon-myAlerts.active .path2:before {
     border-bottom: 1px solid #e5e5e5;
     width: 100%;
     overflow: hidden;
+	padding: 5px;
 }
 
 .detailsList .row:first-child {
@@ -1263,14 +1264,17 @@ nav.categoryNav .icon-myAlerts.active .path2:before {
     padding: 2%;
 }
 
-.detailsList .row h4 {
+.detailsList .row h4{
     text-align: right;
     line-height: 9px;
 	white-space: nowrap;
 	
 
 }
-
+.detailsList h43{
+	font-weight: bold;
+	color: #005B99;
+}
 .detailsList .row p {
     line-height: 15px;
 

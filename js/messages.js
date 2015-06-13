@@ -37,7 +37,20 @@ function counterByMsg(){
 		   probeType: 1, 
 		   mouseWheel: false,
 		   deceleration:0.0002,
-		   posReset: {x: 0, y: 40}
+		   posReset: {x: 0, y: 40},
+		   pushDownToRefresh : function(){
+			   
+				if(scrollInProgress){
+			if(spinnerOff){
+					document.getElementById("pullDownLabel").innerHTML = '';
+					$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',true);
+					spinnerOff=false;	
+					
+					
+					setTimeout(function(){callNewMSG();
+				}, 400);}}
+			   
+		   }
 		  
 		   });
 		   
@@ -64,28 +77,7 @@ function counterByMsg(){
 			}
 		
 }); 
-		myScroll3.on("scrollEnd",function(){
-			if(scrollInProgress){
-			if(spinnerOff){
-					document.getElementById("pullDownLabel").innerHTML = '';
-					$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',true);
-					spinnerOff=false;	
-					
-					
-					setTimeout(function(){callNewMSG();
-					}, 400);	
-					
-			/* 			setTimeout(function(){
-					$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
-					 spinnerOff=true;
-					 scrollInProgress=false;
-					 $('.pullDownLabel').fadeIn(1,function(){
-						document.getElementById("pullDownLabel").innerHTML = 'Pull Down to refresh';
-					});
-					 myScroll3.scrollTo(0,-1);
-						}, 2000);	 */
-		}}
-		});
+	
 		
 
 		

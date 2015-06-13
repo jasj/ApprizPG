@@ -72,6 +72,7 @@ function showMessage(id){
 	$("#MessageDetail.page-content").addClass("active").show();
 	//Hide history  page
 	$(".historye").hide();
+	$(".historye").empty();
 	//Show Appends page
 	$(".appends").show();
 	//Put default history button label
@@ -147,12 +148,15 @@ function showMessage(id){
 	try{
 		strHistory = "";
 		tmp_hist = atob(msg.attr('history')).split(';');
-		console.log(tmp_hist.length);
+		console.log(tmp_hist);
 		for(var i = 0; i < tmp_hist.length ; i++){
 			tmp_history = tmp_hist[i].split('^');
-			strHistory = strHistory + "<div class='detailsList'><h4>"+tmp_history[0]+"</h4><p>"+tmp_history[1]+"</p><p>"+tmp_history[2]+"</p></div>"
+			strHistory = strHistory + "<div class='detailsList'><h43 class='histo'>"+tmp_history[0]+"</h43><p>"+tmp_history[1]+"</p><p>"+tmp_history[2]+"</p></div>"
+			//strHistory = strHistory + "<div class='detailsList'><h4>"+tmp_histo'history[0]+"</h4><p>"+tmp_history[1]+"</p><p>"+tmp_history[2]+"</p></div>"
+			
 		};
 		$('.historye').html(strHistory);
+		$('.histo').css({width : '50%'});
 		$('#showHistory').show();
 	}
 	catch(e){

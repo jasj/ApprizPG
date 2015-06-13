@@ -648,8 +648,9 @@ IScroll.prototype = {
 		}
 
 		if ( !this.hasVerticalScroll || this.y > 0 ) {
-			var threshold = 35;//(this.options.threshold != "undefined" )? this.options.threshold : 35;
-			y =typeof(this.options.posReset) != "undefined" && this.y >threshold  ?  this.options.posReset.y : 0 ;
+			var threshold = 50;//(this.options.threshold != "undefined" )? this.options.threshold : 35;
+			y =(typeof(this.options.posReset) != "undefined" && this.y >threshold ) ?  this.options.posReset.y : 0 ;
+			if(this.options.pushDownToRefresh != "undefined" ) {this.options.pushDownToRefresh();}
 		} else if ( this.y < this.maxScrollY ) {
 			y = this.maxScrollY;
 		}
