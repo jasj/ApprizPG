@@ -40,38 +40,33 @@ function counterByMsg(){
 		   posReset: {x: 0, y: 40},
 		   pushDownToRefresh : function(){
 			   
-				if(scrollInProgress){
+				if(true){
 			if(spinnerOff){
 					document.getElementById("pullDownLabel").innerHTML = '';
-					$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',true);
+					$('.pullDownLabel').html("<i class='roll fa fa-spinner fa-spin fa-3x'></i>");
 					spinnerOff=false;	
 					
 					
-					setTimeout(function(){callNewMSG();
-				}, 400);}}
+					callNewMSG();
+				}}
 			   
 		   }
 		  
 		   });
 		   
 	   myScroll3.on('scroll', function(){
-		   console.log(this.y);
-		if(this.y > 45) {console.dir($('#wrapper_message > .scroller').position())}
 		if (this.y >  50 &&  !scrollInProgress ) {
-			document.getElementById("pullDownLabel").innerHTML = 'Release to refresh...';
-			margintop=103;
-			scrollInProgress = true;
+			document.getElementById("pullDownLabel").innerHTML = $.t('Release to refresh...');
+			scrollInProgress = false;
+			
+			}else if(this.y <= 50){
+				document.getElementById("pullDownLabel").innerHTML = $.t('Pull Down to refresh');
+				
+				scrollInProgress = true;
 			}else{
-				if (this.y >  50 && margintop < 100 && pass.y < this.y){
-					alert("d");
-					margintop++;
-					$('#wrapper_message > .scroller').css({top:margintop})
-				}else if (this.y >  50 && margintop < 100 && pass.y < this.y){
-					margintop--;
-					$('#wrapper_message > .scroller').css({top:margintop})
-				}
+					document.getElementById("pullDownLabel").innerHTML = $.t('Release to refresh...');
 			}
-			pass.y = this.y;
+			
 			if(this.y>0){
 				$('.pullDownLabel').show();
 			}
@@ -338,7 +333,7 @@ function makeSwipe(id){
 					 scrollInProgress=false;
 				
 					 myScroll3.scrollTo(0,-1);
-						}, 1000);
+						}, 5000);
 				
 				
 				
@@ -346,15 +341,17 @@ function makeSwipe(id){
 			}).done(function(){ 
 		//$('.pullDown').toggleClass('fa fa-spinner fa-spin fa-3x',false);
 			setTimeout(function(){
-					$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
+					$('.pullDownLabel Roll').fadeOut(function(){
+						$(this).remove();
+					},1000);
 					 spinnerOff=true;
 					 scrollInProgress=false;
-					 $('.pullDownLabel').fadeIn(1,function(){
-						document.getElementById("pullDownLabel").innerHTML = 'Pull Down to refresh';
-					});
+					
 					 myScroll3.scrollTo(0,-1);
 						}, 1);
-		
+					 $('.pullDownLabel').fadeIn(1,function(){
+									document.getElementById("pullDownLabel").innerHTML = 'Pull Down to refresh';
+								});
 		
 		
 				current_inbox();
@@ -386,7 +383,7 @@ function makeSwipe(id){
 		
 		
 		$('.pullDownLabel').toggleClass('fa fa-spinner fa-spin fa-3x',false);
-					document.getElementById("pullDownLabel").innerHTML = 'Unable to connect';
+				//	document.getElementById("pullDownLabel").innerHTML = 'Unable to connect';
 					
 					setTimeout(function(){
 					 spinnerOff=true;
