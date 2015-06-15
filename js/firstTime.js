@@ -5,6 +5,10 @@ function checkEmail(email){
 }
 
 $('.newUserlink').tapend(function(ev){
+	
+	$("#textboxID").focus();
+	
+	
 	var endY = ev.pageY || ev.originalEvent.changedTouches[0].pageY;
 	if(Math.abs(startTap.Y - endY) < 10){
 		$("#login , .menu-main").hide();
@@ -12,7 +16,7 @@ $('.newUserlink').tapend(function(ev){
 		back.push("Login");
 	}
 	
-	$("#textboxID").focus();
+	
 });
 
 $('#first-time .btnFull').tapend(function(){
