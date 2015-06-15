@@ -11,6 +11,8 @@ $('.newUserlink').tapend(function(ev){
 		$("#appHolder").show();
 		back.push("Login");
 	}
+	
+	$("#textboxID").focus();
 });
 
 $('#first-time .btnFull').tapend(function(){
