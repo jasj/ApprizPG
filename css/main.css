@@ -722,7 +722,7 @@ input, .btnAction {
 
 .settings {
     width: 100%;
-    overflow: hidden;
+ /*    overflow: hidden; */
     padding: 0 0 5% 0;
 }
 
@@ -1986,13 +1986,13 @@ nav.navAppriz ul li.active a, nav.navAppriz ul li a:hover {
 
     .settings {
         width: 94%;
-overflow: hidden;
+/* overflow: hidden; */
 padding: 3%;
 margin-top: 100px;
 position: absolute;
 bottom: 10px;
 top: 0px;
-overflow: auto;
+/* overflow: auto; */
     }
 
     .pinEnter {
