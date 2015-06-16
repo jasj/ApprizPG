@@ -149,6 +149,7 @@ function syncronizeOffLineMsg(){
 		}
 		reportMsgState();
 	}
+	if($('.Message:visible').length===0){$('#noMessage').show();} else{$('#noMessage').hide();}
 }
 		
 function makeSwipe(id){
@@ -242,6 +243,8 @@ function makeSwipe(id){
 				
 //bring message for this client
 		function callNewMSG(){
+			
+		
 			
 			$('.icon-menu').show();
 			$('.icon-back').show();
@@ -402,7 +405,8 @@ function makeSwipe(id){
 		
 		}
 		
-		
+		if($('.Message:visible').length===0){$('#noMessage').show();}
+			else{$('#noMessage').hide();}
 			}	
 				
 				
@@ -529,7 +533,7 @@ $('#categories').html("<div class='MsG'></div>");
 				$('.typemsg'+$(this).attr("typemsg")+'[identity='+currentEntityID+']').show();
 			}
 			if($('.Message:visible').length===0){$('#noMessage').show();}
-		
+			else{$('#noMessage').hide();}
 		
 			$("*").scrollTop(0);
 			 myScroll3 = new IScroll('#wrapper_message', { useTransition: true });
