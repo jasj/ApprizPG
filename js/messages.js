@@ -149,7 +149,7 @@ function syncronizeOffLineMsg(){
 		}
 		reportMsgState();
 	}
-	if($('.Message:visible').length===0){$('#noMessage').show();} else{$('#noMessage').hide();}
+
 }
 		
 function makeSwipe(id){
