@@ -52,7 +52,8 @@ function reloadEntities(){
 		
 function loadEntityTemplate(frsTime){
 	
-	console.log("firstT:"+frsTime);
+	
+
 	oIMG = S3Bucket+FormatInteger(currentEntityID,4)+'/Advertising/Logos/big_logo.png';
 	oCSS = S3Bucket+FormatInteger(currentEntityID,4)+'/CSS/entity.css';
 	if(frsTime == 1) {

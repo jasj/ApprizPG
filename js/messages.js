@@ -25,7 +25,7 @@ function current_inbox(){
 	//getAds();
 	} //----> ERROR
 	
-		
+			if($('.Message:visible').length===0){$('#noMessage').show();} else{$('#noMessage').hide();}
 	
 }
 
@@ -367,9 +367,12 @@ function makeSwipe(id){
 				counterByMsg();
 				makeSwipe();
 				fix_messages();
+			
+				
 				$.jStorage.set('msg', btoa($('#categories').html()));
 				console.timeEnd("MSGProcFull");
 				//scr=0;
+
 				/*
 				$('.refreshing_list').fadeOut(1000); 
 				$('.pullDown').css('margin-top', '0px');
@@ -383,8 +386,11 @@ function makeSwipe(id){
 				$("nav.categoryNav li span").addClass("active");
 				setTimeout(function(){oneTimeSendAjax = true;},500);
 				
+			
 				
+							
 		//	counterByMsg();$('.refreshing_list').hide(); 
+
 			});
 				
 		}
@@ -405,8 +411,7 @@ function makeSwipe(id){
 		
 		}
 		
-		if($('.Message:visible').length===0){$('#noMessage').show();}
-			else{$('#noMessage').hide();}
+	
 			}	
 				
 				
@@ -506,7 +511,7 @@ $('#categories').html("<div class='MsG'></div>");
 			});
 		}
 			//$('#wrapper_message').height(window.innerHeight - 150);
-			
+		
 		}
 						
 				
