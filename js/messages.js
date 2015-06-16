@@ -108,8 +108,12 @@ function reportMsgState(){
 			
 			$('.Message').each(function( index ) {
 				report["m"+$(this).attr("id")] = $(this).hasClass("unread") ? "unread" : "readed"; 
-				//console.log($(this).attr("id"));
+				
+			
+				
+				
 				if($(this).hasAttr('read')){
+			
 					var msgS = $(this).attr('read').split(',');
 					for(var i = 0 ; i < msgS.length ; i++){
 						report["m"+msgS[i]] =  "readed";
@@ -117,13 +121,15 @@ function reportMsgState(){
 				}
 				
 				if($(this).hasAttr('nread')){
+					
 					var msgS = $(this).attr('nread').split(',');
 					for(var i = 0 ; i < msgS.length ; i++){
 						report["m"+msgS[i]] =  "unread";
 					}
 				}
-				
+			
 			});
+				
 			//console.log(JSON.stringify(report));
 			$.post('http://'+IP+':8089/appriz/setMessageStatus', {"idSecretClient": idScretClient, msgStatus:report }, function(data){
 				//console.log(JSON.stringify(data));
@@ -448,7 +454,7 @@ $('#categories').html("<div class='MsG'></div>");
 						}else{
 							$('#categories #'+message['idParent']).attr('history',btoa(message['shortMessage']+"^"+message['longMessage']+"^"+dateText));
 						}
-						console.log(atob($('#categories #'+message['idParent']).attr('history')));
+						//console.log(atob($('#categories #'+message['idParent']).attr('history')));
 
 						 
 					
@@ -522,6 +528,9 @@ $('#categories').html("<div class='MsG'></div>");
 				$(this).find("span").addClass("active");
 				$('.typemsg'+$(this).attr("typemsg")+'[identity='+currentEntityID+']').show();
 			}
+			if($('.Message:visible').length===0){$('#noMessage').show();}
+		
+		
 			$("*").scrollTop(0);
 			 myScroll3 = new IScroll('#wrapper_message', { useTransition: true });
 		});
