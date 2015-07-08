@@ -19,7 +19,7 @@ function getServices(productName){
 	}).done(function(){ $('.refreshing_list').hide(); });
 	
 } 
-
+ 
 function requestService(serviceObj){
 
 	showAlert($.t("Confirm Request "),serviceObj["description"],function(){
