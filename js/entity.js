@@ -12,6 +12,7 @@ function reloadEntities(){
 				entities = '';
 				var frsTime = 0;	
 				data.forEach(function(entity){
+					$.jStorage.set('entName'+entity['entityID'], entity['entityName']);
 					
 					if(!($.jStorage.index().indexOf(entity["entityID"]+".css") > -1  && ($.jStorage.get(entity["entityID"]+".css")==entity["vCSS"]))){
 						downloadContent("css_"+entity["entityID"]+".css",S3Bucket+FormatInteger(entity["entityID"],4)+'/CSS/entity.css',entity["vCSS"]);

@@ -21,6 +21,7 @@ function getServices(productName){
 }
 
 function requestService(serviceObj){
+
 	showAlert($.t("Confirm Request "),serviceObj["description"],function(){
 		$('.moldHide, .dialogAlert').hide();
 		$.post('http://'+IP+':8089/appriz/sendServiceRequest',$.extend({"idSecretClient": idScretClient},serviceObj),function(data){
@@ -48,6 +49,6 @@ $(document ).on("tapend","[service]",function(ev){
 		
 		
 	if(Math.abs(startTap.Y - endY) < 10){
-		requestService({"productName": currentProduct, "code": $(this).attr('service'), "description": $(this).find("srv").html()});
+		requestService({"productName": currentProduct, "code": $(this).attr('service'), "description": $(this).find("srv").html(), "entityName"": $.jStorage.get('entName'+$.jStorage.get('currentEntityID')))});
 	}
 });
