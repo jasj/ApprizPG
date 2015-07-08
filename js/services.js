@@ -49,6 +49,6 @@ $(document ).on("tapend","[service]",function(ev){
 		
 		
 	if(Math.abs(startTap.Y - endY) < 10){
-		requestService({"productName": currentProduct, "code": $(this).attr('service'), "description": $(this).find("srv").html(), "entityName"": $.jStorage.get('entName'+$.jStorage.get('currentEntityID')))});
+		requestService({"productName": currentProduct, "code": $(this).attr('service'), "description": $(this).find("srv").html(), "entityName"": $.jStorage.get('entName'+$.jStorage.get('currentEntityID'))});
 	}
 });
