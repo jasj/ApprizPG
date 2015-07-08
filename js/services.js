@@ -18,7 +18,7 @@ function getServices(productName){
 	},'json') .fail(function(e) {
 	}).done(function(){ $('.refreshing_list').hide(); });
 	
-}
+} 
 
 function requestService(serviceObj){
 
